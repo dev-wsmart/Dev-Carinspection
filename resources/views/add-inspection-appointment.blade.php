@@ -1,0 +1,266 @@
+@extends('layouts.admin_layout')
+@section('title', 'Inspection Appointment')
+@section('content')
+<div class="col-md-3"></div>
+<div class="col-md-8" style="margin-top:2%;">
+
+    <div class="row">
+        @if (session('status'))
+            {{ session('status') }}
+        @endif
+        <div class="col-12">
+            <h3 class="title">เพิ่มข้อมูลนัดตรวจรถ</h3>
+        </div>
+        <hr noshade>
+        <div class="col-12">
+            <form>
+                <div class="form-title">ข้อมูลลูกค้า</div>
+                <div class="col-12 pt-lg-3 box-form">
+                    <div class="form-group row">
+                        <label class="col-lg-1" for="nameTitle">คำนำหน้า</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="nameTitle" id="nameTitle" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                            <option value="นาย">นาย</option>
+                            <option value="นาง">นาง</option>
+                            <option value="นางสาว">นางสาว</option>
+                            <option value="บริษัท">บริษัท</option>
+                            <option value="เต๊นท์">เต็นท์</option>
+                        </select>
+
+                        <label class="col-lg-1" for="firstname">ชื่อ</label>
+                        <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="firstname" id="firstname" required>
+
+                        <label class="col-lg-1" for="lastname">นามสกุล</label>
+                        <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="lastname" id="lastname" required>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-1" for="address">ที่อยู่</label>
+                        <input class="col-lg-6 form-control form-control-sm form-border" type="text" name="address" id="address" required>
+
+                        <label class="col-lg-1" for="province">จังหวัด</label>
+                        <select class="col-lg-3 form-control form-control-sm form-border" name="province" id="province" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="district">เขต/อำเภอ</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="district" id="district" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+
+                        <label class="col-lg-2" for="subDistrict">แขวง/ตำบล</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="subDistrict" id="subDistrict" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+
+                        <label class="col-lg-2" for="postalCode">รหัสไปรษณีย์</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="postalCode" id="postalCode" required>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="idCard">เลขประจำตัวประชาชน</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="idCard" id="idCard">
+
+                        <label class="col-lg-2" for="tel">เบอร์โทรศัพท์</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel" id="tel" required>
+                        
+                        <label class="col-lg-2" for="customerType">ประเภทสมาชิก</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="customerType" id="customerType" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                            <option value="สมาชิกทั่วไป">สมาชิกทั่วไป</option>
+                            <option value="สมาชิกรูปแบบเต๊นท์">สมาชิกรูปแบบเต็นท์</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-title mt-3 mt-lg-0">ข้อมูลรถ</div>
+                <div class="col-12 pt-lg-3 box-form">
+                    <div class="form-group row">
+                        <label class="col-lg-1" for="carBrand">ยี่ห้อ</label>
+                        <select class="col-lg-3 form-control form-control-sm form-border" name="carBrand" id="carBrand" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+
+                        <label class="col-lg-1" for="carModel">รุ่น</label>
+                        <select class="col-lg-3 form-control form-control-sm form-border" type="text" name="carModel" id="carModel" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+
+                        <label class="col-lg-1" for="subModel">รุ่นย่อย</label>
+                        <select class="col-lg-3 form-control form-control-sm form-border" type="text" name="subModel" id="subModel" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-1" for="oldColor">สีเดิม</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="oldColor" id="oldColor" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+
+                        <label class="col-lg-1" for="newColor">สีปัจจุบัน</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="newColor" id="newColor" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+
+                        <label class="col-lg-1" for="year">ปี</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="year" id="year" required>
+
+                        <label class="col-lg-1 pr-0" for="seatNum">จำนวนที่นั่ง</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="seatNum" id="seatNum" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="place">สถานที่ตรวจเช็ครถ</label>
+                        <select class="col-lg-3 form-control form-control-sm form-border" name="place" id="place" required>
+                            <option value="ดับเบิ้ลยู สมาร์ท">ดับเบิ้ลยู สมาร์ท</option>
+                        </select>
+
+                        <label class="col-lg-2 pl-lg-5" for="registerType">ประเภทจดทะเบียน</label>
+                        <div class="col-lg-4 btnCustom">
+                            <input type="radio" name="registerType" id="registerType1" value="0">
+                            <label for="registerType1">รถยนต์ส่วนบุคคล</label>
+
+                            <input type="radio" name="registerType" id="registerType2" value="1">
+                            <label for="registerType2">จดในนามบริษัท</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="carRegNum">ทะเบียนรถ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="carRegNum" id="carRegNum" required>
+
+                        <label class="col-lg-2 pl-lg-5" for="mileage">เลขไมล์ปัจจุบัน</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="mileage" id="mileage" required>
+
+                        <label class="col-lg-2 pl-lg-5" for="dateRegister">วันที่จดทะเบียนรถ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="date" name="dateRegister" id="dateRegister" required>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="numOwners">จำนวนเจ้าของเดิม</label>
+                        <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="numOwners" id="numOwners" required>
+
+                        <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (CC)</label>
+                        <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" required>
+                        
+                        <label class="col-lg-1" for="gearType">ระบบเกียร์</label>
+                        <div class="col-lg-4 btnCustom">
+                            <input class="form-control" type="radio" name="gearType" id="gearType1" value="0">
+                            <label for="gearType1">เกียร์ธรรมดา</label>
+
+                            <input type="radio" name="gearType" id="gearType2" value="1">
+                            <label for="gearType2">เกียร์อัตโนมัติ</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="engine">หมายเลขเครื่องยนต์</label>
+                        <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="engine" id="engine" required>
+                        
+                        <label class="col-lg-2 pl-lg-5" for="vin">หมายเลขตัวถัง</label>
+                        <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="vin" id="vin" required>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="fuelType">ประเภทเชื้อเพลิง</label>
+                        <div class="col-lg-10 btnCustom">
+                            <input type="checkbox" name="benzine" id="benzine" value="1">
+                            <label for="benzine">เบนซิน</label>
+                            <input type="checkbox" name="diesel" id="diesel" value="1">
+                            <label for="diesel">ดีเซล</label>
+                            <input type="checkbox" name="hybrid" id="hybrid" value="1">
+                            <label for="hybrid">ไฮบริด</label>
+                            <input type="checkbox" name="electric" id="electric" value="1">
+                            <label for="electric">ไฟฟ้า</label>
+                            <input type="checkbox" name="lpg" id="lpg" value="1">
+                            <label for="lpg">LPG</label>
+                            <input type="checkbox" name="ngv" id="ngv" value="1">
+                            <label for="ngv">NGV</label>
+                            <input type="checkbox" name="cng" id="cng" value="1">
+                            <label for="cng">CNG</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="carInsurance">รถมีประกันหรือไม่</label>
+                        <div class="col-lg-2 btnCustom">
+                            <input type="radio" name="carInsurance" id="carInsurance1" value="0">
+                            <label for="carInsurance1">มี</label>
+                            <input type="radio" name="carInsurance" id="carInsurance2" value="1">
+                            <label for="carInsurance2">ไม่มี</label>
+                        </div>
+
+                        <label class="col-lg-2" for="expInsurance">วันหมดอายุประกันภัย</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="date" name="expInsurance" id="expInsurance">
+
+                        <label class="col-lg-2 pl-lg-5" for="insurance">บริษัทประกันภัย</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="insurance" id="insurance">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-1" for="tent">รถเต็นท์</label>
+                        <div class="col-lg-2 btnCustom">
+                            <input type="radio" name="tent" id="tent1" value="0">
+                            <label for="tent1">ใช่</label>
+                            <input type="radio" name="tent" id="tent2" value="1">
+                            <label for="tent2">ไม่ใช่</label>
+                        </div>
+
+                        <label class="col-lg-1 pl-lg-0" for="fromTent">รถจากเต็นท์</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="fromTent" id="fromTent">
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+
+                        <label class="col-lg-1" for="price">ราคา</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="price" id="price">
+
+                        <label class="col-lg-1 pr-lg-0" for="payment">ผ่อนงวดละ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="payment" id="payment">
+                    </div>
+                </div>
+
+                <div class="form-title mt-3 mt-lg-0">วันนัดตรวจรถ</div>
+                <div class="col-12 pt-lg-3 box-form">
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="inspectionType">ประเภทการตรวจสภาพ</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="inspectionType" id="inspectionType" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                            <option value="0">Full Inspection</option>
+                            <option value="1">Warranty</option>
+                        </select>
+
+                        <label class="col-lg-2 pl-lg-5" for="inspector">ช่างที่ไปตรวจรถ</label>
+                        <select class="col-lg-3 form-control form-control-sm form-border" name="inspector" id="inspector" required>
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="inspectionDate">วันที่นัดตรวจรถ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="date" name="inspectionDate" id="inspectionDate" required>
+
+                        <label class="col-lg-2 pl-lg-5" for="inspectionTime">เวลาที่นัดตรวจรถ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="time" name="inspectionTime" id="inspectionTime" required>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-1" for="package">แพคเกจ</label>
+                        <select class="col-lg-3 form-control form-control-sm form-border" name="package" id="package">
+                            <option>---  กรุณาเลือก  ---</option>
+                        </select>
+
+                        <label class="col-lg-2 pl-lg-5" for="remark">Remark</label>
+                        <textarea class="col-lg-5 form-control form-control-sm form-border" name="remark" id="remark"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-12 pt-2 pt-lg-4 text-center">
+                    <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
+                    <button class="btn btn-danger" type="button"><i class="fa fa-times" aria-hidden="true"></i> ยกเลิก</button>
+                </div>
+            </form>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+</div>
+</div>
+@endsection
