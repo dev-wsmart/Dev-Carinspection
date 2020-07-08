@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-
+<br>
     <div class="row">
         <div class="col-lg-12 mt-3 table-responsive">
             <table id="dtBasicExample" class="table table-hover table-sm bg-white">
