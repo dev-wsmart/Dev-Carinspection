@@ -4,6 +4,19 @@
 <div class="col-md-3"></div>
 <div class="col-md-8" style="margin-top:2%;">
 
+<script>
+        search ***************
+        $(document).ready(function(){
+        $("#search_car").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#search a").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+             });
+        });
+        });
+
+</script>
+
     <div class="row">
         @if (session('status'))
             {{ session('status') }}
@@ -13,75 +26,67 @@
         </div>
         <hr noshade>
         <div class="col-12 mb-3">
-            <div class="title-search">ค้นหา</div>
-            <form class="form-inline">
-                <div class="form-group col-md-6 col-lg-3 mb-2 mb-lg-0">
+            <form action="/search_rep" method="GET">
+                {{-- <div class="form-group col-md-6 col-lg-3 mb-2 mb-lg-0">
                     <input class="col-12 form-control form-control-sm" type="input" name="brand" id="brand" placeholder="ยี่ห้อรถ">
-                </div>
-                <div class="form-group col-12 col-md-6 col-lg-3 mb-2 mb-lg-0">
-                    <input class="col-12 form-control form-control-sm" type="input" name="model" id="model" placeholder="รุ่นรถ">
-                </div>
-                <div class="form-group col-12 col-md-6 col-lg-3 mb-2 mb-lg-0">
-                    <input class="col-12 form-control form-control-sm" type="input" name="carID" id="carID" placeholder="เลขทะเบียน">
-                </div>
-                <div class="form-group col-12 col-md-6 col-lg-3 mb-2 mb-lg-0">
-                    <input class="col-12 form-control form-control-sm" type="input" name="inspectionID" id="inspectionID" placeholder="เลขที่ตรวจสภาพรถ">
+                </div> --}}
+                <div class="form-row">
+                    <label class="col-lg-1 mt-0 mt-lg-auto title-search" for="search_car">ค้นหา</label>
+                    <input class="col-lg-5 form-control form-control-sm" type="text" name="search_car" id="search_car" placeholder="ยี่ห้อ, รุ่น, ปี, สี, เลขทะเบียน, เลขไมล์, ราคาขาย"
+                    value="<?php if(isset($query)){ echo $query;}?>">
                 </div>
             </form>
         </div>
     </div>
 
     <div class="row">
-        <?php for($i=0; $i<6; $i++){ ?>
-            <div class="col-md-6 col-lg-4 my-2">
+        @foreach($data as $datas)
+        <?php  $Gear=array('0'=>'เกียร์ธรรมดา','1'=>'เกียร์อัตโนมัติ'); ?>
+
+            <div id="search" class="col-md-6 col-lg-4 my-2">
                 <a href="">
                     <div class="card">
                         <div class="card-img">
                             <img src="{{ url('images/car1.jpg') }}" height="auto" width="100%">
                         </div>
-                        <div class="card-header"><b>2020 Audi TTS</b></div>
+                        <div class="card-header"><b>{{$datas->year}}</b> <b>{{$datas->name_brand}}</b> <b>{{$datas->name_model}}</b></div>
                         <div class="card-body py-2">
                             <div class="row">
                                 <div class="col-5 font-weight-bold">รุ่น</div>
-                                <div class="col-7">TTS</div>
+                                <div class="col-7">{{$datas->name_model}}</div>
                             </div>
                             <div class="row">
                                 <div class="col-5 font-weight-bold">ปี</div>
-                                <div class="col-7">2020</div>
+                                <div class="col-7">{{$datas->year}}</div>
                             </div>
                             <div class="row">
                                 <div class="col-5 font-weight-bold">ระบบเกียร์</div>
-                                <div class="col-7">Auto</div>
+                                <div class="col-7">{{$Gear[$datas->geartype]}}</div>
                             </div>
                             <div class="row">
                                 <div class="col-5 font-weight-bold">สี</div>
-                                <div class="col-7">ดำ</div>
+                                <div class="col-7">{{$datas->car_color}}</div>
                             </div>
                             <div class="row">
                                 <div class="col-5 font-weight-bold">เลขทะเบียน</div>
-                                <div class="col-7">9กฬ3677</div>
+                                <div class="col-7">{{$datas->carregnum}}</div>
                             </div>
                             <div class="row">
                                 <div class="col-5 font-weight-bold">เลขไมล์ (กม.)</div>
-                                <div class="col-7">100,000</div>
+                                <div class="col-7">{{$datas->mileage}}</div>
                             </div>
                         </div>
-                        <div class="card-header" style="border: none;">ราคาขาย <b>XXX</b> บาท</div>
+                        <div class="card-header" style="border: none;">ราคาขาย <b>{{$datas->price}}</b> บาท</div>
                     </div>
                 </a>
             </div>
-        <?php } ?>
+        @endforeach
     </div>
-
-    <nav class="mt-3" aria-label="Page navigation">
-        <ul class="pagination justify-content-center mb-0">
-            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">First</a></li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Last</a></li>
-        </ul>
-    </nav>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">{{ $data->onEachSide(1)->links() }}</div>
+        <div class="col-4"></div>
+    </div>
 <br>
 <br>
 <br>

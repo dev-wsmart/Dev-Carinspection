@@ -1,8 +1,26 @@
 @extends('layouts.admin_layout')
 @section('title', 'Inspection Appointment')
 @section('content')
+
 <div class="col-md-3"></div>
 <div class="col-md-8" style="margin-top:2%;">
+<script>
+    // // search ***************
+    // function myFunction() {
+    //     var text_length = document.getElementById('search').value.length;
+    //     alert(text_length);
+    // }
+
+    //     $(document).ready(function(){
+    //     $("#search").on("keyup", function() {
+    //         var value = $(this).val().toLowerCase();
+    //         $("#myTable tr").filter(function() {
+    //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    //         });
+    //     });
+    //     });
+
+</script>
 
     <div class="row">
         @if (session('status'))
@@ -14,10 +32,11 @@
         <hr noshade>
         <div class="col-lg-12 clearfix">
             <div class="col-lg-9 mt-lg-1 float-left">
-                <form>
+                <form action="/search" method="GET">
                     <div class="form-row">
                         <label class="col-lg-1 mt-0 mt-lg-auto title-search" for="search">ค้นหา</label>
-                        <input class="col-lg-5 form-control form-control-sm" type="text" name="search" id="search" placeholder="ชื่อลูกค้า, ID Card, เบอร์โทร, วันนัดตรวจรถ">
+                        <input class="col-lg-7 form-control form-control-sm" type="text" name="search" id="search" placeholder="ชื่อลูกค้า, เลขประจำตัวประชาชน, เบอร์โทร, ยี่ห้อ, รุ่น, วันนัดตรวจรถ" >
+                        {{-- <input id="search" type="text" placeholder="Search.."> --}}
                     </div>
                 </form>
             </div>
@@ -26,10 +45,10 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-lg-12 mt-3 table-responsive">
-            <table class="table table-hover table-sm bg-white">
+            <table id="dtBasicExample" class="table table-hover table-sm bg-white">
                 <thead>
                     <tr>
                         <th>ลำดับ</th>
@@ -43,39 +62,74 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php for($i=1; $i<=10; $i++){ ?>
-                    <tr>
-                        <td><?php echo $i; ?></td>
-                        <td>Test Testttttttttttt</td>
-                        <td>1234567890123</td>
-                        <td>0123456789</td>
-                        <td>Audi</td>
-                        <td>TTS</td>
-                        <td>22-05-2020</td>
-                        <td>Technician</td>
-                        <td width="100px" style="text-align: center; vertical-align: middle;">
-                            <a href="" title="ดูข้อมูล"><button class="btn btn-primary py-0 px-1"><i class="fa fa-search"></i></button></a>
-                            <a href="" title="แก้ไขข้อมูล"><button class="btn btn-success py-0 px-1"><i class="fa fa-pencil"></i></button></a>
-                            <a href="" title="ลบข้อมูล"><button class="btn btn-danger py-0 px-1"><i class="fa fa-trash"></i></button></a>
-                        </td>
-                    </tr>
-                    <?php } ?>
+                <?php $i = 0;  ?>
+                <tbody id="myTable">
+                        @foreach($data as $datas)
+                        <tr>
+                            <td>ชุดที่ : {{$datas->id}}</td>
+                            <td>{{$datas->firstname}}</td>
+                            <td>{{$datas->idcard}}</td>
+                            <td>{{$datas->tel}}</td>
+                            <td>{{$datas->name_brand}}</td>
+                            <td>{{$datas->name_model}}</td>
+                            <td>{{date('d-m-Y', strtotime($datas->inspectiondate))}}</td>
+                            <td width="100px" style="text-align: center; vertical-align: middle;">
+                            <div class="row">
+                                <div class="col-4"><a href="{{ route('appointment.show', $datas->id)}}" title="ดูข้อมูล"><button class="btn btn-primary py-0 px-1"><i class="fa fa-search"></i></button></a></div>
+                                <div class="col-4"><a href="{{ route('appointment.edit', $datas->id)}}" title="แก้ไขข้อมูล"><button class="btn btn-success py-0 px-1"><i class="fa fa-pencil"></i></button></a></div>
+                                <div class="col-4">
+                                    <form id="del" action="{{route('appointment.destroy',$datas->id)}}" method="post">
+                                        @csrf  @method('DELETE')
+                                        <a title="ลบข้อมูล">
+                                            <button data-name="{{$datas->firstname}}" data-id="{{$datas->id}}" class="deleteForm btn btn-danger py-0 px-1"
+                                            onclick="return confirm('ต้องการลบข้อมูล - ชุดที่ : {{$datas->id}} - ชื่อลูกค้า : {{$datas->firstname}} ?')">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </a>
+                                    </form>
+                                </div>
+                            </div>
+                            </td>
+                        </tr>
+                        @endforeach
                 </tbody>
             </table>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">{{ $data->onEachSide(1)->links() }}</div>
+                <div class="col-4"></div>
+            </div>
         </div>
     </div>
-
-    <nav class="mt-3" aria-label="Page navigation">
-        <ul class="pagination justify-content-center my-0">
-            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">First</a></li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Last</a></li>
-        </ul>
-    </nav>
-
 </div>
+{{-- <script>
+    $(document).ready(function() {
+    $('.deleteForm').click(function(evt) {
+        evt.preventDefault();
+        var name=$(this).data("name");
+        var id=$(this).data("id");
+        swal({
+                title:`ต้องการลบข้อมูล ${name} ?`,
+                text: `ลำดับ : ${id} ถ้าลบแล้วไม่สามารถกู้คืนได้`,
+                icon: "warning",
+                buttons: true,
+                dangerMode: true
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    //  swal("ลบข้อมูลเรียบร้อยแล้ว!", { icon: "success", function() {$form.submit();}});
+                    $('#del').submit(${id});
+                    // $form $('#del').submit();
+                }
+                else {
+                    swal("ยกเลิกการลบข้อมูล!", { icon: "error" });
+                }
+              }
+            );
+    });
+});
+</script> --}}
+
+
 
 @endsection

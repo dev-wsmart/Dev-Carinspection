@@ -13,7 +13,7 @@
         </div>
         <hr noshade>
     </div>
-    
+
     <div class="row">
         <div class="col-lg-12 mt-3 table-responsive">
             <table class="table table-hover table-sm bg-white">
@@ -30,37 +30,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php for($i=1; $i<=10; $i++){ ?>
+                    @foreach($data as $datas)
                     <tr>
-                        <td><?php echo $i; ?></td>
-                        <td>22-05-2020</td>
-                        <td>25-05-2020</td>
-                        <td>25-05-2020</td>
-                        <td>Audi</td>
-                        <td>TTS</td>
-                        <td>กก 2222</td>
+                        <td>{{$datas->id}}</td>
+                        <td>{{date('d-m-Y', strtotime($datas->inspectiondate))}}</td>
+                        <td>{{date('d-m-Y', strtotime($datas->dateregister))}}</td>
+                        <td>{{date('d-m-Y', strtotime($datas->dateregister))}}</td>
+                        <td>{{$datas->name_brand}}</td>
+                        <td>{{$datas->name_model}}</td>
+                        <td>{{$datas->carregnum}}</td>
                         <td width="40px" style="text-align: center; vertical-align: middle;">
-                            <a href="" title="ดูข้อมูล"><button class="btn btn-primary py-0 px-1"><i class="fa fa-search"></i></button></a>
+                            <a href="{{ route('service.show', $datas->id)}}" title="ดูข้อมูล"><button class="btn btn-primary py-0 px-1"><i class="fa fa-search"></i></button></a>
                         </td>
                     </tr>
-                    <?php } ?>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-
-    <nav class="mt-3" aria-label="Page navigation">
-        <ul class="pagination justify-content-center my-0">
-            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">First</a></li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Last</a></li>
-        </ul>
-    </nav>
-
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">{{ $data->onEachSide(1)->links() }}</div>
+        <div class="col-4"></div>
+    </div>
 
 </div>
-
 
 @endsection

@@ -50,13 +50,13 @@ thead{
     font-size: 1.1rem;
     color: #ffffff;
     text-align: center;
-    padding-top: 7px;
-    padding-bottom: 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     background-color: #052744;
-    border-radius: 25px 25px 0 0;
+    border-radius: 20px 20px 0 0;
 }
 .box-form{
-    border-radius: 0 0 25px 25px;
+    border-radius: 0 0 20px 20px;
     border: 1px solid #052744;
     padding-bottom: 10px;
     margin-bottom: 13px;
@@ -84,31 +84,88 @@ thead{
 .btnCustom label{
     cursor: pointer;
     width: auto;
+    margin: 0;
     padding: 2px 10px;
     border: 1px solid #052744;
     border-radius: 3px;
     box-shadow: 4px 4px 4px -3px #888888;
     background-color: #ffffff;
 }
-.btnCustom label::before{
-    content: "\2714\0020";
-    color: #ffffff;
-}
-.btnCustom label:hover, label:hover::before{
+.btnCustom label:hover, .btnCustom label:hover::before{
     background-color: #FFCA07;
     color: #052744;
 }
-.btnCustom input[type="radio"]:checked + label::before, input[type="checkbox"]:checked + label::before{
+.btnCustom input[type="radio"]:checked + label::before, .btnCustom input[type="checkbox"]:checked + label::before{
     content: "\2714\0020";
     color: #052744;
 }
-.btnCustom input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
+.btnCustom input[type="radio"]:checked + label, .btnCustom input[type="checkbox"]:checked + label{
     background-color: #FFCA07;
     color: #052744;
 }
 .form-border{
     border: 1px solid #444444;
     box-shadow: 4px 4px 4px -3px #888888;
+}
+.nav-pills{
+    margin: 0 20px;
+}
+.nav-pills .nav-item{
+    font-size: 14px;
+}
+.nav-pills .nav-link{
+    border-radius: 0;
+    padding: 4px 5px;
+    color: #b1b1b1;
+    font-size: 14px;
+}
+.nav-pills .nav-link.active{
+    background-color: transparent;
+    font-size: 1.1rem;
+}
+.nav-pills .nav-link:hover{
+    color: #ffffff;
+}
+.btn-purple{
+    color: #ffffff;
+    background-color: #7161ff;
+}
+.btn-purple:hover{
+    color: #ffffff;
+    background-color: #4c3ec9;
+    border-color: #2f20b8;
+}
+.checkCustom{
+    width: 20px;
+}
+.checkCustom input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+.carplan-img:hover{
+    background-color: rgba(51, 51, 51, 0.25);
+}
+.circle-tag{
+    background-color: #052744;
+    border-radius: 25px;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    font-weight: 900;
+    color: #ffffff;
+}
+.box-title{
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #052744;
+    border-bottom: 1.5px solid #052744;
+}
+.upload-box{
+    margin: 0 10%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #c2c2c2;
 }
 
 @media only screen and (max-width: 991px){

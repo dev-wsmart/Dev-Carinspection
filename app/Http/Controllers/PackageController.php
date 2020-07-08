@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\add_inspection;
+use App\package;
 use Illuminate\Http\Request;
 
-class AddInspectionController extends Controller
+class PackageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,6 @@ class AddInspectionController extends Controller
     public function index()
     {
         //
-        return view('add-inspection-appointment');
     }
 
     /**
@@ -42,10 +41,10 @@ class AddInspectionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\add_inspection  $add_inspection
+     * @param  \App\package  $package
      * @return \Illuminate\Http\Response
      */
-    public function show(add_inspection $add_inspection)
+    public function show(package $package)
     {
         //
     }
@@ -53,10 +52,10 @@ class AddInspectionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\add_inspection  $add_inspection
+     * @param  \App\package  $package
      * @return \Illuminate\Http\Response
      */
-    public function edit(add_inspection $add_inspection)
+    public function edit(package $package)
     {
         //
     }
@@ -65,10 +64,10 @@ class AddInspectionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\add_inspection  $add_inspection
+     * @param  \App\package  $package
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, add_inspection $add_inspection)
+    public function update(Request $request, package $package)
     {
         //
     }
@@ -76,10 +75,10 @@ class AddInspectionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\add_inspection  $add_inspection
+     * @param  \App\package  $package
      * @return \Illuminate\Http\Response
      */
-    public function destroy(add_inspection $add_inspection)
+    public function destroy(package $package)
     {
         //
     }

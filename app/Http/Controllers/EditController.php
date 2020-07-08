@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\edit;
 use Illuminate\Http\Request;
 
+use App\add_inspection_custo;
+use App\add_inspection_car;
+use App\add_inspection_date;
+use App\appointment;
+use DB;
+
 class EditController extends Controller
 {
     /**
@@ -14,7 +20,15 @@ class EditController extends Controller
      */
     public function index()
     {
-        return view('edit');
+        $data = DB::table('add_inspection_custos')
+        ->select('add_inspection_custos.*','add_inspection_cars.*','add_inspection_dates.*','brands.*','models.*')
+        ->join('add_inspection_cars','add_inspection_custos.id','=','add_inspection_cars.id')
+        ->join('add_inspection_dates','add_inspection_custos.id','=','add_inspection_dates.id')
+        ->join('brands','add_inspection_cars.carbrand','=','brands.id_brand')
+        ->join('models','add_inspection_cars.carmodel','=','models.id_model')
+        ->paginate(20);
+
+        return view('edit', compact('data'));
     }
 
     /**

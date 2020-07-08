@@ -13,7 +13,7 @@
         </div>
         <hr noshade>
     </div>
-    
+
     <div class="row">
         <div class="col-lg-12 mt-3 table-responsive">
             <table class="table table-hover table-sm bg-white">
@@ -32,39 +32,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php for($i=1; $i<=5; $i++){ ?>
+
+                    <?php  $TypeCh=array('0'=>'Full Inspection','1'=>'Warranty'); ?>
+
+                    @foreach($data as $datas)
                     <tr>
-                        <td><?php echo $i; ?></td>
-                        <td>Test Testttttttttttt</td>
-                        <td>0123456789</td>
-                        <td>Audi</td>
-                        <td>TTS</td>
-                        <td>Full Inspection</td>
-                        <td>22-05-2020</td>
-                        <td>16:00</td>
-                        <td width="200px">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                        <td>{{$datas->id}}</td>
+                        <td>{{$datas->firstname}}</td>
+                        <td>{{$datas->tel}}</td>
+                        <td>{{$datas->name_brand}}</td>
+                        <td>{{$datas->name_model}}</td>
+                        <td>{{$TypeCh[$datas->inspectiontype]}}</td>
+                        <td>{{date('d-m-Y', strtotime($datas->inspectiondate))}}</td>
+                        <td>{{$datas->inspectiontime}}</td>
+                        <td width="150px">{{$datas->remark}}</td>
                         <td width="40px" style="text-align: center; vertical-align: middle;">
-                            <a href="{{ url('/add-report') }}" title="เพิ่มข้อมูลตรวจสภาพรถ"><button class="btn btn-success py-0 px-1"><i class="fa fa-plus"></i></button></a>
+                            <a href="{{route('report.show', $datas->id)}}" title="เพิ่มข้อมูลตรวจสภาพรถ"><button class="btn btn-success py-0 px-1"><i class="fa fa-plus"></i></button></a>
                         </td>
                     </tr>
-                    <?php } ?>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-
-    <nav class="mt-3" aria-label="Page navigation">
-        <ul class="pagination justify-content-center my-0">
-            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">First</a></li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Last</a></li>
-        </ul>
-    </nav>
-
-
-
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">{{ $data->onEachSide(1)->links() }}</div>
+        <div class="col-4"></div>
+    </div>
 
 </div>
 

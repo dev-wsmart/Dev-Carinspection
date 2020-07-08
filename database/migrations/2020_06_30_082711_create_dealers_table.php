@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddInspectionsTable extends Migration
+class CreateDealersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAddInspectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('add_inspections', function (Blueprint $table) {
+        Schema::create('dealers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateAddInspectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('add_inspections');
+        Schema::dropIfExists('dealers');
     }
 }

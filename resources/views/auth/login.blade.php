@@ -1,93 +1,94 @@
 @extends('layouts.app')
-
 @section('content')
 
-<div class="container-fluid">
-    <div class="row justify-content-left" style="background-color:#052744;">
+<html>
+<head>
+    <title>Login Page</title>
 
-        <div class="col-md-3" style="margin-top:15%; margin-bottom:19%; background-color:#052744;">
-            <div class="card">
-                <div class="card-header" style="color:#000; background-color:#FFCA07;"><center><h3>{{ __('Login') }}</h3><center></div>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Login Page</title>
+       <!--Made with love by Mutiullah Samim -->
+        <!--Bootsrap 4 CDN-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!--Fontawesome CDN-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <!--Custom styles-->
+        <link rel="stylesheet" type="text/css" href="styles.css">
 
-                <div class="card-body" >
+
+</head>
+<body>
+    <div class="container" style="margin-top:10%">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card_b">
+                <div class="card-header">
+                    <h3>Login</h3>
+                    <div class="d-flex justify-content-end social_icon">
+                        <span>
+                            <img src="print_form/logo-carsome-black.png" class="rounded float-left" alt="..." width="150px">
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body">
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="login" class="col-sm-4 col-form-label text-md-right" style="color:#052744;">
-                                <h4>{{ __('Username') }}</h4>
-                            </label>
-                        
-                            <div class="col-md-6">
-                                <input id="login" type="text"
-                                    class="form-control{{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}"
-                                    name="login" value="{{ old('username') ?: old('email') }}" required autofocus
-                                    style="border: 1px solid #FFCA07;">
-                        
-                                @if ($errors->has('username') || $errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
+                            <input id="email" type="email" placeholder="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" style="color:#052744;" class="col-md-4 col-form-label text-md-right"><h4>{{ __('Password') }}</h4></label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"  style="border: 1px solid #FFCA07;">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
+                            <input id="password" type="password" placeholder="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
+                        <div class="row align-items-center remember">
+                            <input type="checkbox">Remember Me
                         </div>
-
-                        <div class="form-group row mb-1">
-                            <div class="col-md-7 offset-md-6">
-            
-                                <button type="submit" class="btn btn-success" style="width:30%; font-weight:900;">
+                        <div class="form-group">
+                            <button type="submit" value="Login" class="btn float-right login_btn">
                                 {{ __('Login') }}
-                                </button>
-                                <button type="reset" class="btn btn-outline-danger">Reset</button>
+                            </button>
 
-                                @if (Route::has('password.request'))
-                                    <!-- <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a> -->
-                                @endif
-                            </div>
+                            @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
                         </div>
                     </form>
+
+
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center links">
+                        wsmar
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-9">
-<!-- <div class="text" style="position:absolute; z-index:9; color:#FFF; width:100%; height:1000px; background:rgb(2, 0, 76, 30%);"></div> -->
-<div class="vdo" style="position: relative; top:0px;">
-        <video width="100%" controls autoplay loop>
-        <source src="vdo/In2.mp4" type="video/mp4">
-        <source src="movie.ogg" type="video/ogg">
-        </video>
-</div>
-
-        </div><!--  row   -->
-
-
-</div>
+    </div>
+    </body>
+    </html>
 @endsection
