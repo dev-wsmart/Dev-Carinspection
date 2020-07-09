@@ -48,7 +48,7 @@
                         <label class="col-lg-1" for="province">จังหวัด</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="province" id="province" value="{{$data->province}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id }}" disabled selected>{{ $data->name_th }}</option>
+                            <option value="{{ $data->id_pro }}">{{ $data->name_th }}</option>
                             @foreach($province as $key => $datas)
                             <option value="{{ $datas->id }}">{{ $datas->name_th }}</option>
                             @endforeach
@@ -58,13 +58,13 @@
                         <label class="col-lg-2" for="district">เขต/อำเภอ</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="district" id="district" value="{{$data->district}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id }}">{{ $data->name_am }}</option>
+                            <option value="{{ $data->id_am }}">{{ $data->name_am }}</option>
                         </select>
 
-                        <label class="col-lg-2" for="subDistrict">แขวง/ตำบล</label>
-                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="subdistrict" id="subDistrict" value="{{$data->subdistrict}}" required>
+                        <label class="col-lg-2" for="subdistrict">แขวง/ตำบล</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="subdistrict" id="subdistrict" value="{{$data->subdistrict}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id }}">{{ $data->name_dis }}</option>
+                            <option value="{{ $data->id_dis }}">{{ $data->name_dis }}</option>
                         </select>
 
                         <label class="col-lg-2" for="postalCode">รหัสไปรษณีย์</label>
@@ -89,30 +89,30 @@
                 <div class="form-title mt-3 mt-lg-0">ข้อมูลรถ</div>
                 <div class="col-12 pt-lg-3 box-form">
                     <div class="form-group row">
-                        <label class="col-lg-1" for="carBrand">ยี่ห้อ</label>
-                        <select class="col-lg-3 form-control form-control-sm form-border" name="carbrand" id="carBrand" value="{{$data->carbrand}}" required>
+                        <label class="col-lg-1" for="carbrand">ยี่ห้อ</label>
+                        <select class="col-lg-3 form-control form-control-sm form-border" name="carbrand" id="carbrand" value="{{$data->carbrand}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_brand }}" disabled selected>{{ $data->name_brand }}</option>
+                            <option value="{{ $data->id_brand }}">{{ $data->name_brand }}</option>
                             @foreach($brand as $key => $datas)
                             <option value="{{ $datas->id_brand }}">{{ $datas->name_brand }}</option>
                             @endforeach
                         </select>
 
-                        <label class="col-lg-1" for="carModel">รุ่น</label>
-                        <select class="col-lg-3 form-control form-control-sm form-border" type="text" name="carmodel" id="carModel" value="{{$data->carmodel}}" required>
+                        <label class="col-lg-1" for="carmodel">รุ่น</label>
+                        <select class="col-lg-3 form-control form-control-sm form-border" type="text" name="carmodel" id="carmodel" value="{{$data->carmodel}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
                             <option value="{{ $data->id_model }}">{{ $data->name_model }}</option>
                         </select>
 
-                        <label class="col-lg-1" for="subModel">รุ่นย่อย</label>
-                        <select class="col-lg-3 form-control form-control-sm form-border" type="text" name="submodel" id="subModel" value="{{$data->submodel}}" required>
+                        <label class="col-lg-1" for="submodel">รุ่นย่อย</label>
+                        <select class="col-lg-3 form-control form-control-sm form-border" type="text" name="submodel" id="submodel" value="{{$data->submodel}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
                             <option value="{{ $data->id_sub_model }}">{{ $data->sub_model }}</option>
                         </select>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-1" for="oldColor">สีเดิม</label>
-                        <select class="col-lg-2 form-control form-control-sm form-border" name="oldcolor" id="oldColor" value="{{$data->oldcolor}}" required>
+                        <label class="col-lg-1" for="oldcolor">สีเดิม</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="oldcolor" id="oldcolor" value="{{$data->oldcolor}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
                             <option value="{{ $data->id_b }}" disabled selected>{{ $data->n_b }}</option>
                             @foreach($col as $key => $datas)
@@ -120,8 +120,8 @@
                             @endforeach
                         </select>
 
-                        <label class="col-lg-1" for="newColor">สีปัจจุบัน</label>
-                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="newcolor" id="newColor" value="{{$data->newcolor}}" required>
+                        <label class="col-lg-1" for="newcolor">สีปัจจุบัน</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="newcolor" id="newcolor" value="{{$data->newcolor}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
                             <option value="{{ $data->id_n }}" disabled selected>{{ $data->n_n }}</option>
                             @foreach($col as $key => $datas)
@@ -139,6 +139,9 @@
                             <option value="4" {{($data->seatnum ==='4') ? 'selected' : ''}}>4</option>
                             <option value="5" {{($data->seatnum ==='5') ? 'selected' : ''}}>5</option>
                             <option value="6" {{($data->seatnum ==='6') ? 'selected' : ''}}>6</option>
+                            <option value="7" {{($data->seatnum ==='7') ? 'selected' : ''}}>7</option>
+                            <option value="11" {{($data->seatnum ==='11') ? 'selected' : ''}}>11</option>
+                            <option value="12" {{($data->seatnum ==='12') ? 'selected' : ''}}>12</option>
                         </select>
                     </div>
                     <div class="form-group row">
@@ -170,6 +173,7 @@
                         <label class="col-lg-2" for="numOwners">จำนวนเจ้าของเดิม</label>
                         <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="numowners" id="numOwners" value="{{$data->numowners}}" required>
 
+<<<<<<< HEAD
                         <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (CC)</label>
                         {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required> --}}
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required>
@@ -177,6 +181,15 @@
                             <option value="{{ $data->cc }}" disabled selected>{{ $data->cc }}</option>
                             @foreach($cc as $key => $datas)
                             <option value="{{ $datas->cc }}">{{ $datas->cc }}</option>
+=======
+                        <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (cc)</label>
+                        {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required> --}}
+                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" >
+                            {{-- <option>---  กรุณาเลือก  ---</option> --}}
+                            <option value="{{ $data->id_cc }}">{{ $data->cc }}</option>
+                            @foreach($cc as $key => $datas)
+                            <option value="{{ $datas->id_cc }}">{{ $datas->cc }}</option>
+>>>>>>> Dev-car
                             @endforeach
                         </select>
 
@@ -239,10 +252,10 @@
                             <label for="tent2">ไม่ใช่</label>
                         </div>
 
-                        <label class="col-lg-1 pl-lg-0" for="fromTent">รถจากเต็นท์</label>
-                        <select class="col-lg-2 form-control form-control-sm form-border" name="fromtent" id="fromTent">
+                        <label class="col-lg-1 pl-lg-0" for="fromtent">รถจากเต็นท์</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="fromtent" id="fromtent">
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_dealer }}" disabled selected>{{ $data->dealer_name }}</option>
+                            <option value="{{ $data->id_dealer }}">{{ $data->dealer_name }}</option>
                             @foreach($dealer as $key => $datas)
                             <option value="{{ $datas->id_dealer }}">{{ $datas->dealer_name }}</option>
                             @endforeach
@@ -259,8 +272,8 @@
                 <div class="form-title mt-3 mt-lg-0">วันนัดตรวจรถ</div>
                 <div class="col-12 pt-lg-3 box-form">
                     <div class="form-group row">
-                        <label class="col-lg-2" for="inspectionType">ประเภทการตรวจสภาพ</label>
-                        <select class="col-lg-2 form-control form-control-sm form-border" name="inspectiontype" id="inspectionType" value="{{$data->inspectiontype}}" required>
+                        <label class="col-lg-2" for="inspectiontype">ประเภทการตรวจสภาพ</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="inspectiontype" id="inspectiontype" value="{{$data->inspectiontype}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
                             <option value="0" {{($data->inspectiontype ==='0') ? 'selected' : ''}}>Full Inspection</option>
                             <option value="1" {{($data->inspectiontype ==='1') ? 'selected' : ''}}>Warranty</option>
@@ -269,7 +282,11 @@
                         <label class="col-lg-2 pl-lg-5" for="inspector">ช่างที่ไปตรวจรถ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="inspector" id="inspector" value="{{$data->inspector}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
+<<<<<<< HEAD
                             <option value="{{ $data->id_tech }}" disabled selected>{{ $data->name_tech }}</option>
+=======
+                            <option value="{{ $data->id_tech }}">{{ $data->name_tech }}</option>
+>>>>>>> Dev-car
                             @foreach($tech as $key => $datas)
                             <option value="{{ $datas->id_tech }}">{{ $datas->name_tech }}</option>
                             @endforeach
@@ -286,9 +303,9 @@
 
                     <div class="form-group row">
                         <label class="col-lg-1" for="package">แพคเกจ</label>
-                        <select class="col-lg-3 form-control form-control-sm form-border" name="package" id="package" value="{{$data->package}}">
+                        <select class="col-lg-3 form-control form-control-sm form-border" name="package" id="package">
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_package }}" disabled selected>{{ $data->package_name }}</option>
+                            <option value="{{ $data->id_package }}">{{ $data->package_name }}</option>
                             @foreach($pac as $key => $datas)
                             <option value="{{ $datas->id_package }}">{{ $datas->package_name }}</option>
                             @endforeach
@@ -341,7 +358,7 @@
             });
         }else{
             $("#district").empty();
-            $("#subDistrict").empty();
+            $("#subdistrict").empty();
         }
     });
     $('#district').on('change',function(){
@@ -352,24 +369,29 @@
                url:"{{url('get-subdise-list')}}?amphure_id="+districtID,
                success:function(res){
                 if(res){
+<<<<<<< HEAD
                     $("#subDistrict").empty();
                     $("#subDistrict").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
+=======
+                    $("#subdistrict").empty();
+                    $("#subdistrict").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
+>>>>>>> Dev-car
                     $.each(res,function(key,value){
-                        $("#subDistrict").append('<option value="'+key+'">'+value+'</option>');
+                        $("#subdistrict").append('<option value="'+key+'">'+value+'</option>');
                     });
 
                 }else{
-                   $("#subDistrict").empty();
+                   $("#subdistrict").empty();
                 }
                }
             });
         }else{
-            $("#subDistrict").empty();
+            $("#subdistrict").empty();
         }
         // alert(districtID);
        });
 //  brand - model - sub_model
-$('#carBrand').change(function(){
+$('#carbrand').change(function(){
     var carBrandID = $(this).val();
     if(carBrandID){
         $.ajax({
@@ -377,23 +399,23 @@ $('#carBrand').change(function(){
            url:"{{url('get-model-list')}}?carBrand_id="+carBrandID,
            success:function(res){
             if(res){
-                $("#carModel").empty();
-                $("#carModel").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
+                $("#carmodel").empty();
+                $("#carmodel").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
                 $.each(res,function(key,value){
-                    $("#carModel").append('<option value="'+key+'">'+value+'</option>');
+                    $("#carmodel").append('<option value="'+key+'">'+value+'</option>');
                 });
 
             }else{
-               $("#carModel").empty();
+               $("#carmodel").empty();
             }
            }
         });
     }else{
-        $("#carModel").empty();
+        $("#carmodel").empty();
         $("#subModel").empty();
     }
 });
-$('#carModel').on('change',function(){
+$('#carmodel').on('change',function(){
     var carModelID = $(this).val();
     if(carModelID){
         $.ajax({
@@ -401,19 +423,19 @@ $('#carModel').on('change',function(){
            url:"{{url('get-submodel-list')}}?id_model="+carModelID,
            success:function(res){
             if(res){
-                $("#subModel").empty();
-                $("#subModel").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
+                $("#submodel").empty();
+                $("#submodel").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
                 $.each(res,function(key,value){
-                    $("#subModel").append('<option value="'+key+'">'+value+'</option>');
+                    $("#submodel").append('<option value="'+key+'">'+value+'</option>');
                 });
 
             }else{
-               $("#subModel").empty();
+               $("#submodel").empty();
             }
            }
         });
     }else{
-        $("#subModel").empty();
+        $("#submodel").empty();
     }
     // alert(carModelID);
    });
