@@ -159,7 +159,11 @@
                         <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="numowners" id="numOwners" value="{{$data->numowners}}" disabled>
 
                         <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (CC)</label>
-                        <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" disabled>
+                        {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" disabled> --}}
+                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" disabled>
+                            {{-- <option>---  กรุณาเลือก  ---</option> --}}
+                            <option>{{ $data->cc }}</option>
+                        </select>
 
                         <label class="col-lg-1 pr-lg-1" for="gearType">ระบบเกียร์</label>
                         <div class="col-lg-4 btnCustom">
