@@ -144,7 +144,7 @@ class AppointmentController extends Controller
             ->select('add_inspection_custos.*','add_inspection_cars.*','add_inspection_dates.*',
                      'provinces.name_th','amphures.name_th as name_am','districts.name_th as name_dis',
                      'provinces.id as id_pro','amphures.id as id_am','districts.id as id_dis',
-                     'brands.*','models.*','ccs.cc','b.id_color as id_b','n.id_color as id_n','sub_models.*','packages.*',
+                     'brands.*','models.*','ccs.*','b.id_color as id_b','n.id_color as id_n','sub_models.*','packages.*',
                      'technicians.*','dealers.*','b.car_color as n_b','n.car_color as n_n')
 
             ->join('add_inspection_cars', 'add_inspection_custos.id', '=', 'add_inspection_cars.id')
