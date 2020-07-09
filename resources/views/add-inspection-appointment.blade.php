@@ -11,7 +11,20 @@
         <div class="col-12">
             <h3 class="title">เพิ่มข้อมูลนัดตรวจรถ</h3>
         </div>
-        <hr noshade>
+        <hr noshade><br>
+        <a style="margin-right:3%">
+            @foreach($id_max as $key => $id_maxs)
+            {{-- {{ $idmax = $id_maxs->id }} --}}
+
+                    <?php
+                        $idmax = $id_maxs->id;
+                        $id_maxins = 'inspec-'.str_pad(($idmax+1),6,'0',STR_PAD_LEFT);
+                        echo 'เลขที่ตรวจสภาพรถ : '.$id_maxins;
+
+                    ?>
+            @endforeach
+        </a>
+        <br><br>
         <div class="col-12">
             <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data'>
                 @csrf

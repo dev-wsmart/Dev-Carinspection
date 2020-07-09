@@ -27,6 +27,9 @@ class AddInspectionCustoController extends Controller
      */
     public function index()
     {
+        // id max
+        $id_max = add_inspection_custo::whereRaw('id = (select max(`id`) from add_inspection_custos)')->get();
+
         // data cc
         $tech = technician::all()->sortBy("name_tech");
         // data cc
@@ -42,7 +45,7 @@ class AddInspectionCustoController extends Controller
         // data province
         $province = Province::all()->sortBy("name_th");
         // show data to add-inspection-appointment
-        return view('add-inspection-appointment',compact('province','pac','col','brand','dealer','cc','tech'));
+        return view('add-inspection-appointment',compact('province','pac','col','brand','dealer','cc','tech','id_max'));
 
     }
     public function getdistrictList(Request $request)
