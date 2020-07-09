@@ -108,7 +108,7 @@ class ReportController extends Controller
         ->join('ccs','add_inspection_cars.cc','=','ccs.id_cc')
         ->join('dealers','add_inspection_cars.fromtent','=','dealers.id_dealer')
         ->join('packages','add_inspection_dates.package','=','packages.id_package')
-        ->join('technicians','add_inspection_dates.inspector','=','technicians.id')
+        ->join('technicians','add_inspection_dates.inspector','=','technicians.id_tech')
 
         ->where('add_inspection_custos.id', '=', $id)
         ->groupBy('add_inspection_custos.id')
