@@ -34,6 +34,7 @@ Route::resource('/service', 'ServiceController')->middleware('auth');
 Route::resource('/edit', 'EditController');
 Route::resource('/appointment', 'AppointmentController');
 Route::resource('/add-inspection-appointment', 'AddInspectionCustoController');
+Route::resource('/insp-details', 'DetailsController');
 
 // search
 Route::get('/search','AppointmentController@search');
