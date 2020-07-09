@@ -32,26 +32,26 @@
             </li>
 
             <li>
-              <a class="dropdown-item" href="{{ route('report.index') }}">
+              <a class="dropdown-item {{ (request()->is('report') || request()->is('/')) ? 'active': '' }}" href="{{ route('report.index') }}">
                 <i class="fa fa-file"></i>
                 <span>Inspection Report</span>
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="{{ route('service.index') }}">
+              <a class="dropdown-item {{ (request()->is('service')) ? 'active': '' }}" href="{{ route('service.index') }}">
                 <!-- <i class="fas fa-tools"></i> -->
                 <i class="fas fa-wrench"></i>
                 <span>Service Inspection Report</span>
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="{{ route('edit.index') }}">
+              <a class="dropdown-item {{ (request()->is('edit')) ? 'active': '' }}" href="{{ route('edit.index') }}">
                 <i class="fa fa-edit"></i>
                 <span>Edit Inspection Report</span>
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="{{ route('appointment.index') }}">
+              <a class="dropdown-item {{ (request()->is('appointment')) ? 'active': '' }}" href="{{ route('appointment.index') }}">
                 <i class="fa fa-calendar-check"></i>
                 <span>Inspection Appointment</span>
               </a>

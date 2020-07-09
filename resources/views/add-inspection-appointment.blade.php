@@ -71,7 +71,7 @@
                         <select class="col-lg-2 form-control form-control-sm form-border" name="customertype" id="customerType" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             <option value="สมาชิกทั่วไป">สมาชิกทั่วไป</option>
-                            <option value="สมาชิกรูปแบบเต๊นท์">สมาชิกรูปแบบเต็นท์</option>
+                            <option value="สมาชิกรูปแบบเต๊นท์" selected>สมาชิกรูปแบบเต็นท์</option>
                         </select>
                     </div>
                 </div>
@@ -121,9 +121,13 @@
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="seatnum" id="seatNum" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             <option value="2">2</option>
-                            <option value="4">4</option>
+                            <option value="4" selected>4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+
                         </select>
                     </div>
                     <div class="form-group row">
@@ -134,7 +138,7 @@
 
                         <label class="col-lg-2 pl-lg-5" for="registerType">ประเภทจดทะเบียน</label>
                         <div class="col-lg-4 btnCustom">
-                            <input type="radio" name="registertype" id="registerType1" value="0">
+                            <input type="radio" name="registertype" id="registerType1" value="0" checked>
                             <label for="registerType1">รถยนต์ส่วนบุคคล</label>
 
                             <input type="radio" name="registertype" id="registerType2" value="1">
@@ -162,7 +166,7 @@
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             @foreach($cc as $key => $ccs)
-                            <option value="{{ $ccs->id_cc }}">{{ $ccs->cc }}</option>
+                            <option value="{{ $ccs->id_cc }}" {{ ($ccs->cc == '1.8' ? 'selected' : '')}}>{{ $ccs->cc }}</option>
                             @endforeach
                         </select>
 
