@@ -27,7 +27,7 @@
                     <div class="form-group row">
                         <label class="col-lg-1" for="nameTitle">คำนำหน้า</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="nametitle" id="nameTitle" required>
-                            <option>---  กรุณาเลือก  ---</option>
+                            <option disabled selected>---  กรุณาเลือก  ---</option>
                             <option value="นาย" {{($data->nametitle ==='นาย') ? 'selected' : ''}}>นาย</option>
                             <option value="นาง" {{($data->nametitle ==='นาง') ? 'selected' : ''}}>นาง</option>
                             <option value="นางสาว" {{($data->nametitle ==='นางสาว') ? 'selected' : ''}}>นางสาว</option>
@@ -114,7 +114,7 @@
                         <label class="col-lg-1" for="oldColor">สีเดิม</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="oldcolor" id="oldColor" value="{{$data->oldcolor}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_b }}">{{ $data->n_b }}</option>
+                            <option value="{{ $data->id_b }}" disabled selected>{{ $data->n_b }}</option>
                             @foreach($col as $key => $datas)
                             <option value="{{ $datas->id_color }}">{{ $datas->car_color }}</option>
                             @endforeach
@@ -123,7 +123,7 @@
                         <label class="col-lg-1" for="newColor">สีปัจจุบัน</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="newcolor" id="newColor" value="{{$data->newcolor}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_n }}">{{ $data->n_n }}</option>
+                            <option value="{{ $data->id_n }}" disabled selected>{{ $data->n_n }}</option>
                             @foreach($col as $key => $datas)
                             <option value="{{ $datas->id_color }}">{{ $datas->car_color }}</option>
                             @endforeach
@@ -171,9 +171,16 @@
                         <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="numowners" id="numOwners" value="{{$data->numowners}}" required>
 
                         <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (CC)</label>
-                        <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required>
+                        {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required> --}}
+                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required>
+                            {{-- <option>---  กรุณาเลือก  ---</option> --}}
+                            <option value="{{ $data->cc }}" disabled selected>{{ $data->cc }}</option>
+                            @foreach($cc as $key => $datas)
+                            <option value="{{ $datas->cc }}">{{ $datas->cc }}</option>
+                            @endforeach
+                        </select>
 
-                        <label class="col-lg-1" for="gearType">ระบบเกียร์</label>
+                        <label class="col-lg-1 pr-lg-1" for="gearType">ระบบเกียร์</label>
                         <div class="col-lg-4 btnCustom">
                             <input class="form-control" type="radio" name="geartype" id="gearType1" value="0" {{ $data->geartype == '0' ? 'checked' : ''}}>
                             <label for="gearType1">เกียร์ธรรมดา</label>
@@ -262,9 +269,9 @@
                         <label class="col-lg-2 pl-lg-5" for="inspector">ช่างที่ไปตรวจรถ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="inspector" id="inspector" value="{{$data->inspector}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id }}" disabled selected>{{ $data->name_tech }}</option>
+                            <option value="{{ $data->id_tech }}" disabled selected>{{ $data->name_tech }}</option>
                             @foreach($tech as $key => $datas)
-                            <option value="{{ $datas->id }}">{{ $datas->name_tech }}</option>
+                            <option value="{{ $datas->id_tech }}">{{ $datas->name_tech }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -322,7 +329,7 @@
                success:function(res){
                 if(res){
                     $("#district").empty();
-                    $("#district").append('<option>---  กรุณาเลือก  ---</option>');
+                    $("#district").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
                     $.each(res,function(key,value){
                         $("#district").append('<option value="'+key+'">'+value+'</option>');
                     });
@@ -346,7 +353,7 @@
                success:function(res){
                 if(res){
                     $("#subDistrict").empty();
-                    $("#subDistrict").append('<option>---  กรุณาเลือก  ---</option>');
+                    $("#subDistrict").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
                     $.each(res,function(key,value){
                         $("#subDistrict").append('<option value="'+key+'">'+value+'</option>');
                     });
