@@ -2855,6 +2855,7 @@
                                                     <input type="checkbox" name="pictype" id="exterior">
                                                     <label for="exterior">Exterior</label>
                                                 </td>
+                                                <!--START HERE-->
                                                 <td style="vertical-align: middle;">555555555555.jpg</td>
                                                 <td style="vertical-align: middle;"></td>
                                                 <td style="vertical-align: middle;">
