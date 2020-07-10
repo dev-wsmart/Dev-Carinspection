@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap');
+body{
+    font-family: 'Mitr', sans-serif;
+}
+
+.page-container{
+    margin: auto;
+}
+
+.page{
+    /*794 x 1123*/
+    width: 790px;
+    height: 1120px;
+    background-size: cover;
+    margin: 5px;
+    background-image: url('../img_system/carshowbg.jpg');
+}
+
+.page-contain{
+    padding: 60px;
+}
+
+.head-title{
+    padding-top: 350px;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.head-description{
+    font-size: 25px;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+table, th, td {
+    border: 1px solid lightgray;
+}
+
+.overall-table td{
+    text-align: center;
+    width: 20%;
+    height: 50px;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.grid-container {
+    margin-top: 50px;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 50% 50%;
+}
+
+.grid-item{
+}
+.car-show{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.table-description{
+    font-size: 10px;
+}
+
+.table-check{
+    background-color: white;
+    color: rgb(233, 178, 65);
+    font-size: 25px;
+}
+
+.table-title{
+    background-color: rgb(237, 239, 236);
+}
+
+.topic-title{
+    width: 200px;
+    padding: 8px;
+    margin: auto;
+    background-color: rgb(233, 178, 65);
+    font-size: 20px;
+    border-radius: 13px;
+}
+
+@page{
+    size: 21cm 29.7cm; /* auto is the initial value */
+    margin: 1mm 4mm 1mm 1mm; /* this affects the margin in the printer settings */
+}
+
+@media print {
+    .page {page-break-after: always;}
+}
