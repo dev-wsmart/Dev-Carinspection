@@ -248,18 +248,94 @@
             <div class="page">
                 <div class="page-contain">
                     <div class="topic-title">ผลการตรวจภายนอก</div>
+                    <table class="overall-table" style="margin-top: 20px;">
+                        <tr>
+                            <td class="table-title">แบตเตอรี่</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">แบตเตอรี่</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">แบตเตอรี่</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">แบตเตอรี่</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">แบตเตอรี่</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">แบตเตอรี่</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">แบตเตอรี่</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">แบตเตอรี่</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">แบตเตอรี่</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <!-- PAGE 8 -->
             <div class="page">
                 <div class="page-contain">
                     <div class="topic-title">ยางล้อ และเบรก</div>
+                    <table class="overall-table" style="margin-top: 20px;">
+                        <tr>
+                            <td class="table-title">ล้อหน้าซ้าย</td>
+                            <td class = "table-detail">ยางสภาพปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">ล้อหน้าขวา</td>
+                            <td class = "table-detail">ยางสภาพปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">ล้อหลังซ้าย</td>
+                            <td class = "table-detail">ยางสภาพปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">ล้อหลังขวา</td>
+                            <td class = "table-detail">ยางสภาพปกติ</td>
+                        </tr>
+                    </table>
+                    <div class="wheel-grid-container">
+                        <img src="{{ url('images/car1.jpg') }}" class="wheel-img" >
+                        <img src="{{ url('images/car1.jpg') }}" class="wheel-img" >
+                        <img src="{{ url('images/car1.jpg') }}" class="wheel-img" >
+                        <img src="{{ url('images/car1.jpg') }}" class="wheel-img" >
+                    </div>
                 </div>
             </div>
             <!-- PAGE 9 -->
             <div class="page">
                 <div class="page-contain">
                     <div class="topic-title">ผลตรวจโครงสร้างรถ</div>
+                    <table class="overall-table" style="margin-top: 20px;">
+                        <tr>
+                            <td class="table-title">ห้องเครื่อง</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">ห้องโดยสาร</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title">ห้องเครื่อง</td>
+                            <td class="table-detail">ปกติ</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <!-- PAGE 10 -->
@@ -272,6 +348,9 @@
             <div class="page">
                 <div class="page-contain">
                     <div class="topic-title">ข้อตกลงและเงื่อนไขการให้บริการ</div>
+                    <div class="condition-bg">
+
+                    </div>
                 </div>
             </div>
 
