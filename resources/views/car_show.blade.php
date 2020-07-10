@@ -42,7 +42,7 @@
 
 </script>
 
-<body>
+<body onload="window.print()">
     <div class="printpage" align="center">
         <div class = "page-container">
             <!--PAGE 1-->
@@ -350,6 +350,20 @@
                     <div class="topic-title">ข้อตกลงและเงื่อนไขการให้บริการ</div>
                     <div class="condition-bg">
 
+                    </div>
+                    <div class ="sign-grid-container">
+                        <div class="">
+                            ____________________<br>
+                            ช่าง
+                        </div>
+                        <div class="">
+                            ____________________<br>
+                            หัวหน้าช่าง
+                        </div>
+                        <div class="">
+                            ____________________<br>
+                            ผู้มีอำนาจลงนาม
+                        </div>
                     </div>
                 </div>
             </div>
