@@ -88,11 +88,11 @@
                         </select>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2" for="contect">ผู้ติดต่อ</label>
-                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="contect" id="contect">
+                        <label class="col-lg-2" for="contact">ผู้ติดต่อ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="contact" id="contact">
 
-                        <label class="col-lg-2" for="tel_contect">เบอร์โทร - ผู้ติดต่อ</label>
-                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel_contect" id="tel_contect" required>
+                        <label class="col-lg-2" for="tel_contact">เบอร์โทร - ผู้ติดต่อ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel_contact" id="tel_contact" required>
                     </div>
                 </div>
 
