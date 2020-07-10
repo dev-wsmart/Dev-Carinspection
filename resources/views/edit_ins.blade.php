@@ -13,6 +13,21 @@
             <h3 class="title">แก้ไขข้อมูลนัดตรวจรถ</h3>
         </div>
         <hr noshade>
+        <br>
+        <a style="margin-right:3%">
+            @foreach($datas as $key => $id_maxs)
+            {{-- {{ $idmax = $id_maxs->id }} --}}
+
+                    <?php
+                        $idmax = $id_maxs->id;
+                        $id_maxins = 'inspec-'.str_pad(($idmax),6,'0',STR_PAD_LEFT);
+                        echo 'เลขที่ตรวจสภาพรถ : '.$id_maxins;
+
+                    ?>
+            @endforeach
+        </a>
+        <br><br>
+
         <div class="col-12">
 
             @foreach($datas as $data)
@@ -114,7 +129,7 @@
                         <label class="col-lg-1" for="oldcolor">สีเดิม</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="oldcolor" id="oldcolor" value="{{$data->oldcolor}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_b }}" disabled selected>{{ $data->n_b }}</option>
+                            <option value="{{ $data->id_b }}">{{ $data->n_b }}</option>
                             @foreach($col as $key => $datas)
                             <option value="{{ $datas->id_color }}">{{ $datas->car_color }}</option>
                             @endforeach
@@ -123,7 +138,7 @@
                         <label class="col-lg-1" for="newcolor">สีปัจจุบัน</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="newcolor" id="newcolor" value="{{$data->newcolor}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_n }}" disabled selected>{{ $data->n_n }}</option>
+                            <option value="{{ $data->id_n }}">{{ $data->n_n }}</option>
                             @foreach($col as $key => $datas)
                             <option value="{{ $datas->id_color }}">{{ $datas->car_color }}</option>
                             @endforeach
@@ -173,15 +188,6 @@
                         <label class="col-lg-2" for="numOwners">จำนวนเจ้าของเดิม</label>
                         <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="numowners" id="numOwners" value="{{$data->numowners}}" required>
 
-<<<<<<< HEAD
-                        <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (CC)</label>
-                        {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required> --}}
-                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required>
-                            {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->cc }}" disabled selected>{{ $data->cc }}</option>
-                            @foreach($cc as $key => $datas)
-                            <option value="{{ $datas->cc }}">{{ $datas->cc }}</option>
-=======
                         <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (cc)</label>
                         {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required> --}}
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" >
@@ -189,7 +195,6 @@
                             <option value="{{ $data->id_cc }}">{{ $data->cc }}</option>
                             @foreach($cc as $key => $datas)
                             <option value="{{ $datas->id_cc }}">{{ $datas->cc }}</option>
->>>>>>> Dev-car
                             @endforeach
                         </select>
 
@@ -282,11 +287,7 @@
                         <label class="col-lg-2 pl-lg-5" for="inspector">ช่างที่ไปตรวจรถ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="inspector" id="inspector" value="{{$data->inspector}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-<<<<<<< HEAD
-                            <option value="{{ $data->id_tech }}" disabled selected>{{ $data->name_tech }}</option>
-=======
                             <option value="{{ $data->id_tech }}">{{ $data->name_tech }}</option>
->>>>>>> Dev-car
                             @foreach($tech as $key => $datas)
                             <option value="{{ $datas->id_tech }}">{{ $datas->name_tech }}</option>
                             @endforeach
@@ -369,13 +370,8 @@
                url:"{{url('get-subdise-list')}}?amphure_id="+districtID,
                success:function(res){
                 if(res){
-<<<<<<< HEAD
-                    $("#subDistrict").empty();
-                    $("#subDistrict").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
-=======
                     $("#subdistrict").empty();
                     $("#subdistrict").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
->>>>>>> Dev-car
                     $.each(res,function(key,value){
                         $("#subdistrict").append('<option value="'+key+'">'+value+'</option>');
                     });

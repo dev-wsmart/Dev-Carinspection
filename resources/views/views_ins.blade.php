@@ -13,6 +13,20 @@
             <h3 class="title">ข้อมูลนัดตรวจรถ</h3>
         </div>
         <hr noshade>
+        <br>
+        <a style="margin-right:3%">
+            @foreach($datas as $key => $id_maxs)
+            {{-- {{ $idmax = $id_maxs->id }} --}}
+
+                    <?php
+                        $idmax = $id_maxs->id;
+                        $id_maxins = 'inspec-'.str_pad(($idmax),6,'0',STR_PAD_LEFT);
+                        echo 'เลขที่ตรวจสภาพรถ : '.$id_maxins;
+
+                    ?>
+            @endforeach
+        </a>
+        <br><br>
         <div class="col-12">
 
             @foreach($datas as $data)
@@ -126,7 +140,10 @@
                             <option value="2" {{($data->seatnum ==='2') ? 'selected' : ''}}>2</option>
                             <option value="4" {{($data->seatnum ==='4') ? 'selected' : ''}}>4</option>
                             <option value="5" {{($data->seatnum ==='5') ? 'selected' : ''}}>5</option>
-                            <option value="5" {{($data->seatnum ==='6') ? 'selected' : ''}}>6</option>
+                            <option value="6" {{($data->seatnum ==='6') ? 'selected' : ''}}>6</option>
+                            <option value="7" {{($data->seatnum ==='7') ? 'selected' : ''}}>7</option>
+                            <option value="11" {{($data->seatnum ==='11') ? 'selected' : ''}}>11</option>
+                            <option value="12" {{($data->seatnum ==='12') ? 'selected' : ''}}>12</option>
                         </select>
                     </div>
                     <div class="form-group row">
