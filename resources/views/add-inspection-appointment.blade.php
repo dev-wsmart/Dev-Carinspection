@@ -272,7 +272,7 @@
                         <select class="col-lg-3 form-control form-control-sm form-border" name="inspector" id="inspector" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             @foreach($tech as $key => $techs)
-                            <option value="{{ $techs->id }}">{{ $techs->name_tech }}</option>
+                            <option value="{{ $techs->id_tech }}">{{ $techs->name_tech }}</option>
                             @endforeach
                         </select>
                     </div>
