@@ -58,9 +58,8 @@ Route::get('images-upload', 'AddInspectionCarController@imagesUpload');
 Route::post('images-upload', 'AddInspectionCarController@imagesUploadPost')->name('images.upload');
 
 // upload images inspection appointment
-// Route::get('/uploadfile', 'AppointmentController@imageUpload')->name('image.upload');
-// Route::post('/uploadfile', 'AppointmentController@imageUploadPost')->name('image.upload.post');
 Route::get('/ajax_upload', 'AppointmentController@imageUpload');
 Route::post('/add-inspection-appointment/action', 'AppointmentController@action')->name('ajaxupload.action');
+Route::post('/add-inspection-appointment/action1', 'AppointmentController@action1')->name('ajaxuploadnum.action1');
 
 

@@ -26,7 +26,7 @@
         </a>
         <br><br>
         <div class="col-12">
-            <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' name="add_inspection">
+            <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' id="add_inspection">
                 @csrf
                 <div class="form-title">ข้อมูลลูกค้า</div>
                 <div class="col-12 pt-lg-3 box-form">
@@ -77,7 +77,7 @@
                         <label class="col-lg-2" for="idCard">เลขประจำตัวประชาชน</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="idcard" id="idCard">
 
-                        <label class="col-lg-2" for="tel">เบอร์โทรศัพท์</label>
+                        <label class="col-lg-2" for="tel">เบอร์โทร - ลูกค้า</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel" id="tel" required>
 
                         <label class="col-lg-2" for="customerType">ประเภทสมาชิก</label>
@@ -86,6 +86,13 @@
                             <option value="สมาชิกทั่วไป">สมาชิกทั่วไป</option>
                             <option value="สมาชิกรูปแบบเต๊นท์" selected>สมาชิกรูปแบบเต็นท์</option>
                         </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="contect">ผู้ติดต่อ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="contect" id="contect">
+
+                        <label class="col-lg-2" for="tel_contect">เบอร์โทร - ผู้ติดต่อ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel_contect" id="tel_contect" required>
                     </div>
                 </div>
 
@@ -305,11 +312,11 @@
                         <label class="col-lg-1" for="package"></label>
                         <label class="col-lg-5" for="package">รูปเล่มทะเบียนรถ</label>
 
-                            {{-- if images --}}
+                            {{--  images --}}
                         <div class="row">
                             <div class="col-md-6 list-group-item">
-                                {{-- <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data" id="image_mile">
-                                    @csrf --}}
+                                <form method="post" id="upload_form_mile" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
                                     <div class="row">
                                         <div class="col-md-10">
                                             <input type="file" name="image_mile" class="form-control" height="2%">
@@ -318,34 +325,19 @@
                                             <button type="submit" class="btn btn-success">ADD</button>
                                         </div>
                                     </div>
-
-                                        @if ($message = Session::get('success'))
-                                        <div class="alert alert-success alert-block">
-                                            <button type="button" class="close" data-dismiss="alert">×</button>
-                                            <strong>{{ $message }}</strong>
+                                    <div class="row">
+                                        <div class="alert col-md-11" id="message" style="display: none;"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <span id="uploaded_image"></span>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <img src="images_test/{{ Session::get('image') }}" style="width:100%">
-                                            </div>
-                                        </div>
-                                        @endif
-                                        @if (count($errors) > 0)
-                                            <div class="alert alert-danger col-md-6">
-                                                <strong>Whoops!</strong> There were some problems with your input.
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
-                                {{-- </form> --}}
+                                    </div>
+                                </form>
                             </div>
-                            {{-- <div class="col-md-1"></div> --}}
                             <div class="col-md-6 list-group-item">
-                                {{-- <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data" id="image_num">
-                                @csrf --}}
+                                <form method="post" id="upload_form_num" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
                                     <div class="row">
                                         <div class="col-md-10">
                                             <input type="file" name="image_num" class="form-control" height="2%">
@@ -354,35 +346,20 @@
                                             <button type="submit" class="btn btn-success">ADD</button>
                                         </div>
                                     </div>
-
-                                        @if ($message = Session::get('success'))
-                                        <div class="alert alert-success alert-block">
-                                            <button type="button" class="close" data-dismiss="alert">×</button>
-                                            <strong>{{ $message }}</strong>
+                                    <div class="row">
+                                        <div class="alert col-md-11" id="message_num" style="display: none"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <span id="uploaded_image_num"></span>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <img src="images_test/{{ Session::get('image') }}" style="width:100%">
-                                            </div>
-                                        </div>
-                                        @endif
-                                        @if (count($errors) > 0)
-                                            <div class="alert alert-danger">
-                                                <strong>Whoops!</strong> There were some problems with your input.
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
-                                {{-- </form> --}}
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                            {{-- end if images --}}
                      </div>
                 </div>
-        <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' name="add_inspection">
+        <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' id="add_inspection">
             @csrf
                 <div class="col-12 pt-2 pt-lg-4 text-center">
                     <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
@@ -398,8 +375,6 @@
         </div>
 </div>
 </div>
-
-
 <script type="text/javascript">
 
 $('#province').change(function(){
@@ -505,7 +480,7 @@ $('#carModel').on('change',function(){
    //  images mile
    $(document).ready(function(){
 
-        $('#upload_form').on('submit', function(event){
+        $('#upload_form_mile').on('submit', function(event){
             event.preventDefault();
             $.ajax({
             url:"{{ route('ajaxupload.action') }}",
@@ -524,6 +499,30 @@ $('#carModel').on('change',function(){
                 }
             })
         });
+
+});
+   //  images num-car
+$(document).ready(function(){
+
+    $('#upload_form_num').on('submit', function(event){
+        event.preventDefault();
+        $.ajax({
+        url:"{{ route('ajaxuploadnum.action1') }}",
+        method:"POST",
+        data:new FormData(this),
+        dataType:'JSON',
+        contentType: false,
+        cache: false,
+        processData: false,
+        success:function(data)
+            {
+                $('#message_num').css('display', 'block');
+                $('#message_num').html(data.message_num);
+                $('#message_num').addClass(data.class_name);
+                $('#uploaded_image_num').html(data.uploaded_image_num);
+            }
+        })
+    });
 
 });
 

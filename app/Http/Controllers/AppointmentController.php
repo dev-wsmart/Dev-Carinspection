@@ -94,16 +94,16 @@ class AppointmentController extends Controller
     function action(Request $request)
     {
         $validation = Validator::make($request->all(), [
-            'select_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+                'image_mile' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
             if($validation->passes())
             {
-                $image = $request->file('select_file');
-                $new_name = rand() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('images_test'), $new_name);
+                $image = $request->file('image_mile');
+                $new_name_mile = rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images_test'), $new_name_mile);
                 return response()->json([
-                'message'   => 'Image Upload Successfully',
-                'uploaded_image' => '<img src="/images_test/'.$new_name.'" class="img-thumbnail" width="300" />',
+                'message'   => 'Image Upload Successfully / image - name : '.$new_name_mile,
+                'uploaded_image' => '<img src="/images_test/'.$new_name_mile.'" class="img-thumbnail" width="80%" align="center" />',
                 'class_name'  => 'alert-success'
                 ]);
             }
@@ -112,6 +112,33 @@ class AppointmentController extends Controller
             return response()->json([
                 'message'   => $validation->errors()->all(),
                 'uploaded_image' => '',
+                'class_name'  => 'alert-danger'
+            ]);
+        }
+    }
+
+
+    function action1(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+                'image_num' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            ]);
+            if($validation->passes())
+            {
+                $image = $request->file('image_num');
+                $new_name_num = rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images_test'), $new_name_num);
+                return response()->json([
+                'message_num'   => 'Image Upload Successfully / image - name : '.$new_name_num,
+                'uploaded_image_num' => '<img src="/images_test/'.$new_name_num.'" class="img-thumbnail" width="80%" align="center" />',
+                'class_name'  => 'alert-success'
+                ]);
+            }
+            else
+            {
+            return response()->json([
+                'message_num'   => $validation->errors()->all(),
+                'uploaded_image_num' => '',
                 'class_name'  => 'alert-danger'
             ]);
         }
