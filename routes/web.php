@@ -23,9 +23,6 @@ Route::get('/car_show', function () {
     return view('car_show');
 });
 
-
-
-
 Auth::routes();
 
 Route::resource('/', 'ReportController');

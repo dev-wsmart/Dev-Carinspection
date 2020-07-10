@@ -168,26 +168,6 @@ thead{
     border: 1px solid #c2c2c2;
 }
 
-.car-show{
-    margin-bottom: 30px;
-}
-
-.overall-table td{
-    text-align: center;
-    width: 20%;
-    height: 100px;
-    padding: 10px;
-    vertical-align: middle;
-}
-
-.table-description{
-    font-size: 10px;
-}
-
-.table-check{
-    font-size: 25px;
-}
-
 @media only screen and (max-width: 991px){
     hr{
         width: 100%;

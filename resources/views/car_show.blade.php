@@ -1,9 +1,34 @@
-@extends('layouts.admin_layout')
+{{-- @extends('layouts.admin_layout')
+@section('content') --}}
+{{-- <div class="col-md-3"></div> --}}
 @section('title', 'Inspection Report')
-@section('content')
-<div class="col-md-3"></div>
+<html>
+
 <div class="col-md-8" style="margin-top:2%;">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@yield('title')</title>
+    <link href="{{ asset('css/carshow.css')}}" rel="stylesheet">
+
+
+  <script>
+    function printdiv(){
+        var newstr=document.getElementById("printpage").innerHTML;
+        var footer ="";
+
+        //You can set height width over here
+        var popupWin = window.open('', '_blank', 'width=1100,height=600');
+        popupWin.document.open();
+        popupWin.document.write('<html> <body>'+ newstr + '</html>');
+        window.resizeTo(960, 600);
+        popupWin.document.close();
+        return false;
+    }
+</script>
+
+</head>
 <script>
         // search ***************
         // $(document).ready(function(){
@@ -17,199 +42,244 @@
 
 </script>
 
-    <div class="row">
-        {{-- @if (session('status'))
-            {{ session('status') }}
-        @endif --}}
-        <div class="col-12">
-            <h1 class="title">Car Show</h1>
+<body>
+    <div class="printpage" align="center">
+        <div class = "page-container">
+            <!--PAGE 1-->
+            <div class="page">
+                <div class="head-title">
+                    USED Car Inspection Report
+                </div>
+                <div class="head-description">
+                    รายงานผลการตรวจเช็คสภาพรถยนต์
+                </div>
+
+            </div>
+            <!--PAGE 2-->
+            <div class="page">
+
+            </div>
+            <!--PAGE 3-->
+            <div class="page">
+                <div class="page-contain">
+                    <div class = "car-show">
+                        <div class="topic-title">
+                            รูปด้านหน้ารถยนต์
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                        </div>
+                    </div>
+
+                    <div class = "car-show">
+                        <div class="topic-title">
+                                รูปด้านหลังรถยนต์
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE 4 -->
+            <div class = "page">
+                <div class = "page-contain">
+                    <div class = "car-show">
+                        <div class="topic-title">
+                            รูปเครื่องยนต์
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                        </div>
+                    </div>
+                    <div class = "car-show">
+                        <div class="topic-title" >
+                            รูปเลขไมลล์
+                        </div>
+                        <br>
+                        <div class="">
+                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE 5 -->
+            <div class="page">
+                <div class="page-contain">
+                    <div class = "car-show">
+                        <div class="topic-title">
+                            รูปเลขตัวถัง
+                        </div>
+                        <br>
+                        <div class="">
+                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                        </div>
+                    </div>
+
+                    <div class = "car-show">
+                        <div class="topic-title" >
+                            รูปเลขเครื่องยนต์
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE 6 -->
+            <div class="page">
+                <div class="page-contain">
+                    <div class = "check-table">
+                        <div class="topic-title" >
+                            สรุปสถานะรวม
+                        </div>
+                        <div class = "grid-container">
+                            <div class = "grid-item">
+                                <table class="overall-table" border="1">
+                                    <tr>
+                                        <td class = "table-title">1.สถานะเครื่องยนต์</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">2.สถานะเกียร์</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">3.สถานะ ECU, ECM</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">4.สถานะระบบเบรค</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr >
+                                        <td class = "table-title">5.สถานะชุดส่งกำลังเพลาหน้าและท้าย</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">
+                                            6.รถเลขเครื่องตรง
+                                            <div class="table-description">(รถเลขเครื่องยนต์ตรงตามเล่มทะเบียนรถ)</div>
+                                        </td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">
+                                            7.รถเลขตัวถังตรง
+                                            <div class="table-description">(รถเลขตัวถังตรงตามเล่มทะเบียนรถยนต์)</div>
+                                        </td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">
+                                            8.รถสภาพสีเดิม
+                                            <div class="table-description">(รถสีสภาพเดิมจากโรงงานและตรงตามเล่มทะเบียนรถยนต์)</div>
+                                        </td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">
+                                            9.เลขไมล์แท้
+                                            <div class="table-description">(เลขไมล์แท้เป็นไมล์ที่เปรียบเทียบจากไมล์ล่าสุดที่อยู่ในประวัติของศูนย์บริการของรถยนต์แต่ละยี่ห้อ)</div>
+                                        </td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">10.ระบบระบายความร้อนเครื่องยนต์</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class = "grid-item">
+                                <table class="table table-bordered overall-table" textalign=center>
+                                    <tr>
+                                        <td class = "table-title">11.ระบบกันสะเทือนหน้าและหลัง</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">12.ระบบปรับอากาศ และทำความร้อน</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">13.ระบบความปลอดภัย Airbag</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">14.ระบบบังคับเลิ้ยว</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">15.ระบบ Security System</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">16.ระบบ Turbo</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">17.รูปยางอะไหล่</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">18.รูปกุญแจสำรอง</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">19.Dock Service</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+                                    <tr>
+                                        <td class = "table-title">20.พรบ.</td>
+                                        <td class = "table-check">N</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE 7 -->
+            <div class="page">
+                <div class="page-contain">
+                    <div class="topic-title">ผลการตรวจภายนอก</div>
+                </div>
+            </div>
+            <!-- PAGE 8 -->
+            <div class="page">
+                <div class="page-contain">
+                    <div class="topic-title">ยางล้อ และเบรก</div>
+                </div>
+            </div>
+            <!-- PAGE 9 -->
+            <div class="page">
+                <div class="page-contain">
+                    <div class="topic-title">ผลตรวจโครงสร้างรถ</div>
+                </div>
+            </div>
+            <!-- PAGE 10 -->
+            <div class="page">
+                <div class="page-contain">
+                    <div class="topic-title">ภายใน</div>
+                </div>
+            </div>
+            <!-- PAGE 11 -->
+            <div class="page">
+                <div class="page-contain">
+                    <div class="topic-title">ข้อตกลงและเงื่อนไขการให้บริการ</div>
+                </div>
+            </div>
+
+
         </div>
-        <hr noshade>
     </div>
-    <div class="contenner" style="margin-left:3%;">
-        <div class = "car-show">
-            <div class="d-flex justify-content-center" >
-                <button class="minimal-indent" class="img-thumbnail">
-                    รูปด้านหน้ารถยนต์
-                </button>
-            </div>
-            <br>
-            <div class="d-flex justify-content-center">
-                <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
-            </div>
-        </div>
-
-        <div class = "car-show">
-            <div class="d-flex justify-content-center" >
-                <button class="minimal-indent" class="img-thumbnail">
-                    รูปด้านหลังรถยนต์
-                </button>
-            </div>
-            <br>
-            <div class="d-flex justify-content-center">
-                <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
-            </div>
-        </div>
-
-        <div class = "car-show">
-            <div class="d-flex justify-content-center" >
-                <button class="minimal-indent" class="img-thumbnail">
-                    รูปเครื่องยนต์
-                </button>
-            </div>
-            <br>
-            <div class="d-flex justify-content-center">
-                <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
-            </div>
-        </div>
-
-        <div class = "car-show">
-            <div class="d-flex justify-content-center" >
-                <button class="minimal-indent" class="img-thumbnail">
-                    รูปเลขไมลล์
-                </button>
-            </div>
-            <br>
-            <div class="d-flex justify-content-center">
-                <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
-            </div>
-        </div>
-
-        <div class = "car-show">
-            <div class="d-flex justify-content-center" >
-                <button class="minimal-indent" class="img-thumbnail">
-                    รูปเลขตัวถัง
-                </button>
-            </div>
-            <br>
-            <div class="d-flex justify-content-center">
-                <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
-            </div>
-        </div>
-
-        <div class = "car-show">
-            <div class="d-flex justify-content-center" >
-                <button class="minimal-indent" class="img-thumbnail">
-                    รูปเลขเครื่องยนต์
-                </button>
-            </div>
-            <br>
-            <div class="d-flex justify-content-center">
-                <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
-            </div>
-        </div>
-
-        <div class = "check-table">
-            <div class="d-flex justify-content-center" >
-                <button class="minimal-indent" class="img-thumbnail" style="margin-bottom: 20px;">
-                    สรุปสถานะรวม
-                </button>
-            </div>
-            <div class = "row">
-                <div class = "col-6">
-                    <table class="table table-bordered overall-table">
-                        <tr>
-                            <td class = "table-secondary">1.สถานะเครื่องยนต์</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">2.สถานะเกียร์</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">3.สถานะ ECU, ECM</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">4.สถานะระบบเบรค</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr >
-                            <td class = "table-secondary">5.สถานะชุดส่งกำลังเพลาหน้าและท้าย</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">
-                                6.รถเลขเครื่องตรง
-                                <div class="table-description">(รถเลขเครื่องยนต์ตรงตามเล่มทะเบียนรถ)</div>
-                            </td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">
-                                7.รถเลขตัวถังตรง
-                                <div class="table-description">(รถเลขตัวถังตรงตามเล่มทะเบียนรถยนต์)</div>
-                            </td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">
-                                8.รถสภาพสีเดิม
-                                <div class="table-description">(รถสีสภาพเดิมจากโรงงานและตรงตามเล่มทะเบียนรถยนต์)</div>
-                            </td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">
-                                9.เลขไมล์แท้
-                                <div class="table-description">(เลขไมล์แท้เป็นไมล์ที่เปรียบเทียบจากไมล์ล่าสุดที่อยู่ในประวัติของศูนย์บริการของรถยนต์แต่ละยี่ห้อ)</div>
-                            </td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-
-                    </table>
-                </div>
-                <div class = "col-6">
-                    <table class="table table-bordered overall-table" textalign=center>
-                        <tr>
-                            <td class = "table-secondary">10.ระบบระบายความร้อนเครื่องยนต์</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">11.ระบบกันสะเทือนหน้าและหลัง</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">12.ระบบปรับอากาศ และทำความร้อน</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">13.ระบบความปลอดภัย Airbag</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">14.ระบบบังคับเลิ้ยว</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">15.ระบบ Security System</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">16.ระบบ Turbo</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">17.รูปยางอะไหล่</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-                        <tr>
-                            <td class = "table-secondary">18.รูปกุญแจสำรอง</td>
-                            <td class = "table-check">ผ่าน</td>
-                        </tr>
-
-                    </table>
-                </div>
-            </div>
-        </div>
-
-    </div><br><br>
-    {{-- <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">{{ $data->onEachSide(1)->links() }}</div>
-        <div class="col-4"></div>
-    </div> --}}
-
 </div>
 
-@endsection
+</body>
+</html>
+{{-- @endsection --}}
