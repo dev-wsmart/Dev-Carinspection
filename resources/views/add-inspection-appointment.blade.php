@@ -26,7 +26,7 @@
         </a>
         <br><br>
         <div class="col-12">
-            <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data'>
+            <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' name="add_inspection">
                 @csrf
                 <div class="form-title">ข้อมูลลูกค้า</div>
                 <div class="col-12 pt-lg-3 box-form">
@@ -297,13 +297,99 @@
                         <label class="col-lg-2 pl-lg-5" for="remark">Remark</label>
                         <textarea class="col-lg-5 form-control form-control-sm form-border" name="remark" id="remark"></textarea>
                     </div>
-                </div>
+                    <br>
+                </form>
+                    <div class="list-group-item">
 
+                        <label class="col-lg-5" for="package">รูปเลขไมล์รถ</label>
+                        <label class="col-lg-1" for="package"></label>
+                        <label class="col-lg-5" for="package">รูปเล่มทะเบียนรถ</label>
+
+                            {{-- if images --}}
+                        <div class="row">
+                            <div class="col-md-6 list-group-item">
+                                {{-- <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data" id="image_mile">
+                                    @csrf --}}
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <input type="file" name="image_mile" class="form-control" height="2%">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-success">ADD</button>
+                                        </div>
+                                    </div>
+
+                                        @if ($message = Session::get('success'))
+                                        <div class="alert alert-success alert-block">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <img src="images_test/{{ Session::get('image') }}" style="width:100%">
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @if (count($errors) > 0)
+                                            <div class="alert alert-danger col-md-6">
+                                                <strong>Whoops!</strong> There were some problems with your input.
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                {{-- </form> --}}
+                            </div>
+                            {{-- <div class="col-md-1"></div> --}}
+                            <div class="col-md-6 list-group-item">
+                                {{-- <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data" id="image_num">
+                                @csrf --}}
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <input type="file" name="image_num" class="form-control" height="2%">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-success">ADD</button>
+                                        </div>
+                                    </div>
+
+                                        @if ($message = Session::get('success'))
+                                        <div class="alert alert-success alert-block">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <img src="images_test/{{ Session::get('image') }}" style="width:100%">
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @if (count($errors) > 0)
+                                            <div class="alert alert-danger">
+                                                <strong>Whoops!</strong> There were some problems with your input.
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                {{-- </form> --}}
+                            </div>
+                        </div>
+                            {{-- end if images --}}
+                     </div>
+                </div>
+        <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' name="add_inspection">
+            @csrf
                 <div class="col-12 pt-2 pt-lg-4 text-center">
                     <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
                    <a href="{{ route('appointment.index')}}"> <button class="btn btn-danger" type="button"><i class="fa fa-times" aria-hidden="true"></i> ยกเลิก</button></a>
                 </div>
-            </form>
+        </form>
+
             <br>
             <br>
             <br>
@@ -415,6 +501,31 @@ $('#carModel').on('change',function(){
     }
     // alert(carModelID);
    });
+
+   //  images mile
+   $(document).ready(function(){
+
+        $('#upload_form').on('submit', function(event){
+            event.preventDefault();
+            $.ajax({
+            url:"{{ route('ajaxupload.action') }}",
+            method:"POST",
+            data:new FormData(this),
+            dataType:'JSON',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success:function(data)
+                {
+                    $('#message').css('display', 'block');
+                    $('#message').html(data.message);
+                    $('#message').addClass(data.class_name);
+                    $('#uploaded_image').html(data.uploaded_image);
+                }
+            })
+        });
+
+});
 
 </script>
 

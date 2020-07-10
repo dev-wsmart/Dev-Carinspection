@@ -116,6 +116,7 @@ class ReportController extends Controller
 
     //   return view('views_ins', compact('datas'));
 
+
       return view('addreport', compact('datas'));
     }
 

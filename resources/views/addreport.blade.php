@@ -40,6 +40,13 @@
         <hr noshade>
         <div class="col-12">
             @foreach($datas as $data)
+
+                    <?php
+                        $idins = $data->id;
+                        $idinspec = 'inspec-'.str_pad(($idins),6,'0',STR_PAD_LEFT);
+
+                    ?>
+
             <form>
                 <div class="form-title">ข้อมูลทั่วไป</div>
                 <div class="col-12 pt-lg-3 box-form">
@@ -62,7 +69,7 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="inspectionNo">เลขที่ตรวจสภาพรถ</label>
-                        <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="inspectionNo" id="inspectionNo" disabled>
+                        <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="inspectionNo" id="inspectionNo" value="{{$idinspec}}" disabled>
 
                         <label class="col-lg-2" for="inspectionType">ประเภทการตรวจสภาพ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="inspectionType" id="inspectionType" disabled>
@@ -73,10 +80,10 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="inspector">ผู้ตรวจสภาพรถ</label>
-                        <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="inspector" id="inspector" value="ช่าง..." disabled>
+                        <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="inspector" id="inspector" value="{{$data->name_tech}}" disabled>
 
                         <label class="col-lg-2" for="checkedby">ตรวจสอบโดย</label>
-                        <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="checkedby" id="checkedby" value="ช่าง..." disabled>
+                        <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="checkedby" id="checkedby" value="{{$data->name_tech}}" disabled>
                     </div>
                 </div>
 
@@ -397,7 +404,11 @@
                             <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="numOwners" id="numOwners" value="{{$data->numowners}}" disabled>
 
                             <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (CC)</label>
-                            <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" disabled>
+                            {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" disabled> --}}
+                            <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" disabled>
+                                {{-- <option>---  กรุณาเลือก  ---</option> --}}
+                                <option>{{ $data->cc }}</option>
+                            </select>
 
                             <label class="col-lg-1" for="gearType">ระบบเกียร์</label>
                             <div class="col-lg-4 btnCustom">

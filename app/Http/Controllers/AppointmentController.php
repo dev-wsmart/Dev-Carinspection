@@ -15,6 +15,7 @@ use App\dealer;
 use App\technician;
 use App\cc;
 use DB;
+use Validator;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -68,6 +69,53 @@ class AppointmentController extends Controller
 
     }
 
+    public function imageUpload()
+    {
+        // $data = carregnum::all();
+        return view('add-inspection-appointment');
+    }
+    public function imageUploadPost()
+    {
+        request()->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('images_test'), $imageName);
+
+        // echo $imageName;
+
+        return back()
+            ->with('success',$imageName)
+            ->with('image',$imageName);
+
+    }
+
+
+    function action(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'select_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            ]);
+            if($validation->passes())
+            {
+                $image = $request->file('select_file');
+                $new_name = rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images_test'), $new_name);
+                return response()->json([
+                'message'   => 'Image Upload Successfully',
+                'uploaded_image' => '<img src="/images_test/'.$new_name.'" class="img-thumbnail" width="300" />',
+                'class_name'  => 'alert-success'
+                ]);
+            }
+            else
+            {
+            return response()->json([
+                'message'   => $validation->errors()->all(),
+                'uploaded_image' => '',
+                'class_name'  => 'alert-danger'
+            ]);
+        }
+    }
 
     /**
      * Show the form for creating a new resource.
