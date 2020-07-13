@@ -15,6 +15,7 @@ use App\dealer;
 use App\technician;
 use App\cc;
 use DB;
+use Validator;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -68,6 +69,80 @@ class AppointmentController extends Controller
 
     }
 
+    public function imageUpload()
+    {
+        // $data = carregnum::all();
+        return view('add-inspection-appointment');
+    }
+    public function imageUploadPost()
+    {
+        request()->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('images_test'), $imageName);
+
+        // echo $imageName;
+
+        return back()
+            ->with('success',$imageName)
+            ->with('image',$imageName);
+
+    }
+
+
+    function action(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+                'image_mile' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            ]);
+            if($validation->passes())
+            {
+                $image = $request->file('image_mile');
+                $new_name_mile = rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images_test'), $new_name_mile);
+                return response()->json([
+                'message'   => 'Image Upload Successfully / image - name : '.$new_name_mile,
+                'uploaded_image' => '<img src="/images_test/'.$new_name_mile.'" class="img-thumbnail" width="80%" align="center" />',
+                'class_name'  => 'alert-success'
+                ]);
+            }
+            else
+            {
+            return response()->json([
+                'message'   => $validation->errors()->all(),
+                'uploaded_image' => '',
+                'class_name'  => 'alert-danger'
+            ]);
+        }
+    }
+
+
+    function action1(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+                'image_num' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            ]);
+            if($validation->passes())
+            {
+                $image = $request->file('image_num');
+                $new_name_num = rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images_test'), $new_name_num);
+                return response()->json([
+                'message_num'   => 'Image Upload Successfully / image - name : '.$new_name_num,
+                'uploaded_image_num' => '<img src="/images_test/'.$new_name_num.'" class="img-thumbnail" width="80%" align="center" />',
+                'class_name'  => 'alert-success'
+                ]);
+            }
+            else
+            {
+            return response()->json([
+                'message_num'   => $validation->errors()->all(),
+                'uploaded_image_num' => '',
+                'class_name'  => 'alert-danger'
+            ]);
+        }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -119,7 +194,7 @@ class AppointmentController extends Controller
         ->join('ccs','add_inspection_cars.cc','=','ccs.id_cc')
         ->join('dealers','add_inspection_cars.fromtent','=','dealers.id_dealer')
         ->join('packages','add_inspection_dates.package','=','packages.id_package')
-        ->join('technicians','add_inspection_dates.inspector','=','technicians.id')
+        ->join('technicians','add_inspection_dates.inspector','=','technicians.id_tech')
 
         ->where('add_inspection_custos.id', '=', $id)
         ->groupBy('add_inspection_custos.id')
@@ -144,7 +219,7 @@ class AppointmentController extends Controller
             ->select('add_inspection_custos.*','add_inspection_cars.*','add_inspection_dates.*',
                      'provinces.name_th','amphures.name_th as name_am','districts.name_th as name_dis',
                      'provinces.id as id_pro','amphures.id as id_am','districts.id as id_dis',
-                     'brands.*','models.*','ccs.cc','b.id_color as id_b','n.id_color as id_n','sub_models.*','packages.*',
+                     'brands.*','models.*','ccs.*','b.id_color as id_b','n.id_color as id_n','sub_models.*','packages.*',
                      'technicians.*','dealers.*','b.car_color as n_b','n.car_color as n_n')
 
             ->join('add_inspection_cars', 'add_inspection_custos.id', '=', 'add_inspection_cars.id')
@@ -160,7 +235,7 @@ class AppointmentController extends Controller
             ->join('ccs','add_inspection_cars.cc','=','ccs.id_cc')
             ->join('dealers','add_inspection_cars.fromtent','=','dealers.id_dealer')
             ->join('packages','add_inspection_dates.package','=','packages.id_package')
-            ->join('technicians','add_inspection_dates.inspector','=','technicians.id')
+            ->join('technicians','add_inspection_dates.inspector','=','technicians.id_tech')
             ->where('add_inspection_custos.id', '=', $id)
             ->groupBy('add_inspection_custos.id')
             ->get();
@@ -209,6 +284,10 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        // $inputAll = $request->all();
+        // var_dump($inputAll);
+        // var_dump('---->>>>'.$id);
         // data customer
         $data = add_inspection_custo::find($id);
         $data->nametitle = $request->get('nametitle');

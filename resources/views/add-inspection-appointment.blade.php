@@ -11,9 +11,22 @@
         <div class="col-12">
             <h3 class="title">เพิ่มข้อมูลนัดตรวจรถ</h3>
         </div>
-        <hr noshade>
+        <hr noshade><br>
+        <a style="margin-right:3%">
+            @foreach($id_max as $key => $id_maxs)
+            {{-- {{ $idmax = $id_maxs->id }} --}}
+
+                    <?php
+                        $idmax = $id_maxs->id;
+                        $id_maxins = 'inspec-'.str_pad(($idmax+1),6,'0',STR_PAD_LEFT);
+                        echo 'เลขที่ตรวจสภาพรถ : '.$id_maxins;
+
+                    ?>
+            @endforeach
+        </a>
+        <br><br>
         <div class="col-12">
-            <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data'>
+            <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' id="add_inspection">
                 @csrf
                 <div class="form-title">ข้อมูลลูกค้า</div>
                 <div class="col-12 pt-lg-3 box-form">
@@ -64,15 +77,22 @@
                         <label class="col-lg-2" for="idCard">เลขประจำตัวประชาชน</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="idcard" id="idCard">
 
-                        <label class="col-lg-2" for="tel">เบอร์โทรศัพท์</label>
+                        <label class="col-lg-2" for="tel">เบอร์โทร - ลูกค้า</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel" id="tel" required>
 
                         <label class="col-lg-2" for="customerType">ประเภทสมาชิก</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="customertype" id="customerType" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             <option value="สมาชิกทั่วไป">สมาชิกทั่วไป</option>
-                            <option value="สมาชิกรูปแบบเต๊นท์">สมาชิกรูปแบบเต็นท์</option>
+                            <option value="สมาชิกรูปแบบเต๊นท์" selected>สมาชิกรูปแบบเต็นท์</option>
                         </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="contact">ผู้ติดต่อ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="contact" id="contact">
+
+                        <label class="col-lg-2" for="tel_contact">เบอร์โทร - ผู้ติดต่อ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel_contact" id="tel_contact" required>
                     </div>
                 </div>
 
@@ -121,9 +141,13 @@
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="seatnum" id="seatNum" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             <option value="2">2</option>
-                            <option value="4">4</option>
+                            <option value="4" selected>4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+
                         </select>
                     </div>
                     <div class="form-group row">
@@ -134,7 +158,7 @@
 
                         <label class="col-lg-2 pl-lg-5" for="registerType">ประเภทจดทะเบียน</label>
                         <div class="col-lg-4 btnCustom">
-                            <input type="radio" name="registertype" id="registerType1" value="0">
+                            <input type="radio" name="registertype" id="registerType1" value="0" checked>
                             <label for="registerType1">รถยนต์ส่วนบุคคล</label>
 
                             <input type="radio" name="registertype" id="registerType2" value="1">
@@ -162,7 +186,7 @@
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             @foreach($cc as $key => $ccs)
-                            <option value="{{ $ccs->id_cc }}">{{ $ccs->cc }}</option>
+                            <option value="{{ $ccs->id_cc }}" {{ ($ccs->cc == '1.8' ? 'selected' : '')}}>{{ $ccs->cc }}</option>
                             @endforeach
                         </select>
 
@@ -255,7 +279,7 @@
                         <select class="col-lg-3 form-control form-control-sm form-border" name="inspector" id="inspector" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             @foreach($tech as $key => $techs)
-                            <option value="{{ $techs->id }}">{{ $techs->name_tech }}</option>
+                            <option value="{{ $techs->id_tech }}">{{ $techs->name_tech }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -280,13 +304,69 @@
                         <label class="col-lg-2 pl-lg-5" for="remark">Remark</label>
                         <textarea class="col-lg-5 form-control form-control-sm form-border" name="remark" id="remark"></textarea>
                     </div>
-                </div>
+                    <br>
+                </form>
+                    <div class="list-group-item">
 
+                        <label class="col-lg-5" for="package">รูปเลขไมล์รถ</label>
+                        <label class="col-lg-1" for="package"></label>
+                        <label class="col-lg-5" for="package">รูปเล่มทะเบียนรถ</label>
+
+                            {{--  images --}}
+                        <div class="row">
+                            <div class="col-md-6 list-group-item">
+                                <form method="post" id="upload_form_mile" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <input type="file" name="image_mile" class="form-control" height="2%">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-success">ADD</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="alert col-md-11" id="message" style="display: none;"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <span id="uploaded_image"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6 list-group-item">
+                                <form method="post" id="upload_form_num" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <input type="file" name="image_num" class="form-control" height="2%">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-success">ADD</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="alert col-md-11" id="message_num" style="display: none"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <span id="uploaded_image_num"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+        <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' id="add_inspection">
+            @csrf
                 <div class="col-12 pt-2 pt-lg-4 text-center">
                     <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
                    <a href="{{ route('appointment.index')}}"> <button class="btn btn-danger" type="button"><i class="fa fa-times" aria-hidden="true"></i> ยกเลิก</button></a>
                 </div>
-            </form>
+        </form>
+
             <br>
             <br>
             <br>
@@ -295,8 +375,6 @@
         </div>
 </div>
 </div>
-
-
 <script type="text/javascript">
 
 $('#province').change(function(){
@@ -398,6 +476,55 @@ $('#carModel').on('change',function(){
     }
     // alert(carModelID);
    });
+
+   //  images mile
+   $(document).ready(function(){
+
+        $('#upload_form_mile').on('submit', function(event){
+            event.preventDefault();
+            $.ajax({
+            url:"{{ route('ajaxupload.action') }}",
+            method:"POST",
+            data:new FormData(this),
+            dataType:'JSON',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success:function(data)
+                {
+                    $('#message').css('display', 'block');
+                    $('#message').html(data.message);
+                    $('#message').addClass(data.class_name);
+                    $('#uploaded_image').html(data.uploaded_image);
+                }
+            })
+        });
+
+});
+   //  images num-car
+$(document).ready(function(){
+
+    $('#upload_form_num').on('submit', function(event){
+        event.preventDefault();
+        $.ajax({
+        url:"{{ route('ajaxuploadnum.action1') }}",
+        method:"POST",
+        data:new FormData(this),
+        dataType:'JSON',
+        contentType: false,
+        cache: false,
+        processData: false,
+        success:function(data)
+            {
+                $('#message_num').css('display', 'block');
+                $('#message_num').html(data.message_num);
+                $('#message_num').addClass(data.class_name);
+                $('#uploaded_image_num').html(data.uploaded_image_num);
+            }
+        })
+    });
+
+});
 
 </script>
 
