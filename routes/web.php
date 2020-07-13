@@ -19,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/car_show', function () {
-    return view('car_show');
-});
+Route::resource('/car_show', 'car_showController');
 Route::resource('/insp-details', 'DetailsController');
 
 Auth::routes();

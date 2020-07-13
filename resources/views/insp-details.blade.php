@@ -108,12 +108,12 @@
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa fa-picture-o" aria-hidden="true"></i> Picture</a>
                         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fa fa-camera" aria-hidden="true"></i> Pic 360</a>
-                        <a href="#" class="btn btn-sm btn-report">Inspection Report</a>
+                        <a href="{{ route('car_show') }}" class="btn btn-sm btn-report">Inspection Report</a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <!-- สไลด์รูปภาพ -->
-                    <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div id="slider" class="flexslider">
                             <ul class="slides">
                                 <li>
