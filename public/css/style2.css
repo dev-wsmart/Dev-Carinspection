@@ -4,7 +4,7 @@ body{
 }
 hr{
     width: 50%;
-    background-color: #052744;
+    background-color: #00385B;
     margin-left: 0;
     margin-top: 0;
 }
@@ -23,27 +23,36 @@ a:hover{
 a:hover .card{
     box-shadow: 5px 5px 10px -4px #888888;
 }
-.card-header{
-    background-color: #052744; /* #052744 #FFCA07*/
-    color: #ffffff;
-}
-.page-link, .page-link:hover{
-    color: #052744;
-}
-.page-item.active .page-link{
-    background-color: #052744;
-    border-color: #052744;
+.card{
+    border-radius: 15px;
 }
 .card-img{
-    height: 200px;
-    overflow: hidden;
+    display: flex;
+    height: 170px;
 }
 .card-img img{
-    -webkit-transform: translateY(-5%);
-	transform: translateY(-5%);
+    border-radius: 15px 15px 0 0;
+    object-fit: cover;
+}
+.card-body{
+    padding: 0;
+}
+.card-header, .card-footer{
+    background-color: #00385B; /* #052744 #FFCA07 #00385B */
+    color: #ffffff;
+}
+.card-footer{
+    border-radius: 0 0 15px 15px !important;
+}
+.page-link, .page-link:hover{
+    color: #00385B;
+}
+.page-item.active .page-link{
+    background-color: #00385B;
+    border-color: #00385B;
 }
 thead{
-    background-color: #052744;
+    background-color: #00385B;
     color: #ffffff;
 }
 .form-title{
@@ -52,12 +61,12 @@ thead{
     text-align: center;
     padding-top: 4px;
     padding-bottom: 4px;
-    background-color: #052744;
+    background-color: #00385B;
     border-radius: 20px 20px 0 0;
 }
 .box-form{
     border-radius: 0 0 20px 20px;
-    border: 1px solid #052744;
+    border: 1px solid #00385B;
     padding-bottom: 10px;
     margin-bottom: 13px;
 }
@@ -146,7 +155,7 @@ thead{
     background-color: rgba(51, 51, 51, 0.25);
 }
 .circle-tag{
-    background-color: #052744;
+    background-color: #00385B;
     border-radius: 25px;
     width: 28px;
     height: 28px;
@@ -158,8 +167,8 @@ thead{
     font-size: 17px;
     font-weight: 600;
     margin-bottom: 5px;
-    color: #052744;
-    border-bottom: 1.5px solid #052744;
+    color: #00385B;
+    border-bottom: 1.5px solid #00385B;
 }
 .upload-box{
     margin: 0 10%;

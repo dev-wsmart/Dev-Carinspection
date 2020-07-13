@@ -76,22 +76,17 @@
                                 <div class="col-7">{{$datas->mileage}}</div>
                             </div>
                         </div>
-                        <div class="card-header" style="border: none;">ราคาขาย <b>{{$datas->price}}</b> บาท</div>
+                        <div class="card-footer" style="border: none;">ราคาขาย <b>{{$datas->price}}</b> บาท</div>
                     </div>
                 </a>
             </div>
         @endforeach
     </div>
-    <div class="row">
+    <div class="row py-4">
         <div class="col-4"></div>
         <div class="col-4">{{ $data->onEachSide(1)->links() }}</div>
         <div class="col-4"></div>
     </div>
-<br>
-<br>
-<br>
-<br>
-<br>
 </div>
 
 @endsection

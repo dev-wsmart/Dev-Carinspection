@@ -1,8 +1,19 @@
 <style>
   .chiller-theme .sidebar-wrapper {
-      background: #052744 !important;
+      background: #00385B !important;
   }
-
+  .user{
+    display: flex;
+    width: 220px;
+    height: 220px;
+    background-color: #ffffff;
+    border-radius: 50%;
+  }
+  .user img{
+    align-self: center;
+    margin: 0 auto;
+    width: 80%;
+  }
   </style>
 
 
@@ -14,8 +25,8 @@
       <div class="sidebar-content">
         <div class="sidebar-header">
 
-          <div class="user" align="center">
-            <img class="img-responsive img-rounded" src="{{ asset('img_system/user.png') }}" width="80%" alt="User picture">
+          <div class="user">
+            <img class="img-responsive img-rounded" src="{{ asset('images/logo-1.png') }}">
           </div>
         </div>
 
@@ -23,7 +34,7 @@
         <div class="sidebar-menu">
           <ul>
             <li class="header-menu" style="color:#fff; background:#294993 !important; padding-top:10px; padding-buttom:20px;">
-             <center><h3>WSMART</h3></center>
+             <center><h3>SCHICHER</h3></center>
              <center>
              <span class="user-name" style="color:#fff;">
             {{ Auth::user()->username }}
@@ -41,7 +52,7 @@
               <a class="dropdown-item {{ (request()->is('service')) ? 'active': '' }}" href="{{ route('service.index') }}">
                 <!-- <i class="fas fa-tools"></i> -->
                 <i class="fas fa-wrench"></i>
-                <span>Service Inspection Report</span>
+                <span>Service Report</span>
               </a>
             </li>
             <li>
