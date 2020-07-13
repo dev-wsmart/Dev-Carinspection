@@ -1,6 +1,3 @@
-@extends('layouts.app')
-@section('content')
-
 <html>
 <head>
     <title>Login Page</title>
@@ -9,34 +6,33 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Login Page</title>
-       <!--Made with love by Mutiullah Samim -->
-        <!--Bootsrap 4 CDN-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <!--Fontawesome CDN-->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <!--Custom styles-->
-        <link rel="stylesheet" type="text/css" href="styles.css">
-
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <!--Made with love by Mutiullah Samim -->
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    <div class="container" style="margin-top:10%">
+    <div class="bg-opacity"></div>
+    <div class="">
         <div class="d-flex justify-content-center h-100">
             <div class="card_b">
                 <div class="card-header">
                     <h3>Login</h3>
                     <div class="d-flex justify-content-end social_icon">
                         <span>
-                            <img src="print_form/logo-carsome-black.png" class="rounded float-left" alt="..." width="150px">
+                            <img src="{{ asset('images/logo.png') }}" class="rounded float-left" alt="..." width="150px">
                         </span>
                     </div>
                 </div>
                 <div class="card-body">
-
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="input-group form-group">
@@ -78,17 +74,14 @@
                             @endif
                         </div>
                     </form>
-
-
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
-                        wsmar
+                        Wsmart
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </body>
-    </html>
-@endsection
+</body>
+</html>
