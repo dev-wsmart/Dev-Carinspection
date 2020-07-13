@@ -10,7 +10,7 @@ body{
 .page{
     /*794 x 1123*/
     width: 790px;
-    height: 1120px;
+    height: 1125px;
     background-size: cover;
     margin: 5px;
     background-image: url('../img_system/carshowbg.jpg');
@@ -32,7 +32,7 @@ body{
 
 table {
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 table, th, td {
@@ -54,8 +54,8 @@ table, th, td {
     grid-template-columns: 50% 50%;
 }
 
-.grid-item{
-}
+/* .grid-item{
+} */
 .car-show{
     margin-top: 20px;
     margin-bottom: 30px;
@@ -71,6 +71,10 @@ table, th, td {
     font-size: 25px;
 }
 
+.table-detail{
+    background-color: white;
+}
+
 .table-title{
     background-color: rgb(237, 239, 236);
 }
@@ -84,6 +88,32 @@ table, th, td {
     border-radius: 13px;
 }
 
+.wheel-grid-container{
+    margin-top: 30px;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-template-columns: auto auto;
+}
+
+.wheel-img{
+    border: 20px inset #a38175;
+    width: 250px;
+    height: 200px;
+}
+.condition-bg{
+    margin-top: 30px;
+     height:800px;
+      background-color: rgb(233, 178, 65);
+}
+
+.sign-grid-container{
+    margin-top: 50px;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: auto auto auto;
+}
+
 @page{
     size: 21cm 29.7cm; /* auto is the initial value */
     margin: 1mm 4mm 1mm 1mm; /* this affects the margin in the printer settings */
@@ -91,4 +121,10 @@ table, th, td {
 
 @media print {
     .page {page-break-after: always;}
+}
+
+/*Force show background on print*/
+* {
+    -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+    color-adjust: exact !important;                 /*Firefox*/
 }

@@ -14,6 +14,7 @@ class car_showController extends Controller
      */
     public function index()
     {
+        Log::info('This is some useful information.');
         //
         return view('car_show');
     }
