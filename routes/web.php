@@ -22,45 +22,45 @@ use Illuminate\Support\Facades\Route;
 Route::get('/car_show', function () {
     return view('car_show');
 });
+Route::resource('/insp-details', 'DetailsController');
 
 Auth::routes();
 
-Route::resource('/', 'ReportController');
-Route::resource('/report', 'ReportController');
-Route::resource('/service', 'ServiceController')->middleware('auth');
-Route::resource('/edit', 'EditController');
-Route::resource('/appointment', 'AppointmentController');
-Route::resource('/add-inspection-appointment', 'AddInspectionCustoController');
-Route::resource('/technician', 'TechnicianController');
-Route::resource('/insp-details', 'DetailsController');
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('/', 'ReportController');
+    Route::resource('/report', 'ReportController');
+    Route::resource('/service', 'ServiceController')->middleware('auth');
+    Route::resource('/edit', 'EditController');
+    Route::resource('/appointment', 'AppointmentController');
+    Route::resource('/add-inspection-appointment', 'AddInspectionCustoController');
+    Route::resource('/technician', 'TechnicianController');
 
-// search
-Route::get('/search','AppointmentController@search');
-Route::get('/search_rep','ReportController@search');
-
-
-Route::resource('/users', 'AddInspectionCarController');
-
-// add data provin-district-subdistrict
-Route::get('get-district-list','AddInspectionCustoController@getdistrictList');
-Route::get('get-subdis-list','AddInspectionCustoController@getCityList');
-// add data provin-model-submodel
-Route::get('get-model-list','AddInspectionCustoController@getmodelList');
-Route::get('get-submodel-list','AddInspectionCustoController@getsubmodelList');
+    // search
+    Route::get('/search','AppointmentController@search');
+    Route::get('/search_rep','ReportController@search');
 
 
-// edit data provin-district-subdistrict
-Route::get('get-districte-list','AppointmentController@getdistrictList');
-Route::get('get-subdise-list','AppointmentController@getCityList');
+    Route::resource('/users', 'AddInspectionCarController');
+
+    // add data provin-district-subdistrict
+    Route::get('get-district-list','AddInspectionCustoController@getdistrictList');
+    Route::get('get-subdis-list','AddInspectionCustoController@getCityList');
+    // add data provin-model-submodel
+    Route::get('get-model-list','AddInspectionCustoController@getmodelList');
+    Route::get('get-submodel-list','AddInspectionCustoController@getsubmodelList');
 
 
-// upload images arry
-Route::get('images-upload', 'AddInspectionCarController@imagesUpload');
-Route::post('images-upload', 'AddInspectionCarController@imagesUploadPost')->name('images.upload');
-
-// upload images inspection appointment
-Route::get('/ajax_upload', 'AppointmentController@imageUpload');
-Route::post('/add-inspection-appointment/action', 'AppointmentController@action')->name('ajaxupload.action');
-Route::post('/add-inspection-appointment/action1', 'AppointmentController@action1')->name('ajaxuploadnum.action1');
+    // edit data provin-district-subdistrict
+    Route::get('get-districte-list','AppointmentController@getdistrictList');
+    Route::get('get-subdise-list','AppointmentController@getCityList');
 
 
+    // upload images arry
+    Route::get('images-upload', 'AddInspectionCarController@imagesUpload');
+    Route::post('images-upload', 'AddInspectionCarController@imagesUploadPost')->name('images.upload');
+
+    // upload images inspection appointment
+    Route::get('/ajax_upload', 'AppointmentController@imageUpload');
+    Route::post('/add-inspection-appointment/action', 'AppointmentController@action')->name('ajaxupload.action');
+    Route::post('/add-inspection-appointment/action1', 'AppointmentController@action1')->name('ajaxuploadnum.action1');
+});
