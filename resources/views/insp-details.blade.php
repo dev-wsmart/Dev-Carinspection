@@ -7,12 +7,11 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="style" href="{{ asset('flexslider/flexslider.css')}}">
+    <link rel="stylesheet" href="{{ asset('flexslider/flexslider.css')}}">
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="{{ asset('flexslider/jquery.flexslider-min.js') }}"></script>
 
     <style>
         .title{
@@ -47,60 +46,33 @@
             background-color: #FFCA07;
         }
         .btn-report:hover{ font-weight: 600; }
-        /* slides */
-        .slides {
-            display: none;
-            text-align: center;
-            background-color: #e8e8e8;
+
+        .flex-direction-nav a::before{
+            font-size: 30px;
         }
-        .slides > img {
-            width: 100%;
-            height: 458px;
+        #slider, #carousel{
+            margin-bottom: 0px;
+        }
+        #slider img{
             object-fit: cover;
+            height: 400px;
         }
-        .cursor { cursor: pointer; }
-        .prev, .next {
+        #carousel img{
+            object-fit: cover;
             cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -50px;
-            color: #ffffff !important;
-            font-weight: bold;
-            font-size: 20px;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            -webkit-user-select: none;
+            opacity: 0.5;
+            width: 120px;
+            height: 100px;
         }
-        .next {
-            right: 15px;
-            border-radius: 3px 0 0 3px;
-        }
-        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.5); }
-        .column {
-            text-align: center;
-            display: inline-block;
-            height: 16.66%;
-        }
-        .column img{
-            width: 118px;
-            object-fit: cover;
-        }
-        .thumbnail{
-            overflow-x: scroll;
-            overflow-y: hidden;
-            white-space: nowrap;
-            background-color: #052744;
-        }
-        .demo {
-            opacity: 0.6;
-            height: 81px;
-        }
-        .active, .demo:hover {
+
+        #carousel .flex-active-slide img, #carousel img:hover{
             opacity: 1;
         }
-        /* end slides */
+
+        #carousel{
+            height: 100px;
+        }
+
         .de-title{
             width: 95%;
             margin: 0 auto;
@@ -115,9 +87,11 @@
         .insp-result > div{ padding-top: 3px; }
         .insp-result > div > table{ border-bottom: 1px solid #a3a3a3; }
         @media only screen and (max-width: 420px){
-            .slides > img {
-                height: 250px;
+            #slider img{
+                object-fit: cover;
+                height: 220px;
             }
+
         }
     </style>
 </head>
@@ -134,68 +108,31 @@
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa fa-picture-o" aria-hidden="true"></i> Picture</a>
                         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fa fa-camera" aria-hidden="true"></i> Pic 360</a>
-                        <a href="#" class="btn btn-sm btn-report">Inspection Report</a>
+                        <a href="{{ route('car_show.index') }}" class="btn btn-sm btn-report">Inspection Report</a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <!-- สไลด์รูปภาพ -->
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <!-- Full-width images with number text -->
-                        <div class="slides">
-                            <img src="{{ asset('images/car1.jpg') }}">
+                        <div id="slider" class="flexslider">
+                            <ul class="slides">
+                                <li>
+                                    <img src="{{ asset('images/car1.jpg') }}">
+                                </li>
+                                <li>
+                                    <img src="{{ asset('images/car.jpg') }}">
+                                </li>
+                            </ul>
                         </div>
-                        <div class="slides">
-                            <img src="{{ asset('images/car.jpg') }}">
-                        </div>
-                        <div class="slides">
-                            <img src="{{ asset('img_system/DSC08457.jpg') }}">
-                        </div>
-                        <div class="slides">
-                            <img src="{{ asset('img_system/DSC08457.jpg') }}">
-                        </div>
-                        <div class="slides">
-                            <img src="{{ asset('img_system/DSC08457.jpg') }}">
-                        </div>
-                        <div class="slides">
-                            <img src="{{ asset('images/car.jpg') }}">
-                        </div>
-                        <div class="slides">
-                            <img src="{{ asset('images/car.jpg') }}">
-                        </div>
-                        <div class="slides">
-                            <img src="{{ asset('images/car.jpg') }}">
-                        </div>
-
-                        <!-- Next and previous buttons -->
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                        <!-- Thumbnail images -->
-                        <div class="thumbnail">
-                            <div class="column">
-                                <img class="demo cursor" src="{{ asset('images/car1.jpg') }}" onclick="currentSlide(1)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="{{ asset('images/car.jpg') }}" onclick="currentSlide(2)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="{{ asset('img_system/DSC08457.jpg') }}" onclick="currentSlide(3)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="{{ asset('img_system/DSC08457.jpg') }}" onclick="currentSlide(4)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="{{ asset('img_system/DSC08457.jpg') }}" onclick="currentSlide(5)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="{{ asset('images/car.jpg') }}" onclick="currentSlide(6)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="{{ asset('images/car.jpg') }}" onclick="currentSlide(7)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="{{ asset('images/car.jpg') }}" onclick="currentSlide(8)">
-                            </div>
+                        <div id = "carousel" class="flexslider">
+                            <ul class="slides">
+                                <li>
+                                    <img src="{{ asset('images/car1.jpg') }}">
+                                </li>
+                                <li>
+                                    <img src="{{ asset('images/car.jpg') }}">
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
@@ -368,55 +305,26 @@
     </div>
 </body>
 
-<script>
-    var slideIndex = 1;
-    showSlides(slideIndex);
+<script src="{{ asset('flexslider/jquery.flexslider-min.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#carousel').flexslider({
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: false,
+            itemWidth: 120,
+            itemMargin: 5,
+            asNavFor: '#slider'
+        });
 
-    // Next/previous controls
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-
-    }
-
-    // Thumbnail image controls
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("slides");
-        var dots = document.getElementsByClassName("demo");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-    }
-
-    // $('#carousel').flexslider({
-    //     animation: "slide",
-    //     controlNav: false,
-    //     animationLoop: false,
-    //     slideshow: false,
-    //     itemWidth: 210,
-    //     itemMargin: 5,
-    //     asNavFor: '#slider'
-    // });
-
-    // $('#slider').flexslider({
-    //     animation: "slide",
-    //     controlNav: false,
-    //     animationLoop: false,
-    //     slideshow: false,
-    //     sync: "#carousel"
-    // });
-
-</script>
+        $('#slider').flexslider({
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: false,
+            sync: "#carousel"
+        });
+    });
+  </script>
 </html>

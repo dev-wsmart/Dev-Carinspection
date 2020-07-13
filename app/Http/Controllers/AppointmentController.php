@@ -17,6 +17,7 @@ use App\cc;
 use DB;
 use Validator;
 use Illuminate\Http\Request;
+use SebastianBergmann\Environment\Console;
 
 class AppointmentController extends Controller
 {
@@ -93,28 +94,34 @@ class AppointmentController extends Controller
 
     function action(Request $request)
     {
+
+
         $validation = Validator::make($request->all(), [
                 'image_mile' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
-            if($validation->passes())
+
+
+            if($validation->passes() && $validation != '')
             {
                 $image = $request->file('image_mile');
-                $new_name_mile = rand() . '.' . $image->getClientOriginalExtension();
+                $new_name_mi = rand() . '.' . $image->getClientOriginalExtension();
+                $new_name_mile = 'mile'.$new_name_mi;
                 $image->move(public_path('images_test'), $new_name_mile);
                 return response()->json([
-                'message'   => 'Image Upload Successfully / image - name : '.$new_name_mile,
+                'message'   => $new_name_mile,
                 'uploaded_image' => '<img src="/images_test/'.$new_name_mile.'" class="img-thumbnail" width="80%" align="center" />',
                 'class_name'  => 'alert-success'
                 ]);
             }
             else
             {
-            return response()->json([
-                'message'   => $validation->errors()->all(),
-                'uploaded_image' => '',
-                'class_name'  => 'alert-danger'
-            ]);
-        }
+                return response()->json([
+                    'message'   => $validation->errors()->all(),
+                    'uploaded_image' => '',
+                    'class_name'  => 'alert-success'
+                ]);
+            }
+
     }
 
 
@@ -123,13 +130,15 @@ class AppointmentController extends Controller
         $validation = Validator::make($request->all(), [
                 'image_num' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
-            if($validation->passes())
+            if($validation->passes() && $validation != '')
             {
                 $image = $request->file('image_num');
-                $new_name_num = rand() . '.' . $image->getClientOriginalExtension();
+                $new_name_n = rand() . '.' . $image->getClientOriginalExtension();
+                $new_name_num = 'num'.$new_name_n;
                 $image->move(public_path('images_test'), $new_name_num);
                 return response()->json([
-                'message_num'   => 'Image Upload Successfully / image - name : '.$new_name_num,
+                // 'message_num'   => 'Image Upload Successfully / image - name : '.$new_name_num,
+                'message_num'   => $new_name_num,
                 'uploaded_image_num' => '<img src="/images_test/'.$new_name_num.'" class="img-thumbnail" width="80%" align="center" />',
                 'class_name'  => 'alert-success'
                 ]);
@@ -139,7 +148,8 @@ class AppointmentController extends Controller
             return response()->json([
                 'message_num'   => $validation->errors()->all(),
                 'uploaded_image_num' => '',
-                'class_name'  => 'alert-danger'
+                'class_name'  => 'alert-success'
+                // 'class_name'  => 'alert-danger'
             ]);
         }
     }

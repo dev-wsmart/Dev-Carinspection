@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\cr;
+use App\images_mn;
 use Illuminate\Http\Request;
 
-class car_showController extends Controller
+class ImagesMnController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class car_showController extends Controller
      */
     public function index()
     {
-        return view('car_show');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class car_showController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\cr  $cr
+     * @param  \App\images_mn  $images_mn
      * @return \Illuminate\Http\Response
      */
-    public function show(cr $cr)
+    public function show(images_mn $images_mn)
     {
         //
     }
@@ -52,10 +52,10 @@ class car_showController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\cr  $cr
+     * @param  \App\images_mn  $images_mn
      * @return \Illuminate\Http\Response
      */
-    public function edit(cr $cr)
+    public function edit(images_mn $images_mn)
     {
         //
     }
@@ -64,10 +64,10 @@ class car_showController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\cr  $cr
+     * @param  \App\images_mn  $images_mn
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cr $cr)
+    public function update(Request $request, images_mn $images_mn)
     {
         //
     }
@@ -75,10 +75,10 @@ class car_showController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\cr  $cr
+     * @param  \App\images_mn  $images_mn
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cr $cr)
+    public function destroy(images_mn $images_mn)
     {
         //
     }
