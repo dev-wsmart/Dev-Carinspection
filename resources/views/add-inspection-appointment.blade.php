@@ -17,7 +17,11 @@
             {{-- {{ $idmax = $id_maxs->id }} --}}
 
                     <?php
+
+                        $type_image0 = 0;
+                        $type_image1 = 1;
                         $idmax = $id_maxs->id;
+                        $id_car = $idmax+1;
                         $id_maxins = 'inspec-'.str_pad(($idmax+1),6,'0',STR_PAD_LEFT);
                         echo 'เลขที่ตรวจสภาพรถ : '.$id_maxins;
 
@@ -28,6 +32,10 @@
         <div class="col-12">
             <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' id="add_inspection">
                 @csrf
+                <input type="hidden" name="id_car" value="{{ $id_car }}">
+                <input type="hidden" name="type_image0" value="{{ $type_image0 }}">
+                <input type="hidden" name="type_image1" value="{{ $type_image1 }}">
+                {{-- {{ csrf_field() }} --}}
                 <div class="form-title">ข้อมูลลูกค้า</div>
                 <div class="col-12 pt-lg-3 box-form">
                     <div class="form-group row">
@@ -305,7 +313,7 @@
                         <textarea class="col-lg-5 form-control form-control-sm form-border" name="remark" id="remark"></textarea>
                     </div>
                     <br>
-                </form>
+                {{-- </form> --}}
                     <div class="list-group-item">
 
                         <label class="col-lg-5" for="package">รูปเลขไมล์รถ</label>
@@ -315,18 +323,20 @@
                             {{--  images --}}
                         <div class="row">
                             <div class="col-md-6 list-group-item">
-                                <form method="post" id="upload_form_mile" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
+                                {{-- <form method="post" id="upload_form_mile" enctype="multipart/form-data">
+                                    {{ csrf_field() }} --}}
                                     <div class="row">
                                         <div class="col-md-10">
-                                            <input type="file" name="image_mile" class="form-control" height="2%">
+                                            <input type="file" name="image_mile" class="form-control" height="2%" value="0">
                                         </div>
                                         <div class="col-md-1">
-                                            <button type="submit" class="btn btn-success">ADD</button>
+                                            {{-- <button class="btn btn-success" onclick="images1()">ADD</button> --}}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="alert col-md-11" id="message" style="display: none;"></div>
+                                        {{-- <input type="text" id="message" style="display: none;" name="message" > --}}
+
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12" align="center">
@@ -336,43 +346,45 @@
                                 </form>
                             </div>
                             <div class="col-md-6 list-group-item">
-                                <form method="post" id="upload_form_num" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
+                                {{-- <form method="post" id="upload_form_num" enctype="multipart/form-data">
+                                    {{ csrf_field() }} --}}
                                     <div class="row">
-                                        <div class="col-md-10">
-                                            <input type="file" name="image_num" class="form-control" height="2%">
+                                        <div class="col-md-11">
+                                            <input type="file" name="image_num" class="form-control" height="2%" value="1">
+
                                         </div>
                                         <div class="col-md-1">
-                                            <button type="submit" class="btn btn-success">ADD</button>
+                                            {{-- <button type="submit" class="btn btn-success">ADD</button> --}}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="alert col-md-11" id="message_num" style="display: none"></div>
+                                        {{-- <input type="text" id="message_num" name="message_num" > --}}
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12" align="center">
                                             <span id="uploaded_image_num"></span>
                                         </div>
                                     </div>
-                                </form>
+                                {{-- </form> --}}
                             </div>
                         </div>
                      </div>
-                </div>
-        <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' id="add_inspection">
-            @csrf
+
+        {{-- <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' id="add_inspection">
+            @csrf --}}
                 <div class="col-12 pt-2 pt-lg-4 text-center">
                     <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
                    <a href="{{ route('appointment.index')}}"> <button class="btn btn-danger" type="button"><i class="fa fa-times" aria-hidden="true"></i> ยกเลิก</button></a>
                 </div>
         </form>
 
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 </div>
 </div>
 <script type="text/javascript">
@@ -477,11 +489,15 @@ $('#carModel').on('change',function(){
     // alert(carModelID);
    });
 
-   //  images mile
-   $(document).ready(function(){
 
-        $('#upload_form_mile').on('submit', function(event){
+
+//  images mile
+
+$(document).ready(function(){
+        $('#add_inspection').on('change', function(event){
             event.preventDefault();
+            // var imagesD = $(this).val();
+            // alert(imagesD);
             $.ajax({
             url:"{{ route('ajaxupload.action') }}",
             method:"POST",
@@ -501,10 +517,10 @@ $('#carModel').on('change',function(){
         });
 
 });
+
    //  images num-car
 $(document).ready(function(){
-
-    $('#upload_form_num').on('submit', function(event){
+    $('#add_inspection').on('change', function(event){
         event.preventDefault();
         $.ajax({
         url:"{{ route('ajaxuploadnum.action1') }}",

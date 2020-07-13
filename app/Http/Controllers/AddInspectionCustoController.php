@@ -13,6 +13,7 @@ use App\color;
 use App\brand;
 use App\dealer;
 use App\technician;
+use App\images_mn;
 use App\cc;
 use DB;
 use Illuminate\Http\Request;
@@ -100,6 +101,8 @@ class AddInspectionCustoController extends Controller
 
         $inputAll = $request->all();
         var_dump($inputAll);
+
+        echo "<br>";
         // $input = new add_inspection_custo([
         //     'nametitle' => $request->input('nametitle'),
         //     'firstname' => $request->input('firstname'),
@@ -112,6 +115,8 @@ class AddInspectionCustoController extends Controller
         //     'idcard' => $request->input('idcard'),
         //     'tel' => $request->input('tel'),
         //     'customertype' => $request->input('customertype'),
+        //     'contact' => $request->input('contact'),
+        //     'tel_contact' => $request->input('tel_contact'),
         // ]);
         //      //
         // $input1 = new add_inspection_car([
@@ -164,6 +169,38 @@ class AddInspectionCustoController extends Controller
         //     $input1->save();
         //     $input2->save();
 
+
+        // mile car
+            $image = $request->file('image_mile');
+            $new_name_mi = rand() . '.' . $image->getClientOriginalExtension();
+            $new_name_mile = 'mile'.$new_name_mi;
+            // $image->move(public_path('images'), $new_name_mile);
+
+            echo $input3 = new images_mn([
+
+                'id_car' => $request->input('id_car'),
+                'name_image' => $request->input($new_name_mile),
+                'type_image' => $request->input('type_image0'),
+                'id_dealer' => $request->input('fromtent')
+
+                ]);
+            // $input3->save();
+            echo "<br>";
+
+        // number car
+            $image = $request->file('image_num');
+            $new_name_n = rand() . '.' . $image->getClientOriginalExtension();
+            $new_name_num = 'num'.$new_name_n;
+            // $image->move(public_path('images'), $new_name_num);
+            echo $input4 = new images_mn([
+
+                'id_car' => $request->input('id_car'),
+                'name_image' => $request->input($new_name_num),
+                'type_image' => $request->input('type_image0'),
+                'id_dealer' => $request->input('fromtent')
+
+                ]);
+        //     $input4->save();
 
         // return redirect('/appointment')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
 

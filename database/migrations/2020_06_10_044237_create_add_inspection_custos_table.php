@@ -27,6 +27,8 @@ class CreateAddInspectionCustosTable extends Migration
                 $table->string('idcard')->nullable();
                 $table->string('tel')->nullable();
                 $table->string('customertype')->nullable();
+                $table->string('contact')->nullable();
+                $table->string('tel_contact')->nullable();
             $table->timestamps();
         });
     }
