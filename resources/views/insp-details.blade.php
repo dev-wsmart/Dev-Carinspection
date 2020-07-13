@@ -7,10 +7,12 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="style" href="{{ asset('flexslider/flexslider.css')}}">
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="{{ asset('flexslider/jquery.flexslider-min.js') }}"></script>
 
     <style>
         .title{
@@ -27,11 +29,11 @@
             margin-bottom: 13px;
         }
         .nav-tabs{ border-bottom: 1px solid #a3a3a3;}
-        .nav-item{ 
+        .nav-item{
             color: #000000;
             padding: 4px 6px;
         }
-        .nav-item:hover{ 
+        .nav-item:hover{
             color: #000000;
             border-color: #052744 !important;
         }
@@ -48,7 +50,7 @@
         /* slides */
         .slides {
             display: none;
-            text-align: center; 
+            text-align: center;
             background-color: #e8e8e8;
         }
         .slides > img {
@@ -78,8 +80,18 @@
         .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.5); }
         .column {
             text-align: center;
-            float: left;
+            display: inline-block;
             height: 16.66%;
+        }
+        .column img{
+            width: 118px;
+            object-fit: cover;
+        }
+        .thumbnail{
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            background-color: #052744;
         }
         .demo {
             opacity: 0.6;
@@ -138,13 +150,28 @@
                         <div class="slides">
                             <img src="{{ asset('img_system/DSC08457.jpg') }}">
                         </div>
+                        <div class="slides">
+                            <img src="{{ asset('img_system/DSC08457.jpg') }}">
+                        </div>
+                        <div class="slides">
+                            <img src="{{ asset('img_system/DSC08457.jpg') }}">
+                        </div>
+                        <div class="slides">
+                            <img src="{{ asset('images/car.jpg') }}">
+                        </div>
+                        <div class="slides">
+                            <img src="{{ asset('images/car.jpg') }}">
+                        </div>
+                        <div class="slides">
+                            <img src="{{ asset('images/car.jpg') }}">
+                        </div>
 
                         <!-- Next and previous buttons -->
                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
                         <!-- Thumbnail images -->
-                        <div class="row m-0 mt-2">
+                        <div class="thumbnail">
                             <div class="column">
                                 <img class="demo cursor" src="{{ asset('images/car1.jpg') }}" onclick="currentSlide(1)">
                             </div>
@@ -153,6 +180,21 @@
                             </div>
                             <div class="column">
                                 <img class="demo cursor" src="{{ asset('img_system/DSC08457.jpg') }}" onclick="currentSlide(3)">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="{{ asset('img_system/DSC08457.jpg') }}" onclick="currentSlide(4)">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="{{ asset('img_system/DSC08457.jpg') }}" onclick="currentSlide(5)">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="{{ asset('images/car.jpg') }}" onclick="currentSlide(6)">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="{{ asset('images/car.jpg') }}" onclick="currentSlide(7)">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="{{ asset('images/car.jpg') }}" onclick="currentSlide(8)">
                             </div>
                         </div>
                     </div>
@@ -333,6 +375,7 @@
     // Next/previous controls
     function plusSlides(n) {
         showSlides(slideIndex += n);
+
     }
 
     // Thumbnail image controls
@@ -346,6 +389,7 @@
         var dots = document.getElementsByClassName("demo");
         if (n > slides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = slides.length}
+
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
@@ -355,5 +399,24 @@
         slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
     }
+
+    // $('#carousel').flexslider({
+    //     animation: "slide",
+    //     controlNav: false,
+    //     animationLoop: false,
+    //     slideshow: false,
+    //     itemWidth: 210,
+    //     itemMargin: 5,
+    //     asNavFor: '#slider'
+    // });
+
+    // $('#slider').flexslider({
+    //     animation: "slide",
+    //     controlNav: false,
+    //     animationLoop: false,
+    //     slideshow: false,
+    //     sync: "#carousel"
+    // });
+
 </script>
 </html>
