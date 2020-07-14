@@ -18,8 +18,6 @@
 
                     <?php
 
-                        $type_image0 = 0;
-                        $type_image1 = 1;
                         $idmax = $id_maxs->id;
                         $id_car = $idmax+1;
                         $id_maxins = 'inspec-'.str_pad(($idmax+1),6,'0',STR_PAD_LEFT);
@@ -33,8 +31,6 @@
             <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' id="add_inspection">
                 @csrf
                 <input type="hidden" name="id_car" value="{{ $id_car }}">
-                <input type="hidden" name="type_image0" value="{{ $type_image0 }}">
-                <input type="hidden" name="type_image1" value="{{ $type_image1 }}">
                 {{-- {{ csrf_field() }} --}}
                 <div class="form-title">ข้อมูลลูกค้า</div>
                 <div class="col-12 pt-lg-3 box-form">
@@ -326,7 +322,7 @@
                                 {{-- <form method="post" id="upload_form_mile" enctype="multipart/form-data">
                                     {{ csrf_field() }} --}}
                                     <div class="row">
-                                        <div class="col-md-10">
+                                        <div class="col-md-11">
                                             <input type="file" name="image_mile" class="form-control" height="2%" value="0">
                                         </div>
                                         <div class="col-md-1">
@@ -343,7 +339,7 @@
                                             <span id="uploaded_image"></span>
                                         </div>
                                     </div>
-                                </form>
+                                {{-- </form> --}}
                             </div>
                             <div class="col-md-6 list-group-item">
                                 {{-- <form method="post" id="upload_form_num" enctype="multipart/form-data">

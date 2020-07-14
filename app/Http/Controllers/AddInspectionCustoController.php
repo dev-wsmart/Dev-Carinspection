@@ -99,110 +99,114 @@ class AddInspectionCustoController extends Controller
     public function store(Request $request)
     {
 
-        $inputAll = $request->all();
-        var_dump($inputAll);
+        // $inputAll = $request->all();
+        // var_dump($inputAll);
 
-        echo "<br>";
-        // $input = new add_inspection_custo([
-        //     'nametitle' => $request->input('nametitle'),
-        //     'firstname' => $request->input('firstname'),
-        //     'lastname' => $request->input('lastname'),
-        //     'address' => $request->input('address'),
-        //     'province' => $request->input('province'),
-        //     'district' => $request->input('district'),
-        //     'subdistrict' => $request->input('subdistrict'),
-        //     'postalcode' => $request->input('postalcode'),
-        //     'idcard' => $request->input('idcard'),
-        //     'tel' => $request->input('tel'),
-        //     'customertype' => $request->input('customertype'),
-        //     'contact' => $request->input('contact'),
-        //     'tel_contact' => $request->input('tel_contact'),
-        // ]);
-        //      //
-        // $input1 = new add_inspection_car([
-        //     'carbrand' => $request->input('carbrand'),
-        //     'carmodel' => $request->input('carmodel'),
-        //     'submodel' => $request->input('submodel'),
-        //     'oldcolor' => $request->input('oldcolor'),
-        //     'newcolor' => $request->input('newcolor'),
-        //     'year' => $request->input('year'),
-        //     'seatnum' => $request->input('seatnum'),
-        //     'place' => $request->input('place'),
-        //     'registertype' => $request->input('registertype'),
-        //     'carregnum' => $request->input('carregnum'),
-        //     'mileage' => $request->input('mileage'),
-        //     'dateregister' => $request->input('dateregister'),
-        //     'numowners' => $request->input('numowners'),
-        //     'cc' => $request->input('cc'),
-        //     'geartype' => $request->input('geartype'),
-        //     'engine' => $request->input('engine'),
-        //     'vin' => $request->input('vin'),
-        //     'benzine' => $request->input('benzine'),
-        //     'diesel' => $request->input('diesel'),
-        //     'hybrid' => $request->input('hybrid'),
-        //     'electric' => $request->input('electric'),
-        //     'lpg' => $request->input('lpg'),
-        //     'ngv' => $request->input('ngv'),
-        //     'cng' => $request->input('cng'),
-        //     'carinsurance' => $request->input('carinsurance'),
-        //     'expinsurance' => $request->input('expinsurance'),
-        //     'insurance' => $request->input('insurance'),
-        //     'tent' => $request->input('tent'),
-        //     'fromtent' => $request->input('fromtent'),
-        //     'price' => $request->input('price'),
-        //     'payment' => $request->input('payment'),
+        // echo "<br>";
+        $input = new add_inspection_custo([
+            'nametitle' => $request->input('nametitle'),
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
+            'address' => $request->input('address'),
+            'province' => $request->input('province'),
+            'district' => $request->input('district'),
+            'subdistrict' => $request->input('subdistrict'),
+            'postalcode' => $request->input('postalcode'),
+            'idcard' => $request->input('idcard'),
+            'tel' => $request->input('tel'),
+            'customertype' => $request->input('customertype'),
+            'contact' => $request->input('contact'),
+            'tel_contact' => $request->input('tel_contact'),
+        ]);
+             //
+        $input1 = new add_inspection_car([
+            'carbrand' => $request->input('carbrand'),
+            'carmodel' => $request->input('carmodel'),
+            'submodel' => $request->input('submodel'),
+            'oldcolor' => $request->input('oldcolor'),
+            'newcolor' => $request->input('newcolor'),
+            'year' => $request->input('year'),
+            'seatnum' => $request->input('seatnum'),
+            'place' => $request->input('place'),
+            'registertype' => $request->input('registertype'),
+            'carregnum' => $request->input('carregnum'),
+            'mileage' => $request->input('mileage'),
+            'dateregister' => $request->input('dateregister'),
+            'numowners' => $request->input('numowners'),
+            'cc' => $request->input('cc'),
+            'geartype' => $request->input('geartype'),
+            'engine' => $request->input('engine'),
+            'vin' => $request->input('vin'),
+            'benzine' => $request->input('benzine'),
+            'diesel' => $request->input('diesel'),
+            'hybrid' => $request->input('hybrid'),
+            'electric' => $request->input('electric'),
+            'lpg' => $request->input('lpg'),
+            'ngv' => $request->input('ngv'),
+            'cng' => $request->input('cng'),
+            'carinsurance' => $request->input('carinsurance'),
+            'expinsurance' => $request->input('expinsurance'),
+            'insurance' => $request->input('insurance'),
+            'tent' => $request->input('tent'),
+            'fromtent' => $request->input('fromtent'),
+            'price' => $request->input('price'),
+            'payment' => $request->input('payment'),
 
-        //     ]);
+            ]);
 
-        //     $input2 = new add_inspection_date([
+            $input2 = new add_inspection_date([
 
-        //         'inspectiontype' => $request->input('inspectiontype'),
-        //         'inspector' => $request->input('inspector'),
-        //         'inspectiondate' => $request->input('inspectiondate'),
-        //         'inspectiontime' => $request->input('inspectiontime'),
-        //         'package' => $request->input('package'),
-        //         'remark' => $request->input('remark')
+                'inspectiontype' => $request->input('inspectiontype'),
+                'inspector' => $request->input('inspector'),
+                'inspectiondate' => $request->input('inspectiondate'),
+                'inspectiontime' => $request->input('inspectiontime'),
+                'package' => $request->input('package'),
+                'remark' => $request->input('remark')
 
-        //         ]);
-        //     // echo $input;
-        //     $input->save();
-        //     $input1->save();
-        //     $input2->save();
+                ]);
+            // echo $input;
+            $input->save();
+            $input1->save();
+            $input2->save();
 
 
         // mile car
             $image = $request->file('image_mile');
             $new_name_mi = rand() . '.' . $image->getClientOriginalExtension();
             $new_name_mile = 'mile'.$new_name_mi;
-            // $image->move(public_path('images'), $new_name_mile);
+            $image->move(public_path('images'), $new_name_mile);
 
             echo $input3 = new images_mn([
 
                 'id_car' => $request->input('id_car'),
-                'name_image' => $request->input($new_name_mile),
-                'type_image' => $request->input('type_image0'),
-                'id_dealer' => $request->input('fromtent')
+                'name_image' => $new_name_mile,
+                'type_image' => '0',
+                'id_dealer' => $request->input('fromtent'),
+                'status' => '0',
+                'confirm' => '0'
 
                 ]);
-            // $input3->save();
-            echo "<br>";
+            $input3->save();
+            // echo "<br>";
 
         // number car
             $image = $request->file('image_num');
             $new_name_n = rand() . '.' . $image->getClientOriginalExtension();
             $new_name_num = 'num'.$new_name_n;
-            // $image->move(public_path('images'), $new_name_num);
+            $image->move(public_path('images'), $new_name_num);
             echo $input4 = new images_mn([
 
                 'id_car' => $request->input('id_car'),
-                'name_image' => $request->input($new_name_num),
-                'type_image' => $request->input('type_image0'),
-                'id_dealer' => $request->input('fromtent')
+                'name_image' => $new_name_num,
+                'type_image' => '1',
+                'id_dealer' => $request->input('fromtent'),
+                'status' => '0',
+                'confirm' => '0'
 
                 ]);
-        //     $input4->save();
+            $input4->save();
 
-        // return redirect('/appointment')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
+        return redirect('/appointment')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
 
     }
 

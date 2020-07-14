@@ -19,6 +19,8 @@ class CreateImagesMnsTable extends Migration
             $table->string('name_image')->nullable();
             $table->string('type_image')->nullable();
             $table->string('id_dealer')->nullable();
+            $table->string('status')->nullable();
+            $table->string('confirm')->nullable();
             $table->timestamps();
         });
 

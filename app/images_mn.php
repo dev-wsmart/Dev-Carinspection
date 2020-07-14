@@ -8,6 +8,6 @@ class images_mn extends Model
 {
     //
     protected $fillable = [
-        'id_car','name_image','type_image','id_dealer'
+        'id_car','name_image','type_image','id_dealer','status','confirm'
     ];
 }

@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/add-inspection-appointment', 'AddInspectionCustoController');
     Route::resource('/technician', 'TechnicianController');
     Route::resource('/approved-appoint', 'ApprovedController');
+    Route::resource('/addreport', 'AddInspectionCarController');
 
     // search
     Route::get('/search','AppointmentController@search');
@@ -62,4 +63,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/ajax_upload', 'AppointmentController@imageUpload');
     Route::post('/add-inspection-appointment/action', 'AppointmentController@action')->name('ajaxupload.action');
     Route::post('/add-inspection-appointment/action1', 'AppointmentController@action1')->name('ajaxuploadnum.action1');
+
+
+    // upload images full
+    Route::get('/ajax_upload', 'AddInspectionCarController@imageUpload');
+    Route::post('/addreport/action', 'AddInspectionCarController@action')->name('upload.action');
+    Route::post('/addreport/action1', 'AddInspectionCarController@action1')->name('loadnum.action1');
 });
