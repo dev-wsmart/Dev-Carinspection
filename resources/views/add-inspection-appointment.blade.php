@@ -326,7 +326,7 @@
                                 {{-- <form method="post" id="upload_form_mile" enctype="multipart/form-data">
                                     {{ csrf_field() }} --}}
                                     <div class="row">
-                                        <div class="col-md-10">
+                                        <div class="col-md-11">
                                             <input type="file" name="image_mile" class="form-control" height="2%" value="0">
                                         </div>
                                         <div class="col-md-1">
@@ -343,7 +343,7 @@
                                             <span id="uploaded_image"></span>
                                         </div>
                                     </div>
-                                </form>
+                                {{-- </form> --}}
                             </div>
                             <div class="col-md-6 list-group-item">
                                 {{-- <form method="post" id="upload_form_num" enctype="multipart/form-data">
