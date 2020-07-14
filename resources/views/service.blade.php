@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-lg-12 mt-3 table-responsive">
-            <table class="table table-hover table-sm bg-white">
+            <table class="table table-striped table-hover table-sm bg-white">
                 <thead>
                     <tr>
                         <th>ลำดับ</th>

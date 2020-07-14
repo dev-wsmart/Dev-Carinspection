@@ -1,6 +1,6 @@
 <style>
 .bg-dark {
-    background-color:#052744 !important;
+    background-color:#00385B !important;
 }
 .menu_admin{
     padding-top:50px; 
