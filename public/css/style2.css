@@ -176,6 +176,9 @@ thead{
     border-radius: 5px;
     border: 1px solid #c2c2c2;
 }
+.text-data{
+    border-bottom: 1px solid #00385B;
+}
 
 @media only screen and (max-width: 991px){
     hr{
