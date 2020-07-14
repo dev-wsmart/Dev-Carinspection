@@ -483,6 +483,8 @@
                         </div>
                     </div>
 
+            @endforeach
+
                     <div class="col-12 pt-lg-3 box-form tab-pane" id="roadtest" role="tabpanel" aria-labelledby="pills-roadtest-tab">
                         <div class="row">
                             <div class="col-lg-4">
@@ -2775,121 +2777,223 @@
                         </div>
                     </div>
 
-                    <div class="col-12 pt-lg-3 box-form tab-pane" id="picture" style="max-height: 550px; overflow: auto;" role="tabpanel" aria-labelledby="pills-picture-tab">
-                        <div class="mb-2">
-                            <form method="post">
-                                <div class="row upload-box">
-                                    <label class="col-lg-2 pr-0" for="upload">เลือกไฟล์ภาพปกติ :</label>
-                                    <div class="col-lg-3">
+        {{-- images full start --}}
+        <form method="post" id="images_full" enctype="multipart/form-data">
+            {{ csrf_field() }}
 
-                                    <form action="{{ route('images.upload') }}" method="post" enctype="multipart/form-data">
-                                        {{ csrf_field() }}
-                                        <input type="file" id="uploadFile" name="uploadFile[]" multiple/>
-                                    </form>
-                                    </div>
-                                    {{-- ------------ --}}
-                                    <div class="col-lg-6 pl-4">
-                                        <input type="checkbox" name="pictype" id="interior">
-                                        <label for="interior">Interior</label>
-                                        <input type="checkbox" name="pictype" id="exterior">
-                                        <label for="exterior">Exterior</label>
-                                        <select class="col-lg-6 px-1 ml-3" id="file_group_id" name="file_group_id" value="">
-                                            <option value="1">ภาพปกติ</option>
-                                            <option value="2">หลักฐานการเช็คน้ำท่วม</option>
-                                            <option value="3">หลักฐานการเช็คชนหนัก</option>
-                                            <option value="4">หลักฐานการเช็คสีเดิม</option>
-                                            <option value="5">หลักฐานการเช็คไฟไหม้</option>
-                                            <option value="6">การตรวจสภาพเครื่องยนต์</option>
-                                            <option value="7">การตรวจสภาพเลขตัวถัง</option>
-                                            <option value="8">การตรวจสภาพเลขไมล์แท้</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-1">
-                                        {{-- <button type="button" class="btn btn-success btn-sm">ADD</button> --}}
-                                        <input type="submit" class="btn btn-success btn-sm" name='submitImage' value="ADD"/>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                <div class="col-12 pt-lg-3 box-form tab-pane" id="picture" role="tabpanel" aria-labelledby="pills-picture-tab">
                         <div class="mb-2">
-                            <form>
-                                <div class="row upload-box">
-                                    <label class="col-lg-2 pr-0" for="upload360">เลือกไฟล์ภาพ 360 :</label>
-                                    <div class="col-lg-9">
-                                        <input type="file" name="upload360" id="upload360">
-                                    </div>
-                                    <div class="col-lg-1">
-                                        <button type="button" class="btn btn-success btn-sm">ADD</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="mb-2">
-                            <form>
-                                <div class="row upload-box">
-                                    <label class="col-lg-2 pr-0" for="upload360">ชื่อไฟล์ VDO :</label>
-                                    <div class="col-lg-9">
-                                        <input class="col-lg-7 form-control form-control-sm form-border" type="text" name="file_vdo" id="file_vdo">
-                                    </div>
-                                    <div class="col-lg-1">
-                                        <button type="button" class="btn btn-success btn-sm">ADD</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-lg-8">
-                                <form>
-                                    <table class="table table-bordered table-hover table-sm text-center bg-white">
-                                        <thead>
-                                            <tr>
-                                                <th width="40px">ลำดับ</th>
-                                                <th width="100px">ประเภท</th>
-                                                <th width="60px">ภาพใบ Cer.</th>
-                                                <th width="100px">ชนิดของภาพ</th>
-                                                <th width="130px">ชื่อไฟล์</th>
-                                                <th></th>
-                                                <th width="20px">ลบ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="vertical-align: middle;">1</td>
-                                                <td style="vertical-align: middle;">ภาพปกติ</td>
-                                                <td style="vertical-align: middle;">
-                                                    <input type="checkbox" name="cer" id="cer">
-                                                </td>
-                                                <td style="vertical-align: middle;">
-                                                    <input type="checkbox" name="pictype" id="interior">
-                                                    <label for="interior">Interior</label>
-                                                    <br>
-                                                    <input type="checkbox" name="pictype" id="exterior">
-                                                    <label for="exterior">Exterior</label>
-                                                </td>
-                                                <!--START HERE-->
-                                                <td style="vertical-align: middle;">555555555555.jpg</td>
-                                                <td style="vertical-align: middle;"></td>
-                                                <td style="vertical-align: middle;">
-                                                    <a href="" style="color: red; font-weight: 800;">&#10007;</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </form>
+                            {{-- 0-1 --}}
+                            <div class="list-group-item">
 
+                                <label class="col-lg-5" for="package">รูปด้านหน้ารถยนต์</label>
+                                <label class="col-lg-1" for="package"></label>
+                                <label class="col-lg-5" for="package">รูปด้านหลังรถยนต์</label>
+
+                                <div class="row">
+                                    <div class="col-md-6 list-group-item">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input type="file" name="image_0" class="form-control" height="2%" value="0">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="alert col-md-11" id="message_0" style="display: none;"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12" align="center">
+                                                    <span id="uploaded_image_0"></span>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="col-md-6 list-group-item">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input type="file" name="image_1" class="form-control" height="2%" value="1">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="alert col-md-11" id="message_1" style="display: none"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12" align="center">
+                                                    <span id="uploaded_image_1"></span>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                             </div>
+
+                        {{-- 2-3 --}}
+
+                        <div class="list-group-item">
+
+                            <label class="col-lg-5" for="package">รูปเครื่องยนต์</label>
+                            <label class="col-lg-1" for="package"></label>
+                            <label class="col-lg-5" for="package">รูปเลขไมลล์</label>
+
+                            <div class="row">
+                                <div class="col-md-6 list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <input type="file" name="image_2" class="form-control" height="2%" value="0">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="alert col-md-11" id="message_2" style="display: none;"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12" align="center">
+                                                <span id="uploaded_image_2"></span>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="col-md-6 list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <input type="file" name="image_3" class="form-control" height="2%" value="1">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="alert col-md-11" id="message_3" style="display: none"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12" align="center">
+                                                <span id="uploaded_image_3"></span>
+                                            </div>
+                                        </div>
+                                </div>
                             </div>
-                            <div class="col-lg-3">
+                        </div>
+                        {{-- 4-5 --}}
+                        <div class="list-group-item">
 
-                                {{-- output images --}}
+                            <label class="col-lg-5" for="package">รูปเลขตัวถัง</label>
+                            <label class="col-lg-1" for="package"></label>
+                            <label class="col-lg-5" for="package">รูปเลขเครื่องยนต์</label>
+
+                            <div class="row">
+                                <div class="col-md-6 list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <input type="file" name="image_4" class="form-control" height="2%" value="0">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="alert col-md-11" id="message_4" style="display: none;"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12" align="center">
+                                                <span id="uploaded_image_4"></span>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="col-md-6 list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <input type="file" name="image_5" class="form-control" height="2%" value="1">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="alert col-md-11" id="message_5" style="display: none"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12" align="center">
+                                                <span id="uploaded_image_5"></span>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                         </div>
+
+                    {{-- 6-7 --}}
+
+                    <div class="list-group-item">
+
+                        <label class="col-lg-5" for="package">รูปเครื่องยนต์</label>
+                        <label class="col-lg-1" for="package"></label>
+                        <label class="col-lg-5" for="package">รูปเลขไมลล์</label>
+
+                        <div class="row">
+                            <div class="col-md-6 list-group-item">
                                     <div class="row">
-                                        <h4>Images to upload:</h4>
-                                        <div id="image_preview" style="width:200px"></div>
+                                        <div class="col-md-11">
+                                            <input type="file" name="image_6" class="form-control" height="2%" value="0">
+                                        </div>
                                     </div>
-
-                                <img>
+                                    <div class="row">
+                                        <div class="alert col-md-11" id="message_6" style="display: none;"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <span id="uploaded_image_6"></span>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="col-md-6 list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <input type="file" name="image_7" class="form-control" height="2%" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="alert col-md-11" id="message_7" style="display: none"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <span id="uploaded_image_7"></span>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </div>
+                    {{--  --}}
+                    <br>
+
+                    </div>
+                    <div class="mb-2">
+
+                        <div class="row">
+                            {{-- <label class="col-lg-5" for="package">เลือกไฟล์ภาพ 360</label> --}}
+                            <label class="col-lg-1" for="package"></label>
+                            <label class="col-lg-5" for="package">ชื่อไฟล์ VDO</label>
+
+                            {{-- <div class="col-md-6 list-group-item">
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <input type="file" name="image_8" class="form-control" height="2%" value="1">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="alert col-md-11" id="message_8" style="display: none"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" align="center">
+                                        <span id="uploaded_image_8"></span>
+                                    </div>
+                                </div>
+                            </div> --}}
+
+                            <div class="col-md-12 list-group-item">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <input class="form-control form-control-sm form-border" type="text" name="file_vdo" id="file_vdo">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" class="btn btn-success btn-sm" type="submit">
+                                            <i class="fa fa-floppy-o" aria-hidden="true"></i>บันทึกการอัพโหลดภาพ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </form>
+
+        {{-- 111111 --}}
+
+        {{-- form images full end --}}
 
                     <div class="col-12 pt-lg-3 box-form tab-pane" id="inspectorcomment" role="tabpanel" aria-labelledby="pills-inspectorcomment-tab">
                         <label for="comment">ความคิดเห็นจากผู้ตรวจสภาพรถ</label>
@@ -2969,27 +3073,39 @@
                 </div>
             </form>
 
-            @endforeach
         </div>
     </div>
-</div>
 </div>
 
 <script type="text/javascript">
 
-    $("#uploadFile").change(function(){
-       $('#image_preview').html("");
-       var total_file=document.getElementById("uploadFile").files.length;
-       for(var i=0;i<total_file;i++)
-       {
-        $('#image_preview').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'>");
-       }
-    });
+$(document).ready(function(){
+        // $('#images_full').on('change', function(){
+        $("#images_full").change(function() {
+            // event.preventDefault();
+            // var imagesD = $(this).val();
+            alert('1234');
+            $.ajax({
+            url:"{{ route('upload.action') }}",
+            method:"POST",
+            data:new FormData(this),
+            dataType:'JSON',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success:function(data)
+                {
+                    $('#message_0').css('display', 'block');
+                    $('#message_0').html(data.message_0);
+                    $('#message_0').addClass(data.class_name);
+                    $('#uploaded_image_0').html(data.uploaded_image_0);
+                }
+            })
+        });
+        // alert('1234');
+});
 
-    $('form').ajaxForm(function()
-     {
-      alert("Uploaded SuccessFully");
-     });
+</script>
 
-  </script>
+
 @endsection

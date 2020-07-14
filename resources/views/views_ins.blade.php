@@ -95,6 +95,13 @@
                             <option value="สมาชิกรูปแบบเต๊นท์" {{($data->customertype ==='สมาชิกรูปแบบเต๊นท์') ? 'selected' : ''}}>สมาชิกรูปแบบเต็นท์</option>
                         </select>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="contact">ผู้ติดต่อ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="contact" id="contact" value="{{$data->contact}}" disabled>
+
+                        <label class="col-lg-2" for="tel_contact">เบอร์โทร - ผู้ติดต่อ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel_contact" id="tel_contact" value="{{$data->tel_contact}}" disabled>
+                    </div>
                 </div>
 
                 <div class="form-title mt-3 mt-lg-0">ข้อมูลรถ</div>
@@ -292,6 +299,55 @@
                             {{$data->remark}}
                         </textarea>
                     </div>
+                    <br>
+
+                    {{-- </form> --}}
+                    <div class="list-group-item">
+
+                        <label class="col-lg-5" for="package">รูปเลขไมล์รถ</label>
+                        <label class="col-lg-1" for="package"></label>
+                        <label class="col-lg-5" for="package">รูปเล่มทะเบียนรถ</label>
+
+                            {{--  images --}}
+                        @foreach($images as $image)
+                        <div class="row">
+                            <div class="col-md-6 list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            {{-- <input type="file" name="image_mile" class="form-control" height="2%" value="{{$image->image_mile}}" disabled> --}}
+                                        </div>
+                                        <div class="col-md-1">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="alert col-md-11" id="message" style="display: none;"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <img src="/images/{{$image->image_mile}}" class="img-thumbnail" width="80%" align="center" />
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="col-md-6 list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            {{-- <input type="file" name="image_num" class="form-control" height="2%" value="{{$image->image_num}}" disabled> --}}
+                                        </div>
+                                        <div class="col-md-1">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="alert col-md-11" id="message_num" style="display: none"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <img src="/images/{{$image->image_num}}" class="img-thumbnail" width="80%" align="center" />
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        @endforeach
+                     </div>
                 </div>
 
                 <div class="col-12 pt-2 pt-lg-4 text-center">

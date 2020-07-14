@@ -210,7 +210,18 @@ class AppointmentController extends Controller
         ->groupBy('add_inspection_custos.id')
         ->get();
 
-      return view('views_ins', compact('datas'));
+
+         $images = DB::table('add_inspection_custos')
+        ->select('m.name_image as image_mile','nu.name_image as image_num')
+        ->join('images_mns as m','add_inspection_custos.id','=','m.id_car')
+        ->join('images_mns as nu','add_inspection_custos.id','=','nu.id_car')
+
+        ->where('m.type_image', '=', '0')
+        ->where('nu.type_image', '=', '1')
+        ->where('add_inspection_custos.id', '=', $id)
+        ->get();
+
+      return view('views_ins', compact('datas','images'));
     }
 
     /**
@@ -250,6 +261,16 @@ class AppointmentController extends Controller
             ->groupBy('add_inspection_custos.id')
             ->get();
 
+            $images = DB::table('add_inspection_custos')
+            ->select('m.name_image as image_mile','nu.name_image as image_num')
+            ->join('images_mns as m','add_inspection_custos.id','=','m.id_car')
+            ->join('images_mns as nu','add_inspection_custos.id','=','nu.id_car')
+
+            ->where('m.type_image', '=', '0')
+            ->where('nu.type_image', '=', '1')
+            ->where('add_inspection_custos.id', '=', $id)
+            ->get();
+
         // data cc
         $tech = technician::all()->sortBy("name_tech");
         // data cc
@@ -265,7 +286,7 @@ class AppointmentController extends Controller
         // data province
         $province = Province::all()->sortBy("name_th");
         // show data to add-inspection-appointment
-        return view('edit_ins',compact('datas','province','pac','col','brand','dealer','cc','tech'));
+        return view('edit_ins',compact('datas','province','pac','col','brand','dealer','cc','tech','images'));
 
         // return view('edit_ins', compact('datas','province'));
     }
