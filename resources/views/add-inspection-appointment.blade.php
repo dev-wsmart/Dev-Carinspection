@@ -18,8 +18,6 @@
 
                     <?php
 
-                        $type_image0 = 0;
-                        $type_image1 = 1;
                         $idmax = $id_maxs->id;
                         $id_car = $idmax+1;
                         $id_maxins = 'inspec-'.str_pad(($idmax+1),6,'0',STR_PAD_LEFT);
@@ -33,8 +31,6 @@
             <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' id="add_inspection">
                 @csrf
                 <input type="hidden" name="id_car" value="{{ $id_car }}">
-                <input type="hidden" name="type_image0" value="{{ $type_image0 }}">
-                <input type="hidden" name="type_image1" value="{{ $type_image1 }}">
                 {{-- {{ csrf_field() }} --}}
                 <div class="form-title">ข้อมูลลูกค้า</div>
                 <div class="col-12 pt-lg-3 box-form">
