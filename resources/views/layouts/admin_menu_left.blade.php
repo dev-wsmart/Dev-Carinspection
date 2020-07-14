@@ -14,6 +14,9 @@
     margin: 0 auto;
     width: 80%;
   }
+  .sub-menu{
+    padding-left: 50px !important;
+  }
   </style>
 
 
@@ -67,6 +70,33 @@
                 <span>Inspection Appointment</span>
               </a>
             </li>
+            <li>
+              <a class="dropdown-item" id="approve" data-toggle="collapse" data-target="#subApprove" aria-expanded="true" aria-controls="subApprove">
+                <i class="fa fa-plus"></i>
+                <span>Approve Appointment</span>
+              </a>
+            </li>
+              <div id="subApprove" class="collapse" aria-labelledby="approve" data-parent="#accordion">
+                <li>
+                  <a class="dropdown-item sub-menu {{ (request()->is('')) ? 'active': '' }}" href="">
+                    <i class="fa fa-spinner"></i>
+                    <span>Pending</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item sub-menu {{ (request()->is('approved-appoint')) ? 'active': '' }}" href="{{ route('approved-appoint.index') }}">
+                    <i class="fa fa-check"></i>
+                    <span>Approved</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item sub-menu {{ (request()->is('')) ? 'active': '' }}" href="">
+                    <i class="fa fa-times"></i>
+                    <span>Not Approved</span>
+                  </a>
+                </li>
+              </div>
+            
   <br>
             <li class="header-menu">
             <center>

@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/appointment', 'AppointmentController');
     Route::resource('/add-inspection-appointment', 'AddInspectionCustoController');
     Route::resource('/technician', 'TechnicianController');
+    Route::resource('/approved-appoint', 'ApprovedController');
 
     // search
     Route::get('/search','AppointmentController@search');
