@@ -78,7 +78,7 @@
             </li>
               <div id="subApprove" class="collapse" aria-labelledby="approve" data-parent="#accordion">
                 <li>
-                  <a class="dropdown-item sub-menu {{ (request()->is('')) ? 'active': '' }}" href="">
+                  <a class="dropdown-item sub-menu {{ (request()->is('pending')) ? 'active': '' }}" href="{{ route('pending.index') }}">
                     <i class="fa fa-spinner"></i>
                     <span>Pending</span>
                   </a>
@@ -96,7 +96,7 @@
                   </a>
                 </li>
               </div>
-            
+
   <br>
             <li class="header-menu">
             <center>
