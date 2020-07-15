@@ -2,6 +2,17 @@
 
 @section('title', 'Approved Appointment')
 @section('content')
+<style>
+    .image-block{
+        height: 300px;
+        text-align:center;
+    }
+
+    .image-block img{
+        width: 100%;
+        height: auto;
+    }
+</style>
 <div class="col-md-3"></div>
 <div class="col-md-8" style="margin-top:2%;">
 
@@ -53,7 +64,7 @@
                 <div class="row py-2 mt-3">
                     <div class="col-lg-6">
                         <div class="font-weight-bold text-center">รูปเลขไมล์รถ</div>
-                        <div class="p-3"><img src="{{ URL::asset('images/'.$datas->mile_img) }}" width="100%"></div>
+                        <div class="p-3 image-block"><img src="{{ URL::asset('images/'.$datas->mile_img) }}"></div>
                         <div class="btnCustom text-center">
                             <input type="checkbox" name="mile_img" id="mile_img1" value="1" {{ ($datas->mile_status = 1) ? 'checked' : '' }} disabled>
                             <label for="mile_img1">ผ่าน</label>
@@ -64,7 +75,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="font-weight-bold text-center">รูปเล่มทะเบียนรถ</div>
-                        <div class="p-3"><img src="{{ URL::asset('images/'.$datas->num_img) }}" width="100%"></div>
+                        <div class="p-3 image-block"><img src="{{ URL::asset('images/'.$datas->num_img) }}"></div>
                         <div class="btnCustom text-center">
                             <input type="checkbox" name="num_img" id="num_img1" value="1" {{ ($datas->num_status = 1) ? 'checked' : '' }} disabled>
                             <label for="num_img1">ผ่าน</label>

@@ -70,7 +70,7 @@
                                 <input type="radio" name="mile_img" id="mile_img1" value="1">
                                 <label for="mile_img1">ผ่าน</label>
 
-                                <input type="radio" name="mile_img" id="mile_img0" value="0" checked>
+                                <input type="radio" name="mile_img" id="mile_img0" value="2" checked>
                                 <label for="mile_img0">ไม่ผ่าน</label>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                 <input type="radio" name="num_img" id="num_img1" value="1">
                                 <label for="num_img1">ผ่าน</label>
 
-                                <input type="radio" name="num_img" id="num_img0" value="0" checked>
+                                <input type="radio" name="num_img" id="num_img0" value="2" checked>
                                 <label for="num_img0">ไม่ผ่าน</label>
                             </div>
                         </div>

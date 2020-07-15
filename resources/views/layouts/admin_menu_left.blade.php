@@ -90,7 +90,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item sub-menu {{ (request()->is('')) ? 'active': '' }}" href="">
+                  <a class="dropdown-item sub-menu {{ (request()->is('not-approved-appoint')) ? 'active': '' }}" href="{{ route('not-approved-appoint.index')}}">
                     <i class="fa fa-times"></i>
                     <span>Not Approved</span>
                   </a>
