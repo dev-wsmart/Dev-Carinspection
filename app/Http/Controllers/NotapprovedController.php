@@ -27,7 +27,7 @@ class NotapprovedController extends Controller
                     ->whereRaw('(mile.status = 2 or num.status = 2) AND mile.type_image = 0 AND num.type_image = 1')
                     ->paginate(10);
 
-        return view('notapproved', compact('datas'));
+        return view('tablenotapproved', compact('datas'));
     }
 
     /**
@@ -57,9 +57,21 @@ class NotapprovedController extends Controller
      * @param  \App\Notapproved  $notapproved
      * @return \Illuminate\Http\Response
      */
-    public function show(Notapproved $notapproved)
+    public function show($id)
     {
-        //
+        $data = DB::table('add_inspection_custos')
+                    ->select('add_inspection_custos.*', 'add_inspection_cars.*', 'add_inspection_dates.*', 'dealers.dealer_name', 'brands.name_brand', 'models.name_model', 'technicians.name_tech', 'mile.name_image as mile_img', 'mile.status as mile_status', 'num.name_image as num_img', 'num.status as num_status')
+                    ->join('add_inspection_cars', 'add_inspection_custos.id', '=', 'add_inspection_cars.id')
+                    ->join('add_inspection_dates', 'add_inspection_custos.id', '=', 'add_inspection_dates.id')
+                    ->join('dealers', 'add_inspection_cars.fromtent', '=', 'dealers.id_dealer')
+                    ->join('brands', 'add_inspection_cars.carbrand', '=', 'brands.id_brand')
+                    ->join('models', 'add_inspection_cars.carmodel', '=', 'models.id_model')
+                    ->join('technicians', 'add_inspection_dates.inspector', '=', 'technicians.id_tech')
+                    ->join('images_mns as mile', 'add_inspection_custos.id', '=', 'mile.id_car')
+                    ->join('images_mns as num', 'add_inspection_custos.id', '=', 'num.id_car')
+                    ->whereRaw('(mile.status = 2 or num.status = 2) AND mile.type_image = 0 AND num.type_image = 1')
+                    ->paginate(10);
+        return view('approved', compact('data'));
     }
 
     /**

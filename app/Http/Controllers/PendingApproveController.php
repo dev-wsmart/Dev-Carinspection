@@ -27,7 +27,7 @@ class PendingApproveController extends Controller
                     ->where([['mile.status', '=', '0'], ['num.status', '=', '0'], ['mile.type_image', '=', '0'], ['num.type_image', '=', '1']])
                     ->paginate(10);
 
-        return view('pending_approve', compact('datas'));
+        return view('tablepending_approve', compact('datas'));
     }
 
     /**
