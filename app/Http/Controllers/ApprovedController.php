@@ -69,6 +69,7 @@ class ApprovedController extends Controller
                     ->join('images_mns as mile', 'add_inspection_custos.id', '=', 'mile.id_car')
                     ->join('images_mns as num', 'add_inspection_custos.id', '=', 'num.id_car')
                     ->where([['mile.status', '=', '1'], ['num.status', '=', '1'], ['mile.type_image', '=', '0'], ['num.type_image', '=', '1']])
+                    ->where('mile.id_car', '=', $id)
                     ->paginate(10);
         return view('approved', compact('data'));
     }

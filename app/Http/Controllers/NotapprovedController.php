@@ -70,6 +70,7 @@ class NotapprovedController extends Controller
                     ->join('images_mns as mile', 'add_inspection_custos.id', '=', 'mile.id_car')
                     ->join('images_mns as num', 'add_inspection_custos.id', '=', 'num.id_car')
                     ->whereRaw('(mile.status = 2 or num.status = 2) AND mile.type_image = 0 AND num.type_image = 1')
+                    ->where('mile.id_car', '=', $id)
                     ->paginate(10);
         return view('approved', compact('data'));
     }

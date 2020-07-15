@@ -1,7 +1,9 @@
-@extends('layouts.admin_layout')
+<?php $title = (request()->is('approved-appoint/*')) ? 'Approved Appointment': 'Not Approved Appointment' ?>
 
-@section('title', 'Approved Appointment')
+@extends('layouts.admin_layout')
+@section('title', $title)
 @section('content')
+
 <style>
     .image-block{
         height: 300px;
@@ -21,7 +23,7 @@
             {{ session('status') }}
         @endif
         <div class="col-lg-12">
-            <h1 class="title">Approved Appointment</h1>
+            <h1 class="title">{{ $title }}</h1>
         </div>
         <hr noshade>
     </div>
@@ -66,10 +68,10 @@
                         <div class="font-weight-bold text-center">รูปเลขไมล์รถ</div>
                         <div class="p-3 image-block"><img src="{{ URL::asset('images/'.$datas->mile_img) }}"></div>
                         <div class="btnCustom text-center">
-                            <input type="checkbox" name="mile_img" id="mile_img1" value="1" {{ ($datas->mile_status = 1) ? 'checked' : '' }} disabled>
+                            <input type="checkbox" name="mile_img" id="mile_img1" value="1" {{ ($datas->mile_status == 1) ? 'checked' : '' }} disabled>
                             <label for="mile_img1">ผ่าน</label>
 
-                            <input type="checkbox" name="mile_img" id="mile_img0" value="0" {{ ($datas->mile_status = 0) ? 'checked' : '' }} disabled>
+                            <input type="checkbox" name="mile_img" id="mile_img0" value="2" {{ ($datas->mile_status == 2) ? 'checked' : '' }} disabled>
                             <label for="mile_img0">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -77,17 +79,17 @@
                         <div class="font-weight-bold text-center">รูปเล่มทะเบียนรถ</div>
                         <div class="p-3 image-block"><img src="{{ URL::asset('images/'.$datas->num_img) }}"></div>
                         <div class="btnCustom text-center">
-                            <input type="checkbox" name="num_img" id="num_img1" value="1" {{ ($datas->num_status = 1) ? 'checked' : '' }} disabled>
+                            <input type="checkbox" name="num_img" id="num_img1" value="1" {{ ($datas->num_status == 1) ? 'checked' : '' }} disabled>
                             <label for="num_img1">ผ่าน</label>
 
-                            <input type="checkbox" name="num_img" id="num_img0" value="0" {{ ($datas->num_status = 0) ? 'checked' : '' }} disabled>
+                            <input type="checkbox" name="num_img" id="num_img0" value="2" {{ ($datas->num_status == 2) ? 'checked' : '' }} disabled>
                             <label for="num_img0">ไม่ผ่าน</label>
                         </div>
                     </div>
                 </div>
             </div>
             @endforeach
-            <div class="row">
+            <div class="row" style="margin-bottom: 30px;">
                 <div class="col-12 text-center">
                     <a href="{{ route('approved-appoint.index') }}" class="btn btn-sm btn-danger"><i class="fa fa-undo" aria-hidden="true"></i> ย้อนกลับ</a>
                 </div>
