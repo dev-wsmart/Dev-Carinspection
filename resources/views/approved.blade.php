@@ -91,7 +91,10 @@
             @endforeach
             <div class="row" style="margin-bottom: 30px;">
                 <div class="col-12 text-center">
-                    <a href="{{ route('approved-appoint.index') }}" class="btn btn-sm btn-danger"><i class="fa fa-undo" aria-hidden="true"></i> ย้อนกลับ</a>
+                    <a href="{{ (request()->is('approved-appoint/*')) ? route('approved-appoint.index') : route('not-approved-appoint.index') }}" class="btn btn-sm btn-danger">
+                        <i class="fa fa-undo" aria-hidden="true"></i>
+                        ย้อนกลับ
+                    </a>
                 </div>
             </div>
         </div>
