@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/pending', 'PendingApproveController');
     Route::resource('/approved-appoint', 'ApprovedController');
     Route::resource('/addreport', 'AddInspectionCarController');
+    Route::resource('/upimages', 'BrandController');
 
     // search
     Route::get('/search','AppointmentController@search');
@@ -67,7 +68,18 @@ Route::group(['middleware' => ['auth']], function() {
 
 
     // upload images full
-    Route::get('/ajax_upload', 'AddInspectionCarController@imageUpload');
-    Route::post('/addreport/action', 'AddInspectionCarController@action')->name('upload.action');
-    Route::post('/addreport/action1', 'AddInspectionCarController@action1')->name('loadnum.action1');
+    Route::get('/upimages', 'BrandController@index');
+    Route::post('/upimages/action2', 'BrandController@action2')->name('ajaxupload.action2');
+    Route::post('/upimages/action3', 'BrandController@action3')->name('ajaxupload.action3');
+    Route::post('/upimages/action4', 'BrandController@action4')->name('ajaxupload.action4');
+    Route::post('/upimages/action5', 'BrandController@action5')->name('ajaxupload.action5');
+    Route::post('/upimages/action6', 'BrandController@action6')->name('ajaxupload.action6');
+    Route::post('/upimages/action7', 'BrandController@action7')->name('ajaxupload.action7');
+
+    Route::post('/upimages/actionA', 'BrandController@actionA')->name('ajaxupload.actionA');
+    Route::post('/upimages/actionB', 'BrandController@actionB')->name('ajaxupload.actionB');
+    Route::post('/upimages/actionC', 'BrandController@actionC')->name('ajaxupload.actionC');
+    Route::post('/upimages/actionD', 'BrandController@actionD')->name('ajaxupload.actionD');
+
+
 });
