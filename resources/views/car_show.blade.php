@@ -42,7 +42,8 @@
 
 </script>
 
-<body onload="window.print()">
+{{-- <body onload="window.print()"> --}}
+<body>
     <div class="printpage" align="center">
         <div class = "page-container">
             <!--PAGE 1-->
@@ -248,44 +249,42 @@
             <div class="page">
                 <div class="page-contain">
                     <div class="topic-title">ผลการตรวจภายนอก</div>
-                    <table class="overall-table" style="margin-top: 20px;">
-                        <tr>
-                            <td class="table-title">แบตเตอรี่</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                        <tr>
-                            <td class="table-title">แบตเตอรี่</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                        <tr>
-                            <td class="table-title">แบตเตอรี่</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                        <tr>
-                            <td class="table-title">แบตเตอรี่</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                        <tr>
-                            <td class="table-title">แบตเตอรี่</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                        <tr>
-                            <td class="table-title">แบตเตอรี่</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                        <tr>
-                            <td class="table-title">แบตเตอรี่</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                        <tr>
-                            <td class="table-title">แบตเตอรี่</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                        <tr>
-                            <td class="table-title">แบตเตอรี่</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                    </table>
+                    <div class="car-layout">
+                        <!--บังโคลน-->
+                        <img id="A1" class="car-component" src="{{ asset('car_structure/A1.png')}}" style="visibility: visible">
+                        <img id="A2" class="car-component" src="{{ asset('car_structure/A2.png')}}" style="visibility: visible">
+                        <img id="B1" class="car-component" src="{{ asset('car_structure/B1.png')}}" style="visibility: visible">
+                        <img id="B2" class="car-component" src="{{ asset('car_structure/B2.png')}}" style="visibility: visible">
+                        <img id="FS" class="car-component" src="{{ asset('car_structure/FS.png')}}" style="visibility: visible">
+
+                        <!--ส่วนหน้า-->
+                        <img id="CH" class="car-component" src="{{ asset('car_structure/CH.png')}}" style="visibility: visible">
+                        <img id="WS" class="car-component" src="{{ asset('car_structure/WS.png')}}" style="visibility: hidden">
+                        <!--หลังคา-->
+                        <img id="Roof" class="car-component" src="{{ asset('car_structure/Roof.png')}}" style="visibility: visible">
+
+                        <!--กระจกท้าย-->
+                        <img id="WSR" class="car-component" src="{{ asset('car_structure/WSR.png')}}" style="visibility: visible">
+
+                        <!--ประตู-->
+                        <img id="C1" class="car-component" src="{{ asset('car_structure/C1.png')}}" style="visibility: visible">
+                        <img id="C2" class="car-component" src="{{ asset('car_structure/C2.png')}}" style="visibility: visible">
+                        <img id="D1" class="car-component" src="{{ asset('car_structure/D1.png')}}" style="visibility: visible">
+                        <img id="D2" class="car-component" src="{{ asset('car_structure/D2.png')}}" style="visibility: visible">
+
+                        <!--ล้อ-->
+                        <img id="W1" class="car-component" src="{{ asset('car_structure/W1.png')}}" style="visibility: visible">
+                        <img id="W2" class="car-component" src="{{ asset('car_structure/W2.png')}}" style="visibility: visible">
+                        <img id="W3" class="car-component" src="{{ asset('car_structure/W3.png')}}" style="visibility: visible">
+                        <img id="W4" class="car-component" src="{{ asset('car_structure/W4.png')}}" style="visibility: visible">
+
+                        <!--บันได-->
+                        <img id="LS" class="car-component" src="{{ asset('car_structure/LS.png')}}" style="visibility: visible">
+                        <img id="RS" class="car-component" src="{{ asset('car_structure/RS.png')}}" style="visibility: visible">
+
+                        <!--หลัง-->
+                        <img id="RH" class="car-component" src="{{ asset('car_structure/RH.png')}}" style="visibility: visible">
+                    </div>
                 </div>
             </div>
             <!-- PAGE 8 -->
