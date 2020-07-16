@@ -134,6 +134,30 @@
             <!-- PAGE 6 -->
             <div class="page">
                 <div class="page-contain">
+                    <div class = "car-show">
+                        <div class="topic-title">
+                            รายการจดทะเบียน
+                        </div>
+                        <br>
+                        <div class="">
+                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                        </div>
+                    </div>
+
+                    <div class = "car-show">
+                        <div class="topic-title" >
+                            ODB Analysis
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE 7 -->
+            <div class="page">
+                <div class="page-contain">
                     <div class = "check-table">
                         <div class="topic-title" >
                             สรุปสถานะรวม
@@ -164,28 +188,24 @@
                                     <tr>
                                         <td class = "table-title">
                                             6.รถเลขเครื่องตรง
-                                            <div class="table-description">(รถเลขเครื่องยนต์ตรงตามเล่มทะเบียนรถ)</div>
                                         </td>
                                         <td class = "table-check">N</td>
                                     </tr>
                                     <tr>
                                         <td class = "table-title">
                                             7.รถเลขตัวถังตรง
-                                            <div class="table-description">(รถเลขตัวถังตรงตามเล่มทะเบียนรถยนต์)</div>
                                         </td>
                                         <td class = "table-check">N</td>
                                     </tr>
                                     <tr>
                                         <td class = "table-title">
                                             8.รถสภาพสีเดิม
-                                            <div class="table-description">(รถสีสภาพเดิมจากโรงงานและตรงตามเล่มทะเบียนรถยนต์)</div>
                                         </td>
                                         <td class = "table-check">N</td>
                                     </tr>
                                     <tr>
                                         <td class = "table-title">
                                             9.เลขไมล์แท้
-                                            <div class="table-description">(เลขไมล์แท้เป็นไมล์ที่เปรียบเทียบจากไมล์ล่าสุดที่อยู่ในประวัติของศูนย์บริการของรถยนต์แต่ละยี่ห้อ)</div>
                                         </td>
                                         <td class = "table-check">N</td>
                                     </tr>
@@ -197,7 +217,7 @@
                                 </table>
                             </div>
                             <div class = "grid-item">
-                                <table class="table table-bordered overall-table" textalign=center>
+                                <table class="overall-table" textalign=center>
                                     <tr>
                                         <td class = "table-title">11.ระบบกันสะเทือนหน้าและหลัง</td>
                                         <td class = "table-check">N</td>
@@ -242,10 +262,37 @@
                                 </table>
                             </div>
                         </div>
+                        <div class="detail-description">
+                            <table class="table-report">
+                                <thead>
+                                    <th colspan="2">Exterior Report</th>
+                                </thead>
+                                <tr>
+                                    <td class="char-col">N</td>
+                                    <td>New Parts</td>
+                                </tr>
+                                <tr>
+                                    <td class="char-col">BP</td>
+                                    <td>New Body Paint Job</td>
+                                </tr>
+                                <tr>
+                                    <td class="char-col">D</td>
+                                    <td>Dent Mark</td>
+                                </tr>
+                                <tr>
+                                    <td class="char-col">S</td>
+                                    <td>Scated Mark</td>
+                                </tr>
+                                <tr>
+                                    <td class="char-col">O</td>
+                                    <td>Original</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- PAGE 7 -->
+            <!-- PAGE 8 -->
             <div class="page">
                 <div class="page-contain">
                     <div class="topic-title">ผลการตรวจภายนอก</div>
@@ -285,9 +332,36 @@
                         <!--หลัง-->
                         <img id="RH" class="car-component" src="{{ asset('car_structure/RH.png')}}" style="visibility: visible">
                     </div>
+                    <div class="detail-description">
+                        <table class="table-report">
+                            <thead>
+                                <th colspan="2">Exterior Report</th>
+                            </thead>
+                            <tr>
+                                <td class="char-col">N</td>
+                                <td>New Parts</td>
+                            </tr>
+                            <tr>
+                                <td class="char-col">BP</td>
+                                <td>New Body Paint Job</td>
+                            </tr>
+                            <tr>
+                                <td class="char-col">D</td>
+                                <td>Dent Mark</td>
+                            </tr>
+                            <tr>
+                                <td class="char-col">S</td>
+                                <td>Scated Mark</td>
+                            </tr>
+                            <tr>
+                                <td class="char-col">O</td>
+                                <td>Original</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <!-- PAGE 8 -->
+            <!-- PAGE 9 -->
             <div class="page">
                 <div class="page-contain">
                     <div class="topic-title">ยางล้อ และเบรก</div>
@@ -315,35 +389,184 @@
                         <img src="{{ url('images/car1.jpg') }}" class="wheel-img" >
                         <img src="{{ url('images/car1.jpg') }}" class="wheel-img" >
                     </div>
-                </div>
-            </div>
-            <!-- PAGE 9 -->
-            <div class="page">
-                <div class="page-contain">
-                    <div class="topic-title">ผลตรวจโครงสร้างรถ</div>
-                    <table class="overall-table" style="margin-top: 20px;">
-                        <tr>
-                            <td class="table-title">ห้องเครื่อง</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                        <tr>
-                            <td class="table-title">ห้องโดยสาร</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                        <tr>
-                            <td class="table-title">ห้องเครื่อง</td>
-                            <td class="table-detail">ปกติ</td>
-                        </tr>
-                    </table>
+                    <div id="battery-condition" style="margin-top: 8px;">
+                        <div class="topic-title">Battery Condition Report</div>
+                        <table class="table-battery" border="1">
+                            <tr>
+                                <td rowspan="0">Battery Test</td>
+                                <td colspan="2">Battery Condition Report</td>
+                                <td colspan="2">Charge System test at 2000 rpm</td>
+                            </tr>
+                            <tr>
+                                <td>Voltage</td>
+                                <td></td>
+                                <td>Voltage</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Rating</td>
+                                <td></td>
+                                <td>Status</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Current</td>
+                                <td></td>
+                                <td colspan="2">Start System Test</td>
+                            </tr>
+                            <tr>
+                                <td>Current</td>
+                                <td></td>
+                                <td>Start of Voltage</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>State of Charge</td>
+                                <td></td>
+                                <td>Status</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>State of Health</td>
+                                <td></td>
+                                <td colspan="2">Max. Load Test at 200 rpm</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td></td>
+                                <td>Max. Load Voltage</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Test Date</td>
+                                <td></td>
+                                <td>Status</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <!-- PAGE 10 -->
             <div class="page">
                 <div class="page-contain">
-                    <div class="topic-title">ภายใน</div>
+                    <div class="topic-title">ผลตรวจโครงสร้างรถ</div>
+                    <div class="grid-container">
+                        <table class="overall-table">
+                            <tr>
+                                <td class="table-title">ห้องเครื่อง</td>
+                                <td class="table-detail">NH</td>
+                            </tr>
+                            <tr>
+                                <td class="table-title">ห้องโดยสาร</td>
+                                <td class="table-detail">NH</td>
+                            </tr>
+                            <tr>
+                                <td class="table-title">ห้องเครื่อง</td>
+                                <td class="table-detail">NH</td>
+                            </tr>
+                        </table>
+                        <div>
+                            <table class="table-report">
+                                <thead>
+                                    <th colspan="2">Chassis Report</th>
+                                </thead>
+                                <tr>
+                                    <td class="char-col">NH</td>
+                                    <td>Non heavy accident</td>
+                                </tr>
+                                <tr>
+                                    <td class="char-col">H</td>
+                                    <td>Heavy accident</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="chassis-report">
+                        <img id="engine" class="chassis-component" src="{{ asset('chassis_structure/ห้องเครื่อง.png')}}">
+                        <img id="carbin" class="chassis-component" src="{{ asset('chassis_structure/ห้องโดยสาร.png')}}">
+                        <img id="cargo" class="chassis-component" src="{{ asset('chassis_structure/ห้องเก็บของ.png')}}">
+                    </div>
                 </div>
             </div>
             <!-- PAGE 11 -->
+            <div class="page">
+                <div class="page-contain">
+                    <div class="topic-title">ภายใน</div>
+                    <table class="overall-table" textalign=center style="margin-top: 30px;">
+                        <tr>
+                            <td class = "table-title">Steering wheel</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Dashboard</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Front Left Seat</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Front Right Seat</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Rear Seat</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Console</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Left Door Trim</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Right Door Trim</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Roof Fabric</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Airconditioning</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Internal Lighting System</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">External Lighting</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Radio System</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Window System</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Abnormal Smell</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Luggage Area</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+                        <tr>
+                            <td class = "table-title">Airconditioning</td>
+                            <td class = "table-check">N</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <!-- PAGE 12 -->
             <div class="page">
                 <div class="page-contain">
                     <div class="topic-title">ข้อตกลงและเงื่อนไขการให้บริการ</div>

@@ -32,23 +32,20 @@ body{
 
 table {
     border-collapse: collapse;
-    font-size: 16px;
-}
-
-table, th, td {
-    border: 1px solid lightgray;
+    font-size: 14px;
 }
 
 .overall-table td{
+    border: 1px solid lightgray;
     text-align: center;
     width: 20%;
     height: 50px;
-    padding: 10px;
+    padding: 8px 0px 8px 0px;
     vertical-align: middle;
 }
 
 .grid-container {
-    margin-top: 50px;
+    margin-top: 30px;
     display: grid;
     grid-column-gap: 20px;
     grid-template-columns: 50% 50%;
@@ -79,17 +76,59 @@ table, th, td {
     background-color: rgb(237, 239, 236);
 }
 
+.table-report{
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-size: 14px;
+}
+.table-report th{
+    padding: 10px 0px 10px 0px;
+    background-color: black;
+}
+.table-battery{
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.table-battery td{
+    padding: 1px 10px 1px 10px;
+    min-width: 80px;
+    max-width: 200px;
+}
+
+.char-col{
+    border-right: 1px solid white;
+}
+
+.table-report td{
+    padding: 8px 20px 8px 20px;
+}
+
+.table-report tr:nth-child(odd){
+    background-color: rgb(43, 43, 43);
+}
+
+.detail-description{
+    margin-top: 20px;
+}
+
 .topic-title{
-    width: 200px;
-    padding: 8px;
+    display: inline-block;
+    padding: 8px 15px 8px 15px;
     margin: auto;
     background-color: rgb(233, 178, 65);
     font-size: 20px;
     border-radius: 13px;
+    border: 5px solid white;
+}
+.img-thumbnail{
+    margin-top: 20px;
 }
 
 .wheel-grid-container{
-    margin-top: 30px;
+    margin-top: 20px;
     display: grid;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
@@ -99,7 +138,7 @@ table, th, td {
 .wheel-img{
     border: 20px inset #a38175;
     width: 250px;
-    height: 200px;
+    height: 150px;
 }
 .condition-bg{
     margin-top: 30px;
@@ -122,6 +161,19 @@ table, th, td {
     margin-top: 10px;
     width: 75%;
     height: 58%;
+}
+#battery-condition{
+    margin-top: 20px;
+}
+
+#chassis-report{
+    background-size: contain;
+    background-position: 50px 0px;
+    background-repeat: no-repeat;
+    background-image: url("../chassis_structure/chassis.png");
+    width: 80%;
+    height: 60%;
+    margin-top: 20px;
 }
 
 /*ชิ้นส่วนรถยนต์*/
@@ -179,7 +231,7 @@ table, th, td {
 #C1{
     width: 105px;
     height: 105px;
-    transform: translate(-195px, 185px);
+    transform: translate(-197px, 185px);
 }
 #C2{
     width: 105px;
@@ -189,7 +241,7 @@ table, th, td {
 #D1{
     width: 105px;
     height: 105px;
-    transform: translate(-195px, 295px);
+    transform: translate(-197px, 295px);
 }
 #D2{
     width: 105px;
@@ -230,6 +282,23 @@ table, th, td {
     width: 195px;
     height: 80px;
     transform: translate(-97px, 503px);
+}
+/*ชิ้นส่วนภายใน*/
+.chassis-component{
+    position: absolute;
+    /*visibility: hidden;*/
+}
+#engine{
+    width: 440px;
+    transform: translate(-218px, 0px);
+}
+#carbin{
+    width: 345px;
+    transform: translate(-170px, 190px);
+}
+#cargo{
+    width: 440px;
+    transform: translate(-218px, 548px);
 }
 
 @page{
