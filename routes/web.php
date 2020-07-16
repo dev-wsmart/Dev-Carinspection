@@ -34,6 +34,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/technician', 'TechnicianController');
     Route::resource('/approved-appoint', 'ApprovedController');
     Route::resource('/addreport', 'AddInspectionCarController');
+    Route::get('/upload-img', function () {
+        return view('upload-img');
+    });
 
     // search
     Route::get('/search','AppointmentController@search');

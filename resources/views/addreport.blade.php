@@ -1,5 +1,5 @@
 @extends('layouts.admin_layout')
-@section('title', 'Inspection Report')
+@section('title', 'ข้อมูลตรวจสภาพรถยนต์')
 @section('content')
 
 {{-- <!-- Meta -->
@@ -87,7 +87,7 @@
                     </div>
                 </div>
 
-                <div class="form-title mt-3 mt-lg-0">สรุปสถานะ</div>
+                <div class="form-title mt-3 mt-lg-0">การบริการตรวจเช็คระบบขับเคลื่อน</div>
                 <div class="col-12 pt-lg-3 box-form">
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="CarRS01">1. สถานะเครื่องยนต์</label>
@@ -290,6 +290,15 @@
                             <input type="radio" name="CarIn07" id="CarIn07_2" value="1">
                             <label for="CarIn07_2">ไม่ผ่าน</label>
                         </div>
+
+                        <label class="col-lg-4" for="CarIn08">8. แบตเตอรี่ทำงานปกติ</label>
+                        <div class="col-lg-2 btnCustom">
+                            <input type="radio" name="CarIn08" id="CarIn08_1" value="0">
+                            <label for="CarIn08_1">ผ่าน</label>
+
+                            <input type="radio" name="CarIn08" id="CarIn08_2" value="1">
+                            <label for="CarIn08_2">ไม่ผ่าน</label>
+                        </div>
                     </div>
                 </div>
             <?php  } ?>
@@ -301,9 +310,6 @@
                             <a class="nav-link active" href="#cardetails" id="pills-cardetails-tab" data-toggle="pill" role="tab" aria-controls="pills-cardetails" aria-selected="true">ข้อมูลรถ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#battery" id="pills-battery-tab" data-toggle="pill" role="tab" aria-controls="pills-battery" aria-selected="false">แบตเตอรี่ ไฟไหม้ น้ำท่วม</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#exterior" id="pills-exterior-tab" data-toggle="pill" role="tab" aria-controls="pills-exterior" aria-selected="false">Exterior Plan</a>
                         </li>
                         <li class="nav-item">
@@ -312,19 +318,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#chasis" id="pills-chasis-tab" data-toggle="pill" role="tab" aria-controls="pills-chasis" aria-selected="false">Chasis Plan</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#picture" id="pills-picture-tab" data-toggle="pill" role="tab" aria-controls="pills-picture" aria-selected="false">อัพโหลดรูปภาพ</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="#inspectorcomment" id="pills-inspectorcomment-tab" data-toggle="pill" role="tab" aria-controls="pills-inspectorcomment" aria-selected="false">ความเห็นจากผู้เช็ครถ</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#history" id="pills-history-tab" data-toggle="pill" role="tab" aria-controls="pills-history" aria-selected="false">ประวัติรถ</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="col-12 pt-lg-3 box-form tab-pane" id="cardetails" role="tabpanel" aria-labelledby="pills-cardetails-tab">
+                    <div class="col-12 pt-lg-3 box-form tab-pane show active" id="cardetails" role="tabpanel" aria-labelledby="pills-cardetails-tab">
                         <div class="form-group row">
                             <label class="col-lg-1" for="carBrand">ยี่ห้อ</label>
                             <select class="col-lg-3 form-control form-control-sm form-border" name="carBrand" id="carBrand" disabled>
@@ -475,68 +481,6 @@
 
                             <label class="col-lg-1 pr-lg-0" for="payment">ผ่อนงวดละ</label>
                             <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="payment" id="payment" value="{{$data->payment}}" disabled>
-                        </div>
-                    </div>
-
-                    <div class="col-12 pt-lg-3 box-form tab-pane" id="battery" role="tabpanel" aria-labelledby="pills-battery-tab">
-                        <div class="box-title">สถานะแบตเตอรี่</div>
-                        <div class="row mb-2">
-                            <div class="col-lg-6">
-                                <table width="100%">
-                                    <tr>
-                                        <td>แบตเตอรี่ทำงานปกติ</td>
-                                        <td width="30%">
-                                            <div class="btnCustom">
-                                                <input type="radio" name="bat_status" id="bat_status_1" value="0">
-                                                <label for="bat_status_1">ผ่าน</label>
-
-                                                <input type="radio" name="bat_status" id="bat_status_2" value="1">
-                                                <label for="bat_status_2">ไม่ผ่าน</label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="box-title">สถานะน้ำท่วม</div>
-                        <div class="row mb-2">
-                            <div class="col-lg-6">
-                                <table width="100%">
-                                    <tr>
-                                        <td>รถเคยประสบภัยน้ำท่วมจมน้ำ</td>
-                                        <td width="30%">
-                                            <div class="btnCustom">
-                                                <input type="radio" name="flood_status" id="flood_status_1" value="0">
-                                                <label for="flood_status_1">ใช่</label>
-
-                                                <input type="radio" name="flood_status" id="flood_status_2" value="1">
-                                                <label for="flood_status_2">ไม่ใช่</label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="box-title">สถานะไฟไหม้</div>
-                        <div class="row mb-2">
-                            <div class="col-lg-6">
-                                <table width="100%">
-                                    <tr>
-                                        <td>รถเคยประสบภัยไฟไหม้</td>
-                                        <td width="30%">
-                                            <div class="btnCustom">
-                                                <input type="radio" name="fire_status" id="fire_status_1" value="0">
-                                                <label for="fire_status_1">ใช่</label>
-
-                                                <input type="radio" name="fire_status" id="fire_status_2" value="1">
-                                                <label for="fire_status_2">ไม่ใช่</label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
                         </div>
                     </div>
 
@@ -790,7 +734,7 @@
                         ภายใน
                     </div>
 
-                    <div class="col-12 pt-lg-3 box-form tab-pane show active" id="chasis" role="tabpanel" aria-labelledby="pills-chasis-tab">
+                    <div class="col-12 pt-lg-3 box-form tab-pane" id="chasis" role="tabpanel" aria-labelledby="pills-chasis-tab">
                         <div class="position-absolute">
                             <table class="table table-sm">
                                 <tr>
@@ -833,230 +777,12 @@
                         </table>
                     </div>
 
-        {{-- images full start --}}
-        <form method="post" id="images_full" enctype="multipart/form-data">
-            {{ csrf_field() }}
-
-                <div class="col-12 pt-lg-3 box-form tab-pane" id="picture" role="tabpanel" aria-labelledby="pills-picture-tab">
-                        <div class="mb-2">
-                            {{-- 0-1 --}}
-                            <div class="list-group-item">
-
-                                <label class="col-lg-5" for="package">รูปด้านหน้ารถยนต์</label>
-                                <label class="col-lg-1" for="package"></label>
-                                <label class="col-lg-5" for="package">รูปด้านหลังรถยนต์</label>
-
-                                <div class="row">
-                                    <div class="col-md-6 list-group-item">
-                                            <div class="row">
-                                                <div class="col-md-11">
-                                                    <input type="file" name="image_0" class="form-control" height="2%" value="0">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="alert col-md-11" id="message_0" style="display: none;"></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12" align="center">
-                                                    <span id="uploaded_image_0"></span>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <div class="col-md-6 list-group-item">
-                                            <div class="row">
-                                                <div class="col-md-11">
-                                                    <input type="file" name="image_1" class="form-control" height="2%" value="1">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="alert col-md-11" id="message_1" style="display: none"></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12" align="center">
-                                                    <span id="uploaded_image_1"></span>
-                                                </div>
-                                            </div>
-                                    </div>
-                                </div>
-                             </div>
-
-                        {{-- 2-3 --}}
-
-                        <div class="list-group-item">
-
-                            <label class="col-lg-5" for="package">รูปเครื่องยนต์</label>
-                            <label class="col-lg-1" for="package"></label>
-                            <label class="col-lg-5" for="package">รูปเลขไมลล์</label>
-
-                            <div class="row">
-                                <div class="col-md-6 list-group-item">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <input type="file" name="image_2" class="form-control" height="2%" value="0">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="alert col-md-11" id="message_2" style="display: none;"></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12" align="center">
-                                                <span id="uploaded_image_2"></span>
-                                            </div>
-                                        </div>
-                                </div>
-                                <div class="col-md-6 list-group-item">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <input type="file" name="image_3" class="form-control" height="2%" value="1">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="alert col-md-11" id="message_3" style="display: none"></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12" align="center">
-                                                <span id="uploaded_image_3"></span>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- 4-5 --}}
-                        <div class="list-group-item">
-
-                            <label class="col-lg-5" for="package">รูปเลขตัวถัง</label>
-                            <label class="col-lg-1" for="package"></label>
-                            <label class="col-lg-5" for="package">รูปเลขเครื่องยนต์</label>
-
-                            <div class="row">
-                                <div class="col-md-6 list-group-item">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <input type="file" name="image_4" class="form-control" height="2%" value="0">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="alert col-md-11" id="message_4" style="display: none;"></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12" align="center">
-                                                <span id="uploaded_image_4"></span>
-                                            </div>
-                                        </div>
-                                </div>
-                                <div class="col-md-6 list-group-item">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <input type="file" name="image_5" class="form-control" height="2%" value="1">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="alert col-md-11" id="message_5" style="display: none"></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12" align="center">
-                                                <span id="uploaded_image_5"></span>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                         </div>
-
-                    {{-- 6-7 --}}
-
-                    <div class="list-group-item">
-
-                        <label class="col-lg-5" for="package">รูปเครื่องยนต์</label>
-                        <label class="col-lg-1" for="package"></label>
-                        <label class="col-lg-5" for="package">รูปเลขไมลล์</label>
-
-                        <div class="row">
-                            <div class="col-md-6 list-group-item">
-                                    <div class="row">
-                                        <div class="col-md-11">
-                                            <input type="file" name="image_6" class="form-control" height="2%" value="0">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="alert col-md-11" id="message_6" style="display: none;"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12" align="center">
-                                            <span id="uploaded_image_6"></span>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="col-md-6 list-group-item">
-                                    <div class="row">
-                                        <div class="col-md-11">
-                                            <input type="file" name="image_7" class="form-control" height="2%" value="1">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="alert col-md-11" id="message_7" style="display: none"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12" align="center">
-                                            <span id="uploaded_image_7"></span>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{--  --}}
-                    <br>
-
-                    </div>
-                    <div class="mb-2">
-
-                        <div class="row">
-                            {{-- <label class="col-lg-5" for="package">เลือกไฟล์ภาพ 360</label> --}}
-                            <label class="col-lg-1" for="package"></label>
-                            <label class="col-lg-5" for="package">ชื่อไฟล์ VDO</label>
-
-                            {{-- <div class="col-md-6 list-group-item">
-                                <div class="row">
-                                    <div class="col-md-11">
-                                        <input type="file" name="image_8" class="form-control" height="2%" value="1">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="alert col-md-11" id="message_8" style="display: none"></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12" align="center">
-                                        <span id="uploaded_image_8"></span>
-                                    </div>
-                                </div>
-                            </div> --}}
-
-                            <div class="col-md-12 list-group-item">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <input class="form-control form-control-sm form-border" type="text" name="file_vdo" id="file_vdo">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-success btn-sm" type="submit">
-                                            <i class="fa fa-floppy-o" aria-hidden="true"></i>บันทึกการอัพโหลดภาพ
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </form>
-
-        {{-- 111111 --}}
-
-        {{-- form images full end --}}
-
                     <div class="col-12 pt-lg-3 box-form tab-pane" id="inspectorcomment" role="tabpanel" aria-labelledby="pills-inspectorcomment-tab">
                         <label for="comment">ความคิดเห็นจากผู้ตรวจสภาพรถ</label>
                         <textarea class="form-control form-border mb-3" rows="5" name="comment" id="comment">This Vehicle, {{$data->year}} {{$data->name_brand}} {{ $data->name_model }} with Chassis number {{$data->engine}} was Inspected on the <?php date_default_timezone_set("Asia/Bangkok"); echo date("d F Y"); ?> by Mr. Wasawad Wasuthasawat. The Inspector did not find irregularities with the 16 Inspection Details stated in this report. It can be concluded that at the time of Inspection, the said Inspection Analysis has passed the Inspection standard of Mittare Insurance Public Co., LTD.</textarea>
                     </div>
 
-                    <div class="col-12 pt-lg-3 box-form tab-pane" id="history" style="max-height: 550px; overflow: auto;" role="tabpanel" aria-labelledby="pills-history-tab">
+                    <!-- <div class="col-12 pt-lg-3 box-form tab-pane" id="history" style="max-height: 550px; overflow: auto;" role="tabpanel" aria-labelledby="pills-history-tab">
                         <div class="col-lg-12 mb-2">
                             <form>
                                 <div class="row upload-box">
@@ -1114,18 +840,18 @@
                                 </table>
                             </form>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
-                <div class="col-12 pt-2 pt-lg-4">
+                <div class="col-12 pt-2 pt-lg-3 pb-lg-4">
                     <div class="col-12 text-center">
-                        <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
-                        <button class="btn btn-danger" type="submit"><i class="fa fa-times" aria-hidden="true"></i> ยกเลิก</button>
+                        <a href="{{ route('edit.index') }}"><button class="btn btn-danger" type="button"><i class="fa fa-times" aria-hidden="true"></i> ยกเลิก</button></a>
+                        <a href="{{ url('upload-img') }}"><button class="btn btn-success" type="button" ><i class="fa fa-arrow-right" aria-hidden="true"></i> ถัดไป</button></a>
                     </div>
-                    <div class="col-12 text-center my-3">
-                        <button class="btn btn-purple" type="submit"><i class="fa fa-car" aria-hidden="true"></i> พิมพ์ใบตรวจสภาพรถ</button>
-                        <button class="btn btn-primary" type="submit"><i class="fa fa-certificate" aria-hidden="true"></i> พิมพ์ใบรับรอง</button>
-                    </div>
+                    <!-- <div class="col-12 text-center my-3">
+                        <a href=""></a><button class="btn btn-purple" type="button"><i class="fa fa-car" aria-hidden="true"></i> พิมพ์ใบตรวจสภาพรถ</button>
+                        <a href=""></a><button class="btn btn-primary" type="button"><i class="fa fa-certificate" aria-hidden="true"></i> พิมพ์ใบรับรอง</button>
+                    </div> -->
                 </div>
             </form>
             @endforeach
