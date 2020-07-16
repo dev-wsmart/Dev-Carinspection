@@ -731,7 +731,192 @@
                     </div>
 
                     <div class="col-12 pt-lg-3 box-form tab-pane" id="interior" role="tabpanel" aria-labelledby="pills-interior-tab">
-                        ภายใน
+                        <div class="position-absolute">
+                            <table class="table table-sm">
+                                <tr>
+                                    <th>ระดับปัญหา</th>
+                                </tr>
+                                <tr>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr>
+                                    <td>น้อย</td>
+                                </tr>
+                                <tr>
+                                    <td>ปานกลาง</td>
+                                </tr>
+                                <tr>
+                                    <td>มาก</td>
+                                </tr>
+                                <tr>
+                                    <td>มากที่สุด</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <table cellspacing="0" style="margin: 0 auto; background-image: url('{{ asset('images/interior/interior.png') }}'); background-repeat: no-repeat; background-size: auto 500px;">
+                            <tr>
+                                <!-- left -->
+                                <td style="height: 500px; width: 100px; padding-left: 20px; vertical-align: top;">
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="แผงประตูซ้าย" style="width: auto; height: 120px; margin-top: 20px;">
+                                        <select name="interior_07" id="interior_07" style="margin: -5px auto 20px -40px;">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ระบบหน้าต่าง" style="width: auto; height: 238px;">
+                                        <select name="interior_14" id="interior_14" style="margin: 60px auto 0 -40px;">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+                                </td>
+
+                                <!-- middle -->
+                                <td style="height: 500px; width: 305px; vertical-align: top;">
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ระบบแสงสว่างภายนอก" style="width: 305px; height: 30px; float: left;">
+                                        <select name="interior_12" id="interior_12" style="display: flex; margin: -10px auto auto;">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เครื่องปรับอากาศ" style="width: 65px; height: 45px; float: left;">
+                                        <select name="interior_10" id="interior_10">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ระบบวิทยุ" style="width: 90px; height: 45px; float: left; margin-left: 40px;">
+                                        <select name="interior_13" id="interior_13">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="แผงหน้าปัดรถยนต์" style="width: 72px; height: 45px; float: left; margin-left: 8px;">
+                                        <select name="interior_02" id="interior_02">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เบาะหน้าซ้าย" style="width: 115px; height: 145px; float: left; margin-top: 54px;">
+                                        <select name="interior_03" id="interior_03">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="คอนโซล" style="width: 70px; height: 145px; float: left;">
+                                        <select name="interior_06" id="interior_06" style="margin-top: 53px;">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="พวงมาลัย" style="width: 106px; height: 40px; float: left;">
+                                        <select name="interior_01" id="interior_01" style="display: flex; margin: 0 auto;">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เบาะหน้าขวา" style="width: 115px; height: 145px; float: left; margin-top: 14px;">
+                                        <select name="interior_04" id="interior_04" style="float: right;">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ระบบแสงสว่างภายใน" style="width: 70px; height: 45px; float: left; margin-top: -45px; margin-left: 115px;">
+                                        <select name="interior_11" id="interior_11">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เบาะหลัง" style="width: 300px; height: 145px; float: left; margin-top: 11px;">
+                                        <select name="interior_05" id="interior_05" style="display: flex; margin: 40px auto;">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="พื้นที่เก็บสัมภาระ" style="width: 300px; height: 63px; float: left;">
+                                        <select name="interior_16" id="interior_16" style="display: flex; margin: 15px auto;">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+                                </td>
+
+                                <!-- right -->
+                                <td style="height: 500px; width: 100px; padding-right: 20px; vertical-align: top;">
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="แผงประตูขวา" style="width: auto; height: 120px; margin-top: 20px;">
+                                        <select name="interior_08" id="interior_08" style="float: right; margin: -5px -35px auto auto;">
+                                            <option value="0">ไม่มี</option>
+                                            <option value="25">น้อย</option>
+                                            <option value="50">ปานกลาง</option>
+                                            <option value="75">มาก</option>
+                                            <option value="100">มากที่สุด</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="position-absolute" style="top: 150px; right: 100px;">
+                            <div>เพดานหลังคา</div>
+                            <div class="carplan-img">
+                                <select name="interior_16" id="interior_16">
+                                    <option value="0">ไม่มี</option>
+                                    <option value="25">น้อย</option>
+                                    <option value="50">ปานกลาง</option>
+                                    <option value="75">มาก</option>
+                                    <option value="100">มากที่สุด</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-12 pt-lg-3 box-form tab-pane" id="chasis" role="tabpanel" aria-labelledby="pills-chasis-tab">
