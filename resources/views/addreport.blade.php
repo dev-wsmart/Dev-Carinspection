@@ -861,32 +861,6 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){
-        // $('#images_full').on('change', function(){
-        $("#images_full").change(function() {
-            // event.preventDefault();
-            // var imagesD = $(this).val();
-            alert('1234');
-            $.ajax({
-            url:"{{ route('upload.action') }}",
-            method:"POST",
-            data:new FormData(this),
-            dataType:'JSON',
-            contentType: false,
-            cache: false,
-            processData: false,
-            success:function(data)
-                {
-                    $('#message_0').css('display', 'block');
-                    $('#message_0').html(data.message_0);
-                    $('#message_0').addClass(data.class_name);
-                    $('#uploaded_image_0').html(data.uploaded_image_0);
-                }
-            })
-        });
-        // alert('1234');
-});
-
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })

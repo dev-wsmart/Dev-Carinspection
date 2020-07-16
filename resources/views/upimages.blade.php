@@ -14,12 +14,9 @@
         <hr noshade><br>
         <a style="margin-right:3%">
             @foreach($images as $key => $id_maxs)
-            {{-- {{ $idmax = $id_maxs->id }} --}}
 
                     <?php
                         $idmax = $id_maxs->id;
-                        $fromtent = $id_maxs->fromtent;
-                        $id_car = $idmax;
                         $id_maxins = 'inspec-'.str_pad(($idmax),6,'0',STR_PAD_LEFT);
                         echo 'เลขที่ตรวจสภาพรถ : '.$id_maxins;
 
@@ -32,9 +29,10 @@
         {{-- images full start --}}
         <form action='{{ route('upimages.store') }}' method='POST' enctype='multipart/form-data' id="images_full">
             @csrf
-
-            <input type="hidden" name="id_car" value="{{ $id_car }}">
-            <input type="hidden" name="fromtent" value="{{ $fromtent }}">
+        @foreach($images as $key => $id_cars)
+            <input type="hidden" name="id_car" value="{{$id_cars->id}}">
+            <input type="hidden" name="fromtent" value="{{$id_cars->fromtent}}">
+        @endforeach
             <input type="hidden" name="userID" value="{{ $userID = Auth::user()->id }}">
 @foreach($images as $image)
             <div class="form-title">images</div>
@@ -76,6 +74,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 list-group-item">
+                                    @if($image->image_2 == '')
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <input type="file" name="image_2" class="form-control" height="2%" value="0">
@@ -88,12 +87,17 @@
                                             <div class="col-md-12" align="center">
                                                 <span id="uploaded_image_2"></span>
                                             </div>
+                                        </div>
+                                    @else
+                                        <div class="row">
                                             <div class="col-md-12" align="center">
                                                 <img src="/images/{{$image->image_2}}" class="img-thumbnail" width="80%" align="center" />
                                             </div>
                                         </div>
+                                    @endif
                                 </div>
                                 <div class="col-md-6 list-group-item">
+                                @if($image->image_3 == '')
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_3" class="form-control" height="2%" value="0">
@@ -107,6 +111,13 @@
                                             <span id="uploaded_image_3"></span>
                                         </div>
                                     </div>
+                                @else
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <img src="/images/{{$image->image_3}}" class="img-thumbnail" width="80%" align="center" />
+                                        </div>
+                                    </div>
+                                @endif
                                 </div>
                             </div>
                         </div>
@@ -120,6 +131,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 list-group-item">
+                                    @if($image->image_4 == '')
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <input type="file" name="image_4" class="form-control" height="2%" value="0">
@@ -133,8 +145,16 @@
                                                 <span id="uploaded_image_4"></span>
                                             </div>
                                         </div>
+                                    @else
+                                        <div class="row">
+                                            <div class="col-md-12" align="center">
+                                                <img src="/images/{{$image->image_4}}" class="img-thumbnail" width="80%" align="center" />
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="col-md-6 list-group-item">
+                                    @if($image->image_5 == '')
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <input type="file" name="image_5" class="form-control" height="2%" value="1">
@@ -148,6 +168,13 @@
                                                 <span id="uploaded_image_5"></span>
                                             </div>
                                         </div>
+                                    @else
+                                        <div class="row">
+                                            <div class="col-md-12" align="center">
+                                                <img src="/images/{{$image->image_5}}" class="img-thumbnail" width="80%" align="center" />
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                          </div>
@@ -162,6 +189,7 @@
 
                         <div class="row">
                             <div class="col-md-6 list-group-item">
+                                @if($image->image_6 == '')
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_6" class="form-control" height="2%" value="0">
@@ -175,8 +203,16 @@
                                             <span id="uploaded_image_6"></span>
                                         </div>
                                     </div>
+                                @else
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <img src="/images/{{$image->image_6}}" class="img-thumbnail" width="80%" align="center" />
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                             <div class="col-md-6 list-group-item">
+                                @if($image->image_7 == '')
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_7" class="form-control" height="2%" value="1">
@@ -190,6 +226,13 @@
                                             <span id="uploaded_image_7"></span>
                                         </div>
                                     </div>
+                                @else
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <img src="/images/{{$image->image_7}}" class="img-thumbnail" width="80%" align="center" />
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -204,6 +247,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 list-group-item">
+                                    @if($image->image_A == '')
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <input type="file" name="image_A" class="form-control" height="2%" value="0">
@@ -217,8 +261,16 @@
                                                 <span id="uploaded_image_A"></span>
                                             </div>
                                         </div>
+                                    @else
+                                        <div class="row">
+                                            <div class="col-md-12" align="center">
+                                                <img src="/images/{{$image->image_A}}" class="img-thumbnail" width="80%" align="center" />
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="col-md-6 list-group-item">
+                                    @if($image->image_B == '')
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <input type="file" name="image_B" class="form-control" height="2%" value="1">
@@ -232,6 +284,13 @@
                                                 <span id="uploaded_image_B"></span>
                                             </div>
                                         </div>
+                                    @else
+                                        <div class="row">
+                                            <div class="col-md-12" align="center">
+                                                <img src="/images/{{$image->image_B}}" class="img-thumbnail" width="80%" align="center" />
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                          </div>
@@ -246,6 +305,7 @@
 
                         <div class="row">
                             <div class="col-md-6 list-group-item">
+                                @if($image->image_C == '')
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_C" class="form-control" height="2%" value="0">
@@ -259,8 +319,16 @@
                                             <span id="uploaded_image_C"></span>
                                         </div>
                                     </div>
+                                @else
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <img src="/images/{{$image->image_C}}" class="img-thumbnail" width="80%" align="center" />
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                             <div class="col-md-6 list-group-item">
+                                @if($image->image_D == '')
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_D" class="form-control" height="2%" value="1">
@@ -274,12 +342,17 @@
                                             <span id="uploaded_image_D"></span>
                                         </div>
                                     </div>
+                                @else
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <img src="/images/{{$image->image_D}}" class="img-thumbnail" width="80%" align="center" />
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
-    @endforeach
-                <br>
-
+                    <br>
                         <div class="row">
                             <label class="col-lg-1" for="package"></label>
                             <label class="col-lg-5" for="package">ชื่อไฟล์ VDO</label>
@@ -287,7 +360,11 @@
                             <div class="col-md-12 list-group-item">
                                 <div class="row">
                                     <div class="col-md-9">
+                                    @if($image->file_vdo == '')
                                         <input class="form-control form-control-sm form-border" type="text" name="file_vdo" id="file_vdo">
+                                    @else
+                                        <input class="form-control form-control-sm form-border" type="text" name="file_vdo" id="file_vdo" value="{{$image->file_vdo}}" disabled>
+                                    @endif
                                     </div>
                                     <div class="col-md-3">
                                         <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i>บันทึกการอัพโหลดภาพ</button>
@@ -295,6 +372,7 @@
                                 </div>
                             </div>
                         </div>
+                @endforeach
                 </div>
         </form>
 
