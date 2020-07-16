@@ -39,7 +39,7 @@
         </div>
         <hr noshade>
         <div class="col-12">
-            @foreach($datas as $data)
+    @foreach($datas as $data)
 
                     <?php
                         $idins = $data->id;
@@ -846,7 +846,7 @@
                 <div class="col-12 pt-2 pt-lg-3 pb-lg-4">
                     <div class="col-12 text-center">
                         <a href="{{ route('edit.index') }}"><button class="btn btn-danger" type="button"><i class="fa fa-times" aria-hidden="true"></i> ยกเลิก</button></a>
-                        <a href="{{ url('upload-img') }}"><button class="btn btn-success" type="button" ><i class="fa fa-arrow-right" aria-hidden="true"></i> ถัดไป</button></a>
+                        <a href="{{ route('upimages.show',$data->id) }}"><button class="btn btn-success" type="button" ><i class="fa fa-arrow-right" aria-hidden="true"></i> ถัดไป</button></a>
                     </div>
                     <!-- <div class="col-12 text-center my-3">
                         <a href=""></a><button class="btn btn-purple" type="button"><i class="fa fa-car" aria-hidden="true"></i> พิมพ์ใบตรวจสภาพรถ</button>

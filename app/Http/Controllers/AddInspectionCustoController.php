@@ -103,7 +103,7 @@ class AddInspectionCustoController extends Controller
         // var_dump($inputAll);
 
         // echo "<br>";
-        $input = new add_inspection_custo([
+        $inputcus = new add_inspection_custo([
             'nametitle' => $request->input('nametitle'),
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
@@ -119,7 +119,7 @@ class AddInspectionCustoController extends Controller
             'tel_contact' => $request->input('tel_contact'),
         ]);
              //
-        $input1 = new add_inspection_car([
+        $inputcar = new add_inspection_car([
             'carbrand' => $request->input('carbrand'),
             'carmodel' => $request->input('carmodel'),
             'submodel' => $request->input('submodel'),
@@ -154,7 +154,7 @@ class AddInspectionCustoController extends Controller
 
             ]);
 
-            $input2 = new add_inspection_date([
+            $inputdate = new add_inspection_date([
 
                 'inspectiontype' => $request->input('inspectiontype'),
                 'inspector' => $request->input('inspector'),
@@ -165,18 +165,15 @@ class AddInspectionCustoController extends Controller
 
                 ]);
             // echo $input;
-            $input->save();
-            $input1->save();
-            $input2->save();
 
 
         // mile car
-            $image = $request->file('image_mile');
-            $new_name_mi = rand() . '.' . $image->getClientOriginalExtension();
+            $image0 = $request->file('image_mile');
+            $new_name_mi = rand() . '.' . $image0->getClientOriginalExtension();
             $new_name_mile = 'mile'.$new_name_mi;
-            $image->move(public_path('images'), $new_name_mile);
+            $image0->move(public_path('images'), $new_name_mile);
 
-            echo $input3 = new images_mn([
+            echo $input0 = new images_mn([
 
                 'id_car' => $request->input('id_car'),
                 'name_image' => $new_name_mile,
@@ -186,15 +183,14 @@ class AddInspectionCustoController extends Controller
                 'confirm' => '0'
 
                 ]);
-            $input3->save();
             // echo "<br>";
 
         // number car
-            $image = $request->file('image_num');
-            $new_name_n = rand() . '.' . $image->getClientOriginalExtension();
+            $image1 = $request->file('image_num');
+            $new_name_n = rand() . '.' . $image1->getClientOriginalExtension();
             $new_name_num = 'num'.$new_name_n;
-            $image->move(public_path('images'), $new_name_num);
-            echo $input4 = new images_mn([
+            $image1->move(public_path('images'), $new_name_num);
+            echo $input1 = new images_mn([
 
                 'id_car' => $request->input('id_car'),
                 'name_image' => $new_name_num,
@@ -204,7 +200,158 @@ class AddInspectionCustoController extends Controller
                 'confirm' => '0'
 
                 ]);
-            $input4->save();
+
+                $input2 = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => '2',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+
+
+                $input3 = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => '3',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+
+                $input4 = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => '4',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+
+                $input5 = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => '5',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+
+                $input6 = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => '6',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+
+                $input7 = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => '7',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+
+                $inputA = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => 'A',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+
+                $inputB = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => 'B',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+
+                $inputC = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => 'C',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+
+                $inputD = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => 'D',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+                // "<br>";
+
+                // $vdo = $request->input('file_vdo');
+                $inputVDO = new images_mn([
+
+                    'id_car' => $request->input('id_car'),
+                    'name_image' => 'null',
+                    'type_image' => 'V',
+                    'id_dealer' => $request->input('fromtent'),
+                    'status' => '0',
+                    'confirm' => '0'
+
+                    ]);
+
+                $inputcus->save();
+                $inputcar->save();
+                $inputdate->save();
+
+                $input0->save();
+                $input1->save();
+                $input2->save();
+                $input3->save();
+                $input4->save();
+                $input5->save();
+                $input6->save();
+                $input7->save();
+                $inputA->save();
+                $inputB->save();
+                $inputC->save();
+                $inputD->save();
+                $inputVDO->save();
 
         return redirect('/appointment')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
 
