@@ -36,7 +36,7 @@
                     <td>{{ $data->inspectiondate }}</td>
                     <td>{{ $data->contact }}</td>
                     <td>{{ $data->tel_contact }}</td>
-                    <td><a href="#" title="ดูข้อมูล"><button class="btn btn-primary py-0 px-1"><i class="fa fa-search"></i></button></a></td>
+                    <td><a href="{{ route('pending.show', $data->id_car )}}" title="ดูข้อมูล"><button class="btn btn-primary py-0 px-1"><i class="fa fa-search"></i></button></a></td>
                 </tr>
                 <?php $i++; ?>
             @endforeach
