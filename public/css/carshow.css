@@ -21,51 +21,69 @@ body{
 }
 
 .head-title{
-    padding-top: 350px;
+    padding-top: 35px;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 35px;
+}
+
+.head-logo{
+    margin-top: 150px;
+}
+
+.head-logo img{
+    width: 200px;
+    height: 160px;
 }
 
 .head-description{
     font-size: 25px;
 }
 
+
 table {
     border-collapse: collapse;
+}
+.overall-table{
     font-size: 14px;
 }
 
 .overall-table td{
     border: 1px solid lightgray;
-    text-align: center;
     width: 20%;
-    height: 50px;
-    padding: 8px 0px 8px 0px;
-    vertical-align: middle;
+    padding: 10px;
+}
+
+#tire-table, #chassis-table, #fire-table, #flood-table{
+    text-align: center;
+}
+#tire-table{
+    width: 80%;
+}
+
+.conclude-table td{
+    height: 65px;
 }
 
 .grid-container {
-    margin-top: 30px;
+    margin-top: 23px;
     display: grid;
-    grid-column-gap: 20px;
+    grid-column-gap: 30px;
     grid-template-columns: 50% 50%;
 }
 
-/* .grid-item{
-} */
+.grid-item{
+    width: 100%;
+}
 .car-show{
     margin-top: 20px;
     margin-bottom: 30px;
 }
 
-.table-description{
-    font-size: 10px;
-}
-
 .table-check{
     background-color: white;
     color: rgb(233, 178, 65);
-    font-size: 25px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .table-detail{
@@ -88,7 +106,7 @@ table {
 }
 .table-battery{
     font-size: 12px;
-    margin-top: 10px;
+    margin-top: 18px;
     text-align: center;
 }
 
@@ -120,6 +138,7 @@ table {
     margin: auto;
     background-color: rgb(233, 178, 65);
     font-size: 20px;
+    font-weight: bold;
     border-radius: 13px;
     border: 5px solid white;
 }
@@ -127,7 +146,7 @@ table {
     margin-top: 20px;
 }
 
-.wheel-grid-container{
+.image-grid-container{
     margin-top: 20px;
     display: grid;
     grid-column-gap: 20px;
@@ -135,22 +154,43 @@ table {
     grid-template-columns: auto auto;
 }
 
-.wheel-img{
+.img-grid-item{
     border: 20px inset #a38175;
     width: 250px;
     height: 150px;
 }
+.img-grid-item-xl{
+    border: 20px inset #a38175;
+    width: 300px;
+    height: 250px;
+}
 .condition-bg{
-    margin-top: 30px;
-    height:800px;
-    background-color: rgb(233, 178, 65);
+    font-family: "Angsana New";
+    text-align: left;
+    margin-top: 20px;
+    height:780px;
+    background-color: white;
+    border: 10px solid black;
+    padding: 15px;
+
+}
+.condition-bg table td{
+    vertical-align: top;
+    font-size: 10.9px !important;
+    width: 50%;
 }
 
 .sign-grid-container{
+    font-size: 13px;
     margin-top: 50px;
+    margin-right: 50px;
     display: grid;
-    grid-column-gap: 20px;
+    grid-column-gap: 50px;
     grid-template-columns: auto auto auto;
+}
+.sign-block{
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
 }
 
 .car-layout{
@@ -175,11 +215,55 @@ table {
     height: 60%;
     margin-top: 20px;
 }
+.table-progress{
+    background-color: white;
+    padding: 13px 20px 13px 20px !important;
+}
+
+.progress-bar{
+    background-color: lightgray;
+    width: 100%;
+    height: 15px;
+}
+.progress-bar .progress-bar-bar{
+    background-color: rgb(233, 178, 65);
+    width: 0%;
+    height: 100%;
+}
+
+.vehicle-overview-table{
+    border: 1px solid lightgray;
+    font-size: 13px;
+}
+.vehicle-overview-table td{
+    border: 1px solid lightgray;
+    width: 20%;
+    height: 50px;
+    padding: 5px;
+    max-height: 40px;
+}
+#inspector-note{
+    background-color: black;
+    margin-top: 20px;
+    height: 120px;
+    color: white;
+    text-align: left;
+    font-size: 13px;
+    padding: 15px;
+}
 
 /*ชิ้นส่วนรถยนต์*/
 .car-component{
     position: absolute;
     /* visibility: hidden !important; */
+}
+.mark-component{
+    position: absolute;
+    /* background-color: aqua; */
+    width: 80px;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
 }
 
 #A1{
@@ -190,17 +274,17 @@ table {
 #A2{
     width: 75px;
     height: 129px;
-    transform: translate(135px, 56px);
+    transform: translate(134px, 56px);
 }
 #B1{
     width: 75px;
-    height: 160px;
-    transform: translate(-207px, 400px);
+    height: 162px;
+    transform: translate(-206px, 399px);
 }
 #B2{
     width: 75px;
-    height: 160px;
-    transform: translate(135px, 400px);
+    height: 162px;
+    transform: translate(134px, 399px);
 }
 #FS{
     width: 200px;
@@ -210,7 +294,7 @@ table {
 #CH{
     width: 200px;
     height: 123px;
-    transform: translate(-99px, 63px);
+    transform: translate(-99px, 62px);
 }
 #WS{
     width: 205px;
@@ -218,9 +302,9 @@ table {
     transform: translate(-101px, 168px);
 }
 #Roof{
-    width: 155px;
-    height: 160px;
-    transform: translate(-76px, 263px);
+    width: 160px;
+    height: 165px;
+    transform: translate(-78px, 260px);
 }
 #WSR{
     width: 200px;
@@ -229,30 +313,85 @@ table {
 }
 
 #C1{
-    width: 105px;
-    height: 105px;
+    width: 107px;
+    height: 104px;
     transform: translate(-197px, 185px);
 }
 #C2{
-    width: 105px;
-    height: 105px;
-    transform: translate(95px, 185px);
+    width: 107px;
+    height: 104px;
+    transform: translate(93px, 185px);
 }
 #D1{
-    width: 105px;
-    height: 105px;
+    width: 107px;
+    height: 104px;
     transform: translate(-197px, 295px);
 }
 #D2{
-    width: 105px;
-    height: 105px;
-    transform: translate(95px, 295px);
+    width: 107px;
+    height: 104px;
+    transform: translate(93px, 295px);
 }
 #W1{
     width: 60px;
     height: 60px;
     transform: translate(-210px, 106px);
 }
+#W1-mark{
+    transform: translate(-270px, 100px);
+}
+#W2-mark{
+    transform: translate(-300px, 420px);
+}
+#W3-mark{
+    transform: translate(230px, 100px);
+}
+#W4-mark{
+    transform: translate(230px, 420px);
+}
+#CH-mark{
+    transform: translate(-40px, 80px);
+}
+#Roof-mark{
+    transform: translate(-40px, 300px);
+}
+#A1-mark{
+    transform: translate(-210px, 0px);
+}
+#A2-mark{
+    transform: translate(150px, 0px);
+}
+#B1-mark{
+    transform: translate(-210px, 550px);
+}
+#B2-mark{
+    transform: translate(150px, 550px);
+}
+#C1-mark{
+    transform: translate(-210px, 210px);
+}
+#D1-mark{
+    transform: translate(-210px, 310px);
+}
+#C2-mark{
+    transform: translate(140px, 210px);
+}
+#D2-mark{
+    transform: translate(140px, 310px);
+}
+#LS-mark{
+    transform: translate(-320px, 250px);
+}
+#RS-mark{
+    transform: translate(220px, 250px);
+}
+#WSR-mark{
+    transform: translate(-40px, 440px);
+}
+#RH-mark{
+    transform: translate(-40px, 520px);
+}
+
 #W2{
     width: 60px;
     height: 60px;
@@ -271,7 +410,7 @@ table {
 #LS{
     width: 13px;
     height: 245px;
-    transform: translate(-216px, 169px);
+    transform: translate(-240px, 169px);
 }
 #RS{
     width: 13px;
@@ -308,6 +447,7 @@ table {
 
 @media print {
     .page {page-break-after: always;}
+
 }
 
 /*Force show background on print*/
