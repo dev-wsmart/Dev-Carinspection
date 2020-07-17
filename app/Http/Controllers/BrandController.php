@@ -621,26 +621,34 @@ class BrandController extends Controller
 
         ->join('images_mns as im0','add_inspection_cars.id','=','im0.id_car')
         ->join('images_mns as im1','add_inspection_cars.id','=','im1.id_car')
-        ->join('images_mns as im2','add_inspection_cars.id','=','im2.id_car')
-        ->join('images_mns as im3','add_inspection_cars.id','=','im3.id_car')
-        ->join('images_mns as im4','add_inspection_cars.id','=','im4.id_car')
-        ->join('images_mns as im5','add_inspection_cars.id','=','im5.id_car')
-        ->join('images_mns as im6','add_inspection_cars.id','=','im6.id_car')
-        ->join('images_mns as im7','add_inspection_cars.id','=','im7.id_car')
-        ->join('images_mns as imA','add_inspection_cars.id','=','imA.id_car')
-        ->join('images_mns as imB','add_inspection_cars.id','=','imB.id_car')
-        ->join('images_mns as imC','add_inspection_cars.id','=','imC.id_car')
-        ->join('images_mns as imD','add_inspection_cars.id','=','imD.id_car')
-        ->join('images_mns as imV','add_inspection_cars.id','=','imV.id_car')
+        ->leftjoin('images_mns as im2','add_inspection_cars.id','=','im2.id_car')
+        ->leftjoin('images_mns as im3','add_inspection_cars.id','=','im3.id_car')
+        ->leftjoin('images_mns as im4','add_inspection_cars.id','=','im4.id_car')
+        ->leftjoin('images_mns as im5','add_inspection_cars.id','=','im5.id_car')
+        ->leftjoin('images_mns as im6','add_inspection_cars.id','=','im6.id_car')
+        ->leftjoin('images_mns as im7','add_inspection_cars.id','=','im7.id_car')
+        ->leftjoin('images_mns as imA','add_inspection_cars.id','=','imA.id_car')
+        ->leftjoin('images_mns as imB','add_inspection_cars.id','=','imB.id_car')
+        ->leftjoin('images_mns as imC','add_inspection_cars.id','=','imC.id_car')
+        ->leftjoin('images_mns as imD','add_inspection_cars.id','=','imD.id_car')
+        ->leftjoin('images_mns as imV','add_inspection_cars.id','=','imV.id_car')
 
-        ->where([
-                    ['im0.type_image', '=', '0'],['im1.type_image', '=', '1'],['im2.type_image', '=', '2'],
-                    ['im3.type_image', '=', '3'],['im4.type_image', '=', '4'],['im5.type_image', '=', '5'],
-                    ['im6.type_image', '=', '6'],['im7.type_image', '=', '7'],['imA.type_image', '=', 'A'],
-                    ['imB.type_image', '=', 'B'],['imC.type_image', '=', 'C'],['imD.type_image', '=', 'D'],
-                    ['imV.type_image', '=', 'V']
-                ])
         ->where('add_inspection_cars.id', '=', $id)
+        ->where([
+                    ['im0.type_image', '=', '0'],['im1.type_image', '=', '1']
+                ])
+        ->orwhere('im2.type_image', '=', '2')
+        ->orwhere('im3.type_image', '=', '3')
+        ->orwhere('im4.type_image', '=', '4')
+        ->orwhere('im5.type_image', '=', '5')
+        ->orwhere('im6.type_image', '=', '6')
+        ->orwhere('im7.type_image', '=', '7')
+        ->orwhere('imA.type_image', '=', 'A')
+        ->orwhere('imB.type_image', '=', 'B')
+        ->orwhere('imC.type_image', '=', 'C')
+        ->orwhere('imD.type_image', '=', 'D')
+        ->orwhere('imV.type_image', '=', 'V')
+
         ->get();
 
 

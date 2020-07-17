@@ -93,7 +93,7 @@ class ReportController extends Controller
                  'provinces.name_th','amphures.name_th as name_am','districts.name_th as name_dis',
                  'brands.name_brand','models.name_model','n.car_color as color_n','ccs.cc',
                  'sub_models.sub_model','b.car_color as color_b','dealers.dealer_name','packages.package_name',
-                 'technicians.name_tech')
+                 'technicians.name_tech','details.*')
 
         ->join('add_inspection_cars', 'add_inspection_custos.id', '=', 'add_inspection_cars.id')
         ->join('add_inspection_dates', 'add_inspection_custos.id', '=', 'add_inspection_dates.id')
@@ -109,6 +109,7 @@ class ReportController extends Controller
         ->join('dealers','add_inspection_cars.fromtent','=','dealers.id_dealer')
         ->join('packages','add_inspection_dates.package','=','packages.id_package')
         ->join('technicians','add_inspection_dates.inspector','=','technicians.id_tech')
+        ->leftjoin('details','add_inspection_custos.id','=','details.id_car')
 
         ->where('add_inspection_custos.id', '=', $id)
         ->groupBy('add_inspection_custos.id')
