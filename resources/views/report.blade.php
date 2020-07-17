@@ -44,7 +44,7 @@
         <?php  $Gear=array('0'=>'เกียร์ธรรมดา','1'=>'เกียร์อัตโนมัติ'); ?>
 
             <div id="search" class="col-md-6 col-lg-4 my-2">
-                <a href="">
+                <a href="{{ route('insp-details.show', $datas->id) }}">
                     <div class="card">
                         <div class="card-img">
                             <img src="{{ url('images/car1.jpg') }}" height="auto" width="100%">
