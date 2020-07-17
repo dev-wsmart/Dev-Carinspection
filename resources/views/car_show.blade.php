@@ -812,7 +812,7 @@
                     </div>
                     <div class="topic-title" style="margin-top: 20px;">Inspector Note</div>
                     <div id="inspector-note">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        This Vehicle, 2020 TOYOTA YARIS with Chassis number Fxtig123654 was Inspected on the 17 July 2020 by Mr. Wasawad Wasuthasawat. The Inspector did not find irregularities with the 16 Inspection Details stated in this report. It can be concluded that at the time of Inspection, the said Inspection Analysis has passed the Inspection standard of Mittare Insurance Public Co., LTD.
                     </div>
                 </div>
             </div>
