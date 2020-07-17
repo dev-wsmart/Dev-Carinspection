@@ -36,9 +36,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/approved-appoint', 'ApprovedController');
     Route::resource('/not-approved-appoint', 'NotapprovedController');
     Route::resource('/addreport', 'AddInspectionCarController');
-    Route::get('/upload-img', function () {
-        return view('upload-img');
-    });
+    // Route::get('/upload-img', function () {
+    //     return view('upload-img');
+    // });
     Route::resource('/upimages', 'BrandController');
 
     // search

@@ -3,6 +3,7 @@
 @section('content')
 <style>
     .image-block{
+        display: flex;
         height: 300px;
         text-align:center;
     }
@@ -10,6 +11,7 @@
     .image-block img{
         width: 100%;
         height: auto;
+        object-fit: cover;
     }
 
 </style>

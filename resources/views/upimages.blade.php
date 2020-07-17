@@ -25,14 +25,25 @@
         </a>
         <br><br>
         <div class="col-12">
-
+    @foreach($images as $key => $id_cars)
         {{-- images full start --}}
         <form action='{{ route('upimages.store') }}' method='POST' enctype='multipart/form-data' id="images_full">
             @csrf
-        @foreach($images as $key => $id_cars)
+
             <input type="hidden" name="id_car" value="{{$id_cars->id}}">
+            <input type="hidden" name="id_2" value="{{$id_cars->id_2}}">
+            <input type="hidden" name="id_3" value="{{$id_cars->id_3}}">
+            <input type="hidden" name="id_4" value="{{$id_cars->id_4}}">
+            <input type="hidden" name="id_5" value="{{$id_cars->id_5}}">
+            <input type="hidden" name="id_6" value="{{$id_cars->id_6}}">
+            <input type="hidden" name="id_7" value="{{$id_cars->id_7}}">
+            <input type="hidden" name="id_A" value="{{$id_cars->id_A}}">
+            <input type="hidden" name="id_B" value="{{$id_cars->id_B}}">
+            <input type="hidden" name="id_C" value="{{$id_cars->id_C}}">
+            <input type="hidden" name="id_D" value="{{$id_cars->id_D}}">
+            <input type="hidden" name="id_vdo" value="{{$id_cars->id_vdo}}">
             <input type="hidden" name="fromtent" value="{{$id_cars->fromtent}}">
-        @endforeach
+    @endforeach
             <input type="hidden" name="userID" value="{{ $userID = Auth::user()->id }}">
 @foreach($images as $image)
             <div class="form-title">images</div>
@@ -74,7 +85,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 list-group-item">
-                                    @if($image->image_2 == '')
+                                    @if($image->image_2 == 'null')
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <input type="file" name="image_2" class="form-control" height="2%" value="0">
@@ -97,7 +108,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6 list-group-item">
-                                @if($image->image_3 == '')
+                                @if($image->image_3 == 'null')
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_3" class="form-control" height="2%" value="0">
@@ -131,7 +142,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 list-group-item">
-                                    @if($image->image_4 == '')
+                                    @if($image->image_4 == 'null')
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <input type="file" name="image_4" class="form-control" height="2%" value="0">
@@ -154,7 +165,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6 list-group-item">
-                                    @if($image->image_5 == '')
+                                    @if($image->image_5 == 'null')
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <input type="file" name="image_5" class="form-control" height="2%" value="1">
@@ -189,7 +200,7 @@
 
                         <div class="row">
                             <div class="col-md-6 list-group-item">
-                                @if($image->image_6 == '')
+                                @if($image->image_6 == 'null')
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_6" class="form-control" height="2%" value="0">
@@ -212,7 +223,7 @@
                                 @endif
                             </div>
                             <div class="col-md-6 list-group-item">
-                                @if($image->image_7 == '')
+                                @if($image->image_7 == 'null')
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_7" class="form-control" height="2%" value="1">
@@ -247,7 +258,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 list-group-item">
-                                    @if($image->image_A == '')
+                                    @if($image->image_A == 'null')
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <input type="file" name="image_A" class="form-control" height="2%" value="0">
@@ -270,7 +281,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6 list-group-item">
-                                    @if($image->image_B == '')
+                                    @if($image->image_B == 'null')
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <input type="file" name="image_B" class="form-control" height="2%" value="1">
@@ -305,7 +316,7 @@
 
                         <div class="row">
                             <div class="col-md-6 list-group-item">
-                                @if($image->image_C == '')
+                                @if($image->image_C == 'null')
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_C" class="form-control" height="2%" value="0">
@@ -328,7 +339,7 @@
                                 @endif
                             </div>
                             <div class="col-md-6 list-group-item">
-                                @if($image->image_D == '')
+                                @if($image->image_D == 'null')
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_D" class="form-control" height="2%" value="1">
@@ -359,21 +370,27 @@
 
                             <div class="col-md-12 list-group-item">
                                 <div class="row">
-                                    <div class="col-md-9">
-                                    @if($image->file_vdo == '')
+                                    <div class="col-md-1">URL-VDO</div>
+                                    <div class="col-md-10">
+                                    @if($image->file_vdo == 'null')
                                         <input class="form-control form-control-sm form-border" type="text" name="file_vdo" id="file_vdo">
                                     @else
                                         <input class="form-control form-control-sm form-border" type="text" name="file_vdo" id="file_vdo" value="{{$image->file_vdo}}" disabled>
                                     @endif
                                     </div>
-                                    <div class="col-md-3">
-                                        <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i>บันทึกการอัพโหลดภาพ</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                @endforeach
+
                 </div>
+                <div class="col-12 py-2 pt-lg-3 pb-lg-4">
+                    <div class="col-12 text-center">
+                        <a href="{{ route('report.show',$image->id) }}"><button class="btn btn-danger" type="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> ย้อนกลับ</button></a>
+                        {{-- <a href=""><button class="btn btn-success" type="button" ><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button></a> --}}
+                        <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i>บันทึกการอัพโหลดภาพ</button>
+                    </div>
+                </div>
+                @endforeach
         </form>
 
         {{-- form images full end --}}
