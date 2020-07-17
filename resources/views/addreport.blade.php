@@ -93,25 +93,26 @@
 
                 <input type="hidden" name="id_car" value="{{$data->id}}">
                 <input type="hidden" name="id_detail" value="{{$data->id_detail}}">
+                <input type="hidden" name="inspectiontype" value="{{$data->inspectiontype}}">
 
                 <div class="form-title mt-3 mt-lg-0">การบริการตรวจเช็คระบบขับเคลื่อน</div>
                 <div class="col-12 pt-lg-3 box-form">
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="carrs01">1. สถานะเครื่องยนต์</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs01" id="carrs01_1" value="0" {{ $data->carrs01 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs01" id="carrs01_1" value="0" {{ $data->carrs01 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs01_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs01" id="carrs01_2" value="1" {{ $data->carrs01 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs01" id="carrs01_2" value="1" {{ $data->carrs01 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs01_2">ไม่ผ่าน</label>
                         </div>
 
                         <label class="col-lg-4" for="carrs02">2. สถานะเกียร์</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs02" id="carrs02_1" value="0" {{ $data->carrs02 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs02" id="carrs02_1" value="0" {{ $data->carrs02 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs02_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs02" id="carrs02_2" value="1" {{ $data->carrs02 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs02" id="carrs02_2" value="1" {{ $data->carrs02 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs02_2">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -119,19 +120,19 @@
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="carrs03">3. สถานะ ECU, ECM</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs03" id="carrs03_1" value="0" {{ $data->carrs03 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs03" id="carrs03_1" value="0" {{ $data->carrs03 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs03_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs03" id="carrs03_2" value="1" {{ $data->carrs03 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs03" id="carrs03_2" value="1" {{ $data->carrs03 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs03_2">ไม่ผ่าน</label>
                         </div>
 
                         <label class="col-lg-4" for="carrs04">4. สถานะระบบเบรค</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs04" id="carrs04_1" value="0" {{ $data->carrs04 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs04" id="carrs04_1" value="0" {{ $data->carrs04 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs04_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs04" id="carrs04_2" value="1" {{ $data->carrs04 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs04" id="carrs04_2" value="1" {{ $data->carrs04 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs04_2">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -139,19 +140,19 @@
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="carrs05">5. ระบบปรับอากาศและทำความร้อน</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs05" id="carrs05_1" value="0" {{ $data->carrs05 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs05" id="carrs05_1" value="0" {{ $data->carrs05 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs05_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs05" id="carrs05_2" value="1" {{ $data->carrs05 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs05" id="carrs05_2" value="1" {{ $data->carrs05 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs05_2">ไม่ผ่าน</label>
                         </div>
 
                         <label class="col-lg-4" for="carrs06">6. ชุดส่งกำลังเพลาหน้าและท้าย</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs06" id="carrs06_1" value="0" {{ $data->carrs06 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs06" id="carrs06_1" value="0" {{ $data->carrs06 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs06_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs06" id="carrs06_2" value="1" {{ $data->carrs06 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs06" id="carrs06_2" value="1" {{ $data->carrs06 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs06_2">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -159,19 +160,19 @@
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="carrs07">7. ระบบระบายความร้อนเครื่องยนต์</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs07" id="carrs07_1" value="0" {{ $data->carrs07 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs07" id="carrs07_1" value="0" {{ $data->carrs07 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs07_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs07" id="carrs07_2" value="1" {{ $data->carrs07 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs07" id="carrs07_2" value="1" {{ $data->carrs07 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs07_2">ไม่ผ่าน</label>
                         </div>
 
                         <label class="col-lg-4" for="carrs08">8. ระบบกันสะเทือนหน้าและหลัง</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs08" id="carrs08_1" value="0" {{ $data->carrs08 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs08" id="carrs08_1" value="0" {{ $data->carrs08 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs08_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs08" id="carrs08_2" value="1" {{ $data->carrs08 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs08" id="carrs08_2" value="1" {{ $data->carrs08 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs08_2">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -179,19 +180,19 @@
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="carrs09">9. ระบบความปลอดภัย Airbag</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs09" id="carrs09_1" value="0" {{ $data->carrs09 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs09" id="carrs09_1" value="0" {{ $data->carrs09 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs09_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs09" id="carrs09_2" value="1" {{ $data->carrs09 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs09" id="carrs09_2" value="1" {{ $data->carrs09 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs09_2">ไม่ผ่าน</label>
                         </div>
 
                         <label class="col-lg-4" for="carrs10">10. ระบบบังคับเลี้ยว</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs10" id="carrs10_1" value="0" {{ $data->carrs10 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs10" id="carrs10_1" value="0" {{ $data->carrs10 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs10_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs10" id="carrs10_2" value="1" {{ $data->carrs10 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs10" id="carrs10_2" value="1" {{ $data->carrs10 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs10_2">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -199,19 +200,19 @@
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="carrs11">11. Security System</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs11" id="carrs11_1" value="0" {{ $data->carrs11 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs11" id="carrs11_1" value="0" {{ $data->carrs11 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs11_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs11" id="carrs11_2" value="1" {{ $data->carrs11 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs11" id="carrs11_2" value="1" {{ $data->carrs11 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs11_2">ไม่ผ่าน</label>
                         </div>
 
                         <label class="col-lg-4" for="carrs12">12. Turbo</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carrs12" id="carrs12_1" value="0" {{ $data->carrs12 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carrs12" id="carrs12_1" value="0" {{ $data->carrs12 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carrs12_1">ผ่าน</label>
 
-                            <input type="radio" name="carrs12" id="carrs12_2" value="1" {{ $data->carrs12 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carrs12" id="carrs12_2" value="1" {{ $data->carrs12 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carrs12_2">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -231,19 +232,19 @@
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="carin01">1. ไมล์แท้</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carin01" id="carin01_1" value="0" {{ $data->carin01 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carin01" id="carin01_1" value="0" {{ $data->carin01 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carin01_1">ผ่าน</label>
 
-                            <input type="radio" name="carin01" id="carin01_2" value="1" {{ $data->carin01 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carin01" id="carin01_2" value="1" {{ $data->carin01 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carin01_2">ไม่ผ่าน</label>
                         </div>
 
                         <label class="col-lg-4" for="carin02">2. รถไม่เคยประสบภัยน้ำท่วมจมน้ำ</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carin02" id="carin02_1" value="0" {{ $data->carin02 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carin02" id="carin02_1" value="0" {{ $data->carin02 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carin02_1">ผ่าน</label>
 
-                            <input type="radio" name="carin02" id="carin02_2" value="1" {{ $data->carin02 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carin02" id="carin02_2" value="1" {{ $data->carin02 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carin02_2">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -251,19 +252,19 @@
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="carin03">3. รถไม่เคยประสบภัยไฟไหม้</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carin03" id="carin03_1" value="0" {{ $data->carin03 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carin03" id="carin03_1" value="0" {{ $data->carin03 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carin03_1">ผ่าน</label>
 
-                            <input type="radio" name="carin03" id="carin03_2" value="1" {{ $data->carin03 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carin03" id="carin03_2" value="1" {{ $data->carin03 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carin03_2">ไม่ผ่าน</label>
                         </div>
 
                         <label class="col-lg-4" for="carin04">4. รถไม่เคยเกิดอุบัติเหตุรุนแรงชนหนัก จนทำให้โครงสร้างรถมีปัญหาความปลอดภัย</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carin04" id="carin04_1" value="0" {{ $data->carin04 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carin04" id="carin04_1" value="0" {{ $data->carin04 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carin04_1">ผ่าน</label>
 
-                            <input type="radio" name="carin04" id="carin04_2" value="1" {{ $data->carin04 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carin04" id="carin04_2" value="1" {{ $data->carin04 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carin04_2">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -271,19 +272,19 @@
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="carin05">5. รถเลขเครื่องตรง</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carin05" id="carin05_1" value="0" {{ $data->carin05 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carin05" id="carin05_1" value="0" {{ $data->carin05 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carin05_1">ผ่าน</label>
 
-                            <input type="radio" name="carin05" id="carin05_2" value="1" {{ $data->carin05 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carin05" id="carin05_2" value="1" {{ $data->carin05 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carin05_2">ไม่ผ่าน</label>
                         </div>
 
                         <label class="col-lg-4" for="carin06">6. รถเลขตัวถังตรง</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carin06" id="carin06_1" value="0" {{ $data->carin06 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carin06" id="carin06_1" value="0" {{ $data->carin06 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carin06_1">ผ่าน</label>
 
-                            <input type="radio" name="carin06" id="carin06_2" value="1" {{ $data->carin06 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carin06" id="carin06_2" value="1" {{ $data->carin06 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carin06_2">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -291,19 +292,19 @@
                     <div class="form-group row mb-0">
                         <label class="col-lg-4" for="carin07">7. รถสภาพสีเดิม</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carin07" id="carin07_1" value="0" {{ $data->carin07 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carin07" id="carin07_1" value="0" {{ $data->carin07 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carin07_1">ผ่าน</label>
 
-                            <input type="radio" name="carin07" id="carin07_2" value="1" {{ $data->carin07 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carin07" id="carin07_2" value="1" {{ $data->carin07 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carin07_2">ไม่ผ่าน</label>
                         </div>
 
                         <label class="col-lg-4" for="carin08">8. แบตเตอรี่ทำงานปกติ</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carin08" id="carin08_1" value="0" {{ $data->carin08 == '0' ? 'checked' : ''}} checked>
+                            <input type="radio" name="carin08" id="carin08_1" value="0" {{ $data->carin08 == '0' ? 'checked' : ''}} @if($data->id_detail == '')checked @else disabled @endif>
                             <label for="carin08_1">ผ่าน</label>
 
-                            <input type="radio" name="carin08" id="carin08_2" value="1" {{ $data->carin08 == '1' ? 'checked' : ''}}>
+                            <input type="radio" name="carin08" id="carin08_2" value="1" {{ $data->carin08 == '1' ? 'checked' : ''}} @if($data->id_detail == '') @else disabled @endif>
                             <label for="carin08_2">ไม่ผ่าน</label>
                         </div>
                     </div>
@@ -526,7 +527,7 @@
                                 <!-- left -->
                                 <td style="height: 600px; width: 125px; vertical-align: top;">
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="บังโคลนหน้าซ้าย" style="margin-top: 30px; width: 115px; height: 55px;">
-                                        <select name="exterior_01" id="exterior_01">
+                                        <select name="exterior_01" id="exterior_01" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_01 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_01 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_01 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -536,7 +537,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ล้อหน้าซ้าย" style="width: 82px; height: 61px;">
-                                        <select name="exterior_19" id="exterior_19">
+                                        <select name="exterior_19" id="exterior_19" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_19 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_19 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_19 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -546,7 +547,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="สเกิ้ตซ้าย" style="width: 24px; height: 240px; float: left;">
-                                        <select name="exterior_18" id="exterior_18" style="margin-top: 30px; margin-left: -15px;">
+                                        <select name="exterior_18" id="exterior_18" style="margin-top: 30px; margin-left: -15px;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_18 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_18 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_18 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -556,7 +557,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ประตูหน้าซ้าย" style="width: 98px; height: 120px; float: left;">
-                                        <select name="exterior_20" id="exterior_20" style="display: flex; margin: 50px auto;">
+                                        <select name="exterior_20" id="exterior_20" style="display: flex; margin: 50px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_20 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_20 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_20 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -566,7 +567,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ประตูหลังซ้าย" style="width: 98px; height: 120px; float: left;">
-                                        <select name="exterior_16" id="exterior_16" style="display: flex; margin: 40px auto;">
+                                        <select name="exterior_16" id="exterior_16" style="display: flex; margin: 40px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_16 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_16 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_16 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -576,7 +577,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ล้อหลังซ้าย" style="width: 75px; height: 61px; clear: both;">
-                                        <select name="exterior_17" id="exterior_17">
+                                        <select name="exterior_17" id="exterior_17" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_17 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_17 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_17 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -586,7 +587,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ซุ้มล้อซ้าย" style="width: 105px; height: 85px;">
-                                        <select name="exterior_15" id="exterior_15" style="margin-top: 40px;">
+                                        <select name="exterior_15" id="exterior_15" style="margin-top: 40px;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_15 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_15 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_15 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -599,7 +600,7 @@
                                 <!-- middle -->
                                 <td style="height: 600px; width: 202px; vertical-align: top;">
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="กันชนหน้า" style="width: 202px; height: 44px; float: left;">
-                                        <select name="exterior_03" id="exterior_03" style="display: flex; margin: 7px auto;">
+                                        <select name="exterior_03" id="exterior_03" style="display: flex; margin: 7px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_03 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_03 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_03 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -609,7 +610,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ฝากระโปรงหน้า" style="width: 202px; height: 103px; float: left;">
-                                        <select name="exterior_02" id="exterior_02" style="display: flex; margin: 36px auto;">
+                                        <select name="exterior_02" id="exterior_02" style="display: flex; margin: 36px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_02 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_02 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_02 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -621,7 +622,7 @@
                                     <div style="width: 202px; height: 94px; clear: both;">&nbsp;</div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="หลังคา" style="width: 202px; height: 151px; float: left;">
-                                        <select name="exterior_14" id="exterior_14" style="display: flex; margin: 60px auto;">
+                                        <select name="exterior_14" id="exterior_14" style="display: flex; margin: 60px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_14 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_14 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_14 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -631,7 +632,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="กระจกหลัง" style="width: 202px; height: 95px; float: left;">
-                                        <select name="exterior_11" id="exterior_11" style="display: flex; margin: 35px auto;">
+                                        <select name="exterior_11" id="exterior_11" style="display: flex; margin: 35px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_11 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_11 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_11 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -641,7 +642,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ฝากระโปรงหลัง" style="width: 202px; height: 65px; float: left;">
-                                        <select name="exterior_13" id="exterior_13" style="display: flex; margin: 15px auto;">
+                                        <select name="exterior_13" id="exterior_13" style="display: flex; margin: 15px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_13 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_13 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_13 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -651,7 +652,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="กันชนหลัง" style="width: 202px; height: 42px; float: left;">
-                                        <select name="exterior_12" id="exterior_12" style="display: flex; margin: 5px auto;">
+                                        <select name="exterior_12" id="exterior_12" style="display: flex; margin: 5px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_12 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_12 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_12 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -664,7 +665,7 @@
                                 <!-- right -->
                                 <td style="height: 600px; width: 125px; vertical-align: top;">
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="บังโคลนหน้าขวา" style="margin-top: 30px; width: 115px; height: 55px; float: right;">
-                                        <select name="exterior_04" id="exterior_04" style="float: right;">
+                                        <select name="exterior_04" id="exterior_04" style="float: right;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_04 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_04 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_04 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -674,7 +675,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="ล้อหน้าขวา" style="width: 82px; height: 61px; float: right;">
-                                        <select name="exterior_06" id="exterior_06" style="float: right;">
+                                        <select name="exterior_06" id="exterior_06" style="float: right;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_06 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_06 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_06 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -684,7 +685,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ประตูหน้าขวา" style="width: 98px; height: 120px; float: left;">
-                                        <select name="exterior_05" id="exterior_05" style="display: flex; margin: 50px auto;">
+                                        <select name="exterior_05" id="exterior_05" style="display: flex; margin: 50px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_05 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_05 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_05 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -694,7 +695,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="สเกิ้ตขวา" style="width: 24px; height: 240px; float: right;">
-                                        <select name="exterior_07" id="exterior_07" style="margin-top: 30px;">
+                                        <select name="exterior_07" id="exterior_07" style="margin-top: 30px;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_07 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_07 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_07 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -704,7 +705,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ประตูหลังขวา" style="width: 98px; height: 120px; float: left;">
-                                        <select name="exterior_09" id="exterior_09" style="display: flex; margin: 40px auto;">
+                                        <select name="exterior_09" id="exterior_09" style="display: flex; margin: 40px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_09 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_09 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_09 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -714,7 +715,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="ล้อหลังขวา" style="width: 75px; height: 61px; float: right;">
-                                        <select name="exterior_08" id="exterior_08" style="float: right;">
+                                        <select name="exterior_08" id="exterior_08" style="float: right;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_08 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_08 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_08 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -724,7 +725,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="ซุ้มล้อขวา" style="width: 105px; height: 85px; float: right;">
-                                        <select name="exterior_10" id="exterior_10" style="float: right; margin-top: 40px;">
+                                        <select name="exterior_10" id="exterior_10" style="float: right; margin-top: 40px;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="O" {{($data->exterior_10 ==='O') ? 'selected' : ''}}>O</option>
                                             <option value="N" {{($data->exterior_10 ==='N') ? 'selected' : ''}}>N</option>
                                             <option value="BP" {{($data->exterior_10 ==='BP') ? 'selected' : ''}}>BP</option>
@@ -765,7 +766,7 @@
                                 <!-- left -->
                                 <td style="height: 500px; width: 100px; padding-left: 20px; vertical-align: top;">
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="แผงประตูซ้าย" style="width: auto; height: 120px; margin-top: 20px;">
-                                        <select name="interior_07" id="interior_07" style="margin: -5px auto 20px -40px;">
+                                        <select name="interior_07" id="interior_07" style="margin: -5px auto 20px -40px;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_07 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_07 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_07 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -775,7 +776,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ระบบหน้าต่าง" style="width: auto; height: 238px;">
-                                        <select name="interior_14" id="interior_14" style="margin: 60px auto 0 -40px;">
+                                        <select name="interior_14" id="interior_14" style="margin: 60px auto 0 -40px;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_14 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_14 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_14 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -788,7 +789,7 @@
                                 <!-- middle -->
                                 <td style="height: 500px; width: 305px; vertical-align: top;">
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ระบบแสงสว่างภายนอก" style="width: 305px; height: 30px; float: left;">
-                                        <select name="interior_12" id="interior_12" style="display: flex; margin: -10px auto auto;">
+                                        <select name="interior_12" id="interior_12" style="display: flex; margin: -10px auto auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_12 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_12 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_12 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -798,7 +799,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เครื่องปรับอากาศ" style="width: 65px; height: 45px; float: left;">
-                                        <select name="interior_10" id="interior_10">
+                                        <select name="interior_10" id="interior_10" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_10 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_10 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_10 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -808,7 +809,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ระบบวิทยุ" style="width: 90px; height: 45px; float: left; margin-left: 40px;">
-                                        <select name="interior_13" id="interior_13">
+                                        <select name="interior_13" id="interior_13" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_13 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_13 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_13 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -818,7 +819,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="แผงหน้าปัดรถยนต์" style="width: 72px; height: 45px; float: left; margin-left: 8px;">
-                                        <select name="interior_02" id="interior_02">
+                                        <select name="interior_02" id="interior_02" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_02 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_02 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_02 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -828,7 +829,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เบาะหน้าซ้าย" style="width: 115px; height: 145px; float: left; margin-top: 54px;">
-                                        <select name="interior_03" id="interior_03">
+                                        <select name="interior_03" id="interior_03" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_03 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_03 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_03 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -838,7 +839,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="คอนโซล" style="width: 70px; height: 145px; float: left;">
-                                        <select name="interior_06" id="interior_06" style="margin-top: 53px;">
+                                        <select name="interior_06" id="interior_06" style="margin-top: 53px;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_06 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_06 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_06 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -848,7 +849,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="พวงมาลัย" style="width: 106px; height: 40px; float: left;">
-                                        <select name="interior_01" id="interior_01" style="display: flex; margin: 0 auto;">
+                                        <select name="interior_01" id="interior_01" style="display: flex; margin: 0 auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_01 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_01 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_01 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -858,7 +859,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เบาะหน้าขวา" style="width: 115px; height: 145px; float: left; margin-top: 14px;">
-                                        <select name="interior_04" id="interior_04" style="float: right;">
+                                        <select name="interior_04" id="interior_04" style="float: right;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_04 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_04 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_04 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -868,7 +869,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ระบบแสงสว่างภายใน" style="width: 70px; height: 45px; float: left; margin-top: -45px; margin-left: 115px;">
-                                        <select name="interior_11" id="interior_11">
+                                        <select name="interior_11" id="interior_11" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_11 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_11 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_11 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -878,7 +879,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เบาะหลัง" style="width: 300px; height: 145px; float: left; margin-top: 11px;">
-                                        <select name="interior_05" id="interior_05" style="display: flex; margin: 40px auto;">
+                                        <select name="interior_05" id="interior_05" style="display: flex; margin: 40px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_05 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_05 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_05 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -888,7 +889,7 @@
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="พื้นที่เก็บสัมภาระ" style="width: 300px; height: 63px; float: left;">
-                                        <select name="interior_09" id="interior_09" style="display: flex; margin: 15px auto;">
+                                        <select name="interior_09" id="interior_09" style="display: flex; margin: 15px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_09 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_09 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_09 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -901,7 +902,7 @@
                                 <!-- right -->
                                 <td style="height: 500px; width: 100px; padding-right: 20px; vertical-align: top;">
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="แผงประตูขวา" style="width: auto; height: 120px; margin-top: 20px;">
-                                        <select name="interior_08" id="interior_08" style="float: right; margin: -5px -35px auto auto;">
+                                        <select name="interior_08" id="interior_08" style="float: right; margin: -5px -35px auto auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="0" {{($data->interior_08 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                             <option value="25" {{($data->interior_08 ==='25') ? 'selected' : ''}}>น้อย</option>
                                             <option value="50" {{($data->interior_08 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -915,7 +916,7 @@
                         <div class="position-absolute" style="top: 150px; right: 100px;">
                             <div>เพดานหลังคา</div>
                             <div class="carplan-img">
-                                <select name="interior_15" id="interior_15">
+                                <select name="interior_15" id="interior_15" @if($data->id_detail == '') @else disabled @endif>
                                     <option value="0" {{($data->interior_15 ==='0') ? 'selected' : ''}}>ไม่มี</option>
                                     <option value="25" {{($data->interior_15 ==='25') ? 'selected' : ''}}>น้อย</option>
                                     <option value="50" {{($data->interior_15 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
@@ -945,21 +946,21 @@
                             <tr>
                                 <td style="height: 600px; width: 390px; vertical-align: top;">
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ห้องเครื่องยนต์" style="width: 390px; height: 171px; float: left;">
-                                        <select name="chasis_01" id="chasis_01" style="display: flex; margin: 60px auto;">
+                                        <select name="chasis_01" id="chasis_01" style="display: flex; margin: 60px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="NH" {{($data->chasis_01 ==='NH') ? 'selected' : ''}}>NH</option>
                                             <option value="H" {{($data->chasis_01 ==='H') ? 'selected' : ''}}>H</option>
                                         </select>
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ห้องโดยสาร" style="width: 390px; height: 320px; float: left;">
-                                        <select name="chasis_02" id="chasis_02" style="display: flex; margin: 50px auto;">
+                                        <select name="chasis_02" id="chasis_02" style="display: flex; margin: 50px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="NH" {{($data->chasis_02 ==='NH') ? 'selected' : ''}}>NH</option>
                                             <option value="H" {{($data->chasis_02 ==='H') ? 'selected' : ''}}>H</option>
                                         </select>
                                     </div>
 
                                     <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ห้องเก็บสัมภาระ" style="width: 390px; height: 108px; float: left;">
-                                        <select name="chasis_03" id="chasis_03" style="display: flex; margin: 40px auto;">
+                                        <select name="chasis_03" id="chasis_03" style="display: flex; margin: 40px auto;" @if($data->id_detail == '') @else disabled @endif>
                                             <option value="NH" {{($data->chasis_03 ==='NH') ? 'selected' : ''}}>NH</option>
                                             <option value="H" {{($data->chasis_03 ==='H') ? 'selected' : ''}}>H</option>
                                         </select>
@@ -974,7 +975,7 @@
                     @if($data->id_detail=='')
                         <textarea class="form-control form-border mb-3" rows="5" name="comment" id="comment">This Vehicle, {{$data->year}} {{$data->name_brand}} {{ $data->name_model }} with Chassis number {{$data->engine}} was Inspected on the <?php date_default_timezone_set("Asia/Bangkok"); echo date("d F Y"); ?> by Mr. Wasawad Wasuthasawat. The Inspector did not find irregularities with the 16 Inspection Details stated in this report. It can be concluded that at the time of Inspection, the said Inspection Analysis has passed the Inspection standard of Mittare Insurance Public Co., LTD.</textarea>
                     @else
-                        <textarea class="form-control form-border mb-3" rows="5" name="comment" id="comment">{{$data->comment}}</textarea>
+                        <textarea class="form-control form-border mb-3" rows="5" name="comment" id="comment" disabled>{{$data->comment}}</textarea>
                     @endif
                     </div>
 

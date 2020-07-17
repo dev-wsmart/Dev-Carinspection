@@ -97,6 +97,15 @@
 </head>
 <body>
     <div class="container my-4">
+
+        <?php
+
+           echo $sum1 = $datas->carrs01+$datas->carrs02+$datas->carrs03+$datas->carrs04+$datas->carrs05+$datas->carrs06+$datas->carrs07+$datas->carrs08+$datas->carrs09+$datas->carrs10+$datas->carrs11+$datas->carrs12;
+           echo $sum2 = $datas->carin01+$datas->carin02+$datas->carin03+$datas->carin04+$datas->carin05+$datas->carin06+$datas->carin07+$datas->carin08;
+           echo $sum = $sum1+$sum2;
+        ?>
+
+
         <div class="row">
             <div class="col-12 title">
                 {{ $datas->year }} {{$datas->brand}} {{$datas->model}}
@@ -232,14 +241,14 @@
                 </div>
                 <div class="de-title">
                     <i class="fa fa-wrench" aria-hidden="true"></i> ผลตรวจสภาพประกันอะไหล่
-                    <span class="detail">ผ่าน</span>
+                    <span class="detail">@if($sum=='0') ผ่าน @else ไม่ผ่าน @endif</span>
                 </div>
             </div>
 
             <!-- ความคิดเห็นจากผู้ตรวจสภาพรถ -->
             <div class="col-12 mt-3">
                 <div class="col-12 title">ความคิดเห็นจากผู้ตรวจสภาพรถ</div>
-                <div class="de-title">xxxxx</div>
+                <div class="de-title">{{ $datas->comment }}</div>
             </div>
 
             <!-- ผลตรวจเช็คสภาพรถยนต์ -->
