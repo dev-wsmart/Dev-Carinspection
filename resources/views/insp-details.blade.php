@@ -99,7 +99,7 @@
     <div class="container my-4">
         <div class="row">
             <div class="col-12 title">
-                ชื่อรถ
+                {{ $datas->year }} {{$datas->brand}} {{$datas->model}}
             </div>
         </div>
         <div class="row box pt-4">
@@ -122,6 +122,9 @@
                                 <li>
                                     <img src="{{ asset('images/car.jpg') }}">
                                 </li>
+                                <li>
+                                    <img src="{{ asset('images/BI-1692322886.jpg') }}">
+                                </li>
                             </ul>
                         </div>
                         <div id = "carousel" class="flexslider">
@@ -131,6 +134,9 @@
                                 </li>
                                 <li>
                                     <img src="{{ asset('images/car.jpg') }}">
+                                </li>
+                                <li>
+                                    <img src="{{ asset('images/BI-1692322886.jpg') }}">
                                 </li>
                             </ul>
                         </div>
@@ -146,75 +152,83 @@
                 <div class="col-12 title">ข้อมูลรถ</div>
                 <div class="de-title">
                     <i class="fa fa-car" aria-hidden="true"></i> ยี่ห้อ
-                    <span class="detail">Audi</span>
+                    <span class="detail">{{ $datas->brand }}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-cab" aria-hidden="true"></i> รุ่นย่อย
-                    <span class="detail">A5</span>
+                    <span class="detail">{{ $datas->sub_model }}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-calendar" aria-hidden="true"></i> วันจดทะเบียนรถ
-                    <span class="detail">00/00/0000</span>
+                    <span class="detail">{{ $datas->dateregister }}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i> ปีที่ผลิต
-                    <span class="detail">2020</span>
+                    <span class="detail">{{ $datas->year }}</span>
                 </div>
                 <div class="de-title">
                     <img src="{{ asset('images/icon/gear.png') }}" height="15px" class="mb-1"> ระบบเกียร์
-                    <span class="detail">เกียร์อัตโนมัติ</span>
+                    <span class="detail">{{ $datas->geartype == '1' ? 'เกียร์อัตโนมัติ' : 'เกียร์ธรรมดา'  }}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-paint-brush" aria-hidden="true"></i> สีปัจจุบัน
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->newcolor }}</span>
                 </div>
                 <div class="de-title">
                     <img src="{{ asset('images/icon/cc.png') }}" height="15px" class="mb-1"> ความจุเครื่องยนต์
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->cc}}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-user" aria-hidden="true"></i> จำนวนเจ้าของเดิม
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->numowner }}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-tachometer" aria-hidden="true"></i> เลขไมล์ปัจจุบัน
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->mile }}</span>
                 </div>
                 <div class="de-title">
                     <img src="{{ asset('images/icon/seat.png') }}" height="15px" class="mb-1"> จำนวนที่นั่ง
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->seat }}</span>
                 </div>
                 <div class="de-title">
                     <img src="{{ asset('images/icon/fuel.png') }}" height="14px" class="mb-1"> ประเภทเชื้อเพลิง
-                    <span class="detail">เทา</span>
+                    <span class="detail">
+                        {{ $datas->benzine == 1 ? 'เบนซิน' : ''}}
+                        {{ $datas->diesel == 1 ? 'ดีเซล' : ''}}
+                        {{ $datas->hybrid == 1 ? 'ไฮบริด' : ''}}
+                        {{ $datas->electric == 1 ? 'ไฟฟ้า' : ''}}
+                        {{ $datas->lpg == 1 ? 'LPG' : ''}}
+                        {{ $datas->ngv == 1 ? 'NGV' : ''}}
+                        {{ $datas->cng == 1 ? 'CNG' : ''}}
+                    </span>
                 </div>
                 <div class="de-title">
                     <img src="{{ asset('images/icon/car-plate.png') }}" height="15px" class="mb-1"> ทะเบียนรถ
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->carnum }}</span>
                 </div>
                 <div class="de-title">
                 <img src="{{ asset('images/icon/car-regis.png') }}" height="15px" class="mb-1"> ประเภทจดทะเบียน
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->registertype }}</span>
                 </div>
                 <div class="de-title">
                     <img src="{{ asset('images/icon/engine.png') }}" height="15px" class="mb-1"> หมายเลขเครื่องยนต์
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->engine }}</span>
                 </div>
                 <div class="de-title">
                     <img src="{{ asset('images/icon/chassis.png') }}" height="15px" class="mb-1"> หมายเลขตัวถัง
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->vin }}</span>
                 </div>
                 <div class="de-title">
                     <img src="{{ asset('images/icon/insurance.png') }}" height="15px" class="mb-1"> รถมีประกันหรือไม่
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->insurance == 0 ? 'มี' : 'ไม่มี' }}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-calendar-times-o" aria-hidden="true"></i> วันหมดอายุประกันภัย
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->exp }}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-building-o" aria-hidden="true"></i> บริษัทประกันภัย
-                    <span class="detail">เทา</span>
+                    <span class="detail">{{ $datas->insure }}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-wrench" aria-hidden="true"></i> ผลตรวจสภาพประกันอะไหล่
