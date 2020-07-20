@@ -29,10 +29,27 @@
                         <th></th>
                     </tr>
                 </thead>
+
+                <?php $i = 0; $number = 0; $pa = 0;?>
                 <tbody>
                     @foreach($data as $datas)
                     <tr>
-                        <td>{{$datas->id}}</td>
+                        <td>
+                            <?php
+
+                                    if(isset($_GET['page']))
+                                    {
+                                        $pa = ($_GET['page']-1)*20;
+                                    }
+                                    else
+                                    {
+                                        $pa = 0;
+                                    }
+                                    $datas->id;
+                                    $i += 1;
+                                    echo $number = $pa+$i;
+                            ?>
+                        </td>
                         <td>{{date('d-m-Y', strtotime($datas->inspectiondate))}}</td>
                         <td>{{date('d-m-Y', strtotime($datas->dateregister))}}</td>
                         <td>{{date('d-m-Y', strtotime($datas->dateregister))}}</td>

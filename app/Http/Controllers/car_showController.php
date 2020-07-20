@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\cr;
 use Illuminate\Http\Request;
+use DB;
+use App\images_mn;
+use App\brand;
+use App\add_inspection_car;
 
 class car_showController extends Controller
 {
@@ -14,7 +18,7 @@ class car_showController extends Controller
      */
     public function index()
     {
-        return view('car_show');
+        // return view('car_show');
     }
 
     /**
@@ -44,9 +48,25 @@ class car_showController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function show(cr $cr)
+    public function show(cr $cr, $id)
     {
         //
+        // echo $id;
+        $datas = DB::table('details')
+        ->select('details.*')
+        ->where('details.id_car', '=', $id)
+        ->first();
+
+
+        // $images = DB::table('add_inspection_cars')
+        // ->select('add_inspection_cars.id','im0.name_image as im_0')
+        // ->leftjoin('images_mns as im0','add_inspection_cars.id','=','im0.id_car')
+        // ->where('add_inspection_cars.id', '=', $id)
+        // ->orwhere([['im0.id_car', '=', $id],['im0.type_image', '=', '0']])
+        // ->get();
+
+
+        return view('car_show', compact('datas'));
     }
 
     /**

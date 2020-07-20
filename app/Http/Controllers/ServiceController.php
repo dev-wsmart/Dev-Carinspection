@@ -25,6 +25,7 @@ class ServiceController extends Controller
         ->join('add_inspection_dates','add_inspection_custos.id','=','add_inspection_dates.id')
         ->join('brands','add_inspection_cars.carbrand','=','brands.id_brand')
         ->join('models','add_inspection_cars.carmodel','=','models.id_model')
+        ->orderBy('add_inspection_custos.id', 'DESC')
         ->paginate(20);
 
         return view('service', compact('data'));
