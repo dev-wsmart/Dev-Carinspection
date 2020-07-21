@@ -14,6 +14,7 @@ use App\brand;
 use App\dealer;
 use App\technician;
 use App\images_mn;
+use App\im_puk;
 use App\cc;
 use DB;
 use Illuminate\Http\Request;
@@ -173,7 +174,7 @@ class AddInspectionCustoController extends Controller
             $new_name_mile = 'mile'.$new_name_mi;
             $image0->move(public_path('images'), $new_name_mile);
 
-            echo $input0 = new images_mn([
+            $input0 = new images_mn([
 
                 'id_car' => $request->input('id_car'),
                 'name_image' => $new_name_mile,
@@ -190,7 +191,7 @@ class AddInspectionCustoController extends Controller
             $new_name_n = rand() . '.' . $image1->getClientOriginalExtension();
             $new_name_num = 'num'.$new_name_n;
             $image1->move(public_path('images'), $new_name_num);
-            echo $input1 = new images_mn([
+            $input1 = new images_mn([
 
                 'id_car' => $request->input('id_car'),
                 'name_image' => $new_name_num,
@@ -335,6 +336,30 @@ class AddInspectionCustoController extends Controller
 
                     ]);
 
+               echo $inputpuk = new im_puk([
+
+                    'id_car' => $request->input('id_car'),
+                    'id_dealer' => $request->input('fromtent'),
+                    'status_admin' => '0',
+                    'status_tech' => '0',
+                    'confirm_admin' => '0',
+                    'confirm_tech' => '0',
+                    'im_0' => $new_name_mile ,
+                    'im_1' => $new_name_num ,
+                    'im_2' => 'null',
+                    'im_3' => 'null',
+                    'im_4' => 'null',
+                    'im_5' => 'null',
+                    'im_6' => 'null',
+                    'im_7' => 'null',
+                    'im_A' => 'null',
+                    'im_B' => 'null',
+                    'im_C' => 'null',
+                    'im_D' => 'null',
+                    'im_V' => 'null'
+
+                    ]);
+
                 $inputcus->save();
                 $inputcar->save();
                 $inputdate->save();
@@ -352,6 +377,8 @@ class AddInspectionCustoController extends Controller
                 $inputC->save();
                 $inputD->save();
                 $inputVDO->save();
+
+                $inputpuk->save();
 
         return redirect('/appointment')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
 

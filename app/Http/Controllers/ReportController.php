@@ -27,6 +27,7 @@ class ReportController extends Controller
         ->join('brands','add_inspection_cars.carbrand','=','brands.id_brand')
         ->join('models','add_inspection_cars.carmodel','=','models.id_model')
         ->join('colors','add_inspection_cars.newcolor','=','colors.id_color')
+        ->join('details','add_inspection_cars.id','=','details.id_car')
         ->paginate(9);
 
         return view('report', compact('data'));
