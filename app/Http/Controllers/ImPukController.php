@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\cr;
+use App\im_puk;
 use Illuminate\Http\Request;
-use DB;
-use App\images_mn;
-use App\brand;
-use App\add_inspection_car;
 
-class car_showController extends Controller
+class ImPukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +14,7 @@ class car_showController extends Controller
      */
     public function index()
     {
-        // return view('car_show');
+        //
     }
 
     /**
@@ -45,39 +41,21 @@ class car_showController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\cr  $cr
+     * @param  \App\im_puk  $im_puk
      * @return \Illuminate\Http\Response
      */
-    public function show(cr $cr, $id)
+    public function show(im_puk $im_puk)
     {
         //
-        // echo $id;
-        $datas = DB::table('add_inspection_cars')
-        ->select('details.*','im_puks.*')
-        ->join('details', 'add_inspection_cars.id', '=', 'details.id_car')
-        ->join('im_puks', 'add_inspection_cars.id', '=', 'im_puks.id_car')
-        ->where('add_inspection_cars.id', '=', $id)
-        ->first();
-
-
-        // $images = DB::table('add_inspection_cars')
-        // ->select('add_inspection_cars.id','im0.name_image as im_0')
-        // ->leftjoin('images_mns as im0','add_inspection_cars.id','=','im0.id_car')
-        // ->where('add_inspection_cars.id', '=', $id)
-        // ->orwhere([['im0.id_car', '=', $id],['im0.type_image', '=', '0']])
-        // ->get();
-
-
-        return view('car_show', compact('datas'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\cr  $cr
+     * @param  \App\im_puk  $im_puk
      * @return \Illuminate\Http\Response
      */
-    public function edit(cr $cr)
+    public function edit(im_puk $im_puk)
     {
         //
     }
@@ -86,10 +64,10 @@ class car_showController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\cr  $cr
+     * @param  \App\im_puk  $im_puk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cr $cr)
+    public function update(Request $request, im_puk $im_puk)
     {
         //
     }
@@ -97,10 +75,10 @@ class car_showController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\cr  $cr
+     * @param  \App\im_puk  $im_puk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cr $cr)
+    public function destroy(im_puk $im_puk)
     {
         //
     }

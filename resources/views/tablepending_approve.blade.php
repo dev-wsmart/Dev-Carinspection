@@ -23,7 +23,7 @@
             <th></th>
         </thead>
         <tbody>
-            <?php $i = 1; ?>
+            <?php $i = 1; echo $datas;?>
             @foreach ($datas as $data)
                 <tr>
                     <td>{{ $i }}</td>

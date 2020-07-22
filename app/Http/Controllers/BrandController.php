@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\brand;
 use App\add_inspection_car;
 use App\images_mn;
+use App\im_puk;
 use Illuminate\Http\Request;
 use DB;
 use Validator;
@@ -19,45 +20,13 @@ class BrandController extends Controller
     public function index()
     {
         //
-        $images = DB::table('add_inspection_cars')
-        ->select('add_inspection_cars.id','add_inspection_cars.fromtent','im0.name_image as image_mile',
-                 'im1.name_image as image_num','im2.name_image as image_2','im3.name_image as image_3',
-                 'im4.name_image as image_4','im5.name_image as image_5','im6.name_image as image_6',
-                 'im7.name_image as image_7','imA.name_image as image_A','imB.name_image as image_B',
-                 'imC.name_image as image_C','imD.name_image as image_D','imV.name_image as file_vdo')
 
-        ->join('images_mns as im0','add_inspection_cars.id','=','im0.id_car')
-        ->join('images_mns as im1','add_inspection_cars.id','=','im1.id_car')
-        ->join('images_mns as im2','add_inspection_cars.id','=','im2.id_car')
-        ->join('images_mns as im3','add_inspection_cars.id','=','im3.id_car')
-        ->join('images_mns as im4','add_inspection_cars.id','=','im4.id_car')
-        ->join('images_mns as im5','add_inspection_cars.id','=','im5.id_car')
-        ->join('images_mns as im6','add_inspection_cars.id','=','im6.id_car')
-        ->join('images_mns as im7','add_inspection_cars.id','=','im7.id_car')
-        ->join('images_mns as imA','add_inspection_cars.id','=','imA.id_car')
-        ->join('images_mns as imB','add_inspection_cars.id','=','imB.id_car')
-        ->join('images_mns as imC','add_inspection_cars.id','=','imC.id_car')
-        ->join('images_mns as imD','add_inspection_cars.id','=','imD.id_car')
-        ->join('images_mns as imV','add_inspection_cars.id','=','imV.id_car')
-
-        ->where([
-                    ['im0.type_image', '=', '0'],['im1.type_image', '=', '1'],['im2.type_image', '=', '2'],
-                    ['im3.type_image', '=', '3'],['im4.type_image', '=', '4'],['im5.type_image', '=', '5'],
-                    ['im6.type_image', '=', '6'],['im7.type_image', '=', '7'],['imA.type_image', '=', 'A'],
-                    ['imB.type_image', '=', 'B'],['imC.type_image', '=', 'C'],['imD.type_image', '=', 'D'],
-                    ['imV.type_image', '=', 'V']
-                ])
-        ->where('add_inspection_cars.id', '=', '48')
-        ->get();
-
-
-        return view('upimages',compact('images'));
     }
 
     public function imageUpload()
     {
         // $data = carregnum::all();
-        return view('upimages');
+        return view('upload-img');
     }
 
     function action2(Request $request)
@@ -380,238 +349,382 @@ class BrandController extends Controller
     {
         //
 
-                // upload images full
+                        // $inputAll = $request->all();
+                        // var_dump($inputAll);
 
-                // $inputAll = $request->all();
-                // var_dump($inputAll);
+                        $idimf = $request->input('id_imfull');
+                        // echo "<br>".$idimf."<br>";
 
-                // "<br><br>";
+                        $image2 = $request->file('image_2');
+        if($image2 != ''){
+                        $new_name_2 = rand() . '.' . $image2->getClientOriginalExtension();
+                        $new_name_im2 = 'FI-'.$new_name_2;
+                        $image2->move(public_path('images'), $new_name_im2);
+                        // $input2 = new images_mn([
 
-                $image2 = $request->file('image_2');
-if($image2 != ''){
-                $new_name_2 = rand() . '.' . $image2->getClientOriginalExtension();
-                $new_name_im2 = 'FI-'.$new_name_2;
-                $image2->move(public_path('images'), $new_name_im2);
-                $input2 = new images_mn([
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $new_name_im2,
+                        //     'type_image' => '2',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
 
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $new_name_im2,
-                    'type_image' => '2',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
+                        //     ]);
+                        //     echo "<br>".$input2;
+                            // $input2->save();
 
-                    ]);
+                            $dataim2 = images_mn::find($idimf);
+                            $dataim2->name_image = $new_name_im2;
+                            $dataim2->confirm = $request->get('userID');
+                            $dataim2->status = '1';
+
+                            // echo "<br>".$dataim2;
+                            $dataim2->save();
+                        }
+
+                        // "<br>";
+
+                        $image3 = $request->file('image_3');
+        if($image3 != ''){
+                        $new_name_3 = rand() . '.' . $image3->getClientOriginalExtension();
+                        $new_name_im3 = 'BI-'.$new_name_3;
+                        $image3->move(public_path('images'), $new_name_im3);
+                        // $input3 = new images_mn([
+
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $new_name_im3,
+                        //     'type_image' => '3',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
+
+                        //     ]);
+                        //     echo "<br>".$input3;
+                            // $input3->save();
+
+                            $dataim3 = images_mn::find($idimf+1);
+                            $dataim3->name_image = $new_name_im3;
+                            $dataim3->confirm = $request->get('userID');
+                            $dataim3->status = '1';
+
+                            // echo "<br>".$dataim3;
+                            $dataim3->save();
+
+                        }
+
+                        // "<br>";
+
+                        $image4 = $request->file('image_4');
+        if($image4 != ''){
+                        $new_name_4 = rand() . '.' . $image4->getClientOriginalExtension();
+                        $new_name_im4 = 'CN-'.$new_name_4;
+                        $image4->move(public_path('images'), $new_name_im4);
+                        // $input4 = new images_mn([
+
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $new_name_im4,
+                        //     'type_image' => '4',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
+
+                        //     ]);
+                        //     echo "<br>".$input4;
+                            // $input4->save();
+
+                            $dataim4 = images_mn::find($idimf+2);
+                            $dataim4->name_image = $new_name_im4;
+                            $dataim4->confirm = $request->get('userID');
+                            $dataim4->status = '1';
+
+                            // echo "<br>".$dataim4;
+                            $dataim4->save();
+
+                        }
+
+                        // "<br>";
+
+                        $image5 = $request->file('image_5');
+        if($image5 != ''){
+                        $new_name_5 = rand() . '.' . $image5->getClientOriginalExtension();
+                        $new_name_im5 = 'EN-'.$new_name_5;
+                        $image5->move(public_path('images'), $new_name_im5);
+                        // $input5 = new images_mn([
+
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $new_name_im5,
+                        //     'type_image' => '5',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
+
+                        //     ]);
+                        //     echo "<br>".$input5;
+                            // $input5->save();
+
+
+                            $dataim5 = images_mn::find($idimf+3);
+                            $dataim5->name_image = $new_name_im5;
+                            $dataim5->confirm = $request->get('userID');
+                            $dataim5->status = '1';
+
+                            // echo "<br>".$dataim5;
+                            $dataim5->save();
+
+                        }
+
+                        // "<br>";
+
+                        $image6 = $request->file('image_6');
+        if($image6 != ''){
+                        $new_name_6 = rand() . '.' . $image6->getClientOriginalExtension();
+                        $new_name_im6 = 'EI-'.$new_name_6;
+                        $image6->move(public_path('images'), $new_name_im6);
+                        // $input6 = new images_mn([
+
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $new_name_im6,
+                        //     'type_image' => '6',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
+
+                        //     ]);
+                        //     echo "<br>".$input6;
+                            // $input6->save();
+
+
+                            $dataim6 = images_mn::find($idimf+4);
+                            $dataim6->name_image = $new_name_im6;
+                            $dataim6->confirm = $request->get('userID');
+                            $dataim6->status = '1';
+
+                            // echo "<br>".$dataim6;
+                            $dataim6->save();
+
+                        }
+
+                        // "<br>";
+
+                        $image7 = $request->file('image_7');
+        if($image7 != ''){
+                        $new_name_7 = rand() . '.' . $image7->getClientOriginalExtension();
+                        $new_name_im7 = 'ODB-'.$new_name_7;
+                        $image7->move(public_path('images'), $new_name_im7);
+                        // $input7 = new images_mn([
+
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $new_name_im7,
+                        //     'type_image' => '7',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
+
+                        //     ]);
+                        //     echo "<br>".$input7;
+                            // $input7->save();
+
+
+                            $dataim7 = images_mn::find($idimf+5);
+                            $dataim7->name_image = $new_name_im7;
+                            $dataim7->confirm = $request->get('userID');
+                            $dataim7->status = '1';
+
+                            // echo "<br>".$dataim7;
+                            $dataim7->save();
+
+                        }
+
+                        // "<br>";
+
+                        $imageA = $request->file('image_A');
+        if($imageA != ''){
+                        $new_name_A = rand() . '.' . $imageA->getClientOriginalExtension();
+                        $new_name_imA = 'FL-'.$new_name_A;
+                        $imageA->move(public_path('images'), $new_name_imA);
+                        // $inputA = new images_mn([
+
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $new_name_imA,
+                        //     'type_image' => 'A',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
+
+                        //     ]);
+                        //     echo "<br>".$inputA;
+                            // $inputA->save();
+
+
+                            $dataimA = images_mn::find($idimf+6);
+                            $dataimA->name_image = $new_name_imA;
+                            $dataimA->confirm = $request->get('userID');
+                            $dataimA->status = '1';
+
+                            // echo "<br>".$dataimA;
+                            $dataimA->save();
+
+                        }
+
+                        // "<br>";
+
+                        $imageB = $request->file('image_B');
+        if($imageB != ''){
+                        $new_name_B = rand() . '.' . $imageB->getClientOriginalExtension();
+                        $new_name_imB = 'FR-'.$new_name_B;
+                        $imageB->move(public_path('images'), $new_name_imB);
+                        // $inputB = new images_mn([
+
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $new_name_imB,
+                        //     'type_image' => 'B',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
+
+                        //     ]);
+                        //     echo "<br>".$inputB;
+                            // $inputB->save();
+
+                            $dataimB = images_mn::find($idimf+7);
+                            $dataimB->name_image = $new_name_imB;
+                            $dataimB->confirm = $request->get('userID');
+                            $dataimB->status = '1';
+
+                            // echo "<br>".$dataimB;
+                            $dataimB->save();
+
+                        }
+
+                        // "<br>";
+
+                        $imageC = $request->file('image_C');
+        if($imageC != ''){
+                        $new_name_C = rand() . '.' . $imageC->getClientOriginalExtension();
+                        $new_name_imC = 'BL-'.$new_name_C;
+                        $imageC->move(public_path('images'), $new_name_imC);
+                        // $inputC = new images_mn([
+
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $new_name_imC,
+                        //     'type_image' => 'C',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
+
+                        //     ]);
+                        //     echo "<br>".$inputC;
+                            // $inputC->save();
+
+                            $dataimC = images_mn::find($idimf+8);
+                            $dataimC->name_image = $new_name_imC;
+                            $dataimC->confirm = $request->get('userID');
+                            $dataimC->status = '1';
+
+                            // echo "<br>".$dataimC;
+                            $dataimC->save();
+                        }
+                        // "<br>";
+
+                        $imageD = $request->file('image_D');
+        if($imageD != ''){
+                        $new_name_D = rand() . '.' . $imageD->getClientOriginalExtension();
+                        $new_name_imD = 'BR-'.$new_name_D;
+                        $imageD->move(public_path('images'), $new_name_imD);
+                        // $inputD = new images_mn([
+
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $new_name_imD,
+                        //     'type_image' => 'D',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
+
+                        //     ]);
+                        //     echo "<br>".$inputD;
+                            // $inputD->save();
+
+
+                            $dataimD = images_mn::find($idimf+9);
+                            $dataimD->name_image = $new_name_imD;
+                            $dataimD->confirm = $request->get('userID');
+                            $dataimD->status = '1';
+
+                            // echo "<br>".$dataimD;
+                            $dataimD->save();
+                        }
+
+                        // "<br>";
+
+                        $vdo = $request->input('file_vdo');
+        if($vdo != '' ){
+                        // $inputVDO = new images_mn([
+
+                        //     'id_car' => $request->input('id_car'),
+                        //     'name_image' => $request->input('file_vdo'),
+                        //     'type_image' => 'V',
+                        //     'id_dealer' => $request->input('fromtent'),
+                        //     'status' => '1',
+                        //     'confirm' => $request->input('userID')
+
+                        //     ]);
+
+                        //     echo "<br><br>".$inputVDO;
+                            // $inputVDO->save();
+
+
+                            $dataimV = images_mn::find($idimf+10);
+                            $dataimV->name_image = $request->get('file_vdo');
+                            $dataimV->confirm = $request->get('userID');
+                            $dataimV->status = '1';
+
+                            // echo "<br>".$dataimV;
+                            $dataimV->save();
+
+                        }
+
+                        $status_tech = $request->input('status_tech');
+                        $file_vdo = $request->input('file_vdo');
+
+                if($status_tech=='0'){
+
+                        $id_im = $request->input('id_im');
+
+                        $dataim = im_puk::find($id_im);
+                        $dataim->im_2 = $new_name_im2;
+                        $dataim->im_3 = $new_name_im3;
+                        $dataim->im_4 = $new_name_im4;
+                        $dataim->im_5 = $new_name_im5;
+                        $dataim->im_6 = $new_name_im6;
+                        $dataim->im_7 = $new_name_im7;
+                        $dataim->im_A = $new_name_imA;
+                        $dataim->im_B = $new_name_imB;
+                        $dataim->im_C = $new_name_imC;
+                        $dataim->im_D = $new_name_imD;
+                        $dataim->im_V = $request->get('file_vdo');
+                        $dataim->confirm_tech = $request->get('userID');
+                        $dataim->status_tech = '1';
+
+                        // echo $dataim;
+                        $dataim->save();
+                }
+                else if($status_tech=='1' && $file_vdo!='')
+                {
+                        $id_im = $request->input('id_im');
+
+                        $dataim = im_puk::find($id_im);
+                        $dataim->im_V = $request->get('file_vdo');
+
+                        $dataim->save();
+                }
+                else
+                {
+                    return redirect('/edit')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
                 }
 
-                // "<br>";
-
-                $image3 = $request->file('image_3');
-if($image3 != ''){
-                $new_name_3 = rand() . '.' . $image3->getClientOriginalExtension();
-                $new_name_im3 = 'BI-'.$new_name_3;
-                $image3->move(public_path('images'), $new_name_im3);
-                $input3 = new images_mn([
-
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $new_name_im3,
-                    'type_image' => '3',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
-
-                    ]);
-
-                }
-
-                // "<br>";
-
-                $image4 = $request->file('image_4');
-if($image4 != ''){
-                $new_name_4 = rand() . '.' . $image4->getClientOriginalExtension();
-                $new_name_im4 = 'CN-'.$new_name_4;
-                $image4->move(public_path('images'), $new_name_im4);
-                $input4 = new images_mn([
-
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $new_name_im4,
-                    'type_image' => '4',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
-
-                    ]);
-
-                }
-
-                // "<br>";
-
-                $image5 = $request->file('image_5');
-if($image5 != ''){
-                $new_name_5 = rand() . '.' . $image5->getClientOriginalExtension();
-                $new_name_im5 = 'EN-'.$new_name_5;
-                $image5->move(public_path('images'), $new_name_im5);
-                $input5 = new images_mn([
-
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $new_name_im5,
-                    'type_image' => '5',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
-
-                    ]);
-
-                }
-
-                // "<br>";
-
-                $image6 = $request->file('image_6');
-if($image6 != ''){
-                $new_name_6 = rand() . '.' . $image6->getClientOriginalExtension();
-                $new_name_im6 = 'EI-'.$new_name_6;
-                $image6->move(public_path('images'), $new_name_im6);
-                $input6 = new images_mn([
-
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $new_name_im6,
-                    'type_image' => '6',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
-
-                    ]);
-
-                }
-
-                // "<br>";
-
-                $image7 = $request->file('image_7');
-if($image7 != ''){
-                $new_name_7 = rand() . '.' . $image7->getClientOriginalExtension();
-                $new_name_im7 = 'ODB-'.$new_name_7;
-                $image7->move(public_path('images'), $new_name_im7);
-                $input7 = new images_mn([
-
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $new_name_im7,
-                    'type_image' => '7',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
-
-                    ]);
-
-                }
-
-                // "<br>";
-
-                $imageA = $request->file('image_A');
-if($imageA != ''){
-                $new_name_A = rand() . '.' . $imageA->getClientOriginalExtension();
-                $new_name_imA = 'FL-'.$new_name_A;
-                $imageA->move(public_path('images'), $new_name_imA);
-                $inputA = new images_mn([
-
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $new_name_imA,
-                    'type_image' => 'A',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
-
-                    ]);
-
-                }
-
-                // "<br>";
-
-                $imageB = $request->file('image_B');
-if($imageB != ''){
-                $new_name_B = rand() . '.' . $imageB->getClientOriginalExtension();
-                $new_name_imB = 'FR-'.$new_name_B;
-                $imageB->move(public_path('images'), $new_name_imB);
-                $inputB = new images_mn([
-
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $new_name_imB,
-                    'type_image' => 'B',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
-
-                    ]);
-
-                }
-
-                // "<br>";
-
-                $imageC = $request->file('image_C');
-if($imageC != ''){
-                $new_name_C = rand() . '.' . $imageC->getClientOriginalExtension();
-                $new_name_imC = 'BL-'.$new_name_C;
-                $imageC->move(public_path('images'), $new_name_imC);
-                $inputC = new images_mn([
-
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $new_name_imC,
-                    'type_image' => 'C',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
-
-                    ]);
-                }
-                // "<br>";
-
-                $imageD = $request->file('image_D');
-if($imageD != ''){
-                $new_name_D = rand() . '.' . $imageD->getClientOriginalExtension();
-                $new_name_imD = 'BR-'.$new_name_D;
-                $imageD->move(public_path('images'), $new_name_imD);
-                $inputD = new images_mn([
-
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $new_name_imD,
-                    'type_image' => 'D',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
-
-                    ]);
-                }
-
-                // "<br>";
-
-                $vdo = $request->input('file_vdo');
-if($vdo != ''){
-                $inputVDO = new images_mn([
-
-                    'id_car' => $request->input('id_car'),
-                    'name_image' => $request->input('file_vdo'),
-                    'type_image' => 'V',
-                    'id_dealer' => $request->input('fromtent'),
-                    'status' => '1',
-                    'confirm' => $request->input('userID')
-
-                    ]);
-
-                }
+            return redirect('/edit')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
 
 
-                $input2->save();
-                $input3->save();
-                $input4->save();
-                $input5->save();
-                $input6->save();
-                $input7->save();
-                $inputA->save();
-                $inputB->save();
-                $inputC->save();
-                $inputD->save();
-                $inputVDO->save();
-
-            return redirect('/upimages')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
     }
 
     /**
@@ -620,9 +733,20 @@ if($vdo != ''){
      * @param  \App\brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function show(brand $brand)
+    public function show($id)
     {
-        //
+
+
+        $images = DB::table('add_inspection_cars')
+        ->select('add_inspection_cars.id as id_car','add_inspection_cars.fromtent','im_puks.*','images_mns.id as id_imfull')
+        ->join('im_puks','add_inspection_cars.id','=','im_puks.id_car')
+        ->leftjoin('images_mns','add_inspection_cars.id','=','images_mns.id_car')
+        ->where([['add_inspection_cars.id', '=', $id],['im_puks.status_admin', '=', '1']])
+        ->where('images_mns.type_image', '=', 2)
+        ->get();
+
+
+        return view('upimages',compact('images'));
     }
 
     /**
@@ -643,9 +767,11 @@ if($vdo != ''){
      * @param  \App\brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, brand $brand)
+    public function update(Request $request)
     {
         //
+        $inputAll = $request->all();
+        var_dump($inputAll);
     }
 
     /**

@@ -323,7 +323,7 @@
                                     {{ csrf_field() }} --}}
                                     <div class="row">
                                         <div class="col-md-11">
-                                            <input type="file" name="image_mile" class="form-control" height="2%" value="0">
+                                            <input type="file" name="image_mile" class="form-control" height="2%" value="0" required>
                                         </div>
                                         <div class="col-md-1">
                                             {{-- <button class="btn btn-success" onclick="images1()">ADD</button> --}}
@@ -346,7 +346,7 @@
                                     {{ csrf_field() }} --}}
                                     <div class="row">
                                         <div class="col-md-11">
-                                            <input type="file" name="image_num" class="form-control" height="2%" value="1">
+                                            <input type="file" name="image_num" class="form-control" height="2%" value="1" required>
 
                                         </div>
                                         <div class="col-md-1">

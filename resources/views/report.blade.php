@@ -44,10 +44,10 @@
         <?php  $Gear=array('0'=>'เกียร์ธรรมดา','1'=>'เกียร์อัตโนมัติ'); ?>
 
             <div id="search" class="col-md-6 col-lg-4 my-2">
-                <a href="">
+                <a href="{{ route('insp-details.show', $datas->id) }}">
                     <div class="card">
                         <div class="card-img">
-                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="100%">
+                            <img src="/images/{{$datas->im_2}}" height="auto" width="100%">
                         </div>
                         <div class="card-header"><b>{{$datas->year}}</b> <b>{{$datas->name_brand}}</b> <b>{{$datas->name_model}}</b></div>
                         <div class="card-body py-2">

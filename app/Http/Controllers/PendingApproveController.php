@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\PendingApprove;
+use App\images_mn;
+use App\im_puk;
 use Illuminate\Http\Request;
 
 class PendingApproveController extends Controller
@@ -60,7 +62,7 @@ class PendingApproveController extends Controller
     public function show($id)
     {
         $datas = DB::table('add_inspection_custos')
-                    ->select('add_inspection_custos.*', 'add_inspection_cars.*', 'add_inspection_dates.*', 'dealers.dealer_name', 'brands.name_brand', 'models.name_model', 'technicians.name_tech','mile.id_images as id_images', 'mile.name_image as mile_img', 'mile.status as mile_status', 'num.name_image as num_img', 'num.status as num_status', 'mile.id_car')
+                    ->select('add_inspection_custos.*', 'add_inspection_cars.*', 'add_inspection_dates.*', 'dealers.dealer_name', 'brands.name_brand', 'models.name_model', 'technicians.name_tech','mile.id as id_images', 'mile.name_image as mile_img', 'mile.status as mile_status', 'num.name_image as num_img', 'num.status as num_status', 'mile.id_car')
                     ->join('add_inspection_cars', 'add_inspection_custos.id', '=', 'add_inspection_cars.id')
                     ->join('add_inspection_dates', 'add_inspection_custos.id', '=', 'add_inspection_dates.id')
                     ->join('dealers', 'add_inspection_cars.fromtent', '=', 'dealers.id_dealer')
@@ -94,18 +96,59 @@ class PendingApproveController extends Controller
      */
     public function update(Request $request, $id_car)
     {
-        $status_mile = $request->get('mile_img');
-        $status_num = $request->get('num_img');
+        $status_mi = $request->get('mile_img');
+        $status_nu = $request->get('num_img');
 
+        $sum = $status_mi+$status_nu;
+
+        if($sum=='2'){
+                $status_admin = '1';
+
+                $status_mile = $request->get('mile_img');
+                $status_num = $request->get('num_img');
+                $userid = $request->get('userID');
+        }else{
+                $status_admin = '2';
+                $userid = $request->get('userID');
+
+                if($status_mi=='0'){
+                    $status_mile = '2';
+                }else{
+                    $status_mile = $request->get('mile_img');
+                }
+                if($status_nu=='0'){
+                    $status_num = '2';
+                }else{
+                    $status_num = $request->get('num_img');
+                }
+        }
+
+        // echo $userid;
         //Type 0 -> mile
         $update = DB::table('images_mns')
         ->where([['id_car', '=', $id_car], ['type_image', '=', '0']])
         ->update(['status' => $status_mile]);
+        $update = DB::table('images_mns')
+        ->where([['id_car', '=', $id_car], ['type_image', '=', '0']])
+        ->update(['confirm' => $userid]);
 
         //Type 1 -> num
         $update = DB::table('images_mns')
         ->where([['id_car', '=', $id_car], ['type_image', '=', '1']])
         ->update(['status' => $status_num]);
+        $update = DB::table('images_mns')
+        ->where([['id_car', '=', $id_car], ['type_image', '=', '1']])
+        ->update(['confirm' => $userid]);
+
+        // status admin = 1 /confirm admin = 1
+        $update = DB::table('im_puks')
+        ->where('id_car', '=', $id_car)
+        ->update(['status_admin' => $status_admin]);
+        $update = DB::table('im_puks')
+        ->where('id_car', '=', $id_car)
+        ->update(['confirm_admin' => $userid]);
+
+
 
         return redirect('pending');
     }

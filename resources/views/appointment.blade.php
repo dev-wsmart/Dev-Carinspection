@@ -62,11 +62,25 @@
                         <th></th>
                     </tr>
                 </thead>
-                <?php $i = 0;  ?>
+                <?php $i = 0; $number = 0; $pa = 0; ?>
                 <tbody id="myTable">
                         @foreach($data as $datas)
                         <tr>
-                            <td>ชุดที่ : {{$datas->id}}</td>
+                            <td>ชุดที่ :
+                                <?php
+                                         if(isset($_GET['page']))
+                                        {
+                                            $pa = ($_GET['page']-1)*20;
+                                        }
+                                        else
+                                        {
+                                            $pa = 0;
+                                        }
+                                        $datas->id;
+                                        $i += 1;
+                                        echo $number = $pa+$i;
+                                ?>
+                            </td>
                             <td>{{$datas->firstname}}</td>
                             <td>{{$datas->idcard}}</td>
                             <td>{{$datas->tel}}</td>
