@@ -131,26 +131,80 @@
                         <div id="slider" class="flexslider">
                             <ul class="slides">
                                 <li>
-                                    <img src="{{ asset('images/car1.jpg') }}">
+                                    <img src="/images/{{$datas->im_0}}">
                                 </li>
                                 <li>
-                                    <img src="{{ asset('images/car.jpg') }}">
+                                    <img src="/images/{{$datas->im_1}}">
                                 </li>
                                 <li>
-                                    <img src="{{ asset('images/BI-1692322886.jpg') }}">
+                                    <img src="/images/{{$datas->im_2}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_3}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_4}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_5}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_6}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_7}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_A}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_B}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_C}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_D}}">
                                 </li>
                             </ul>
                         </div>
                         <div id = "carousel" class="flexslider">
                             <ul class="slides">
                                 <li>
-                                    <img src="{{ asset('images/car1.jpg') }}">
+                                    <img src="/images/{{$datas->im_0}}">
                                 </li>
                                 <li>
-                                    <img src="{{ asset('images/car.jpg') }}">
+                                    <img src="/images/{{$datas->im_1}}">
                                 </li>
                                 <li>
-                                    <img src="{{ asset('images/BI-1692322886.jpg') }}">
+                                    <img src="/images/{{$datas->im_2}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_3}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_4}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_5}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_6}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_7}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_A}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_B}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_C}}">
+                                </li>
+                                <li>
+                                    <img src="/images/{{$datas->im_D}}">
                                 </li>
                             </ul>
                         </div>

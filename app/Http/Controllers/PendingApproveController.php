@@ -114,12 +114,12 @@ class PendingApproveController extends Controller
                 if($status_mi=='0'){
                     $status_mile = '2';
                 }else{
-                    $status_mile = '1';
+                    $status_mile = $request->get('mile_img');
                 }
                 if($status_nu=='0'){
                     $status_num = '2';
                 }else{
-                    $status_num = '1';
+                    $status_num = $request->get('num_img');
                 }
         }
 

@@ -77,7 +77,7 @@
                         </div>
                         <br>
                         <div class="d-flex justify-content-center">
-                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                            <img src="/images/{{$datas->im_2}}" height="320px" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
                         </div>
                     </div>
 
@@ -88,7 +88,7 @@
                         </div>
                         <br>
                         <div class="d-flex justify-content-center">
-                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                            <img src="/images/{{$datas->im_3}}" height="320px" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                         </div>
                         <br>
                         <div class="d-flex justify-content-center">
-                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                            <img src="/images/{{$datas->im_6}}" height="320px" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
                         </div>
                     </div>
                     <div class = "car-show">
@@ -114,7 +114,7 @@
                         <br>
                         <div class="">
                             {{-- @if($images->im_0 == '') --}}
-                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                            <img src="/images/{{$datas->im_0}}" height="320px" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
                             {{-- @else
                             <img src="/images/{{$images->im_0}}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
                             @endif --}}
@@ -132,7 +132,7 @@
                         </div>
                         <br>
                         <div class="">
-                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                            <img src="/images/{{$datas->im_4}}" height="320px" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
                         </div>
                     </div>
 
@@ -143,7 +143,7 @@
                         </div>
                         <br>
                         <div class="d-flex justify-content-center">
-                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                            <img src="/images/{{$datas->im_5}}" height="320px" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                         <br>
                         <div class="">
                             {{-- @if($datas->im_1 == '') --}}
-                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                            <img src="/images/{{$datas->im_1}}" height="320px" width="500px" object-fit="cover" class="img-thumbnail" style="border: 20px inset #a38175;">
                             {{-- @else
                             <img src="/images/{{$images->im_1}}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
                             @endif --}}
@@ -172,7 +172,7 @@
                         </div>
                         <br>
                         <div class="d-flex justify-content-center">
-                            <img src="{{ url('images/car1.jpg') }}" height="auto" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
+                            <img src="/images/{{$datas->im_7}}" height="320px" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
                         </div>
                     </div>
                 </div>
@@ -504,10 +504,10 @@
                         </tr>
                     </table>
                     <div class="image-grid-container">
-                        <img src="{{ url('images/car1.jpg') }}" class="img-grid-item" >
-                        <img src="{{ url('images/car1.jpg') }}" class="img-grid-item" >
-                        <img src="{{ url('images/car1.jpg') }}" class="img-grid-item" >
-                        <img src="{{ url('images/car1.jpg') }}" class="img-grid-item" >
+                        <img src="/images/{{$datas->im_A}}" class="img-grid-item" >
+                        <img src="/images/{{$datas->im_B}}" class="img-grid-item" >
+                        <img src="/images/{{$datas->im_D}}" class="img-grid-item" >
+                        <img src="/images/{{$datas->im_C}}" class="img-grid-item" >
                     </div>
                     <div id="battery-condition" style="margin-top: 23px;">
                         <div class="topic-title">Battery Condition Report</div>
@@ -766,6 +766,212 @@
             <div class="page">
                 <div class="page-contain">
                     <div class="topic-title">Interior Report</div>
+                        <table id="interior-report">
+                            <tr>
+                                <!-- left -->
+                                <td style="height: 500px; width: 100px; padding-left: 20px; vertical-align: top;">
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="แผงประตูซ้าย" style="width: auto; height: 120px; margin-top: 20px;">
+                                        <select name="interior_07" id="interior_07" style="margin: -5px auto 20px -40px;" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_07 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_07 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_07 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_07 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_07 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ระบบหน้าต่าง" style="width: auto; height: 238px;">
+                                        <select name="interior_14" id="interior_14" style="margin: 60px auto 0 -40px;" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_14 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_14 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_14 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_14 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_14 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+                                </td>
+
+                                <!-- middle -->
+                                <td style="height: 500px; width: 305px; vertical-align: top;">
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="ระบบแสงสว่างภายนอก" style="width: 305px; height: 30px; float: left;">
+                                        <select name="interior_12" id="interior_12" style="display: flex; margin: -10px auto auto;" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_12 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_12 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_12 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_12 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_12 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เครื่องปรับอากาศ" style="width: 65px; height: 45px; float: left;">
+                                        <select name="interior_10" id="interior_10" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_10 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_10 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_10 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_10 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_10 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ระบบวิทยุ" style="width: 90px; height: 45px; float: left; margin-left: 40px;">
+                                        <select name="interior_13" id="interior_13" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_13 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_13 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_13 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_13 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_13 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="แผงหน้าปัดรถยนต์" style="width: 72px; height: 45px; float: left; margin-left: 8px;">
+                                        <select name="interior_02" id="interior_02" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_02 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_02 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_02 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_02 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_02 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เบาะหน้าซ้าย" style="width: 115px; height: 145px; float: left; margin-top: 54px;">
+                                        <select name="interior_03" id="interior_03" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_03 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_03 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_03 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_03 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_03 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="คอนโซล" style="width: 70px; height: 145px; float: left;">
+                                        <select name="interior_06" id="interior_06" style="margin-top: 53px;" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_06 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_06 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_06 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_06 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_06 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="พวงมาลัย" style="width: 106px; height: 40px; float: left;">
+                                        <select name="interior_01" id="interior_01" style="display: flex; margin: 0 auto;" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_01 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_01 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_01 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_01 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_01 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เบาะหน้าขวา" style="width: 115px; height: 145px; float: left; margin-top: 14px;">
+                                        <select name="interior_04" id="interior_04" style="float: right;" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_04 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_04 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_04 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_04 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_04 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="ระบบแสงสว่างภายใน" style="width: 70px; height: 45px; float: left; margin-top: -45px; margin-left: 115px;">
+                                        <select name="interior_11" id="interior_11" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_11 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_11 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_11 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_11 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_11 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="top" title="เบาะหลัง" style="width: 300px; height: 145px; float: left; margin-top: 11px;">
+                                        <select name="interior_05" id="interior_05" style="display: flex; margin: 40px auto;" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_05 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_05 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_05 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_05 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_05 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="left" title="พื้นที่เก็บสัมภาระ" style="width: 300px; height: 63px; float: left;">
+                                        <select name="interior_09" id="interior_09" style="display: flex; margin: 15px auto;" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_09 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_09 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_09 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_09 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_09 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+                                </td>
+
+                                <!-- right -->
+                                <td style="height: 500px; width: 100px; padding-right: 20px; vertical-align: top;">
+                                    <div class="carplan-img" data-toggle="tooltip" data-placement="right" title="แผงประตูขวา" style="width: auto; height: 120px; margin-top: 20px;">
+                                        <select name="interior_08" id="interior_08" style="float: right; margin: -5px -35px auto auto;" @if($datas->id_detail == '') @else disabled @endif>
+                                            <option value="0" {{($datas->interior_08 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                            <option value="25" {{($datas->interior_08 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                            <option value="50" {{($datas->interior_08 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                            <option value="75" {{($datas->interior_08 ==='75') ? 'selected' : ''}}>มาก</option>
+                                            <option value="100" {{($datas->interior_08 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            {{-- <tr>
+                                <td >
+
+                                    <div style="margin-top: 40px;">
+
+                                            <select name="interior_15" id="interior_15" @if($datas->id_detail == '') @else disabled @endif>
+                                                <option value="0" {{($datas->interior_15 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                                <option value="25" {{($datas->interior_15 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                                <option value="50" {{($datas->interior_15 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                                <option value="75" {{($datas->interior_15 ==='75') ? 'selected' : ''}}>มาก</option>
+                                                <option value="100" {{($datas->interior_15 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                            </select>
+
+                                    </div>
+                                </td>
+                            </tr> --}}
+
+                        </table>
+                        <div>
+                            <div style="margin-top: -150px; margin-right: 300px;">
+                                <div>เพดานหลังคา</div>
+                                <div>
+                                    <select name="interior_15" id="interior_15" @if($datas->id_detail == '') @else disabled @endif>
+                                        <option value="0" {{($datas->interior_15 ==='0') ? 'selected' : ''}}>ไม่มี</option>
+                                        <option value="25" {{($datas->interior_15 ==='25') ? 'selected' : ''}}>น้อย</option>
+                                        <option value="50" {{($datas->interior_15 ==='50') ? 'selected' : ''}}>ปานกลาง</option>
+                                        <option value="75" {{($datas->interior_15 ==='75') ? 'selected' : ''}}>มาก</option>
+                                        <option value="100" {{($datas->interior_15 ==='100') ? 'selected' : ''}}>มากที่สุด</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                        <div class="position-absolute">
+                            <table class="table table-sm" style="margin-top: -50px; margin-right: -300px;">
+                                <tr>
+                                    <th>ระดับปัญหา</th>
+                                </tr>
+                                <tr>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr>
+                                    <td>น้อย</td>
+                                </tr>
+                                <tr>
+                                    <td>ปานกลาง</td>
+                                </tr>
+                                <tr>
+                                    <td>มาก</td>
+                                </tr>
+                                <tr>
+                                    <td>มากที่สุด</td>
+                                </tr>
+                            </table>
+                        </div>
                 </div>
             </div>
             <!-- PAGE 13-->
@@ -779,8 +985,8 @@
                         </tr>
                     </table>
                     <div class="image-grid-container">
-                        <img src="{{ url('images/car1.jpg') }}" class="img-grid-item-xl" >
-                        <img src="{{ url('images/car1.jpg') }}" class="img-grid-item-xl" >
+                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
+                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
                     </div>
                     <div class="topic-title" style="margin-top: 50px;">Fire Report</div>
                     <table id="fire-table" class="overall-table" style="width: 70%; margin-top: 20px;">
@@ -790,8 +996,8 @@
                         </tr>
                     </table>
                     <div class="image-grid-container">
-                        <img src="{{ url('images/car1.jpg') }}" class="img-grid-item-xl" >
-                        <img src="{{ url('images/car1.jpg') }}" class="img-grid-item-xl" >
+                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
+                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
                     </div>
                 </div>
             </div>
