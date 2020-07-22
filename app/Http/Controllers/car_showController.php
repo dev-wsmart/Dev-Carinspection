@@ -52,9 +52,11 @@ class car_showController extends Controller
     {
         //
         // echo $id;
-        $datas = DB::table('details')
-        ->select('details.*')
-        ->where('details.id_car', '=', $id)
+        $datas = DB::table('add_inspection_cars')
+        ->select('details.*','im_puks.*')
+        ->join('details', 'add_inspection_cars.id', '=', 'details.id_car')
+        ->join('im_puks', 'add_inspection_cars.id', '=', 'im_puks.id_car')
+        ->where('add_inspection_cars.id', '=', $id)
         ->first();
 
 
