@@ -55,7 +55,7 @@ class DetailsController extends Controller
          'c.benzine as benzine', 'c.diesel as diesel', 'c.hybrid as hybrid', 'c.electric as electric', 'c.lpg as lpg', 'c.ngv as ngv', 'c.cng as cng',
          'c.carregnum as carnum', 'c.registertype as registertype', 'c.engine as engine',
          'c.vin as vin', 'c.carinsurance as insurance', 'c.expinsurance as exp',
-         'c.insurance as insure')
+         'c.insurance as insure','details.*')
         ->join('sub_models as s', 's.id_sub_model', '=', 'c.submodel')
         ->join('models as m', 'm.id_model', '=', 'c.carmodel')
         ->join('brands as b', 'b.id_brand', '=', 'c.carbrand')
@@ -63,6 +63,7 @@ class DetailsController extends Controller
         ->join('colors as cs2', 'cs2.id_color', '=', 'c.newcolor')
         ->join('ccs',  'ccs.id_cc', '=', 'c.cc')
         ->join('dealers as d', 'd.id_dealer', '=', 'c.fromtent')
+        ->join('details', 'c.id', '=', 'details.id_car')
         ->where('id', '=', $id)
         ->first();
 

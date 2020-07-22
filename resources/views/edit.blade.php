@@ -33,11 +33,25 @@
                 </thead>
                 <tbody>
 
-                    <?php  $TypeCh=array('0'=>'Full Inspection','1'=>'Warranty'); ?>
+                    <?php  $TypeCh=array('0'=>'Full Inspection','1'=>'Warranty'); $i = 0; $number = 0; $pa = 0; ?>
 
                     @foreach($data as $datas)
                     <tr>
-                        <td>{{$datas->id}}</td>
+                        <td>
+                            <?php
+                                    if(isset($_GET['page']))
+                                    {
+                                        $pa = ($_GET['page']-1)*20;
+                                    }
+                                    else
+                                    {
+                                        $pa = 0;
+                                    }
+                                    $datas->id;
+                                    $i += 1;
+                                    echo $number = $pa+$i;
+                            ?>
+                        </td>
                         <td>{{$datas->firstname}}</td>
                         <td>{{$datas->tel}}</td>
                         <td>{{$datas->name_brand}}</td>

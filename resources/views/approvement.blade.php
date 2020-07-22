@@ -28,12 +28,14 @@
     <hr noshade>
     <div class="row">
         <div class="col-lg-12 mt-3">
+
             @foreach($datas as $data)
             <div class="form-title">ข้อมูลนัดตรวจรถ</div>
             <form method="post" action="{{ route('pending.update', $data->id_car)}}" enctype="multipart/form-data">
                 @method('PATCH')
                 @csrf
                 <div class="col-12 pt-lg-3 box-form">
+                    <input type="hidden" name="userID" value="{{ $userID = Auth::user()->id }}">
                     <div class="row py-1">
                         <div class="col-lg-1 pr-0 font-weight-bold">ชื่อลูกค้า</div>
                         <div class="col-lg-5 text-data">{{ $data->nametitle }} {{ $data->firstname }} {{ $data->lastname }}</div>

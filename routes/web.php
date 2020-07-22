@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
     //     return view('upload-img');
     // });
     Route::resource('/upimages', 'BrandController');
+    Route::resource('/detail', 'DetailController');
 
     // search
     Route::get('/search','AppointmentController@search');

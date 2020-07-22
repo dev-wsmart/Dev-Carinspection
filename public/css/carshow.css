@@ -338,10 +338,10 @@ table {
     transform: translate(-210px, 106px);
 }
 #W1-mark{
-    transform: translate(-270px, 100px);
+    transform: translate(-280px, 100px);
 }
 #W2-mark{
-    transform: translate(-300px, 420px);
+    transform: translate(-300px, 430px);
 }
 #W3-mark{
     transform: translate(230px, 100px);
@@ -410,7 +410,7 @@ table {
 #LS{
     width: 13px;
     height: 245px;
-    transform: translate(-240px, 169px);
+    transform: translate(-217px, 169px);
 }
 #RS{
     width: 13px;

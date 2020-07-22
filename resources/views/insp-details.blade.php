@@ -97,6 +97,20 @@
 </head>
 <body>
     <div class="container my-4">
+
+        <?php
+
+            $sum1 = $datas->carrs01+$datas->carrs02+$datas->carrs03+$datas->carrs04+$datas->carrs05+$datas->carrs06+$datas->carrs07+$datas->carrs08+$datas->carrs09+$datas->carrs10+$datas->carrs11+$datas->carrs12;
+
+            if($datas->carin01!='n'){
+                $sum2 = $datas->carin01+$datas->carin02+$datas->carin03+$datas->carin04+$datas->carin05+$datas->carin06+$datas->carin07+$datas->carin08;
+            }else{
+                $sum2 = 0;
+            }
+                $sum = $sum1+$sum2;
+        ?>
+
+
         <div class="row">
             <div class="col-12 title">
                 {{ $datas->year }} {{$datas->brand}} {{$datas->model}}
@@ -108,7 +122,7 @@
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa fa-picture-o" aria-hidden="true"></i> Picture</a>
                         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fa fa-camera" aria-hidden="true"></i> Pic 360</a>
-                        <a href="{{ route('car_show.index') }}" class="btn btn-sm btn-report">Inspection Report</a>
+                        <a href="{{ route('car_show.show',$datas->id_car) }}" class="btn btn-sm btn-report">Inspection Report</a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -232,14 +246,14 @@
                 </div>
                 <div class="de-title">
                     <i class="fa fa-wrench" aria-hidden="true"></i> ผลตรวจสภาพประกันอะไหล่
-                    <span class="detail">ผ่าน</span>
+                    <span class="detail">@if($sum=='0') ผ่าน @else ไม่ผ่าน @endif</span>
                 </div>
             </div>
 
             <!-- ความคิดเห็นจากผู้ตรวจสภาพรถ -->
             <div class="col-12 mt-3">
                 <div class="col-12 title">ความคิดเห็นจากผู้ตรวจสภาพรถ</div>
-                <div class="de-title">xxxxx</div>
+                <div class="de-title">{{ $datas->comment }}</div>
             </div>
 
             <!-- ผลตรวจเช็คสภาพรถยนต์ -->
@@ -251,7 +265,15 @@
                             <tr>
                                 <td width="25px">1.</td>
                                 <td>ไมล์แท้</td>
-                                <td width="20px"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                <td width="20px">
+                                    @if($datas->carin01=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carin01=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -260,7 +282,15 @@
                             <tr>
                                 <td width="25px">2.</td>
                                 <td>รถไม่เคยประสบภัยน้ำท่วมจมน้ำ</td>
-                                <td width="20px"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                <td width="20px">
+                                    @if($datas->carin02=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carin02=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -269,7 +299,15 @@
                             <tr>
                                 <td width="25px">3.</td>
                                 <td>รถไม่เคยประสบภัยไฟไหม้</td>
-                                <td width="20px"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                <td width="20px">
+                                    @if($datas->carin03=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carin03=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -280,7 +318,15 @@
                             <tr>
                                 <td width="25px">4.</td>
                                 <td>รถสภาพสีเดิม</td>
-                                <td width="20px"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                <td width="20px">
+                                    @if($datas->carin07=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carin07=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -289,7 +335,15 @@
                             <tr>
                                 <td width="25px">5.</td>
                                 <td>รถเลขเครื่องตรง</td>
-                                <td width="20px"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                <td width="20px">
+                                    @if($datas->carin05=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carin05=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -298,7 +352,15 @@
                             <tr>
                                 <td width="25px">6.</td>
                                 <td>รถเลขตัวถังตรง</td>
-                                <td width="20px"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                <td width="20px">
+                                    @if($datas->carin06=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carin06=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -309,7 +371,15 @@
                             <tr>
                                 <td width="25px">7.</td>
                                 <td>รถไม่เคยเกิดอุบัติเหตุรุนแรงชนหนัก จนทำให้โครงสร้างรถมีปัญหาความปลอดภัย</td>
-                                <td width="20px"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                <td width="20px">
+                                    @if($datas->carin04=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carin04=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
                             </tr>
                         </table>
                     </div>
