@@ -65,7 +65,204 @@
             </div>
             <!--PAGE 2-->
             <div class="page">
+                <div class="page-contain page-2">
+                    <div style="background-color: #ffffff; margin: 70px 30px; padding: 10px 25px;">
+                        <table cellpadding="0" width="100%" style="text-align: center;">
+                            <tr>
+                                <td colspan="3" style="padding: 5px 0;"><img src="{{ asset('img_system/mitare.png') }}" width="130px"></td>
+                            </tr>
+                            <tr>
+                                <td width="25%" style="text-align: left; padding-bottom: 10px;"><img src="{{ asset('img_system/LOGOWsmart.png') }}" width="80px"></td>
+                                <td width="50%" style="font-size: 12px; vertical-align: top; line-height: 11px;">
+                                    <div style="font-size: 13px;"><b>บริษัท ดับเบิ้ลยู สมาร์ท (ประเทศไทย) จำกัด</b></div>
+                                    <div style="font-size: 11px;"><b>W SMART (THAILAND) CO., LTD</b></div>
+                                    <div style="font-size: 11px;">1122 ถนนพระราม 9 แขวงสวนหลวง เขตสวนหลวง กรุงเทพมหานคร 10250 โทร.02-057-1234</div>
+                                    <div style="font-size: 11px;">1122 Rama 9 Rd. Suanluang,Suanluang Bangkok 10250,Thailand. Tel.02-057-1234</div>
+                                </td>
+                                <td width="25%" style="font-size: 12px; vertical-align: bottom;">Registered ID 0105560073678</td>
+                            </tr>
+                        </table>
 
+                        <table width="100%" class="certificate">
+                            <tr>
+                                <td colspan="6" align="center" style="border-bottom: 1px solid #000000;"><b>เอกสารยืนยันผลการตรวจระบบขับเคลื่อน Inspection Certificate</b></td>
+                            </tr>
+                            <tr style="font-size: 12px;">
+                                <td style="width: 100px; font-weight: bold;">เลขที่ตรวจสภาพรถยนต์<br><span>Inspection Identification</span></td>
+                                <td style="width: 100px; font-size: 14px; vertical-align: top;">INS00000</td>
+
+                                <td style="width: 100px; font-weight: bold;">รหัสตรวจสภาพรถยนต์<br><span>Inspection Number</span></td>
+                                <td style="width: 100px; font-size: 14px; vertical-align: top;">CS0000000</td>
+
+                                <td style="width: 75px; font-weight: bold;">อาณาเขตคุ้มครอง<br><span>Protected territory</span></td>
+                                <td style="width: 75px; font-size: 14px; vertical-align: top;">ประเทศไทย<br><span>THAILAND</span></td>
+                            </tr>
+                        </table>
+
+                        <table width="100%" class="certificate dealer">
+                            <tr>
+                                <td colspan="4" style="padding-top: 5px; font-weight: bold;">รายละเอียดผู้ประกอบการ<br><span>Dealer details</span></td>
+                            </tr>
+                            <tr>
+                                <td width="120px" style="font-weight: bold;">ชื่อผู้ประกอบการ<br><span>Name</span></td>
+                                <td colspan="3">ชื่อ</td>
+                            </tr>
+                            <tr>
+                                <td width="120px" style="font-weight: bold;">ที่อยู่<br><span>Address</span></td>
+                                <td width="120px">11</td>
+                                <td width="100px" style="font-weight: bold;">รหัสไปรษณีย์<br><span>Personal No.</span></td>
+                                <td width="190px">10250</td>
+                            </tr>
+                            <tr>
+                                <td width="120px" style="font-weight: bold;">เขต/อำเภอ<br><span>District</span></td>
+                                <td width="120px">สวนหลวง</td>
+                                <td width="100px" style="font-weight: bold;">จังหวัด<br><span>City</span></td>
+                                <td width="190px">กทม</td>
+                            </tr>
+                            <tr>
+                                <td width="120px" style="font-weight: bold;">เลขที่ประจำตัวผู้เสียภาษี<br><span>Tax Identification</span></td>
+                                <td width="120px">0105530038998</td>
+                                <td width="100px" style="font-weight: bold;">เบอร์ติดต่อ<br><span>Contact Number</span></td>
+                                <td width="190px">01234567890</td>
+                            </tr>
+                        </table>
+
+                        <table width="100%" class="certificate car">
+                            <tr style="font-weight: bold;">
+                                <td width="100px">ชื่อรถยนต์ / รุ่น<br><span>Car Brand / Model</span></td>
+                                <td width="54px">เลขทะเบียน<br><span>Plate Number</span></td>
+                                <td width="113px">เลขตัวถัง<br><span>Chassis No.</span></td>
+                                <td width="65px">เลขเครื่องยนต์<br><span>Engine No.</span></td>
+                                <td width="40px">ปีรุ่น<br><span>Year</span></td>
+                                <td width="40px">สี<br><span>Color</span></td>
+                                <td width="73px">ขนาดเครื่องยนต์<br><span>Cubic Capacity (c.c.)</span></td>
+                                <td width="73px">เลขไมล์ปัจจุบัน<br><span>Mileage</span></td>
+                            </tr>
+                            <tr>
+                                <td>ชื่อรถยนต์ / รุ่น</td>
+                                <td>เลขทะเบียน</td>
+                                <td>MRHGM6640JT102308</td>
+                                <td>L15Z15111276</td>
+                                <td>ปีรุ่น</td>
+                                <td>สี</td>
+                                <td>ขนาดเครื่องยนต์</td>
+                                <td>เลขไมล์ปัจจุบัน</td>
+                            </tr>
+                        </table>
+
+                        <table width="100%" class="certificate detail">
+                            <tr style="font-weight: bold; border-bottom: 1px solid #000000;">
+                                <td colspan="2" style="padding-top: 0; font-size: 15px;">การบริการตรวจเช็ค Standard Inspection Details</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>1. สถานะเครื่องยนต์ ( Engine System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>2. สถานะเกียร์ ( Gear System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>3. สถานะ ECU, ECM ( ECU, ECM System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>4. สถานะระบบเบรค ( Brake System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>5. สถานะชุดส่งกำลังเพลาหน้าและท้าย ( Drive Axle System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>6. รถเลขเครื่องตรง (รถเลขเครื่องยนต์ตรงตามเล่มทะเบียนรถยนต์) ( Genuine Engine Number )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>7. รถเลขตัวถังตรง (รถเลขตัวถังตรงตามเล่มทะเบียนรถยนต์) ( Genuine Chassis Number )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>8. รถสภาพสีเดิม (รถสีสภาพเดิมจากโรงงานและตรงตามเล่มทะเบียนรถยนต์) ( Original OEM Colours )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>9. เลขไมล์แท้ (เลขไมล์แท้เป็นไมล์ที่เปรียบเทียบจากไมล์ล่าสุดที่อยู่ในประวัติของศูนย์บริการของรถยนต์แต่ละยี่ห้อ) ( Genuine Mileage )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>10. ระบบระบายความร้อนเครื่องยนต์ ( Engine System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>11. ระบบกันสะเทือนหน้าและหลัง ( Gear System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>12. ระบบปรับอากาศและทำความร้อน ( Air Conditioning and Heating System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>13. ระบบความปลอดภัย Airbag ( Safety System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>14. ระบบบังคับเลี้ยว ( Steering System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>15. ระบบ Security System (Security System )</td>
+                            </tr>
+                            <tr>
+                                <td width="20px"><div class="box-check">&#10003;</div></td>
+                                <td>16. ระบบ Turbo ( Turbo System )</td>
+                            </tr>
+                        </table>
+
+                        <table width="100%">
+                            <tr>
+                                <td colspan="3" style="padding-top: 4px; font-size: 11px; line-height: 11px;">
+                                    เอกสารฉบับนี้ ทางบริษัทออกให้เพื่อนำไปแสดงแก่ลูกค้าเท่านั้น แต่ไม่สามารถนำมาแสดงเพื่อรับความคุ้มครองตามสิทธิ์ได้
+                                    <br>
+                                    <span style="font-size: 9.5px;">
+                                        This document is simply an overview of the relevant coverages and should be used for marketing purposes only. Nothing contained, expressed or implied in this document can be use to make claims against the company.
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3" style="padding-top: 4px; font-size: 11px; line-height: 11px;">
+                                    เพื่อเป็นหลักฐาน บริษัทโดยบุคคลผู้มีอำนาจได้ลงลายมือและประทับตราของบริษัทไว้เป็นสำคัญ ณ สำนักงานบริษัท
+                                    <br>
+                                    <span style="font-size: 9.5px;">
+                                        As proof,  the company,  represented  by  the Authorized person,  has signed  and  stamped  the  Company’s  emblem  at  the  company’s  Headquarters.
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td width="40%"></td>
+                                <td>
+                                    <div class="sign"></div>
+                                    <div style="font-size: 13px; text-align: center;">ผู้มีอำนาจลงนาม<br><span>Authorized Director</span></div>
+                                </td>
+                                <td>
+                                    <div class="sign"></div>
+                                    <div style="font-size: 13px; text-align: center;">หัวหน้าแผนกตรวจเช็คสภาพรถยนต์<br><span>Head Inspector</span></div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3" style="padding: 10px; text-align: center; color: #de0f00; font-size: 15px; line-height: 15px;">
+                                    *บริการตรวจเช็คระบบขับเคลื่อนนี้ได้ผ่านเกณฑ์การตรวจของ บมจ. มิตรแท้ประกันภัย*
+                                    <br>
+                                    This standard inspection analysis  has passed Mittare Insurance Co., Ltd. inspection criterion.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
             <!--PAGE 3-->
             <div class="page">
