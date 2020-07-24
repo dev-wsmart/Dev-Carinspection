@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\add_inspection_custo;
 use App\add_inspection_car;
 use App\add_inspection_date;
+use App\User;
 use DB;
+use Auth;
 
 class ReportController extends Controller
 {
@@ -19,6 +21,7 @@ class ReportController extends Controller
     public function index()
     {
         //
+        $auth_id = Auth::user()->id;
 
         $data = DB::table('add_inspection_custos')
         ->select('add_inspection_custos.*','add_inspection_cars.*','add_inspection_dates.*','brands.*','models.*','colors.*','im_puks.im_2')
@@ -30,6 +33,13 @@ class ReportController extends Controller
         ->join('details','add_inspection_cars.id','=','details.id_car')
         ->join('im_puks','add_inspection_custos.id','=','im_puks.id_car')
         ->paginate(9);
+
+        //  $po = DB::table('users')
+        // // ->select('users.*')
+        // ->select('position.*','users.*')
+        // ->join('position','users.position','=','position.id_position')
+        // ->where('users.id', '=', $auth_id)
+        // ->get();
 
         return view('report', compact('data'));
     }
