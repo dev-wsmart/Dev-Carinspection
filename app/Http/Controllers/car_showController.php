@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\cr;
 use Illuminate\Http\Request;
+use App\image_fire_flood;
 use DB;
 use App\images_mn;
 use App\brand;
@@ -53,19 +54,13 @@ class car_showController extends Controller
         //
         // echo $id;
         $datas = DB::table('add_inspection_cars')
-        ->select('details.*','im_puks.*')
+        ->select('details.*','im_puks.*','image_fire_floods.*')
         ->join('details', 'add_inspection_cars.id', '=', 'details.id_car')
         ->join('im_puks', 'add_inspection_cars.id', '=', 'im_puks.id_car')
+        ->leftjoin('image_fire_floods', 'add_inspection_cars.id', '=', 'image_fire_floods.id_car')
         ->where('add_inspection_cars.id', '=', $id)
         ->first();
 
-
-        // $images = DB::table('add_inspection_cars')
-        // ->select('add_inspection_cars.id','im0.name_image as im_0')
-        // ->leftjoin('images_mns as im0','add_inspection_cars.id','=','im0.id_car')
-        // ->where('add_inspection_cars.id', '=', $id)
-        // ->orwhere([['im0.id_car', '=', $id],['im0.type_image', '=', '0']])
-        // ->get();
 
 
         return view('car_show', compact('datas'));

@@ -6,6 +6,7 @@ use App\brand;
 use App\add_inspection_car;
 use App\images_mn;
 use App\im_puk;
+use App\image_fire_flood;
 use Illuminate\Http\Request;
 use DB;
 use Validator;
@@ -352,26 +353,16 @@ class BrandController extends Controller
                         // $inputAll = $request->all();
                         // var_dump($inputAll);
 
+                        $inspectiontype = $request->input('inspectiontype');
                         $idimf = $request->input('id_imfull');
-                        // echo "<br>".$idimf."<br>";
+                        $id_car = $request->input('id_car');
 
                         $image2 = $request->file('image_2');
         if($image2 != ''){
                         $new_name_2 = rand() . '.' . $image2->getClientOriginalExtension();
                         $new_name_im2 = 'FI-'.$new_name_2;
                         $image2->move(public_path('images'), $new_name_im2);
-                        // $input2 = new images_mn([
 
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $new_name_im2,
-                        //     'type_image' => '2',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-                        //     echo "<br>".$input2;
-                            // $input2->save();
 
                             $dataim2 = images_mn::find($idimf);
                             $dataim2->name_image = $new_name_im2;
@@ -389,18 +380,7 @@ class BrandController extends Controller
                         $new_name_3 = rand() . '.' . $image3->getClientOriginalExtension();
                         $new_name_im3 = 'BI-'.$new_name_3;
                         $image3->move(public_path('images'), $new_name_im3);
-                        // $input3 = new images_mn([
 
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $new_name_im3,
-                        //     'type_image' => '3',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-                        //     echo "<br>".$input3;
-                            // $input3->save();
 
                             $dataim3 = images_mn::find($idimf+1);
                             $dataim3->name_image = $new_name_im3;
@@ -419,18 +399,7 @@ class BrandController extends Controller
                         $new_name_4 = rand() . '.' . $image4->getClientOriginalExtension();
                         $new_name_im4 = 'CN-'.$new_name_4;
                         $image4->move(public_path('images'), $new_name_im4);
-                        // $input4 = new images_mn([
 
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $new_name_im4,
-                        //     'type_image' => '4',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-                        //     echo "<br>".$input4;
-                            // $input4->save();
 
                             $dataim4 = images_mn::find($idimf+2);
                             $dataim4->name_image = $new_name_im4;
@@ -449,18 +418,6 @@ class BrandController extends Controller
                         $new_name_5 = rand() . '.' . $image5->getClientOriginalExtension();
                         $new_name_im5 = 'EN-'.$new_name_5;
                         $image5->move(public_path('images'), $new_name_im5);
-                        // $input5 = new images_mn([
-
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $new_name_im5,
-                        //     'type_image' => '5',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-                        //     echo "<br>".$input5;
-                            // $input5->save();
 
 
                             $dataim5 = images_mn::find($idimf+3);
@@ -480,18 +437,6 @@ class BrandController extends Controller
                         $new_name_6 = rand() . '.' . $image6->getClientOriginalExtension();
                         $new_name_im6 = 'EI-'.$new_name_6;
                         $image6->move(public_path('images'), $new_name_im6);
-                        // $input6 = new images_mn([
-
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $new_name_im6,
-                        //     'type_image' => '6',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-                        //     echo "<br>".$input6;
-                            // $input6->save();
 
 
                             $dataim6 = images_mn::find($idimf+4);
@@ -511,18 +456,6 @@ class BrandController extends Controller
                         $new_name_7 = rand() . '.' . $image7->getClientOriginalExtension();
                         $new_name_im7 = 'ODB-'.$new_name_7;
                         $image7->move(public_path('images'), $new_name_im7);
-                        // $input7 = new images_mn([
-
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $new_name_im7,
-                        //     'type_image' => '7',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-                        //     echo "<br>".$input7;
-                            // $input7->save();
 
 
                             $dataim7 = images_mn::find($idimf+5);
@@ -542,18 +475,6 @@ class BrandController extends Controller
                         $new_name_A = rand() . '.' . $imageA->getClientOriginalExtension();
                         $new_name_imA = 'FL-'.$new_name_A;
                         $imageA->move(public_path('images'), $new_name_imA);
-                        // $inputA = new images_mn([
-
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $new_name_imA,
-                        //     'type_image' => 'A',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-                        //     echo "<br>".$inputA;
-                            // $inputA->save();
 
 
                             $dataimA = images_mn::find($idimf+6);
@@ -573,18 +494,7 @@ class BrandController extends Controller
                         $new_name_B = rand() . '.' . $imageB->getClientOriginalExtension();
                         $new_name_imB = 'FR-'.$new_name_B;
                         $imageB->move(public_path('images'), $new_name_imB);
-                        // $inputB = new images_mn([
 
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $new_name_imB,
-                        //     'type_image' => 'B',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-                        //     echo "<br>".$inputB;
-                            // $inputB->save();
 
                             $dataimB = images_mn::find($idimf+7);
                             $dataimB->name_image = $new_name_imB;
@@ -603,18 +513,7 @@ class BrandController extends Controller
                         $new_name_C = rand() . '.' . $imageC->getClientOriginalExtension();
                         $new_name_imC = 'BL-'.$new_name_C;
                         $imageC->move(public_path('images'), $new_name_imC);
-                        // $inputC = new images_mn([
 
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $new_name_imC,
-                        //     'type_image' => 'C',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-                        //     echo "<br>".$inputC;
-                            // $inputC->save();
 
                             $dataimC = images_mn::find($idimf+8);
                             $dataimC->name_image = $new_name_imC;
@@ -631,18 +530,6 @@ class BrandController extends Controller
                         $new_name_D = rand() . '.' . $imageD->getClientOriginalExtension();
                         $new_name_imD = 'BR-'.$new_name_D;
                         $imageD->move(public_path('images'), $new_name_imD);
-                        // $inputD = new images_mn([
-
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $new_name_imD,
-                        //     'type_image' => 'D',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-                        //     echo "<br>".$inputD;
-                            // $inputD->save();
 
 
                             $dataimD = images_mn::find($idimf+9);
@@ -658,19 +545,6 @@ class BrandController extends Controller
 
                         $vdo = $request->input('file_vdo');
         if($vdo != '' ){
-                        // $inputVDO = new images_mn([
-
-                        //     'id_car' => $request->input('id_car'),
-                        //     'name_image' => $request->input('file_vdo'),
-                        //     'type_image' => 'V',
-                        //     'id_dealer' => $request->input('fromtent'),
-                        //     'status' => '1',
-                        //     'confirm' => $request->input('userID')
-
-                        //     ]);
-
-                        //     echo "<br><br>".$inputVDO;
-                            // $inputVDO->save();
 
 
                             $dataimV = images_mn::find($idimf+10);
@@ -719,10 +593,35 @@ class BrandController extends Controller
                 }
                 else
                 {
-                    return redirect('/edit')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
+                    if($inspectiontype=='1')
+                    {
+                        return redirect('/edit')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
+                    }else{
+
+                        $images = DB::table('add_inspection_cars')
+                        ->select('add_inspection_cars.id as id_cars','add_inspection_cars.fromtent','image_fire_floods.*')
+                        ->leftjoin('image_fire_floods','add_inspection_cars.id','=','image_fire_floods.id_car')
+                        ->where('add_inspection_cars.id', '=', $id_car)
+                        ->get();
+
+                        return view('upimg_fire_flood',compact('images'));
+                    }
                 }
 
-            return redirect('/edit')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
+        if($inspectiontype=='1')
+            {
+                return redirect('/edit')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
+            }else{
+
+                $images = DB::table('add_inspection_cars')
+                ->select('add_inspection_cars.id as id_cars','add_inspection_cars.fromtent','image_fire_floods.*')
+                ->leftjoin('image_fire_floods','add_inspection_cars.id','=','image_fire_floods.id_car')
+                ->where('add_inspection_cars.id', '=', $id_car)
+                ->get();
+
+                // echo $images;
+                return view('upimg_fire_flood',compact('images'));
+            }
 
 
     }
@@ -733,16 +632,18 @@ class BrandController extends Controller
      * @param  \App\brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_car)
     {
 
-
         $images = DB::table('add_inspection_cars')
-        ->select('add_inspection_cars.id as id_car','add_inspection_cars.fromtent','im_puks.*','images_mns.id as id_imfull')
+        ->select('add_inspection_cars.id as id_car','add_inspection_cars.fromtent','im_puks.*',
+                 'images_mns.id as id_imfull','add_inspection_dates.inspectiontype')
         ->join('im_puks','add_inspection_cars.id','=','im_puks.id_car')
+        ->join('add_inspection_dates','add_inspection_cars.id','=','add_inspection_dates.id')
         ->leftjoin('images_mns','add_inspection_cars.id','=','images_mns.id_car')
-        ->where([['add_inspection_cars.id', '=', $id],['im_puks.status_admin', '=', '1']])
+        ->where([['add_inspection_cars.id', '=', $id_car],['im_puks.status_admin', '=', '1']])
         ->where('images_mns.type_image', '=', 2)
+        ->groupBy('add_inspection_cars.id')
         ->get();
 
 

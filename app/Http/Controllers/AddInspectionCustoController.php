@@ -336,7 +336,7 @@ class AddInspectionCustoController extends Controller
 
                     ]);
 
-               echo $inputpuk = new im_puk([
+                $inputpuk = new im_puk([
 
                     'id_car' => $request->input('id_car'),
                     'id_dealer' => $request->input('fromtent'),

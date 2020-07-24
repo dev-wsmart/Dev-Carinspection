@@ -1182,8 +1182,17 @@
                         </tr>
                     </table>
                     <div class="image-grid-container">
-                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
-                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
+                        @if($datas->im_flood1=='' || $datas->im_flood1=='null')
+                            <img src="{{ asset('images/logo-1.png') }}" class="img-grid-item-xl" >
+                        @else
+                            <img src="/images/{{$datas->im_flood1}}" class="img-grid-item-xl" >
+                        @endif
+
+                        @if($datas->im_flood2=='' || $datas->im_flood2=='null')
+                            <img src="{{ asset('images/logo-1.png') }}" class="img-grid-item-xl" >
+                        @else
+                            <img src="/images/{{$datas->im_flood2}}" class="img-grid-item-xl" >
+                        @endif
                     </div>
                     <div class="topic-title" style="margin-top: 50px;">Fire Report</div>
                     <table id="fire-table" class="overall-table" style="width: 70%; margin-top: 20px;">
@@ -1193,8 +1202,17 @@
                         </tr>
                     </table>
                     <div class="image-grid-container">
-                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
-                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
+                        @if($datas->im_fire1=='' || $datas->im_fire1=='null')
+                            <img src="{{ asset('images/logo-1.png') }}" class="img-grid-item-xl" >
+                        @else
+                            <img src="/images/{{$datas->im_fire1}}" class="img-grid-item-xl" >
+                        @endif
+
+                        @if($datas->im_fire2=='' || $datas->im_fire2=='null')
+                            <img src="{{ asset('images/logo-1.png') }}" class="img-grid-item-xl" >
+                        @else
+                            <img src="/images/{{$datas->im_fire2}}" class="img-grid-item-xl" >
+                        @endif
                     </div>
                 </div>
             </div>

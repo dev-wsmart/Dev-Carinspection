@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
     //     return view('upload-img');
     // });
     Route::resource('/upimages', 'BrandController');
+    Route::resource('/upimg_fire_flood', 'ImageFireFloodController');
     Route::resource('/detail', 'DetailController');
 
     // search
@@ -85,6 +86,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/upimages/actionB', 'BrandController@actionB')->name('ajaxupload.actionB');
     Route::post('/upimages/actionC', 'BrandController@actionC')->name('ajaxupload.actionC');
     Route::post('/upimages/actionD', 'BrandController@actionD')->name('ajaxupload.actionD');
+
+    // upload images flood fire
+    Route::get('/upimg_fire_flood', 'ImageFireFloodController@index');
+    Route::post('/upimg_fire_flood/action1', 'ImageFireFloodController@action1')->name('ajaxupload.action1');
+    Route::post('/upimg_fire_flood/action2', 'ImageFireFloodController@action2')->name('ajaxupload.action2');
+    Route::post('/upimg_fire_flood/action3', 'ImageFireFloodController@action3')->name('ajaxupload.action3');
+    Route::post('/upimg_fire_flood/action4', 'ImageFireFloodController@action4')->name('ajaxupload.action4');
 
 
 });
