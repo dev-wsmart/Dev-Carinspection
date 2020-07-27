@@ -44,8 +44,10 @@
                     <?php
 
                         $idins = $data->id;
-                        $idinspec = 'inspec-'.str_pad(($idins),6,'0',STR_PAD_LEFT);
-                        // echo 'เลขที่ตรวจสภาพรถ : '.$idinspec;
+                        // $idinspec = 'inspec-'.str_pad(($idins),6,'0',STR_PAD_LEFT);
+                        $date = substr(date("Y"),2);
+                        $idinspec = 'CS'.$date.str_pad(($idins),5,'0',STR_PAD_LEFT);
+                        // echo 'รหัสตรวจสภาพรถยนต์ : '.$idinspec;
 
                     ?>
 

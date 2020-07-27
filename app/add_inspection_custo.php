@@ -8,7 +8,7 @@ class add_inspection_custo extends Model
 {
     //
     protected $fillable = [
-        'nametitle', 'firstname','lastname', 'address',
+        'ins','nametitle', 'firstname','lastname', 'address',
         'province', 'district','subdistrict', 'postalcode',
         'idcard', 'tel','customertype','contact','tel_contact'
     ];

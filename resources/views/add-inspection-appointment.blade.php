@@ -19,9 +19,13 @@
                     <?php
 
                         $idmax = $id_maxs->id;
+                        $insmax = $id_maxs->ins;
                         $id_car = $idmax+1;
-                        $id_maxins = 'inspec-'.str_pad(($idmax+1),6,'0',STR_PAD_LEFT);
-                        echo 'เลขที่ตรวจสภาพรถ : '.$id_maxins;
+                        $insnext = $insmax+1;
+                        $date = substr(date("Y"),2);
+                        $idCS = 'CS'.$date.str_pad(($id_car),5,'0',STR_PAD_LEFT);
+                        $ins_maxins = 'INS'.str_pad(($insnext),5,'0',STR_PAD_LEFT);
+                        echo 'รหัสตรวจสภาพรถยนต์ : '.$idCS;
 
                     ?>
             @endforeach
@@ -31,6 +35,7 @@
             <form action='{{ route('add-inspection-appointment.store') }}' method='POST' enctype='multipart/form-data' id="add_inspection">
                 @csrf
                 <input type="hidden" name="id_car" value="{{ $id_car }}">
+                <input type="hidden" name="ins" value="{{ $insnext }}">
                 {{-- {{ csrf_field() }} --}}
                 <div class="form-title">ข้อมูลลูกค้า</div>
                 <div class="col-12 pt-lg-3 box-form">
@@ -93,7 +98,7 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="contact">ผู้ติดต่อ</label>
-                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="contact" id="contact">
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="contact" id="contact" required>
 
                         <label class="col-lg-2" for="tel_contact">เบอร์โทร - ผู้ติดต่อ</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel_contact" id="tel_contact" required>
@@ -254,7 +259,7 @@
                         </div>
 
                         <label class="col-lg-1 pl-lg-0" for="fromTent">รถจากเต็นท์</label>
-                        <select class="col-lg-2 form-control form-control-sm form-border" name="fromtent" id="fromTent">
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="fromtent" id="fromTent" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             @foreach($dealer as $key => $dealers)
                                 <option value="{{ $dealers->id_dealer }}">{{ $dealers->dealer_name }}</option>
@@ -298,7 +303,7 @@
 
                     <div class="form-group row">
                         <label class="col-lg-1" for="package">แพคเกจ</label>
-                        <select class="col-lg-3 form-control form-control-sm form-border" name="package" id="package">
+                        <select class="col-lg-3 form-control form-control-sm form-border" name="package" id="package" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             @foreach($pac as $key => $pacs)
                             <option value="{{ $pacs->id_package }}">{{ $pacs->package_name }}</option>
