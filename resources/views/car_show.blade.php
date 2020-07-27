@@ -151,8 +151,8 @@
                             <tr>
                                 <td>{{ $datas->name_brand.' / '.$datas->name_model}}</td>
                                 <td>{{ $datas->carregnum}}</td>
-                                <td>{{ $datas->engine}}</td>
                                 <td>{{ $datas->vin}}</td>
+                                <td>{{ $datas->engine}}</td>
                                 <td>{{ $datas->year}}</td>
                                 <td>{{ $datas->car_color}}</td>
                                 <td>{{ $datas->cc}}</td>
