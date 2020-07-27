@@ -246,7 +246,7 @@
                         <div class="col-lg-2 btnCustom">
                             <input type="radio" name="tent" id="tent1" value="0" {{ $data->tent == '0' ? 'checked' : ''}} disabled>
                             <label for="tent1">ใช่</label>
-                            <input type="radio" name="tent" id="tent2" value="1" {{ $data->tent == '0' ? 'checked' : ''}} disabled>
+                            <input type="radio" name="tent" id="tent2" value="1" {{ $data->tent == '1' ? 'checked' : ''}} disabled>
                             <label for="tent2">ไม่ใช่</label>
                         </div>
 
