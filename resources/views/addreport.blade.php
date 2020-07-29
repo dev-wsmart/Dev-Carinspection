@@ -44,8 +44,10 @@
                     <?php
 
                         $idins = $data->id;
-                        $idinspec = 'inspec-'.str_pad(($idins),6,'0',STR_PAD_LEFT);
-                        // echo 'เลขที่ตรวจสภาพรถ : '.$idinspec;
+                        // $idinspec = 'inspec-'.str_pad(($idins),6,'0',STR_PAD_LEFT);
+                        $date = substr(date("Y"),2);
+                        $idinspec = 'CS'.$date.str_pad(($idins),5,'0',STR_PAD_LEFT);
+                        // echo 'รหัสตรวจสภาพรถยนต์ : '.$idinspec;
 
                     ?>
 
@@ -1045,7 +1047,7 @@
                         <a href="{{ route('edit.index') }}"><button class="btn btn-danger" type="button"><i class="fa fa-times" aria-hidden="true"></i> ยกเลิก</button></a>
                         <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูลตรวจสภาพรถยนต์ เลขที่ : {{$idinspec}} เรียบร้อยแล้ว')">
                             {{-- <i class="fa fa-arrow-right" aria-hidden="true"></i> บันทึก / NEXT</button> --}}
-                            <i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก </button>
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> NEXT</button>
                     </div>
                     <!-- <div class="col-12 text-center my-3">
                         <a href=""></a><button class="btn btn-purple" type="button"><i class="fa fa-car" aria-hidden="true"></i> พิมพ์ใบตรวจสภาพรถ</button>

@@ -45,6 +45,16 @@
 <body>
     <div class="printpage" align="center">
         <div class = "page-container">
+
+            <?php
+
+                        $idins = $datas->id;
+                        $idinspec = 'INS'.str_pad(($datas->ins),5,'0',STR_PAD_LEFT);
+                        // echo 'เลขที่ตรวจสภาพรถ : '.$idinspec;
+                        $date = substr(date("Y"),2);
+                        $idCS = 'CS'.$date.str_pad(($idins),5,'0',STR_PAD_LEFT);
+
+                    ?>
             <!--PAGE 1-->
             <div class="page">
                 <div class="page-contain">
@@ -89,10 +99,10 @@
                             </tr>
                             <tr style="font-size: 12px;">
                                 <td style="width: 100px; font-weight: bold;">เลขที่ตรวจสภาพรถยนต์<br><span>Inspection Identification</span></td>
-                                <td style="width: 100px; font-size: 14px; vertical-align: top;">INS00000</td>
+                                <td style="width: 100px; font-size: 14px; vertical-align: top;">{{ $idinspec }}</td>
 
                                 <td style="width: 100px; font-weight: bold;">รหัสตรวจสภาพรถยนต์<br><span>Inspection Number</span></td>
-                                <td style="width: 100px; font-size: 14px; vertical-align: top;">CS0000000</td>
+                                <td style="width: 100px; font-size: 14px; vertical-align: top;">{{ $idCS }}</td>
 
                                 <td style="width: 75px; font-weight: bold;">อาณาเขตคุ้มครอง<br><span>Protected territory</span></td>
                                 <td style="width: 75px; font-size: 14px; vertical-align: top;">ประเทศไทย<br><span>THAILAND</span></td>
@@ -105,25 +115,25 @@
                             </tr>
                             <tr>
                                 <td width="120px" style="font-weight: bold;">ชื่อผู้ประกอบการ<br><span>Name</span></td>
-                                <td colspan="3">ชื่อ</td>
+                                <td colspan="3">{{ $datas->nametitle.' '.$datas->firstname.' '.$datas->lastname }}</td>
                             </tr>
                             <tr>
                                 <td width="120px" style="font-weight: bold;">ที่อยู่<br><span>Address</span></td>
-                                <td width="120px">11</td>
+                                <td width="120px">{{ $datas->address}}</td>
                                 <td width="100px" style="font-weight: bold;">รหัสไปรษณีย์<br><span>Personal No.</span></td>
-                                <td width="190px">10250</td>
+                                <td width="190px">{{ $datas->postalcode}}</td>
                             </tr>
                             <tr>
                                 <td width="120px" style="font-weight: bold;">เขต/อำเภอ<br><span>District</span></td>
-                                <td width="120px">สวนหลวง</td>
+                                <td width="120px">{{ $datas->name_am}}</td>
                                 <td width="100px" style="font-weight: bold;">จังหวัด<br><span>City</span></td>
-                                <td width="190px">กทม</td>
+                                <td width="190px">{{ $datas->name_th}}</td>
                             </tr>
                             <tr>
                                 <td width="120px" style="font-weight: bold;">เลขที่ประจำตัวผู้เสียภาษี<br><span>Tax Identification</span></td>
-                                <td width="120px">0105530038998</td>
+                                <td width="120px">{{ $datas->idcard}}</td>
                                 <td width="100px" style="font-weight: bold;">เบอร์ติดต่อ<br><span>Contact Number</span></td>
-                                <td width="190px">01234567890</td>
+                                <td width="190px">{{ $datas->tel}}</td>
                             </tr>
                         </table>
 
@@ -139,14 +149,14 @@
                                 <td width="73px">เลขไมล์ปัจจุบัน<br><span>Mileage</span></td>
                             </tr>
                             <tr>
-                                <td>ชื่อรถยนต์ / รุ่น</td>
-                                <td>เลขทะเบียน</td>
-                                <td>MRHGM6640JT102308</td>
-                                <td>L15Z15111276</td>
-                                <td>ปีรุ่น</td>
-                                <td>สี</td>
-                                <td>ขนาดเครื่องยนต์</td>
-                                <td>เลขไมล์ปัจจุบัน</td>
+                                <td>{{ $datas->name_brand.' / '.$datas->name_model}}</td>
+                                <td>{{ $datas->carregnum}}</td>
+                                <td>{{ $datas->vin}}</td>
+                                <td>{{ $datas->engine}}</td>
+                                <td>{{ $datas->year}}</td>
+                                <td>{{ $datas->car_color}}</td>
+                                <td>{{ $datas->cc}}</td>
+                                <td>{{ $datas->mileage}}</td>
                             </tr>
                         </table>
 
@@ -1182,8 +1192,17 @@
                         </tr>
                     </table>
                     <div class="image-grid-container">
-                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
-                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
+                        @if($datas->im_flood1=='' || $datas->im_flood1=='null')
+                            <img src="{{ asset('images/logo-1.png') }}" class="img-grid-item-xl" >
+                        @else
+                            <img src="/images/{{$datas->im_flood1}}" class="img-grid-item-xl" >
+                        @endif
+
+                        @if($datas->im_flood2=='' || $datas->im_flood2=='null')
+                            <img src="{{ asset('images/logo-1.png') }}" class="img-grid-item-xl" >
+                        @else
+                            <img src="/images/{{$datas->im_flood2}}" class="img-grid-item-xl" >
+                        @endif
                     </div>
                     <div class="topic-title" style="margin-top: 50px;">Fire Report</div>
                     <table id="fire-table" class="overall-table" style="width: 70%; margin-top: 20px;">
@@ -1193,8 +1212,17 @@
                         </tr>
                     </table>
                     <div class="image-grid-container">
-                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
-                        <img src="/images/{{$datas->im_2}}" class="img-grid-item-xl" >
+                        @if($datas->im_fire1=='' || $datas->im_fire1=='null')
+                            <img src="{{ asset('images/logo-1.png') }}" class="img-grid-item-xl" >
+                        @else
+                            <img src="/images/{{$datas->im_fire1}}" class="img-grid-item-xl" >
+                        @endif
+
+                        @if($datas->im_fire2=='' || $datas->im_fire2=='null')
+                            <img src="{{ asset('images/logo-1.png') }}" class="img-grid-item-xl" >
+                        @else
+                            <img src="/images/{{$datas->im_fire2}}" class="img-grid-item-xl" >
+                        @endif
                     </div>
                 </div>
             </div>

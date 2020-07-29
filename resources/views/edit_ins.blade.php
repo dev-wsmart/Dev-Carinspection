@@ -20,8 +20,11 @@
 
                     <?php
                         $idmax = $id_maxs->id;
-                        $id_maxins = 'inspec-'.str_pad(($idmax),6,'0',STR_PAD_LEFT);
-                        echo 'เลขที่ตรวจสภาพรถ : '.$id_maxins;
+                        $insshow = $id_maxs->ins;
+                        $date = substr(date("Y"),2);
+                        $idCS = 'CS'.$date.str_pad(($idmax),5,'0',STR_PAD_LEFT);
+                        $ins_maxins = 'INS'.str_pad(($insshow),5,'0',STR_PAD_LEFT);
+                        echo ' รหัสตรวจสภาพรถยนต์ : '.$idCS;
 
                     ?>
             @endforeach

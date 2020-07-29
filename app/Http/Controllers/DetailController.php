@@ -6,6 +6,7 @@ use App\detail;
 use Illuminate\Http\Request;
 use App\brand;
 use App\add_inspection_car;
+use App\add_inspection_date;
 use App\images_mn;
 use App\im_puk;
 use DB;
@@ -206,29 +207,37 @@ class DetailController extends Controller
         else
         {
                 $images = DB::table('add_inspection_cars')
-                ->select('add_inspection_cars.id as id_car','add_inspection_cars.fromtent','im_puks.*','images_mns.id as id_imfull')
+                ->select('add_inspection_cars.id as id_car','add_inspection_cars.fromtent','im_puks.*',
+                        'images_mns.id as id_imfull','add_inspection_dates.inspectiontype')
                 ->join('im_puks','add_inspection_cars.id','=','im_puks.id_car')
+                ->join('add_inspection_dates','add_inspection_cars.id','=','add_inspection_dates.id')
                 ->leftjoin('images_mns','add_inspection_cars.id','=','images_mns.id_car')
                 ->where([['add_inspection_cars.id', '=', $id_car],['im_puks.status_admin', '=', '1']])
                 ->where('images_mns.type_image', '=', 2)
+                ->groupBy('add_inspection_cars.id')
                 ->get();
 
 
                 return view('upimages',compact('images'));
+                // echo $images;
 
         }
 
 
         $images = DB::table('add_inspection_cars')
-        ->select('add_inspection_cars.id as id_car','add_inspection_cars.fromtent','im_puks.*','images_mns.id as id_imfull')
+        ->select('add_inspection_cars.id as id_car','add_inspection_cars.fromtent','im_puks.*',
+                 'images_mns.id as id_imfull','add_inspection_dates.inspectiontype')
         ->join('im_puks','add_inspection_cars.id','=','im_puks.id_car')
+        ->join('add_inspection_dates','add_inspection_cars.id','=','add_inspection_dates.id')
         ->leftjoin('images_mns','add_inspection_cars.id','=','images_mns.id_car')
         ->where([['add_inspection_cars.id', '=', $id_car],['im_puks.status_admin', '=', '1']])
         ->where('images_mns.type_image', '=', 2)
+        ->groupBy('add_inspection_cars.id')
         ->get();
 
 
         return view('upimages',compact('images'));
+        // echo $images;
 
     }
 
