@@ -49,7 +49,9 @@ Route::group(['middleware' => ['auth']], function() {
     // search
     Route::get('/search','AppointmentController@search');
     Route::get('/search_rep','ReportController@search');
-
+    
+    // Export Excel
+    Route::get('/export','ExcelController@export');
 
     Route::resource('/users', 'AddInspectionCarController');
 
