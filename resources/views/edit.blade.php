@@ -1,6 +1,9 @@
 @extends('layouts.admin_layout')
 @section('title', 'Edit Inspection Report')
 @section('content')
+
+
+
 <div class="col-md-3"></div>
 <div class="col-md-8" style="margin-top:2%;">
 
@@ -12,6 +15,11 @@
             <h1 class="title">Edit Inspection Report</h1>
         </div>
         <hr noshade>
+        <div class="col-lg-12 clearfix">
+            <div class="col-lg-3 mt-3 mt-lg-auto float-right text-right">
+                <a href="{{ route('fullcalendar.index') }}"><button class="btn btn-warning px-4 btn-add-appoint"><i class="fa fa-plus" aria-hidden="true"></i> Calendar</button></a>
+            </div>
+        </div>
     </div>
 
     <div class="row">
