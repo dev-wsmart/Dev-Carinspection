@@ -59,7 +59,7 @@
             <div class="page">
                 <div class="page-contain">
                     <div class="head-logo">
-                        <img src= "{{ asset('images/logo-1.png') }}">
+                        <img src= "{{ asset('images/main-logo.png') }}">
                     </div>
                     <div class="head-title">
                         Preowned Vehicle Inspection Report
