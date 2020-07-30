@@ -149,6 +149,7 @@ class AddInspectionCustoController extends Controller
             'lpg' => $request->input('lpg'),
             'ngv' => $request->input('ngv'),
             'cng' => $request->input('cng'),
+            'imported_car' => $request->input('imported_car'),
             'carinsurance' => $request->input('carinsurance'),
             'expinsurance' => $request->input('expinsurance'),
             'insurance' => $request->input('insurance'),

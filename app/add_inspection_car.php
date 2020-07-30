@@ -13,7 +13,7 @@ class add_inspection_car extends Model
             'carregnum', 'mileage','dateregister', 'numowners',
             'cc', 'geartype','engine', 'vin',
             'benzine', 'diesel','hybrid', 'electric',
-            'lpg', 'ngv','cng', 'carinsurance',
+            'lpg', 'ngv','cng','imported_car', 'carinsurance',
             'expinsurance', 'insurance','tent', 'fromtent',
             'price', 'payment'
         ];

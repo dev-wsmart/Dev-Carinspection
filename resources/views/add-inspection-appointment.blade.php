@@ -42,7 +42,7 @@
                     <div class="form-group row">
                         <label class="col-lg-1" for="nameTitle">คำนำหน้า</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="nametitle" id="nameTitle" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             <option value="นาย">นาย</option>
                             <option value="นาง">นาง</option>
                             <option value="นางสาว">นางสาว</option>
@@ -50,19 +50,19 @@
                             <option value="เต๊นท์">เต็นท์</option>
                         </select>
 
-                        <label class="col-lg-1" for="firstname">ชื่อ</label>
+                        <label class="col-lg-1" for="firstname" align="right">ชื่อ</label>
                         <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="firstname" id="firstname" required>
 
-                        <label class="col-lg-1" for="lastname">นามสกุล</label>
+                        <label class="col-lg-1" for="lastname" align="right">นามสกุล</label>
                         <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="lastname" id="lastname" required>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-1" for="address">ที่อยู่</label>
                         <input class="col-lg-6 form-control form-control-sm form-border" type="text" name="address" id="address" required>
 
-                        <label class="col-lg-1" for="province">จังหวัด</label>
+                        <label class="col-lg-1" for="province" align="right">จังหวัด</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="province" id="province" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             @foreach($province as $key => $data)
                             <option value="{{ $data->id }}">{{ $data->name_th }}</option>
                             @endforeach
@@ -71,27 +71,27 @@
                     <div class="form-group row">
                         <label class="col-lg-2" for="district">เขต/อำเภอ</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="district" id="district" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                         </select>
 
-                        <label class="col-lg-2" for="subDistrict">แขวง/ตำบล</label>
+                        <label class="col-lg-2" for="subDistrict" align="right">แขวง/ตำบล</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="subdistrict" id="subDistrict" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                         </select>
 
-                        <label class="col-lg-2" for="postalCode">รหัสไปรษณีย์</label>
+                        <label class="col-lg-2" for="postalCode" align="right">รหัสไปรษณีย์</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="postalcode" id="postalCode" required>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="idCard">เลขประจำตัวประชาชน</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="idcard" id="idCard">
 
-                        <label class="col-lg-2" for="tel">เบอร์โทร - ลูกค้า</label>
+                        <label class="col-lg-2" for="tel" align="right">เบอร์โทร - ลูกค้า</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel" id="tel" required>
 
-                        <label class="col-lg-2" for="customerType">ประเภทสมาชิก</label>
+                        <label class="col-lg-2" for="customerType" align="right">ประเภทสมาชิก</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="customertype" id="customerType" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             <option value="สมาชิกทั่วไป">สมาชิกทั่วไป</option>
                             <option value="สมาชิกรูปแบบเต๊นท์" selected>สมาชิกรูปแบบเต็นท์</option>
                         </select>
@@ -100,7 +100,7 @@
                         <label class="col-lg-2" for="contact">ผู้ติดต่อ</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="contact" id="contact" required>
 
-                        <label class="col-lg-2" for="tel_contact">เบอร์โทร - ผู้ติดต่อ</label>
+                        <label class="col-lg-2" for="tel_contact" align="right">เบอร์โทร - ผู้ติดต่อ</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel_contact" id="tel_contact" required>
                     </div>
                 </div>
@@ -110,45 +110,45 @@
                     <div class="form-group row">
                         <label class="col-lg-1" for="carBrand">ยี่ห้อ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="carbrand" id="carBrand" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             @foreach($brand as $key => $brands)
                             <option value="{{ $brands->id_brand }}">{{ $brands->name_brand }}</option>
                             @endforeach
                         </select>
 
-                        <label class="col-lg-1" for="carModel">รุ่น</label>
+                        <label class="col-lg-1" for="carModel" align="right">รุ่น</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" type="text" name="carmodel" id="carModel" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                         </select>
 
-                        <label class="col-lg-1" for="subModel">รุ่นย่อย</label>
+                        <label class="col-lg-1" for="subModel" align="right">รุ่นย่อย</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" type="text" name="submodel" id="subModel" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                         </select>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-1" for="oldColor">สีเดิม</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="oldcolor" id="oldColor" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             @foreach($col as $key => $cols)
                             <option value="{{ $cols->id_color }}">{{ $cols->car_color }}</option>
                             @endforeach
                         </select>
 
-                        <label class="col-lg-1" for="newColor">สีปัจจุบัน</label>
+                        <label class="col-lg-1" for="newColor" align="right">สีปัจจุบัน</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="newcolor" id="newColor" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             @foreach($col as $key => $cols)
                             <option value="{{ $cols->id_color }}">{{ $cols->car_color }}</option>
                             @endforeach
                         </select>
 
-                        <label class="col-lg-1" for="year">ปี</label>
+                        <label class="col-lg-1" for="year" align="right">ปี</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="year" id="year" required>
 
-                        <label class="col-lg-1 pr-0" for="seatNum">จำนวนที่นั่ง</label>
+                        <label class="col-lg-1 " for="seatNum" align="right">จำนวนที่นั่ง</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="seatnum" id="seatNum" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" disabled selected>---  กรุณาเลือก  ---</option>
                             <option value="2">2</option>
                             <option value="4" selected>4</option>
                             <option value="5">5</option>
@@ -165,7 +165,7 @@
                             <option value="ดับเบิ้ลยู สมาร์ท">ดับเบิ้ลยู สมาร์ท</option>
                         </select>
 
-                        <label class="col-lg-2 pl-lg-5" for="registerType">ประเภทจดทะเบียน</label>
+                        <label class="col-lg-2 pl-lg-5" for="registerType" align="right">ประเภทจดทะเบียน</label>
                         <div class="col-lg-4 btnCustom">
                             <input type="radio" name="registertype" id="registerType1" value="0" checked>
                             <label for="registerType1">รถยนต์ส่วนบุคคล</label>
@@ -178,10 +178,10 @@
                         <label class="col-lg-2" for="carRegNum">ทะเบียนรถ</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="carregnum" id="carRegNum" required>
 
-                        <label class="col-lg-2 pl-lg-5" for="mileage">เลขไมล์ปัจจุบัน</label>
+                        <label class="col-lg-2 pl-lg-5" for="mileage" align="right">เลขไมล์ปัจจุบัน</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="mileage" id="mileage" required>
 
-                        <label class="col-lg-2 pl-lg-5" for="dateRegister">วันที่จดทะเบียนรถ</label>
+                        <label class="col-lg-2 pl-lg-5" for="dateRegister" align="right">วันที่จดทะเบียนรถ</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="date" name="dateregister" id="dateRegister" required>
                     </div>
                     <div class="form-group row">
@@ -191,7 +191,7 @@
                         {{-- <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (CC)</label>
                         <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" required> --}}
 
-                        <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (CC)</label>
+                        <label class="col-lg-2" for="cc" align="right">ความจุเครื่องยนต์ (CC)</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" required>
                             <option disabled selected>---  กรุณาเลือก  ---</option>
                             @foreach($cc as $key => $ccs)
@@ -199,9 +199,9 @@
                             @endforeach
                         </select>
 
-                        <label class="col-lg-2" for="gearType" align="right">ระบบเกียร์</label>
-                        <div class="col-lg-3 btnCustom">
-                            <input class="form-control" type="radio" name="geartype" id="gearType1" value="0">
+                        <label class="col-lg-1" for="gearType" align="right">ระบบเกียร์</label>
+                        <div class="col-lg-4 btnCustom">
+                            <input type="radio" name="geartype" id="gearType1" value="0" checked>
                             <label for="gearType1">เกียร์ธรรมดา</label>
 
                             <input type="radio" name="geartype" id="gearType2" value="1">
@@ -212,12 +212,12 @@
                         <label class="col-lg-2" for="engine">หมายเลขเครื่องยนต์</label>
                         <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="engine" id="engine" required>
 
-                        <label class="col-lg-2 pl-lg-5" for="vin">หมายเลขตัวถัง</label>
+                        <label class="col-lg-2 pl-lg-5" for="vin" align="right">หมายเลขตัวถัง</label>
                         <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="vin" id="vin" required>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="fuelType">ประเภทเชื้อเพลิง</label>
-                        <div class="col-lg-10 btnCustom">
+                        <div class="col-lg-6 btnCustom">
                             <input type="checkbox" name="benzine" id="benzine" value="1">
                             <label for="benzine">เบนซิน</label>
                             <input type="checkbox" name="diesel" id="diesel" value="1">
@@ -233,11 +233,19 @@
                             <input type="checkbox" name="cng" id="cng" value="1">
                             <label for="cng">CNG</label>
                         </div>
+
+                        <label class="col-lg-2" for="imported_car" align="right">ประเภทรถนำเข้า</label>
+                        <div class="col-lg-2 btnCustom">
+                            <input type="radio" name="imported_car" id="imported_car1" value="นำเข้า" checked>
+                            <label for="imported_car1">นำเข้า</label>
+                            <input type="radio" name="imported_car" id="imported_car2" value="ไม่นำเข้า">
+                            <label for="imported_car2">ไม่นำเข้า</label>
+                        </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2" for="carInsurance">รถมีประกันหรือไม่</label>
+                        <label class="col-lg-2" for="carInsurance" >รถมีประกันหรือไม่</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="carinsurance" id="carInsurance1" value="0">
+                            <input type="radio" name="carinsurance" id="carInsurance1" value="0" checked>
                             <label for="carInsurance1">มี</label>
                             <input type="radio" name="carinsurance" id="carInsurance2" value="1">
                             <label for="carInsurance2">ไม่มี</label>
@@ -246,13 +254,13 @@
                         <label class="col-lg-2" for="expInsurance">วันหมดอายุประกันภัย</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="date" name="expinsurance" id="expInsurance">
 
-                        <label class="col-lg-2 pl-lg-5" for="insurance">บริษัทประกันภัย</label>
+                        <label class="col-lg-2 pl-lg-5" for="insurance" align="right">บริษัทประกันภัย</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="insurance" id="insurance">
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-1" for="tent">รถเต็นท์</label>
                         <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="tent" id="tent1" value="0">
+                            <input type="radio" name="tent" id="tent1" value="0" checked>
                             <label for="tent1">ใช่</label>
                             <input type="radio" name="tent" id="tent2" value="1">
                             <label for="tent2">ไม่ใช่</label>
@@ -260,17 +268,17 @@
 
                         <label class="col-lg-1 pl-lg-0" for="fromTent">รถจากเต็นท์</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="fromtent" id="fromTent" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             @foreach($dealer as $key => $dealers)
                                 <option value="{{ $dealers->id_dealer }}">{{ $dealers->dealer_name }}</option>
                             @endforeach
                         </select>
 
-                        <label class="col-lg-1" for="price">ราคา</label>
-                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="price" id="price">
+                        <label class="col-lg-1" for="price" align="right">ราคา</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="price" id="price" required>
 
-                        <label class="col-lg-1 pr-lg-0" for="payment">ผ่อนงวดละ</label>
-                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="payment" id="payment">
+                        <label class="col-lg-1" for="payment" align="right">ผ่อนงวดละ</label>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="payment" id="payment" required>
                     </div>
                 </div>
 
@@ -279,14 +287,14 @@
                     <div class="form-group row">
                         <label class="col-lg-2" for="inspectionType">ประเภทการตรวจสภาพ</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="inspectiontype" id="inspectionType" required>
-                            <option>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             <option value="0">Full Inspection</option>
                             <option value="1">Warranty</option>
                         </select>
 
-                        <label class="col-lg-2 pl-lg-5" for="inspector">ช่างที่ไปตรวจรถ</label>
+                        <label class="col-lg-2 pl-lg-5" for="inspector" align="right">ช่างที่ไปตรวจรถ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="inspector" id="inspector" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             @foreach($tech as $key => $techs)
                             <option value="{{ $techs->id_tech }}">{{ $techs->name_tech }}</option>
                             @endforeach
@@ -297,20 +305,20 @@
                         <label class="col-lg-2" for="inspectionDate">วันที่นัดตรวจรถ</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="date" name="inspectiondate" id="inspectionDate" required>
 
-                        <label class="col-lg-2 pl-lg-5" for="inspectionTime">เวลาที่นัดตรวจรถ</label>
+                        <label class="col-lg-2 pl-lg-5" for="inspectionTime" align="right">เวลาที่นัดตรวจรถ</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="time" name="inspectiontime" id="inspectionTime" required>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-lg-1" for="package">แพคเกจ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="package" id="package" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             @foreach($pac as $key => $pacs)
                             <option value="{{ $pacs->id_package }}">{{ $pacs->package_name }}</option>
                             @endforeach
                         </select>
 
-                        <label class="col-lg-2 pl-lg-5" for="remark">Remark</label>
+                        <label class="col-lg-2 pl-lg-5" for="remark" align="right">Remark</label>
                         <textarea class="col-lg-5 form-control form-control-sm form-border" name="remark" id="remark"></textarea>
                     </div>
                     <br>
@@ -399,7 +407,7 @@ $('#province').change(function(){
            success:function(res){
             if(res){
                 $("#district").empty();
-                $("#district").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
+                $("#district").append('<option value="" selected hidden>---  กรุณาเลือก  ---</option>');
                 $.each(res,function(key,value){
                     $("#district").append('<option value="'+key+'">'+value+'</option>');
                 });
@@ -423,7 +431,7 @@ $('#district').on('change',function(){
            success:function(res){
             if(res){
                 $("#subDistrict").empty();
-                $("#subDistrict").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
+                $("#subDistrict").append('<option value="" selected hidden>---  กรุณาเลือก  ---</option>');
                 $.each(res,function(key,value){
                     $("#subDistrict").append('<option value="'+key+'">'+value+'</option>');
                 });
@@ -450,7 +458,7 @@ $('#carBrand').change(function(){
            success:function(res){
             if(res){
                 $("#carModel").empty();
-                $("#carModel").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
+                $("#carModel").append('<option value="" selected hidden>---  กรุณาเลือก  ---</option>');
                 $.each(res,function(key,value){
                     $("#carModel").append('<option value="'+key+'">'+value+'</option>');
                 });
@@ -474,7 +482,7 @@ $('#carModel').on('change',function(){
            success:function(res){
             if(res){
                 $("#subModel").empty();
-                $("#subModel").append('<option disabled selected>---  กรุณาเลือก  ---</option>');
+                $("#subModel").append('<option value="" selected hidden>---  กรุณาเลือก  ---</option>');
                 $.each(res,function(key,value){
                     $("#subModel").append('<option value="'+key+'">'+value+'</option>');
                 });

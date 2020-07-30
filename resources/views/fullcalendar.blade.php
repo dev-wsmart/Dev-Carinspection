@@ -36,16 +36,6 @@
         <br>
     </div>
 </div>
-<?php
-        //   if(isset($_GET['Heha']))
-        //     {
-        //         foreach($tasks as $task)
-        //         {
-        //             echo $task->dealer_name;
-        //         }
-        //     }
-
-?>
 
 
 <table align="center" width="45%" style="margin-top: 1%">
@@ -75,6 +65,7 @@
                     backgroundColor : "#1B8FFF",
                     textColor : "#ffffff",
 
+                    url : '{{ route('appointment.show', $task->id) }}'
                     // url : window.location.href+"?Heha"
 
                     // onkeyup : '{{ $task->dealer_name }}'+" / ( "+'{{ $task->tel }}'+" ) "+"\nเวลา : "+'{{ $task->inspectiontime }}'+"\nติดต่อ : "

@@ -15,7 +15,7 @@ class CreateAddInspectionCarsTable extends Migration
     {
         Schema::create('add_inspection_cars', function (Blueprint $table) {
             $table->id();
-    
+
                 // box 2
             $table->string('carbrand')->nullable();
             $table->string('carmodel')->nullable();
@@ -41,6 +41,7 @@ class CreateAddInspectionCarsTable extends Migration
             $table->string('lpg')->nullable();
             $table->string('ngv')->nullable();
             $table->string('cng')->nullable();
+            $table->string('imported_car')->nullable();
             $table->string('carinsurance')->nullable();
             $table->string('expinsurance')->nullable();
             $table->string('insurance')->nullable();
@@ -48,7 +49,7 @@ class CreateAddInspectionCarsTable extends Migration
             $table->string('fromtent')->nullable();
             $table->string('price')->nullable();
             $table->string('payment')->nullable();
-    
+
             $table->timestamps();
         });
     }

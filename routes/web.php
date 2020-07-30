@@ -23,7 +23,6 @@ Route::resource('/car_show', 'car_showController');
 Route::resource('/insp-details', 'DetailsController');
 
 Route::resource('/fullcalendar', 'FullCalendarController');
-// Route::get("/fullcalendar", "FullCalendarController@Chartjs");
 
 Auth::routes();
 
@@ -49,7 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
     // search
     Route::get('/search','AppointmentController@search');
     Route::get('/search_rep','ReportController@search');
-    
+
     // Export Excel
     Route::get('/export','ExcelController@export');
 

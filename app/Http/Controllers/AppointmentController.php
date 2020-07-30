@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\add_inspection_custo;
 use App\add_inspection_car;
 use App\add_inspection_date;
+use App\images_mn;
+use App\im_puk;
 use App\appointment;
 use App\Province;
 use App\district;
@@ -15,6 +17,7 @@ use App\dealer;
 use App\technician;
 use App\cc;
 use DB;
+use Auth;
 use Validator;
 use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
@@ -98,7 +101,7 @@ class AppointmentController extends Controller
 
 
         $validation = Validator::make($request->all(), [
-                'image_mile' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+                'image_mile' => 'required|image|mimes:jpeg,png,jpg,gif|max:10240'
             ]);
 
 
@@ -129,7 +132,7 @@ class AppointmentController extends Controller
     function action1(Request $request)
     {
         $validation = Validator::make($request->all(), [
-                'image_num' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+                'image_num' => 'required|image|mimes:jpeg,png,jpg,gif|max:10240'
             ]);
             if($validation->passes() && $validation != '')
             {
@@ -185,6 +188,8 @@ class AppointmentController extends Controller
     public function show($id)
     {
         //
+        $auth_id = Auth::user()->id;
+
          $datas = DB::table('add_inspection_custos')
         ->select('add_inspection_custos.*','add_inspection_cars.*','add_inspection_dates.*',
                  'provinces.name_th','amphures.name_th as name_am','districts.name_th as name_dis',
@@ -222,7 +227,15 @@ class AppointmentController extends Controller
         ->where('add_inspection_custos.id', '=', $id)
         ->get();
 
-      return view('views_ins', compact('datas','images'));
+
+        $position = DB::table('users')
+        // ->select('users.*')
+        ->select('position.*','users.*')
+        ->join('position','users.position','=','position.id_position')
+        ->where('users.id', '=', $auth_id)
+        ->get();
+
+      return view('views_ins', compact('datas','images','position'));
     }
 
     /**
@@ -333,6 +346,8 @@ class AppointmentController extends Controller
         $data->idcard = $request->get('idcard');
         $data->tel = $request->get('tel');
         $data->customertype = $request->get('customertype');
+        $data->contact = $request->get('contact');
+        $data->tel_contact = $request->get('tel_contact');
 
         $data->save();
 
@@ -362,6 +377,7 @@ class AppointmentController extends Controller
         $data->lpg = $request->get('lpg');
         $data->ngv = $request->get('ngv');
         $data->cng = $request->get('cng');
+        $data->imported_car = $request->get('imported_car');
         $data->carinsurance = $request->get('carinsurance');
         $data->expinsurance = $request->get('expinsurance');
         $data->insurance = $request->get('insurance');
@@ -400,6 +416,10 @@ class AppointmentController extends Controller
         $data = add_inspection_car::find($id);
         $data->delete();
         $data = add_inspection_date::find($id);
+        $data->delete();
+        $data = images_mn::where('id_car', $id);
+        $data->delete();
+        $data = im_puk::where('id_car', $id);
         $data->delete();
 
         return redirect('appointment')->with('success', 'ได้ทำการลบข้อมูล เรียบร้อยแล้ว');
