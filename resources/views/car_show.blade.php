@@ -528,23 +528,48 @@
                     <div class="car-layout">
 
                         <!--บังโคลน-->
-                        @if($datas->exterior_01 != 'O')
-                            <img id="A1" class="car-component" src="{{ asset('car_structure/A1.png')}}" style="visibility: visible">
+                        @if($datas->exterior_01 == 'D')
+                            <img id="A1" class="car-component" src="{{ asset('car_structure/D/D-01.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_01 == 'S')
+                            <img id="A1" class="car-component" src="{{ asset('car_structure/S/S-01.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_01 == 'BP')
+                            <img id="A1" class="car-component" src="{{ asset('car_structure/BP/BP-01.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_01 == "N")
+                            <img id="A1" class="car-component" src="{{ asset('car_structure/N/N-01.png')}}" style="visibility: visible">
+                        @else
+
+                        @endif
+
+                        @if($datas->exterior_04 == 'D')
+                            <img id="A2" class="car-component" src="{{ asset('car_structure/D/D-02.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_04 == 'S')
+                            <img id="A2" class="car-component" src="{{ asset('car_structure/S/S-02.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_04 == 'BP')
+                            <img id="A2" class="car-component" src="{{ asset('car_structure/BP/BP-02.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_04 == "N")
+                            <img id="A2" class="car-component" src="{{ asset('car_structure/N/N-02.png')}}" style="visibility: visible">
                         @else
                         @endif
 
-                        @if($datas->exterior_04 != 'O')
-                            <img id="A2" class="car-component" src="{{ asset('car_structure/A2.png')}}" style="visibility: visible">
+                        @if($datas->exterior_15 == 'D')
+                            <img id="B1" class="car-component" src="{{ asset('car_structure/D/D-14.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_15 == 'S')
+                            <img id="B1" class="car-component" src="{{ asset('car_structure/S/S-14.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_15 == 'BP')
+                            <img id="B1" class="car-component" src="{{ asset('car_structure/BP/BP-14.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_15 == "N")
+                            <img id="B1" class="car-component" src="{{ asset('car_structure/N/N-14.png')}}" style="visibility: visible">
                         @else
                         @endif
 
-                        @if($datas->exterior_15 != 'O')
-                            <img id="B1" class="car-component" src="{{ asset('car_structure/B1.png')}}" style="visibility: visible">
-                        @else
-                        @endif
-
-                        @if($datas->exterior_10 != 'O')
-                            <img id="B2" class="car-component" src="{{ asset('car_structure/B2.png')}}" style="visibility: visible">
+                        @if($datas->exterior_10 == 'D')
+                            <img id="B2" class="car-component" src="{{ asset('car_structure/D/D-13.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_10 == 'S')
+                            <img id="B2" class="car-component" src="{{ asset('car_structure/S/S-13.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_10 == 'BP')
+                            <img id="B2" class="car-component" src="{{ asset('car_structure/BP/BP-13.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_10 == "N")
+                            <img id="B2" class="car-component" src="{{ asset('car_structure/N/N-13.png')}}" style="visibility: visible">
                         @else
                         @endif
 
@@ -555,8 +580,14 @@
                         @endif --}}
 
                         <!--ส่วนหน้า-->
-                        @if($datas->exterior_02 != 'O')
-                            <img id="CH" class="car-component" src="{{ asset('car_structure/CH.png')}}" style="visibility: visible">
+                        @if($datas->exterior_02 == 'D')
+                            <img id="CH" class="car-component" src="{{ asset('car_structure/D/D-04.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_02 == 'S')
+                            <img id="CH" class="car-component" src="{{ asset('car_structure/S/S-04.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_02 == 'BP')
+                            <img id="CH" class="car-component" src="{{ asset('car_structure/BP/BP-04.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_02 == "N")
+                            <img id="CH" class="car-component" src="{{ asset('car_structure/N/N-04.png')}}" style="visibility: visible">
                         @else
                         @endif
 
@@ -567,75 +598,158 @@
                         @endif --}}
 
                         <!--หลังคา-->
-                        @if($datas->exterior_14 != 'O')
-                            <img id="Roof" class="car-component" src="{{ asset('car_structure/Roof.png')}}" style="visibility: visible">
+                        @if($datas->exterior_14 == 'D')
+                            <img id="Roof" class="car-component" src="{{ asset('car_structure/D/D-06.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_14 == 'S')
+                            <img id="Roof" class="car-component" src="{{ asset('car_structure/S/S-06.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_14 == 'BP')
+                            <img id="Roof" class="car-component" src="{{ asset('car_structure/BP/BP-06.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_14 == "N")
+                            <img id="Roof" class="car-component" src="{{ asset('car_structure/N/N-06.png')}}" style="visibility: visible">
                         @else
-                            {{-- <img id="Roof" class="car-component"  style="visibility: visible"> --}}
+                        {{-- <img id="Roof" class="car-component"  style="visibility: visible"> --}}
                         @endif
 
                         <!--กระจกท้าย-->
-                        @if($datas->exterior_11 != 'O')
-                            <img id="WSR" class="car-component" src="{{ asset('car_structure/WSR.png')}}" style="visibility: visible">
+                        @if($datas->exterior_11 == 'D')
+                            <img id="WSR" class="car-component" src="{{ asset('car_structure/D/D-07.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_11 == 'S')
+                            <img id="WSR" class="car-component" src="{{ asset('car_structure/S/S-07.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_11 == 'BP')
+                            <img id="WSR" class="car-component" src="{{ asset('car_structure/BP/BP-07.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_11 == "N")
+                            <img id="WSR" class="car-component" src="{{ asset('car_structure/N/N-07.png')}}" style="visibility: visible">
                         @else
                             {{-- <img id="WSR" class="car-component"  style="visibility: visible"> --}}
                         @endif
 
                         <!--ประตู-->
-                        @if($datas->exterior_20 != 'O')
-                            <img id="C1" class="car-component" src="{{ asset('car_structure/C1.png')}}" style="visibility: visible">
+                        @if($datas->exterior_20 == 'D')
+                            <img id="C1" class="car-component" src="{{ asset('car_structure/D/D-15.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_20 == 'S')
+                            <img id="C1" class="car-component" src="{{ asset('car_structure/S/S-15.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_20 == 'BP')
+                            <img id="C1" class="car-component" src="{{ asset('car_structure/BP/BP-15.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_20 == "N")
+                            <img id="C1" class="car-component" src="{{ asset('car_structure/N/N-15.png')}}" style="visibility: visible">
                         @else
+
                         @endif
 
-                        @if($datas->exterior_05 != 'O')
-                            <img id="C2" class="car-component" src="{{ asset('car_structure/C2.png')}}" style="visibility: visible">
+                        @if($datas->exterior_05 == 'D')
+                            <img id="C2" class="car-component" src="{{ asset('car_structure/D/D-17.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_05 == 'S')
+                            <img id="C2" class="car-component" src="{{ asset('car_structure/S/S-17.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_05 == 'BP')
+                            <img id="C2" class="car-component" src="{{ asset('car_structure/BP/BP-17.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_05 == "N")
+                            <img id="C2" class="car-component" src="{{ asset('car_structure/N/N-17.png')}}" style="visibility: visible">
                         @else
+
                         @endif
 
-                        @if($datas->exterior_16 != 'O')
-                            <img id="D1" class="car-component" src="{{ asset('car_structure/D1.png')}}" style="visibility: visible">
+                        @if($datas->exterior_16 == 'D')
+                            <img id="D1" class="car-component" src="{{ asset('car_structure/D/D-16.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_16 == 'S')
+                            <img id="D1" class="car-component" src="{{ asset('car_structure/S/S-16.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_16 == 'BP')
+                            <img id="D1" class="car-component" src="{{ asset('car_structure/BP/BP-16.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_16 == "N")
+                            <img id="D1" class="car-component" src="{{ asset('car_structure/N/N-16.png')}}" style="visibility: visible">
                         @else
+
                         @endif
 
-                        @if($datas->exterior_09 != 'O')
-                            <img id="D2" class="car-component" src="{{ asset('car_structure/D2.png')}}" style="visibility: visible">
+                        @if($datas->exterior_09 == 'D')
+                            <img id="D2" class="car-component" src="{{ asset('car_structure/D/D-18.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_09 == 'S')
+                            <img id="D2" class="car-component" src="{{ asset('car_structure/S/S-18.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_09 == 'BP')
+                            <img id="D2" class="car-component" src="{{ asset('car_structure/BP/BP-18.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_09 == "N")
+                            <img id="D2" class="car-component" src="{{ asset('car_structure/N/N-18.png')}}" style="visibility: visible">
                         @else
                         @endif
 
                         <!--ล้อ-->
-                        @if($datas->exterior_19 != 'O')
-                            <img id="W1" class="car-component" src="{{ asset('car_structure/W1.png')}}" style="visibility: visible">
+                        @if($datas->exterior_19 == 'D')
+                            <img id="W1" class="car-component" src="{{ asset('car_structure/D/D-09.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_19 == 'S')
+                            <img id="W1" class="car-component" src="{{ asset('car_structure/S/S-09.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_19 == 'BP')
+                            <img id="W1" class="car-component" src="{{ asset('car_structure/BP/BP-09.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_19 == "N")
+                            <img id="W1" class="car-component" src="{{ asset('car_structure/N/N-09.png')}}" style="visibility: visible">
                         @else
                         @endif
 
-                        @if($datas->exterior_17 != 'O')
-                            <img id="W2" class="car-component" src="{{ asset('car_structure/W2.png')}}" style="visibility: visible">
+                        @if($datas->exterior_06 == 'D')
+                            <img id="W2" class="car-component" src="{{ asset('car_structure/D/D-10.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_06 == 'S')
+                            <img id="W2" class="car-component" src="{{ asset('car_structure/S/S-10.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_06 == 'BP')
+                            <img id="W2" class="car-component" src="{{ asset('car_structure/BP/BP-10.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_06 == "N")
+                            <img id="W2" class="car-component" src="{{ asset('car_structure/N/N-10.png')}}" style="visibility: visible">
                         @else
+
                         @endif
 
-                        @if($datas->exterior_06 != 'O')
-                            <img id="W3" class="car-component" src="{{ asset('car_structure/W3.png')}}" style="visibility: visible">
+                        @if($datas->exterior_17 == 'D')
+                            <img id="W3" class="car-component" src="{{ asset('car_structure/D/D-11.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_17 == 'S')
+                            <img id="W3" class="car-component" src="{{ asset('car_structure/S/S-11.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_17 == 'BP')
+                            <img id="W3" class="car-component" src="{{ asset('car_structure/BP/BP-11.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_17 == "N")
+                            <img id="W3" class="car-component" src="{{ asset('car_structure/N/N-11.png')}}" style="visibility: visible">
                         @else
+
                         @endif
 
-                        @if($datas->exterior_08 != 'O')
-                            <img id="W4" class="car-component" src="{{ asset('car_structure/W4.png')}}" style="visibility: visible">
+                        @if($datas->exterior_08 == 'D')
+                            <img id="W4" class="car-component" src="{{ asset('car_structure/D/D-12.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_08 == 'S')
+                            <img id="W4" class="car-component" src="{{ asset('car_structure/S/S-12.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_08 == 'BP')
+                            <img id="W4" class="car-component" src="{{ asset('car_structure/BP/BP-12.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_08 == "N")
+                            <img id="W4" class="car-component" src="{{ asset('car_structure/N/N-12.png')}}" style="visibility: visible">
                         @else
                         @endif
 
                         <!--บันได-->
-                        @if($datas->exterior_18 != 'O')
-                            <img id="LS" class="car-component" src="{{ asset('car_structure/LS.png')}}" style="visibility: visible">
+                        @if($datas->exterior_18 == 'D')
+                            <img id="LS" class="car-component" src="{{ asset('car_structure/D/D-19.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_18 == 'S')
+                            <img id="LS" class="car-component" src="{{ asset('car_structure/S/S-19.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_18 == 'BP')
+                            <img id="LS" class="car-component" src="{{ asset('car_structure/BP/BP-19.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_18 == "N")
+                            <img id="LS" class="car-component" src="{{ asset('car_structure/N/N-19.png')}}" style="visibility: visible">
                         @else
                         @endif
 
-                        @if($datas->exterior_07 != 'O')
-                            <img id="RS" class="car-component" src="{{ asset('car_structure/RS.png')}}" style="visibility: visible">
+                        @if($datas->exterior_07 == 'D')
+                            <img id="RS" class="car-component" src="{{ asset('car_structure/D/D-20.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_07 == 'S')
+                            <img id="RS" class="car-component" src="{{ asset('car_structure/S/S-20.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_07 == 'BP')
+                            <img id="RS" class="car-component" src="{{ asset('car_structure/BP/BP-20.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_07 == "N")
+                            <img id="RS" class="car-component" src="{{ asset('car_structure/N/N-20.png')}}" style="visibility: visible">
                         @else
                         @endif
 
                         <!--หลัง-->
-                        @if($datas->exterior_13 != 'O')
-                            <img id="RH" class="car-component" src="{{ asset('car_structure/RH.png')}}" style="visibility: visible">
+                        @if($datas->exterior_13 == 'D')
+                            <img id="RH" class="car-component" src="{{ asset('car_structure/D/D-08.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_13 == 'S')
+                        <img id="RH" class="car-component" src="{{ asset('car_structure/S/S-08.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_13 == 'BP')
+                        <img id="RH" class="car-component" src="{{ asset('car_structure/BP/BP-08.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_13 == "N")
+                        <img id="RH" class="car-component" src="{{ asset('car_structure/N/N-08.png')}}" style="visibility: visible">
                         @else
                         @endif
 
