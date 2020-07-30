@@ -27,10 +27,12 @@
         <div class="col-12">
     @foreach($images as $key => $id_cars)
         {{-- images full start --}}
+
         <form action='{{ route('upimages.store') }}' method='POST' enctype='multipart/form-data' id="images_full">
             @csrf
 
             <input type="hidden" name="id_car" value="{{$id_cars->id_car}}">
+            <input type="hidden" name="inspectiontype" value="{{$id_cars->inspectiontype}}">
             <input type="hidden" name="id_im" value="{{$id_cars->id}}">
             <input type="hidden" name="id_imfull" value="{{$id_cars->id_imfull}}">
             <input type="hidden" name="status_tech" value="{{$id_cars->status_tech}}">
@@ -389,9 +391,14 @@
                 <div class="col-12 py-2 pt-lg-3 pb-lg-4">
                     <div class="col-12 text-center">
                         <a href="{{ route('report.show',$image->id_car) }}"><button class="btn btn-danger" type="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> ย้อนกลับ</button></a>
+                        @if($image->inspectiontype=='1')
                         {{-- <a href=""><button class="btn btn-success" type="button" ><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button></a> --}}
                         <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูลอัพโหลดรูปภาพ เลขที่ : {{$id_maxins}} เรียบร้อยแล้ว')">
-                            <i class="fa fa-floppy-o" aria-hidden="true"></i>บันทึกการอัพโหลดภาพ</button>
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>บันทึก</button>
+                        @else
+                        <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูลอัพโหลดรูปภาพ เลขที่ : {{$id_maxins}} เรียบร้อยแล้ว')">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> NEXT</button>
+                        @endif
                     </div>
                 </div>
                 @endforeach

@@ -32,6 +32,9 @@ class AddInspectionCustoController extends Controller
         // id max
         $id_max = add_inspection_custo::whereRaw('id = (select max(`id`) from add_inspection_custos)')->get();
 
+        // ins max
+        // $ins_max = add_inspection_custo::whereRaw('ins = (select max(`ins`) from add_inspection_custos)')->get();
+
         // data cc
         $tech = technician::all()->sortBy("name_tech");
         // data cc
@@ -103,8 +106,9 @@ class AddInspectionCustoController extends Controller
         // $inputAll = $request->all();
         // var_dump($inputAll);
 
-        // echo "<br>";
+
         $inputcus = new add_inspection_custo([
+            'ins' => $request->input('ins'),
             'nametitle' => $request->input('nametitle'),
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
@@ -336,7 +340,7 @@ class AddInspectionCustoController extends Controller
 
                     ]);
 
-               echo $inputpuk = new im_puk([
+                $inputpuk = new im_puk([
 
                     'id_car' => $request->input('id_car'),
                     'id_dealer' => $request->input('fromtent'),

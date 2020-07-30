@@ -31,7 +31,9 @@ class EditController extends Controller
         ->orderBy('add_inspection_custos.id', 'DESC')
         ->paginate(20);
 
-        return view('edit', compact('data'));
+        $tasks = add_inspection_date::all();
+
+        return view('edit', compact('data','tasks'));
     }
 
     /**

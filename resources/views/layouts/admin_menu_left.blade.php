@@ -132,8 +132,13 @@ $data = HomeController::userShow();
                 @else @endif
               </div>
             <?php }else{} ?>
-
-            @endforeach
+              <li>
+                <a class="dropdown-item" href="/export">
+                  <i class="fa fa-file-excel-o"></i>
+                  <span>Export to Excel</span>
+                </a>
+              </li>
+        @endforeach
 
   <br>
             <li class="header-menu">
