@@ -765,15 +765,14 @@
                         @endif
 
                         <!-- กันชนหลัง -->
-                        <!-- ขาด css and id -->
                         @if($datas->exterior_12 == 'D')
-                            <img id="" class="car-component" src="{{ asset('car_structure/D/D-05.png')}}" style="visibility: visible">
+                            <img id="RSH" class="car-component" src="{{ asset('car_structure/D/D-05.png')}}" style="visibility: visible">
                         @elseif($datas->exterior_12 == 'S')
-                            <img id="" class="car-component" src="{{ asset('car_structure/S/S-05.png')}}" style="visibility: visible">
+                            <img id="RSH" class="car-component" src="{{ asset('car_structure/S/S-05.png')}}" style="visibility: visible">
                         @elseif($datas->exterior_12 == 'BP')
-                            <img id="" class="car-component" src="{{ asset('car_structure/BP/BP-05.png')}}" style="visibility: visible">
+                            <img id="RSH" class="car-component" src="{{ asset('car_structure/BP/BP-05.png')}}" style="visibility: visible">
                         @elseif($datas->exterior_12 == "N")
-                            <img id="" class="car-component" src="{{ asset('car_structure/N/N-05.png')}}" style="visibility: visible">
+                            <img id="RSH" class="car-component" src="{{ asset('car_structure/N/N-05.png')}}" style="visibility: visible">
                         @else
                         @endif
 
@@ -796,6 +795,9 @@
                         <span id="RS-mark" class="mark-component">{{ $datas->exterior_07 }}</span>
                         <span id="WSR-mark" class="mark-component">{{ $datas->exterior_11 }}</span>
                         <span id="RH-mark" class="mark-component">{{ $datas->exterior_13 }}</span>
+                        <span id="RSH-mark" class="mark-component">{{ $datas->exterior_03 }}</span>
+                        <span id="FS-mark" class="mark-component">{{ $datas->exterior_12 }}</span>
+
                     </div>
                     <div class="detail-description">
                         <table class="table-report">

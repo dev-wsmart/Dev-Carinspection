@@ -355,7 +355,12 @@ table {
 #FS{
     width: 200px;
     height: 18px;
-    transform: translate(-99px, 20px);
+    transform: translate(-99px, 11px);
+}
+#RSH{
+    width: 208px;
+    height: 19px;
+    transform: translate(-102px, 600px);
 }
 #CH{
     width: 200px;
@@ -488,6 +493,12 @@ table {
 }
 #RH-mark{
     transform: translate(-40px, 520px);
+}
+#RSH-mark{
+    transform: translate(-40px, -20px);
+}
+#FS-mark{
+    transform: translate(-40px, 610px);
 }
 
 /*ชิ้นส่วนภายใน*/
