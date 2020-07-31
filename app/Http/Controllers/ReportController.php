@@ -32,6 +32,7 @@ class ReportController extends Controller
         ->join('colors','add_inspection_cars.newcolor','=','colors.id_color')
         ->join('details','add_inspection_cars.id','=','details.id_car')
         ->join('im_puks','add_inspection_custos.id','=','im_puks.id_car')
+        ->where('im_puks.status_tech', '=', 1)
         ->paginate(9);
 
         //  $po = DB::table('users')
@@ -105,7 +106,7 @@ class ReportController extends Controller
                  'provinces.name_th','amphures.name_th as name_am','districts.name_th as name_dis',
                  'brands.name_brand','models.name_model','n.car_color as color_n','ccs.cc',
                  'sub_models.sub_model','b.car_color as color_b','dealers.dealer_name','packages.package_name',
-                 'technicians.name_tech','details.*')
+                 'technicians.name_tech','details.*','type_cars.*')
 
         ->join('add_inspection_cars', 'add_inspection_custos.id', '=', 'add_inspection_cars.id')
         ->join('add_inspection_dates', 'add_inspection_custos.id', '=', 'add_inspection_dates.id')
@@ -121,8 +122,11 @@ class ReportController extends Controller
         ->join('dealers','add_inspection_cars.fromtent','=','dealers.id_dealer')
         ->join('packages','add_inspection_dates.package','=','packages.id_package')
         ->join('technicians','add_inspection_dates.inspector','=','technicians.id_tech')
+        ->join('type_cars','add_inspection_cars.type_car','=','type_cars.id_type')
         ->leftjoin('details','add_inspection_custos.id','=','details.id_car')
+        ->join('im_puks','add_inspection_cars.id','=','im_puks.id_car')
 
+        ->where('im_puks.status_admin', '=', 1)
         ->where('add_inspection_custos.id', '=', $id)
         ->groupBy('add_inspection_custos.id')
         ->get();

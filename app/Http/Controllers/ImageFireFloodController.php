@@ -166,75 +166,161 @@ class ImageFireFloodController extends Controller
         // $inputAll = $request->all();
         // var_dump($inputAll);
 
-        // flood1
-        $image_flood1 = $request->file('image_flood1');
-        if($image_flood1 != ''){
-            $new_name_fl1 = rand() . '.' . $image_flood1->getClientOriginalExtension();
-            $new_name_flood1 = 'Flood-1'.$new_name_fl1;
-            $image_flood1->move(public_path('images'), $new_name_flood1);
-            $i1 = '1';
-        }else{
-            $new_name_flood1='null';
-            $i1 = '0';
+        $id_car_im = $request->input('id_car_im');
+
+        if($id_car_im==''){
+
+            // flood1
+            $image_flood1 = $request->file('image_flood1');
+            if($image_flood1 != ''){
+                $new_name_fl1 = rand() . '.' . $image_flood1->getClientOriginalExtension();
+                $new_name_flood1 = 'Flood-1'.$new_name_fl1;
+                $image_flood1->move(public_path('images'), $new_name_flood1);
+                $i1 = '1';
+            }else{
+                $new_name_flood1='null';
+                $i1 = '0';
+            }
+
+            // flood2
+            $image_flood2 = $request->file('image_flood2');
+            if($image_flood2 != ''){
+                $new_name_fl2 = rand() . '.' . $image_flood2->getClientOriginalExtension();
+                $new_name_flood2 = 'Flood-2'.$new_name_fl2;
+                $image_flood2->move(public_path('images'), $new_name_flood2);
+                $i2 = '1';
+            }else{
+                $new_name_flood2='null';
+                $i2 = '0';
+            }
+
+            // fire1
+            $image_fire1 = $request->file('image_fire1');
+            if($image_fire1 != ''){
+                $new_name_fi1 = rand() . '.' . $image_fire1->getClientOriginalExtension();
+                $new_name_fire1 = 'Fire-1'.$new_name_fi1;
+                $image_fire1->move(public_path('images'), $new_name_fire1);
+                $i3 = '1';
+            }else{
+                $new_name_fire1='null';
+                $i3 = '0';
+            }
+
+            // fire2
+            $image_fire2 = $request->file('image_fire2');
+            if($image_fire2 != ''){
+                $new_name_fi2 = rand() . '.' . $image_fire2->getClientOriginalExtension();
+                $new_name_fire2 = 'Fire-2'.$new_name_fi2;
+                $image_fire2->move(public_path('images'), $new_name_fire2);
+                $i4 = '1';
+            }else{
+                $new_name_fire2='null';
+                $i4 = '0';
+            }
+
+            // echo "<br><br>Fire 1 : ".$new_name_fire1.' / Fire 2 : '.$new_name_fire2.' / Flood 1 : '.$new_name_flood1.' / Flood 2 : '.$new_name_flood2;
+
+            $sum = $i1+$i2+$i3+$i4;
+
+            if($sum >= 1 ){
+                    $inputf = new image_fire_flood([
+
+                        'id_car' => $request->input('id_car'),
+                        'id_dealer' => $request->input('fromtent'),
+                        'confirm_tech' => $request->input('userID'),
+                        'im_fire1' => $new_name_fire1 ,
+                        'im_fire2' => $new_name_fire2 ,
+                        'im_flood1' => $new_name_flood1 ,
+                        'im_flood2' => $new_name_flood2 ,
+                        ]);
+
+                    $inputf->save();
+            }
+
+            return redirect('/edit')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
         }
+        else
+        {
+            return redirect('/edit')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
+            //  update data images
 
-        // flood2
-        $image_flood2 = $request->file('image_flood2');
-        if($image_flood2 != ''){
-            $new_name_fl2 = rand() . '.' . $image_flood2->getClientOriginalExtension();
-            $new_name_flood2 = 'Flood-2'.$new_name_fl2;
-            $image_flood2->move(public_path('images'), $new_name_flood2);
-            $i2 = '1';
-        }else{
-            $new_name_flood2='null';
-            $i2 = '0';
+            // echo $id_imf = $request->input('id_imf');
+
+            // // flood1
+            // $image_flood1 = $request->file('image_flood1');
+            // if(isset($image_flood1)){
+            // if($image_flood1 != ''){
+            //     $new_name_fl1 = rand() . '.' . $image_flood1->getClientOriginalExtension();
+            //     $new_name_flood1 = 'Flood-1'.$new_name_fl1;
+            //     // $image_flood1->move(public_path('images'), $new_name_flood1);
+            //     $i1 = '1';
+
+            //      // update data image_fire1
+            //      $dataimfl1 = image_fire_flood::where('id_imf', $id_imf);
+            //      $dataimfl1->im_flood1 = $new_name_flood1;
+
+            //     //  $dataimfl1->save();
+            //     echo $dataimfl1;
+            //     }
+            // }
+
+            // // flood2
+            // $image_flood2 = $request->file('image_flood2');
+            // if(isset($image_flood2)){
+            // if($image_flood2 != ''){
+            //     $new_name_fl2 = rand() . '.' . $image_flood2->getClientOriginalExtension();
+            //     $new_name_flood2 = 'Flood-2'.$new_name_fl2;
+            //     // $image_flood2->move(public_path('images'), $new_name_flood2);
+            //     $i2 = '1';
+
+            //     // update data image_fire1
+            //     $dataimfl2 = image_fire_flood::where("id_imf", $id_imf);
+            //     $dataimfl2->im_flood2 = $new_name_flood2;
+
+            //     $dataimfl2->save();
+            //     // echo $new_name_flood2;
+            //     }
+            // }
+
+            // // fire1
+            // $image_fire1 = $request->file('image_fire1');
+            // if($image_fire1 != ''){
+            //     $new_name_fi1 = rand() . '.' . $image_fire1->getClientOriginalExtension();
+            //     $new_name_fire1 = 'Fire-1'.$new_name_fi1;
+            //     $image_fire1->move(public_path('images'), $new_name_fire1);
+            //     $i3 = '1';
+
+            //     // update data image_fire1
+            //     $dataimf1 = image_fire_flood::find($id_imf);
+            //     $dataimf1->im_fire1 = $new_name_fire1;
+
+            //     $dataimf1->save();
+
+            // }else{
+            //     $new_name_fire1='null';
+            //     $i3 = '0';
+            // }
+
+            // // fire2
+            // $image_fire2 = $request->file('image_fire2');
+            // if($image_fire2 != ''){
+            //     $new_name_fi2 = rand() . '.' . $image_fire2->getClientOriginalExtension();
+            //     $new_name_fire2 = 'Fire-2'.$new_name_fi2;
+            //     $image_fire2->move(public_path('images'), $new_name_fire2);
+            //     $i4 = '1';
+
+            //     // update data image_fire2
+            //     $dataimf2 = image_fire_flood::find($id_imf);
+            //     $dataimf2->im_fire2 = $new_name_fire2;
+
+            //     $dataimf2->save();
+
+            // }else{
+            //     $new_name_fire2='null';
+            //     $i4 = '0';
+            // }
+
         }
-
-         // fire1
-         $image_fire1 = $request->file('image_fire1');
-         if($image_fire1 != ''){
-             $new_name_fi1 = rand() . '.' . $image_fire1->getClientOriginalExtension();
-             $new_name_fire1 = 'Fire-1'.$new_name_fi1;
-             $image_fire1->move(public_path('images'), $new_name_fire1);
-             $i3 = '1';
-         }else{
-             $new_name_fire1='null';
-             $i3 = '0';
-         }
-
-         // fire2
-         $image_fire2 = $request->file('image_fire2');
-         if($image_fire2 != ''){
-             $new_name_fi2 = rand() . '.' . $image_fire2->getClientOriginalExtension();
-             $new_name_fire2 = 'Fire-2'.$new_name_fi2;
-             $image_fire2->move(public_path('images'), $new_name_fire2);
-             $i4 = '1';
-         }else{
-             $new_name_fire2='null';
-             $i4 = '0';
-         }
-
-        // echo "<br><br>Fire 1 : ".$new_name_fire1.' / Fire 2 : '.$new_name_fire2.' / Flood 1 : '.$new_name_flood1.' / Flood 2 : '.$new_name_flood2;
-
-        $sum = $i1+$i2+$i3+$i4;
-
-if($sum >= 1 ){
-        $inputf = new image_fire_flood([
-
-            'id_car' => $request->input('id_car'),
-            'id_dealer' => $request->input('fromtent'),
-            'confirm_tech' => $request->input('userID'),
-            'im_fire1' => $new_name_fire1 ,
-            'im_fire2' => $new_name_fire2 ,
-            'im_flood1' => $new_name_flood1 ,
-            'im_flood2' => $new_name_flood2 ,
-            ]);
-
-        $inputf->save();
-}
-
-        return redirect('/edit')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
-
     }
 
     /**

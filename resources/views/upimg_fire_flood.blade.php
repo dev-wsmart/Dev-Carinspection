@@ -32,6 +32,8 @@
 
             <input type="hidden" name="id_car" value="{{$id_cars->id_cars}}">
             <input type="hidden" name="fromtent" value="{{$id_cars->fromtent}}">
+            <input type="hidden" name="id_car_im" value="{{$id_cars->id_car_im}}">
+            <input type="hidden" name="id_imf" value="{{$id_cars->id_imf}}">
 
     @endforeach
             <input type="hidden" name="userID" value="{{ $userID = Auth::user()->id }}">
@@ -48,6 +50,7 @@
                         <div class="row">
                             <div class="col-md-6 list-group-item">
                                 @if($image->im_flood1 == 'null' || $image->im_flood1 == '')
+                                <?php if($image->id_imf == ''){ ?>
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_flood1" class="form-control" height="2%">
@@ -61,6 +64,12 @@
                                             <span id="uploaded_image_flood1"></span>
                                         </div>
                                     </div>
+                                <?php }else{ ?>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                        </div>
+                                    </div>
+                                <?php } ?>
                                 @else
                                     <div class="row">
                                         <div class="col-md-12" align="center">
@@ -71,6 +80,7 @@
                             </div>
                             <div class="col-md-6 list-group-item">
                             @if($image->im_flood2 == 'null' || $image->im_flood2 == '')
+                            <?php if($image->id_imf == ''){ ?>
                                 <div class="row">
                                     <div class="col-md-11">
                                         <input type="file" name="image_flood2" class="form-control" height="2%">
@@ -84,6 +94,12 @@
                                         <span id="uploaded_image_flood2"></span>
                                     </div>
                                 </div>
+                            <?php }else{ ?>
+                                <div class="row">
+                                    <div class="col-md-12" align="center">
+                                    </div>
+                                </div>
+                            <?php } ?>
                             @else
                                 <div class="row">
                                     <div class="col-md-12" align="center">
@@ -103,6 +119,7 @@
                         <div class="row">
                             <div class="col-md-6 list-group-item">
                                 @if($image->im_fire1 == 'null' || $image->im_fire1 == '')
+                                <?php if($image->id_imf == ''){ ?>
                                     <div class="row">
                                         <div class="col-md-11">
                                             <input type="file" name="image_fire1" class="form-control" height="2%">
@@ -116,6 +133,12 @@
                                             <span id="uploaded_image_fire1"></span>
                                         </div>
                                     </div>
+                                <?php }else{ ?>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                        </div>
+                                    </div>
+                                <?php } ?>
                                 @else
                                     <div class="row">
                                         <div class="col-md-12" align="center">
@@ -126,6 +149,7 @@
                             </div>
                             <div class="col-md-6 list-group-item">
                             @if($image->im_fire2 == 'null' || $image->im_fire2 == '')
+                            <?php if($image->id_imf == ''){ ?>
                                 <div class="row">
                                     <div class="col-md-11">
                                         <input type="file" name="image_fire2" class="form-control" height="2%">
@@ -139,6 +163,12 @@
                                         <span id="uploaded_image_fire2"></span>
                                     </div>
                                 </div>
+                            <?php }else{ ?>
+                                <div class="row">
+                                    <div class="col-md-12" align="center">
+                                    </div>
+                                </div>
+                            <?php } ?>
                             @else
                                 <div class="row">
                                     <div class="col-md-12" align="center">
@@ -154,9 +184,14 @@
                 <div class="col-12 py-2 pt-lg-3 pb-lg-4">
                     <div class="col-12 text-center">
                         <a href="{{ route('upimages.show',$image->id_cars) }}"><button class="btn btn-danger" type="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> ย้อนกลับ</button></a>
-                        {{-- <a href=""><button class="btn btn-success" type="button" ><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button></a> --}}
-                        <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูล เลขที่ : {{$id_maxins}} เรียบร้อยแล้ว')">
+
+                        @if($image->id_imf == '')
+                            <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูล เลขที่ : {{$id_maxins}} เรียบร้อยแล้ว')">
                             <i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
+                        @else
+                            <button class="btn btn-success" type="submit">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> กลับหน้าหลัก</button>
+                        @endif
                     </div>
                 </div>
                 @endforeach

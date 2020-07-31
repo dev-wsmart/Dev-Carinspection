@@ -44,10 +44,11 @@
                     <?php
 
                         $idins = $data->id;
+                        $id_car = $data->id_car;
                         // $idinspec = 'inspec-'.str_pad(($idins),6,'0',STR_PAD_LEFT);
                         $date = substr(date("Y"),2);
                         $idinspec = 'CS'.$date.str_pad(($idins),5,'0',STR_PAD_LEFT);
-                        // echo 'รหัสตรวจสภาพรถยนต์ : '.$idinspec;
+                        // echo 'รหัสตรวจสภาพรถยนต์ : '.$id_car;
 
                     ?>
 
@@ -60,35 +61,35 @@
                         <label class="col-lg-2" for="custName">ชื่อลูกค้า</label>
                         <input class="col-lg-5 form-control form-control-sm form-border" type="text" name="custName" id="custName" value="{{$data->firstname}}&emsp;{{$data->lastname}}" required disabled>
 
-                        <label class="col-lg-2" for="date-time">วันและเวลาที่ลงข้อมูล</label>
+                        <label class="col-lg-2" for="date-time" align="right">วันและเวลาที่ลงข้อมูล</label>
                         <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="date-time" id="date-time" value="<?php date_default_timezone_set("Asia/Bangkok"); echo date("d-m-Y h:i A"); ?>" required disabled>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="idCard">เลขประจำตัวประชาชน</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="idCard" id="idCard" value="{{$data->idcard}}" disabled>
 
-                        <label class="col-lg-2 pl-lg-5" for="tel">เบอร์โทรศัพท์</label>
+                        <label class="col-lg-2 pl-lg-5" for="tel" align="right">เบอร์โทรศัพท์</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="tel" id="tel" value="{{$data->tel}}" disabled>
 
-                        <label class="col-lg-1" for="email">Email</label>
+                        <label class="col-lg-1" for="email" align="right">Email</label>
                         <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="email" id="email" disabled>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="inspectionNo">เลขที่ตรวจสภาพรถ</label>
                         <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="inspectionNo" id="inspectionNo" value="{{$idinspec}}" disabled>
 
-                        <label class="col-lg-2" for="inspectionType">ประเภทการตรวจสภาพ</label>
+                        <label class="col-lg-2" for="inspectionType" align="right">ประเภทการตรวจสภาพ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="inspectionType" id="inspectionType" disabled>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
                             <option value="0" {{($data->inspectiontype ==='0') ? 'selected' : ''}}>Full Inspection</option>
-                            <option value="1" {{($data->inspectiontype ==='1') ? 'selected' : ''}}>Warranty</option>
+                            <option value="1" {{($data->inspectiontype ==='1') ? 'selected' : ''}}>Standard</option>
                         </select>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="inspector">ผู้ตรวจสภาพรถ</label>
                         <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="inspector" id="inspector" value="{{$data->name_tech}}" disabled>
 
-                        <label class="col-lg-2" for="checkedby">ตรวจสอบโดย</label>
+                        <label class="col-lg-2" for="checkedby" align="right">ตรวจสอบโดย</label>
                         <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="checkedby" id="checkedby" value="{{$data->name_tech}}" disabled>
                     </div>
                 </div>
@@ -348,13 +349,13 @@
                                 <option>{{ $data->name_brand }}</option>
                             </select>
 
-                            <label class="col-lg-1" for="carModel">รุ่น</label>
+                            <label class="col-lg-1" for="carModel" align="right">รุ่น</label>
                             <select class="col-lg-3 form-control form-control-sm form-border" type="text" name="carModel" id="carModel" disabled>
                                 {{-- <option>---  กรุณาเลือก  ---</option> --}}
                                 <option>{{ $data->name_model }}</option>
                             </select>
 
-                            <label class="col-lg-1" for="subModel">รุ่นย่อย</label>
+                            <label class="col-lg-1" for="subModel" align="right">รุ่นย่อย</label>
                             <select class="col-lg-3 form-control form-control-sm form-border" type="text" name="subModel" id="subModel" disabled>
                                 {{-- <option>---  กรุณาเลือก  ---</option> --}}
                                 <option>{{ $data->sub_model }}</option>
@@ -367,16 +368,16 @@
                                 <option>{{ $data->color_b }}</option>
                             </select>
 
-                            <label class="col-lg-1" for="newColor">สีปัจจุบัน</label>
+                            <label class="col-lg-1" for="newColor" align="right">สีปัจจุบัน</label>
                             <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="newColor" id="newColor" disabled>
                                 {{-- <option>---  กรุณาเลือก  ---</option> --}}
                                 <option>{{ $data->color_n }}</option>
                             </select>
 
-                            <label class="col-lg-1" for="year">ปี</label>
+                            <label class="col-lg-1" for="year" align="right">ปี</label>
                             <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="year" id="year" value="{{$data->year}}" disabled>
 
-                            <label class="col-lg-1 pr-lg-0" for="seatNum">จำนวนที่นั่ง</label>
+                            <label class="col-lg-1" for="seatNum" align="right">จำนวนที่นั่ง</label>
                             <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="seatNum" id="seatNum" disabled>
                                 {{-- <option>---  กรุณาเลือก  ---</option> --}}
                                 <option value="2" {{($data->seatnum ==='2') ? 'selected' : ''}}>2</option>
@@ -387,42 +388,46 @@
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-2" for="place">สถานที่ตรวจเช็ครถ</label>
-                            <select class="col-lg-3 form-control form-control-sm form-border" name="place" id="place" value="{{$data->place}}" disabled>
+                            <select class="col-lg-2 form-control form-control-sm form-border" name="place" id="place" value="{{$data->place}}" disabled>
                                 <option value="ดับเบิ้ลยู สมาร์ท">ดับเบิ้ลยู สมาร์ท</option>
                             </select>
 
-                            <label class="col-lg-2 pl-lg-5" for="registerType">ประเภทจดทะเบียน</label>
-                            <div class="col-lg-4 btnCustom">
+                            <label class="col-lg-2 pl-lg-5" for="registerType" align="right">ประเภทจดทะเบียน</label>
+                            <div class="col-lg-3 btnCustom">
                                 <input type="radio" name="registerType" id="registerType1" value="0" {{ $data->geartype == '0' ? 'checked' : ''}} disabled>
                                 <label for="registerType1">รถยนต์ส่วนบุคคล</label>
 
                                 <input type="radio" name="registerType" id="registerType2" value="1" {{ $data->geartype == '1' ? 'checked' : ''}} disabled>
                                 <label for="registerType2">จดในนามบริษัท</label>
                             </div>
+                            <label class="col-lg-1" for="type_car" align="right">ประเภทรถ</label>
+                            <select class="col-lg-2 form-control form-control-sm form-border" name="type_car" id="type_car" disabled>
+                                <option>{{ $data->type_car }}</option>
+                            </select>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-2" for="carRegNum">ทะเบียนรถ</label>
                             <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="carRegNum" id="carRegNum" value="{{$data->carregnum}}" disabled>
 
-                            <label class="col-lg-2 pl-lg-5" for="mileage">เลขไมล์ปัจจุบัน</label>
+                            <label class="col-lg-2 pl-lg-5" for="mileage" align="right">เลขไมล์ปัจจุบัน</label>
                             <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="mileage" id="mileage" value="{{$data->mileage}}" disabled>
 
-                            <label class="col-lg-2 pl-lg-5" for="dateRegister">วันที่จดทะเบียนรถ</label>
+                            <label class="col-lg-2 pl-lg-5" for="dateRegister" align="right">วันที่จดทะเบียนรถ</label>
                             <input class="col-lg-2 form-control form-control-sm form-border" type="date" name="dateRegister" id="dateRegister" value="{{$data->dateregister}}" disabled>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-2" for="numOwners">จำนวนเจ้าของเดิม</label>
-                            <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="numOwners" id="numOwners" value="{{$data->numowners}}" disabled>
+                            <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="numOwners" id="numOwners" value="{{$data->numowners}}" disabled>
 
-                            <label class="col-lg-2" for="cc">ความจุเครื่องยนต์ (CC)</label>
+                            <label class="col-lg-2" for="cc" align="right">ความจุเครื่องยนต์ (CC)</label>
                             {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" disabled> --}}
                             <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" disabled>
                                 {{-- <option>---  กรุณาเลือก  ---</option> --}}
                                 <option>{{ $data->cc }}</option>
                             </select>
 
-                            <label class="col-lg-1 pr-0" for="gearType">ระบบเกียร์</label>
-                            <div class="col-lg-4 btnCustom">
+                            <label class="col-lg-1 " for="gearType" align="right">ระบบเกียร์</label>
+                            <div class="col-lg-3 btnCustom">
                                 <input type="radio" name="gearType" id="gearType1" value="0" {{ $data->geartype == '0' ? 'checked' : ''}} disabled>
                                 <label for="gearType1">เกียร์ธรรมดา</label>
 
@@ -434,12 +439,12 @@
                             <label class="col-lg-2" for="engine">หมายเลขเครื่องยนต์</label>
                             <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="engine" id="engine" value="{{$data->engine}}" disabled>
 
-                            <label class="col-lg-2 pl-lg-5" for="vin">หมายเลขตัวถัง</label>
+                            <label class="col-lg-2 pl-lg-5" for="vin" align="right">หมายเลขตัวถัง</label>
                             <input class="col-lg-3 form-control form-control-sm form-border" type="text" name="vin" id="vin" value="{{$data->vin}}" disabled>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-2" for="fuelType">ประเภทเชื้อเพลิง</label>
-                            <div class="col-lg-10 btnCustom">
+                            <div class="col-lg-6 btnCustom">
                                 <input type="checkbox" name="benzine" id="benzine" value="1" {{ $data->benzine == '1' ? 'checked' : ''}} disabled>
                                 <label for="benzine">เบนซิน</label>
                                 <input type="checkbox" name="diesel" id="diesel" value="1" {{ $data->diesel == '1' ? 'checked' : ''}} disabled>
@@ -455,6 +460,13 @@
                                 <input type="checkbox" name="cng" id="cng" value="1" {{ $data->cng == '1' ? 'checked' : ''}} disabled>
                                 <label for="cng">CNG</label>
                             </div>
+                            <label class="col-lg-2" for="imported_car" align="right">ประเภทรถนำเข้า</label>
+                            <div class="col-lg-2 btnCustom">
+                                <input type="radio" name="imported_car" id="imported_car1" value="นำเข้า" {{ $data->imported_car == 'นำเข้า' ? 'checked' : ''}} disabled>
+                                <label for="imported_car1">นำเข้า</label>
+                                <input type="radio" name="imported_car" id="imported_car2" value="ไม่นำเข้า" {{ $data->imported_car == 'ไม่นำเข้า' ? 'checked' : ''}} disabled>
+                                <label for="imported_car2">ไม่นำเข้า</label>
+                            </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-2" for="carInsurance">รถมีประกันหรือไม่</label>
@@ -468,8 +480,8 @@
                             <label class="col-lg-2" for="expInsurance">วันหมดอายุประกันภัย</label>
                             <input class="col-lg-2 form-control form-control-sm form-border" type="date" name="expInsurance" id="expInsurance" value="{{$data->expinsurance}}" disabled>
 
-                            <label class="col-lg-2 pl-lg-5" for="insurance">บริษัทประกันภัย</label>
-                            <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="insurance" id="insurance" value="{{$data->expinsurance}}" disabled>
+                            <label class="col-lg-2 pl-lg-5" for="insurance" align="right">บริษัทประกันภัย</label>
+                            <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="insurance" id="insurance" value="{{$data->insurance}}" disabled>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-1" for="tent">รถเต็นท์</label>
@@ -486,10 +498,10 @@
                                 <option>{{ $data->dealer_name }}</option>
                             </select>
 
-                            <label class="col-lg-1" for="price">ราคา</label>
+                            <label class="col-lg-1" for="price" align="right">ราคา</label>
                             <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="price" id="price" value="{{$data->price}}" disabled>
 
-                            <label class="col-lg-1 pr-lg-0" for="payment">ผ่อนงวดละ</label>
+                            <label class="col-lg-1 " for="payment" align="right">ผ่อนงวดละ</label>
                             <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="payment" id="payment" value="{{$data->payment}}" disabled>
                         </div>
                     </div>
@@ -1045,9 +1057,17 @@
                 <div class="col-12 pt-2 pt-lg-3 pb-lg-4">
                     <div class="col-12 text-center">
                         <a href="{{ route('edit.index') }}"><button class="btn btn-danger" type="button"><i class="fa fa-times" aria-hidden="true"></i> ยกเลิก</button></a>
-                        <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูลตรวจสภาพรถยนต์ เลขที่ : {{$idinspec}} เรียบร้อยแล้ว')">
-                            {{-- <i class="fa fa-arrow-right" aria-hidden="true"></i> บันทึก / NEXT</button> --}}
-                            <i class="fa fa-floppy-o" aria-hidden="true"></i> NEXT</button>
+
+                        @if($id_car!='')
+                        {{-- บันทึกแล้ว --}}
+                            <button class="btn btn-success" type="submit">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i> NEXT</button>
+                        @else
+                        {{-- ยังไม่ได้บันทึก --}}
+                            <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูลตรวจสภาพรถยนต์ เลขที่ : {{$idinspec}} เรียบร้อยแล้ว')">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
+                            {{-- <i class="fa fa-floppy-o" aria-hidden="true"></i> NEXT</button> --}}
+                        @endif
                     </div>
                     <!-- <div class="col-12 text-center my-3">
                         <a href=""></a><button class="btn btn-purple" type="button"><i class="fa fa-car" aria-hidden="true"></i> พิมพ์ใบตรวจสภาพรถ</button>

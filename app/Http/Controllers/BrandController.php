@@ -30,37 +30,37 @@ class BrandController extends Controller
         return view('upload-img');
     }
 
-    function action2(Request $request)
+    function action22(Request $request)
     {
         $validation = Validator::make($request->all(), [
-                'image_2' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-            ]);
+            'image_2' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
 
-            if($validation->passes())
-            {
-                $image = $request->file('image_2');
-                $new_name = rand() . '.' . $image->getClientOriginalExtension();
-                $new_name_car = 'FI-'.$new_name;
-                $image->move(public_path('images_test'), $new_name_car);
-                return response()->json([
-                // 'message_num'   => 'Image Upload Successfully / image - name : '.$new_name_car,
-                'message_2'   => $new_name_car,
-                'uploaded_image_2' => '<img src="/images_test/'.$new_name_car.'" class="img-thumbnail" width="80%" align="center" />',
+        if($validation->passes())
+        {
+            $image = $request->file('image_2');
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $new_name_car = 'FI-'.$new_name;
+            $image->move(public_path('images_test'), $new_name_car);
+            return response()->json([
+            // 'message_num'   => 'Image Upload Successfully / image - name : '.$new_name_car,
+            'message_2'   => $new_name_car,
+            'uploaded_image_2' => '<img src="/images_test/'.$new_name_car.'" class="img-thumbnail" width="80%" align="center" />',
+            'class_name'  => 'alert-success'
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'message_2'   => $validation->errors()->all(),
+                'uploaded_image_2' => '',
                 'class_name'  => 'alert-success'
-                ]);
-            }
-            else
-            {
-                return response()->json([
-                    'message_2'   => $validation->errors()->all(),
-                    'uploaded_image_2' => '',
-                    'class_name'  => 'alert-success'
-                    // 'class_name'  => 'alert-danger'
-                ]);
-            }
+                // 'class_name'  => 'alert-danger'
+            ]);
+        }
     }
 
-    function action3(Request $request)
+    function action33(Request $request)
     {
         $validation = Validator::make($request->all(), [
                 'image_3' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
@@ -90,7 +90,7 @@ class BrandController extends Controller
             }
     }
 
-    function action4(Request $request)
+    function action44(Request $request)
     {
         $validation = Validator::make($request->all(), [
                 'image_4' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
@@ -599,7 +599,8 @@ class BrandController extends Controller
                     }else{
 
                         $images = DB::table('add_inspection_cars')
-                        ->select('add_inspection_cars.id as id_cars','add_inspection_cars.fromtent','image_fire_floods.*')
+                        ->select('add_inspection_cars.id as id_cars','add_inspection_cars.fromtent','image_fire_floods.*',
+                                 'image_fire_floods.id_car as id_car_im')
                         ->leftjoin('image_fire_floods','add_inspection_cars.id','=','image_fire_floods.id_car')
                         ->where('add_inspection_cars.id', '=', $id_car)
                         ->get();
@@ -614,7 +615,8 @@ class BrandController extends Controller
             }else{
 
                 $images = DB::table('add_inspection_cars')
-                ->select('add_inspection_cars.id as id_cars','add_inspection_cars.fromtent','image_fire_floods.*')
+                ->select('add_inspection_cars.id as id_cars','add_inspection_cars.fromtent','image_fire_floods.*',
+                         'image_fire_floods.id_car as id_car_im')
                 ->leftjoin('image_fire_floods','add_inspection_cars.id','=','image_fire_floods.id_car')
                 ->where('add_inspection_cars.id', '=', $id_car)
                 ->get();

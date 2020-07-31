@@ -79,9 +79,9 @@ Route::group(['middleware' => ['auth']], function() {
 
     // upload images full
     Route::get('/upimages', 'BrandController@index');
-    Route::post('/upimages/action2', 'BrandController@action2')->name('ajaxupload.action2');
-    Route::post('/upimages/action3', 'BrandController@action3')->name('ajaxupload.action3');
-    Route::post('/upimages/action4', 'BrandController@action4')->name('ajaxupload.action4');
+    Route::post('/upimages/action22', 'BrandController@action22')->name('ajaxupload.action22');
+    Route::post('/upimages/action33', 'BrandController@action33')->name('ajaxupload.action33');
+    Route::post('/upimages/action44', 'BrandController@action44')->name('ajaxupload.action44');
     Route::post('/upimages/action5', 'BrandController@action5')->name('ajaxupload.action5');
     Route::post('/upimages/action6', 'BrandController@action6')->name('ajaxupload.action6');
     Route::post('/upimages/action7', 'BrandController@action7')->name('ajaxupload.action7');

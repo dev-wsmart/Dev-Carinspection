@@ -392,12 +392,23 @@
                     <div class="col-12 text-center">
                         <a href="{{ route('report.show',$image->id_car) }}"><button class="btn btn-danger" type="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> ย้อนกลับ</button></a>
                         @if($image->inspectiontype=='1')
-                        {{-- <a href=""><button class="btn btn-success" type="button" ><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button></a> --}}
-                        <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูลอัพโหลดรูปภาพ เลขที่ : {{$id_maxins}} เรียบร้อยแล้ว')">
-                            <i class="fa fa-floppy-o" aria-hidden="true"></i>บันทึก</button>
+                        {{-- check standart --}}
+                            <?php  if($image->im_2=='null' || $image->im_2==''){ ?>
+                                <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูลอัพโหลดรูปภาพ เลขที่ : {{$id_maxins}} เรียบร้อยแล้ว')">
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
+                            <?php }else{ ?>
+                                <button class="btn btn-success" type="submit">
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i> กลับหน้าหลัก</button>
+                            <?php } ?>
                         @else
-                        <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูลอัพโหลดรูปภาพ เลขที่ : {{$id_maxins}} เรียบร้อยแล้ว')">
-                            <i class="fa fa-floppy-o" aria-hidden="true"></i> NEXT</button>
+                        {{-- check full inspection --}}
+                            <?php  if($image->im_2=='null' || $image->im_2==''){ ?>
+                                <button class="btn btn-success" type="submit" onclick="return alert('บันทึกข้อมูลอัพโหลดรูปภาพ เลขที่ : {{$id_maxins}} เรียบร้อยแล้ว')">
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
+                            <?php }else{ ?>
+                                <button class="btn btn-success" type="submit">
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i> NEXT</button>
+                            <?php } ?>
                         @endif
                     </div>
                 </div>
@@ -418,7 +429,7 @@
         $('#images_full').on('change', function(event){
             event.preventDefault();
                 $.ajax({
-                url:"{{ route('ajaxupload.action2') }}",
+                url:"{{ route('ajaxupload.action22') }}",
                 method:"POST",
                 data:new FormData(this),
                 dataType:'JSON',
@@ -441,7 +452,7 @@
         $('#images_full').on('change', function(event){
             event.preventDefault();
                 $.ajax({
-                url:"{{ route('ajaxupload.action3') }}",
+                url:"{{ route('ajaxupload.action33') }}",
                 method:"POST",
                 data:new FormData(this),
                 dataType:'JSON',
@@ -464,7 +475,7 @@
         $('#images_full').on('change', function(event){
             event.preventDefault();
                 $.ajax({
-                url:"{{ route('ajaxupload.action4') }}",
+                url:"{{ route('ajaxupload.action44') }}",
                 method:"POST",
                 data:new FormData(this),
                 dataType:'JSON',
