@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\add_inspection_custo;
 use App\add_inspection_car;
 use App\add_inspection_date;
+use App\type_car;
 use App\Province;
 use App\district;
 use App\subdistrict;
@@ -49,8 +50,11 @@ class AddInspectionCustoController extends Controller
         $pac = package::all()->sortBy("package_name");
         // data province
         $province = Province::all()->sortBy("name_th");
+        // data type_car
+        $type_car = type_car::all()->sortBy("type_car");
+
         // show data to add-inspection-appointment
-        return view('add-inspection-appointment',compact('province','pac','col','brand','dealer','cc','tech','id_max'));
+        return view('add-inspection-appointment',compact('province','pac','col','brand','dealer','cc','tech','id_max','type_car'));
 
     }
     public function getdistrictList(Request $request)
@@ -108,6 +112,7 @@ class AddInspectionCustoController extends Controller
 
 
         $inputcus = new add_inspection_custo([
+            'id' => $request->input('id_car'),
             'ins' => $request->input('ins'),
             'nametitle' => $request->input('nametitle'),
             'firstname' => $request->input('firstname'),
@@ -124,7 +129,8 @@ class AddInspectionCustoController extends Controller
             'tel_contact' => $request->input('tel_contact'),
         ]);
              //
-        $inputcar = new add_inspection_car([
+         $inputcar = new add_inspection_car([
+            'id' => $request->input('id_car'),
             'carbrand' => $request->input('carbrand'),
             'carmodel' => $request->input('carmodel'),
             'submodel' => $request->input('submodel'),
@@ -134,6 +140,7 @@ class AddInspectionCustoController extends Controller
             'seatnum' => $request->input('seatnum'),
             'place' => $request->input('place'),
             'registertype' => $request->input('registertype'),
+            'type_car' => $request->input('type_car'),
             'carregnum' => $request->input('carregnum'),
             'mileage' => $request->input('mileage'),
             'dateregister' => $request->input('dateregister'),
@@ -162,6 +169,7 @@ class AddInspectionCustoController extends Controller
 
             $inputdate = new add_inspection_date([
 
+                'id' => $request->input('id_car'),
                 'inspectiontype' => $request->input('inspectiontype'),
                 'inspector' => $request->input('inspector'),
                 'inspectiondate' => $request->input('inspectiondate'),

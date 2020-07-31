@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\add_inspection_custo;
 use App\add_inspection_car;
 use App\add_inspection_date;
+use App\type_car;
 use App\images_mn;
 use App\im_puk;
 use App\appointment;
@@ -195,7 +196,7 @@ class AppointmentController extends Controller
                  'provinces.name_th','amphures.name_th as name_am','districts.name_th as name_dis',
                  'brands.name_brand','models.name_model','n.car_color as color_n','ccs.cc',
                  'sub_models.sub_model','b.car_color as color_b','dealers.dealer_name','packages.package_name',
-                 'technicians.name_tech')
+                 'technicians.name_tech','type_cars.*')
 
         ->join('add_inspection_cars', 'add_inspection_custos.id', '=', 'add_inspection_cars.id')
         ->join('add_inspection_dates', 'add_inspection_custos.id', '=', 'add_inspection_dates.id')
@@ -211,6 +212,7 @@ class AppointmentController extends Controller
         ->leftjoin('dealers','add_inspection_cars.fromtent','=','dealers.id_dealer')
         ->join('packages','add_inspection_dates.package','=','packages.id_package')
         ->join('technicians','add_inspection_dates.inspector','=','technicians.id_tech')
+        ->join('type_cars','add_inspection_cars.type_car','=','type_cars.id_type')
 
         ->where('add_inspection_custos.id', '=', $id)
         ->groupBy('add_inspection_custos.id')
@@ -255,7 +257,7 @@ class AppointmentController extends Controller
                      'provinces.name_th','amphures.name_th as name_am','districts.name_th as name_dis',
                      'provinces.id as id_pro','amphures.id as id_am','districts.id as id_dis',
                      'brands.*','models.*','ccs.*','b.id_color as id_b','n.id_color as id_n','sub_models.*','packages.*',
-                     'technicians.*','dealers.*','b.car_color as n_b','n.car_color as n_n')
+                     'technicians.*','dealers.*','b.car_color as n_b','n.car_color as n_n','type_cars.type_car as name_type','type_cars.id_type')
 
             ->join('add_inspection_cars', 'add_inspection_custos.id', '=', 'add_inspection_cars.id')
             ->join('add_inspection_dates', 'add_inspection_custos.id', '=', 'add_inspection_dates.id')
@@ -271,6 +273,7 @@ class AppointmentController extends Controller
             ->leftjoin('dealers','add_inspection_cars.fromtent','=','dealers.id_dealer')
             ->join('packages','add_inspection_dates.package','=','packages.id_package')
             ->join('technicians','add_inspection_dates.inspector','=','technicians.id_tech')
+            ->join('type_cars','add_inspection_cars.type_car','=','type_cars.id_type')
             ->where('add_inspection_custos.id', '=', $id)
             ->groupBy('add_inspection_custos.id')
             ->get();
@@ -299,8 +302,11 @@ class AppointmentController extends Controller
         $pac = package::all()->sortBy("package_name");
         // data province
         $province = Province::all()->sortBy("name_th");
+        // data type_car
+        $type_car = type_car::all()->sortBy("type_car");
+
         // show data to add-inspection-appointment
-        return view('edit_ins',compact('datas','province','pac','col','brand','dealer','cc','tech','images'));
+        return view('edit_ins',compact('datas','province','pac','col','brand','dealer','cc','tech','images','type_car'));
 
         // return view('edit_ins', compact('datas','province'));
     }
@@ -362,6 +368,7 @@ class AppointmentController extends Controller
         $data->seatnum = $request->get('seatnum');
         $data->place = $request->get('place');
         $data->registertype = $request->get('registertype');
+        $data->type_car = $request->get('type_car');
         $data->carregnum = $request->get('carregnum');
         $data->mileage = $request->get('mileage');
         $data->dateregister = $request->get('dateregister');

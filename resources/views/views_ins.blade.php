@@ -175,18 +175,22 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="place">สถานที่ตรวจเช็ครถ</label>
-                        <select class="col-lg-3 form-control form-control-sm form-border" name="place" id="place" value="{{$data->place}}" disabled>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="place" id="place" value="{{$data->place}}" disabled>
                             <option value="ดับเบิ้ลยู สมาร์ท">ดับเบิ้ลยู สมาร์ท</option>
                         </select>
 
                         <label class="col-lg-2 pl-lg-5" for="registerType" align="right">ประเภทจดทะเบียน</label>
-                        <div class="col-lg-4 btnCustom">
+                        <div class="col-lg-3 btnCustom">
                             <input type="radio" name="registertype" id="registerType1" value="0" {{ $data->geartype == '0' ? 'checked' : ''}} disabled>
                             <label for="registerType1">รถยนต์ส่วนบุคคล</label>
 
                             <input type="radio" name="registertype" id="registerType2" value="1" {{ $data->geartype == '1' ? 'checked' : ''}} disabled>
                             <label for="registerType2">จดในนามบริษัท</label>
                         </div>
+                        <label class="col-lg-1" for="type_car" align="right">ประเภทรถ</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="type_car" id="type_car" disabled>
+                            <option>{{ $data->type_car }}</option>
+                        </select>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="carRegNum">ทะเบียนรถ</label>
@@ -200,7 +204,7 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="numOwners">จำนวนเจ้าของเดิม</label>
-                        <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="numowners" id="numOwners" value="{{$data->numowners}}" disabled>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="numowners" id="numOwners" value="{{$data->numowners}}" disabled>
 
                         <label class="col-lg-2" for="cc" align="right">ความจุเครื่องยนต์ (CC)</label>
                         {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" disabled> --}}
@@ -210,7 +214,7 @@
                         </select>
 
                         <label class="col-lg-1" for="gearType" align="right">ระบบเกียร์</label>
-                        <div class="col-lg-4 btnCustom">
+                        <div class="col-lg-3 btnCustom">
                             <input class="form-control" type="radio" name="geartype" id="gearType1" value="0" {{ $data->geartype == '0' ? 'checked' : ''}} disabled>
                             <label for="gearType1">เกียร์ธรรมดา</label>
 
@@ -296,7 +300,7 @@
                         <select class="col-lg-2 form-control form-control-sm form-border" name="inspectiontype" id="inspectionType" disabled>
                             <option>---  กรุณาเลือก  ---</option>
                             <option value="0" {{($data->inspectiontype ==='0') ? 'selected' : ''}}>Full Inspection</option>
-                            <option value="1" {{($data->inspectiontype ==='1') ? 'selected' : ''}}>Warranty</option>
+                            <option value="1" {{($data->inspectiontype ==='1') ? 'selected' : ''}}>Standard</option>
                         </select>
 
                         <label class="col-lg-2 pl-lg-5" for="inspector" align="right">ช่างที่ไปตรวจรถ</label>

@@ -45,7 +45,7 @@
                     <div class="form-group row">
                         <label class="col-lg-1" for="nameTitle">คำนำหน้า</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="nametitle" id="nameTitle" required>
-                            <option disabled selected>---  กรุณาเลือก  ---</option>
+                            <option selected hidden>---  กรุณาเลือก  ---</option>
                             <option value="นาย" {{($data->nametitle ==='นาย') ? 'selected' : ''}}>นาย</option>
                             <option value="นาง" {{($data->nametitle ==='นาง') ? 'selected' : ''}}>นาง</option>
                             <option value="นางสาว" {{($data->nametitle ==='นางสาว') ? 'selected' : ''}}>นางสาว</option>
@@ -66,7 +66,7 @@
                         <label class="col-lg-1" for="province" align="right">จังหวัด</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="province" id="province" value="{{$data->province}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_pro }}">{{ $data->name_th }}</option>
+                            <option value="{{ $data->id_pro }}" selected hidden>{{ $data->name_th }}</option>
                             @foreach($province as $key => $datas)
                             <option value="{{ $datas->id }}">{{ $datas->name_th }}</option>
                             @endforeach
@@ -117,7 +117,7 @@
                         <label class="col-lg-1" for="carbrand">ยี่ห้อ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="carbrand" id="carbrand" value="{{$data->carbrand}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_brand }}">{{ $data->name_brand }}</option>
+                            <option value="{{ $data->id_brand }}" selected hidden>{{ $data->name_brand }}</option>
                             @foreach($brand as $key => $datas)
                             <option value="{{ $datas->id_brand }}">{{ $datas->name_brand }}</option>
                             @endforeach
@@ -139,7 +139,7 @@
                         <label class="col-lg-1" for="oldcolor">สีเดิม</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="oldcolor" id="oldcolor" value="{{$data->oldcolor}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_b }}">{{ $data->n_b }}</option>
+                            <option value="{{ $data->id_b }}" selected hidden>{{ $data->n_b }}</option>
                             @foreach($col as $key => $datas)
                             <option value="{{ $datas->id_color }}">{{ $datas->car_color }}</option>
                             @endforeach
@@ -148,7 +148,7 @@
                         <label class="col-lg-1" for="newcolor" align="right">สีปัจจุบัน</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="newcolor" id="newcolor" value="{{$data->newcolor}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_n }}">{{ $data->n_n }}</option>
+                            <option value="{{ $data->id_n }}" selected hidden>{{ $data->n_n }}</option>
                             @foreach($col as $key => $datas)
                             <option value="{{ $datas->id_color }}">{{ $datas->car_color }}</option>
                             @endforeach
@@ -171,18 +171,25 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="place">สถานที่ตรวจเช็ครถ</label>
-                        <select class="col-lg-3 form-control form-control-sm form-border" name="place" id="place" value="{{$data->place}}" required>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="place" id="place" value="{{$data->place}}" required>
                             <option value="ดับเบิ้ลยู สมาร์ท">ดับเบิ้ลยู สมาร์ท</option>
                         </select>
 
                         <label class="col-lg-2 pl-lg-5" for="registerType" align="right">ประเภทจดทะเบียน</label>
-                        <div class="col-lg-4 btnCustom">
+                        <div class="col-lg-3 btnCustom">
                             <input type="radio" name="registertype" id="registerType1" value="0" {{ $data->geartype == '0' ? 'checked' : ''}}>
                             <label for="registerType1">รถยนต์ส่วนบุคคล</label>
 
                             <input type="radio" name="registertype" id="registerType2" value="1" {{ $data->geartype == '1' ? 'checked' : ''}}>
                             <label for="registerType2">จดในนามบริษัท</label>
                         </div>
+                        <label class="col-lg-1" for="type_car" align="right">ประเภทรถ</label>
+                        <select class="col-lg-2 form-control form-control-sm form-border" name="type_car" id="type_car" required>
+                            <option value="{{ $data->id_type }}" selected hidden>{{ $data->name_type }}</option>
+                            @foreach($type_car as $key => $type_cars)
+                                <option value="{{ $type_cars->id_type }}">{{ $type_cars->type_car }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="carRegNum">ทะเบียนรถ</label>
@@ -196,7 +203,7 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="numOwners">จำนวนเจ้าของเดิม</label>
-                        <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="numowners" id="numOwners" value="{{$data->numowners}}" required>
+                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="numowners" id="numOwners" value="{{$data->numowners}}" required>
 
                         <label class="col-lg-2" for="cc" align="right">ความจุเครื่องยนต์ (cc)</label>
                         {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required> --}}
@@ -209,7 +216,7 @@
                         </select>
 
                         <label class="col-lg-1" for="gearType" align="right">ระบบเกียร์</label>
-                        <div class="col-lg-4 btnCustom">
+                        <div class="col-lg-3 btnCustom">
                             <input class="form-control" type="radio" name="geartype" id="gearType1" value="0" {{ $data->geartype == '0' ? 'checked' : ''}}>
                             <label for="gearType1">เกียร์ธรรมดา</label>
 
@@ -277,7 +284,7 @@
                         <label class="col-lg-1 pl-lg-0" for="fromtent">รถจากเต็นท์</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="fromtent" id="fromtent">
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_dealer }}">{{ $data->dealer_name }}</option>
+                            <option value="{{ $data->id_dealer }}" selected hidden>{{ $data->dealer_name }}</option>
                             @foreach($dealer as $key => $datas)
                             <option value="{{ $datas->id_dealer }}">{{ $datas->dealer_name }}</option>
                             @endforeach
@@ -298,13 +305,13 @@
                         <select class="col-lg-2 form-control form-control-sm form-border" name="inspectiontype" id="inspectiontype" value="{{$data->inspectiontype}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
                             <option value="0" {{($data->inspectiontype ==='0') ? 'selected' : ''}}>Full Inspection</option>
-                            <option value="1" {{($data->inspectiontype ==='1') ? 'selected' : ''}}>Warranty</option>
+                            <option value="1" {{($data->inspectiontype ==='1') ? 'selected' : ''}}>Standard</option>
                         </select>
 
                         <label class="col-lg-2 pl-lg-5" for="inspector" align="right">ช่างที่ไปตรวจรถ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="inspector" id="inspector" value="{{$data->inspector}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_tech }}">{{ $data->name_tech }}</option>
+                            <option value="{{ $data->id_tech }}" selected hidden>{{ $data->name_tech }}</option>
                             @foreach($tech as $key => $datas)
                             <option value="{{ $datas->id_tech }}">{{ $datas->name_tech }}</option>
                             @endforeach
@@ -323,7 +330,7 @@
                         <label class="col-lg-1" for="package">แพคเกจ</label>
                         <select class="col-lg-3 form-control form-control-sm form-border" name="package" id="package">
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="{{ $data->id_package }}">{{ $data->package_name }}</option>
+                            <option value="{{ $data->id_package }}" selected hidden>{{ $data->package_name }}</option>
                             @foreach($pac as $key => $datas)
                             <option value="{{ $datas->id_package }}">{{ $datas->package_name }}</option>
                             @endforeach

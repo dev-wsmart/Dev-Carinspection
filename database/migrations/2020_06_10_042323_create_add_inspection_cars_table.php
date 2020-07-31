@@ -14,7 +14,7 @@ class CreateAddInspectionCarsTable extends Migration
     public function up()
     {
         Schema::create('add_inspection_cars', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
 
                 // box 2
             $table->string('carbrand')->nullable();
@@ -26,6 +26,7 @@ class CreateAddInspectionCarsTable extends Migration
             $table->string('seatnum')->nullable();
             $table->string('place')->nullable();
             $table->string('registertype')->nullable();
+            $table->string('type_car')->nullable();
             $table->string('carregnum')->nullable();
             $table->string('mileage')->nullable();
             $table->string('dateregister')->nullable();

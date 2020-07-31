@@ -14,7 +14,7 @@ class CreateAddInspectionDatesTable extends Migration
     public function up()
     {
         Schema::create('add_inspection_dates', function (Blueprint $table) {
-                $table->id();
+                $table->increments('id');
                 // box 3
                 $table->string('inspectiontype')->nullable();
                 $table->string('inspector')->nullable();
@@ -22,7 +22,7 @@ class CreateAddInspectionDatesTable extends Migration
                 $table->string('inspectiontime')->nullable();
                 $table->string('package')->nullable();
                 $table->string('remark')->nullable();
-    
+
                 $table->timestamps();
             });
     }

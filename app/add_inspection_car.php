@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class add_inspection_car extends Model
 {
         protected $fillable = [
-            'carbrand',
+            'id','carbrand',
             'carmodel', 'submodel','oldcolor', 'newcolor',
-            'year', 'seatnum','place', 'registertype',
+            'year', 'seatnum','place', 'registertype','type_car',
             'carregnum', 'mileage','dateregister', 'numowners',
             'cc', 'geartype','engine', 'vin',
             'benzine', 'diesel','hybrid', 'electric',

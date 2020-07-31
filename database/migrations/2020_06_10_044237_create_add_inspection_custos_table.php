@@ -14,7 +14,7 @@ class CreateAddInspectionCustosTable extends Migration
     public function up()
     {
         Schema::create('add_inspection_custos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
                  // box 1
                 $table->increments('ins')->nullable();
                 $table->string('nametitle')->nullable();
