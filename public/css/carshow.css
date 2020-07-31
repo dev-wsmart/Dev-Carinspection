@@ -84,12 +84,12 @@ body{
 }
 
 .head-logo{
-    margin-top: 150px;
+    margin-top: 140px;
 }
 
 .head-logo img{
-    width: 200px;
-    height: 160px;
+    width: 240px;
+    height: 150px;
 }
 
 .head-description{
@@ -335,22 +335,22 @@ table {
 #A1{
     width: 75px;
     height: 129px;
-    transform: translate(-207px, 56px);
+    transform: translate(-206px, 48px);
 }
 #A2{
     width: 75px;
     height: 129px;
-    transform: translate(134px, 56px);
+    transform: translate(135px, 48px);
 }
 #B1{
     width: 75px;
     height: 162px;
-    transform: translate(-206px, 399px);
+    transform: translate(-206px, 390px);
 }
 #B2{
     width: 75px;
     height: 162px;
-    transform: translate(134px, 399px);
+    transform: translate(135px, 390px);
 }
 #FS{
     width: 200px;
@@ -360,7 +360,7 @@ table {
 #CH{
     width: 200px;
     height: 123px;
-    transform: translate(-99px, 62px);
+    transform: translate(-98px, 54px);
 }
 #WS{
     width: 205px;
@@ -368,41 +368,73 @@ table {
     transform: translate(-101px, 168px);
 }
 #Roof{
-    width: 160px;
-    height: 165px;
-    transform: translate(-78px, 260px);
+    width: 158px;
+    height: 160px;
+    transform: translate(-77px, 255px);
 }
 #WSR{
-    width: 200px;
-    height: 100px;
-    transform: translate(-100px, 420px);
+    width: 197px;
+    height: 103px;
+    transform: translate(-97px, 410px);
 }
 
 #C1{
     width: 107px;
     height: 104px;
-    transform: translate(-197px, 185px);
+    transform: translate(-196px, 177px);
 }
 #C2{
     width: 107px;
     height: 104px;
-    transform: translate(93px, 185px);
+    transform: translate(93px, 177px);
 }
 #D1{
     width: 107px;
     height: 104px;
-    transform: translate(-197px, 295px);
+    transform: translate(-196px, 287px);
 }
 #D2{
     width: 107px;
     height: 104px;
-    transform: translate(93px, 295px);
+    transform: translate(93px, 287px);
 }
 #W1{
     width: 60px;
     height: 60px;
-    transform: translate(-210px, 106px);
+    transform: translate(-210px, 98px);
 }
+
+#W2{
+    width: 60px;
+    height: 60px;
+    transform: translate(152px, 98px);
+}
+#W3{
+    width: 60px;
+    height: 60px;
+    transform: translate(-224px, 406px);
+}
+#W4{
+    width: 60px;
+    height: 60px;
+    transform: translate(166px, 406px);
+}
+#LS{
+    width: 13px;
+    height: 245px;
+    transform: translate(-216px, 160px);
+}
+#RS{
+    width: 13px;
+    height: 245px;
+    transform: translate(207px, 160px);
+}
+#RH{
+    width: 197px;
+    height: 82px;
+    transform: translate(-97px, 493px);
+}
+
 #W1-mark{
     transform: translate(-280px, 100px);
 }
@@ -458,36 +490,6 @@ table {
     transform: translate(-40px, 520px);
 }
 
-#W2{
-    width: 60px;
-    height: 60px;
-    transform: translate(150px, 106px);
-}
-#W3{
-    width: 60px;
-    height: 60px;
-    transform: translate(-225px, 415px);
-}
-#W4{
-    width: 60px;
-    height: 60px;
-    transform: translate(165px, 415px);
-}
-#LS{
-    width: 13px;
-    height: 245px;
-    transform: translate(-217px, 169px);
-}
-#RS{
-    width: 13px;
-    height: 245px;
-    transform: translate(207px, 169px);
-}
-#RH{
-    width: 195px;
-    height: 80px;
-    transform: translate(-97px, 503px);
-}
 /*ชิ้นส่วนภายใน*/
 .chassis-component{
     position: absolute;
