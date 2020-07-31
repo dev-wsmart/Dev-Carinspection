@@ -494,27 +494,32 @@
                         <div class="detail-description">
                             <table class="table-report">
                                 <thead>
-                                    <th colspan="2">Exterior Report</th>
+                                    <th colspan="3">Exterior Report</th>
                                 </thead>
+                                <tr>
+                                    <td class="char-col">O</td>
+                                    <td>Original</td>
+                                    <td style="background-color: #ffffff;"></td>
+                                </tr>
                                 <tr>
                                     <td class="char-col">N</td>
                                     <td>New Parts</td>
+                                    <td style="background-color: #fff18f;"></td>
                                 </tr>
                                 <tr>
                                     <td class="char-col">BP</td>
                                     <td>New Body Paint Job</td>
-                                </tr>
-                                <tr>
-                                    <td class="char-col">D</td>
-                                    <td>Dent Mark</td>
+                                    <td style="background-color: #ffc200;"></td>
                                 </tr>
                                 <tr>
                                     <td class="char-col">S</td>
                                     <td>Scated Mark</td>
+                                    <td style="background-color: #ff8500;"></td>
                                 </tr>
                                 <tr>
-                                    <td class="char-col">O</td>
-                                    <td>Original</td>
+                                    <td class="char-col">D</td>
+                                    <td>Dent Mark</td>
+                                    <td style="background-color: #ff5b00;"></td>
                                 </tr>
                             </table>
                         </div>
@@ -573,11 +578,17 @@
                         @else
                         @endif
 
-                        {{-- กันชนหน้า
-                        @if($datas->exterior_03 != 'O')
-                            <img id="FS" class="car-component" src="{{ asset('car_structure/FS.png')}}" style="visibility: visible">
+                        <!-- กันชนหน้า -->
+                        @if($datas->exterior_03 == 'D')
+                            <img id="FS" class="car-component" src="{{ asset('car_structure/D/D-03.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_03 == 'S')
+                            <img id="FS" class="car-component" src="{{ asset('car_structure/S/S-03.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_03 == 'BP')
+                            <img id="FS" class="car-component" src="{{ asset('car_structure/BP/BP-03.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_03 == "N")
+                            <img id="FS" class="car-component" src="{{ asset('car_structure/N/N-03.png')}}" style="visibility: visible">
                         @else
-                        @endif --}}
+                        @endif
 
                         <!--ส่วนหน้า-->
                         @if($datas->exterior_02 == 'D')
@@ -753,6 +764,19 @@
                         @else
                         @endif
 
+                        <!-- กันชนหลัง -->
+                        <!-- ขาด css and id -->
+                        @if($datas->exterior_12 == 'D')
+                            <img id="" class="car-component" src="{{ asset('car_structure/D/D-05.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_12 == 'S')
+                            <img id="" class="car-component" src="{{ asset('car_structure/S/S-05.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_12 == 'BP')
+                            <img id="" class="car-component" src="{{ asset('car_structure/BP/BP-05.png')}}" style="visibility: visible">
+                        @elseif($datas->exterior_12 == "N")
+                            <img id="" class="car-component" src="{{ asset('car_structure/N/N-05.png')}}" style="visibility: visible">
+                        @else
+                        @endif
+
                         <!--Mark-->
                         <span id="W1-mark" class="mark-component">{{ $datas->exterior_19 }}</span>
                         <span id="W2-mark" class="mark-component">{{ $datas->exterior_17 }}</span>
@@ -776,27 +800,32 @@
                     <div class="detail-description">
                         <table class="table-report">
                             <thead>
-                                <th colspan="2">Exterior Report</th>
+                                <th colspan="3">Exterior Report</th>
                             </thead>
+                            <tr>
+                                <td class="char-col">O</td>
+                                <td>Original</td>
+                                <td style="background-color: #ffffff;"></td>
+                            </tr>
                             <tr>
                                 <td class="char-col">N</td>
                                 <td>New Parts</td>
+                                <td style="background-color: #fff18f;"></td>
                             </tr>
                             <tr>
                                 <td class="char-col">BP</td>
                                 <td>New Body Paint Job</td>
-                            </tr>
-                            <tr>
-                                <td class="char-col">D</td>
-                                <td>Dent Mark</td>
+                                <td style="background-color: #ffc200;"></td>
                             </tr>
                             <tr>
                                 <td class="char-col">S</td>
                                 <td>Scated Mark</td>
+                                <td style="background-color: #ff8500;"></td>
                             </tr>
                             <tr>
-                                <td class="char-col">O</td>
-                                <td>Original</td>
+                                <td class="char-col">D</td>
+                                <td>Dent Mark</td>
+                                <td style="background-color: #ff5b00;"></td>
                             </tr>
                         </table>
                     </div>
