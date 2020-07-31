@@ -978,12 +978,11 @@
                 <div class="page-contain">
                     <div class="topic-title">Interior Report</div>
                     <table class="overall-table" textalign=center style="margin-top: 30px; width: 85%;">
-
                         <tr>
                             <td class = "table-title">Steering wheel</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_01}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 - $datas->interior_01}}%; background-color: @if($datas->interior_01 == 25) #50cc00 @elseif($datas->interior_01 == 50) #00931f @elseif($datas->interior_01 == 75) #00661f @elseif($datas->interior_01 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -991,7 +990,7 @@
                             <td class = "table-title">Dashboard</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_02}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_02}}%; background-color: @if($datas->interior_02 == 25) #50cc00 @elseif($datas->interior_02 == 50) #00931f @elseif($datas->interior_02 == 75) #00661f @elseif($datas->interior_02 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -999,7 +998,7 @@
                             <td class = "table-title">Front Left Seat</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_03}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_03}}%; background-color: @if($datas->interior_03 == 25) #50cc00 @elseif($datas->interior_03 == 50) #00931f @elseif($datas->interior_03 == 75) #00661f @elseif($datas->interior_03 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1007,7 +1006,7 @@
                             <td class = "table-title">Front Right Seat</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_04}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_04}}%; background-color: @if($datas->interior_04 == 25) #50cc00 @elseif($datas->interior_04 == 50) #00931f @elseif($datas->interior_04 == 75) #00661f @elseif($datas->interior_04 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1015,7 +1014,7 @@
                             <td class = "table-title">Rear Seat</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_05}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_05}}%; background-color: @if($datas->interior_05 == 25) #50cc00 @elseif($datas->interior_05 == 50) #00931f @elseif($datas->interior_05 == 75) #00661f @elseif($datas->interior_05 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1023,7 +1022,7 @@
                             <td class = "table-title">Console</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_06}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_06}}%; background-color: @if($datas->interior_06 == 25) #50cc00 @elseif($datas->interior_06 == 50) #00931f @elseif($datas->interior_06 == 75) #00661f @elseif($datas->interior_06 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1031,7 +1030,7 @@
                             <td class = "table-title">Left Door Trim</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_07}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_07}}%; background-color: @if($datas->interior_07 == 25) #50cc00 @elseif($datas->interior_07 == 50) #00931f @elseif($datas->interior_07 == 75) #00661f @elseif($datas->interior_07 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1039,7 +1038,7 @@
                             <td class = "table-title">Right Door Trim</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_08}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_08}}%; background-color: @if($datas->interior_08 == 25) #50cc00 @elseif($datas->interior_08 == 50) #00931f @elseif($datas->interior_08 == 75) #00661f @elseif($datas->interior_08 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1047,7 +1046,7 @@
                             <td class = "table-title">Roof Fabric</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_15}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_15}}%; background-color: @if($datas->interior_15 == 25) #50cc00 @elseif($datas->interior_15 == 50) #00931f @elseif($datas->interior_15 == 75) #00661f @elseif($datas->interior_15 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1055,7 +1054,7 @@
                             <td class = "table-title">Airconditioning</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_10}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_10}}%; background-color: @if($datas->interior_10 == 25) #50cc00 @elseif($datas->interior_10 == 50) #00931f @elseif($datas->interior_10 == 75) #00661f @elseif($datas->interior_10 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1063,7 +1062,7 @@
                             <td class = "table-title">Internal Lighting System</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_11}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_11}}%; background-color: @if($datas->interior_11 == 25) #50cc00 @elseif($datas->interior_11 == 50) #00931f @elseif($datas->interior_11 == 75) #00661f @elseif($datas->interior_11 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1071,7 +1070,7 @@
                             <td class = "table-title">External Lighting</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_12}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_12}}%; background-color: @if($datas->interior_12 == 25) #50cc00 @elseif($datas->interior_12 == 50) #00931f @elseif($datas->interior_12 == 75) #00661f @elseif($datas->interior_12 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1079,7 +1078,7 @@
                             <td class = "table-title">Radio System</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_13}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_13}}%; background-color: @if($datas->interior_13 == 25) #50cc00 @elseif($datas->interior_13 == 50) #00931f @elseif($datas->interior_13 == 75) #00661f @elseif($datas->interior_13 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1087,7 +1086,7 @@
                             <td class = "table-title">Window System</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_14}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_14}}%; background-color: @if($datas->interior_14 == 25) #50cc00 @elseif($datas->interior_14 == 50) #00931f @elseif($datas->interior_14 == 75) #00661f @elseif($datas->interior_14 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1095,7 +1094,7 @@
                             <td class = "table-title">Abnormal Smell</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    {{-- <div class="progress-bar-bar" style="width: {{$datas->interior_15}}%"></div> --}}
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_10}}%; background-color: @if($datas->interior_10 == 25) #50cc00 @elseif($datas->interior_10 == 50) #00931f @elseif($datas->interior_10 == 75) #00661f @elseif($datas->interior_10 == 0) #afff00 @endif;"></div>
                                     <div class="progress-bar-bar" style="width: 0%"></div>
                                 </div>
                             </td>
@@ -1104,7 +1103,7 @@
                             <td class = "table-title">Luggage Area</td>
                             <td class = "table-progress">
                                 <div class="progress-bar">
-                                    <div class="progress-bar-bar" style="width: {{$datas->interior_09}}%"></div>
+                                    <div class="progress-bar-bar" style="width: {{100 -$datas->interior_09}}%; background-color: @if($datas->interior_09 == 25) #50cc00 @elseif($datas->interior_09 == 50) #00931f @elseif($datas->interior_09 == 75) #00661f @elseif($datas->interior_09 == 0) #afff00 @endif;"></div>
                                 </div>
                             </td>
                         </tr>
