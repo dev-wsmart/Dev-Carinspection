@@ -254,11 +254,11 @@
                             <tr>
                                 <td width="40%"></td>
                                 <td>
-                                    <div class="sign"></div>
+                                    <div class="sign"><img src="/images/signature/sig.png" height="100px" width="170px" style="margin-top: -20px; margin-left: -30px;"></div>
                                     <div style="font-size: 13px; text-align: center;">ผู้มีอำนาจลงนาม<br><span>Authorized Director</span></div>
                                 </td>
                                 <td>
-                                    <div class="sign"></div>
+                                    <div class="sign"><img src="/images/signature/sig.png" height="100px" width="170px" style="margin-top: -20px; margin-left: -30px;"></div>
                                     <div style="font-size: 13px; text-align: center;">หัวหน้าแผนกตรวจเช็คสภาพรถยนต์<br><span>Head Inspector</span></div>
                                 </td>
                             </tr>
@@ -275,6 +275,7 @@
                 </div>
             </div>
             <!--PAGE 3-->
+
             <div class="page">
                 <div class="page-contain">
                     <div class = "car-show">
@@ -282,6 +283,7 @@
                             {{-- รูปด้านหน้ารถยนต์ --}}
                             Vehicle Front Image
                         </div>
+
                         <br>
                         <div class="d-flex justify-content-center">
                             <img src="/images/{{$datas->im_2}}" height="320px" width="500px" class="img-thumbnail" style="border: 20px inset #a38175;">
@@ -1675,14 +1677,18 @@
                         <div class="">
                             <div class="sign-block"></div>
                             Name Of Junior Inspector
+                            <img src="/images/signature/sig.png" height="100px" width="170px" style="margin-top: -100px; margin-left: -10px;">
+
                         </div>
                         <div class="">
                             <div class="sign-block"></div>
                             Name Of Senior Inspector
+                            <img src="/images/signature/sig.png" height="100px" width="170px" style="margin-top: -100px; margin-left: -10px;">
                         </div>
                         <div class="">
                             <div class="sign-block"></div>
                             Authorized Director
+                            <img src="/images/signature/sig.png" height="100px" width="170px" style="margin-top: -100px; margin-left: -10px;">
                         </div>
                     </div>
                 </div>
