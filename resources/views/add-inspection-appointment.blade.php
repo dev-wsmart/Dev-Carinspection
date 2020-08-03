@@ -144,9 +144,9 @@
                         </select>
 
                         <label class="col-lg-1" for="year" align="right">ปี</label>
-                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="year" id="year" required>
+                        <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="year" id="year" required>
 
-                        <label class="col-lg-1 " for="seatNum" align="right">จำนวนที่นั่ง</label>
+                        <label class="col-lg-2 " for="seatNum" align="right">จำนวนที่นั่ง</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="seatnum" id="seatNum" required>
                             <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             <option value="2">2</option>
@@ -166,20 +166,30 @@
                         </select>
 
                         <label class="col-lg-2 pl-lg-5" for="registerType" align="right">ประเภทจดทะเบียน</label>
-                        <div class="col-lg-3 btnCustom">
+                        <div class="col-lg-4 btnCustom">
                             <input type="radio" name="registertype" id="registerType1" value="0" checked>
                             <label for="registerType1">รถยนต์ส่วนบุคคล</label>
 
                             <input type="radio" name="registertype" id="registerType2" value="1">
                             <label for="registerType2">จดในนามบริษัท</label>
                         </div>
-                        <label class="col-lg-1" for="type_car" align="right">ประเภทรถ</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="type_car">ประเภทรถ</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="type_car" id="type_car" required>
                             <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             @foreach($type_car as $key => $type_cars)
                                 <option value="{{ $type_cars->id_type }}">{{ $type_cars->type_car }}</option>
                             @endforeach
                         </select>
+
+                        <label class="col-lg-2" for="imported_car" align="right">ประเภทรถนำเข้า</label>
+                        <div class="col-lg-2 btnCustom">
+                            <input type="radio" name="imported_car" id="imported_car1" value="นำเข้า" checked>
+                            <label for="imported_car1">นำเข้า</label>
+                            <input type="radio" name="imported_car" id="imported_car2" value="ไม่นำเข้า">
+                            <label for="imported_car2">ไม่นำเข้า</label>
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="carRegNum">ทะเบียนรถ</label>
@@ -199,14 +209,14 @@
                         <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" required> --}}
 
                         <label class="col-lg-2" for="cc" align="right">ความจุเครื่องยนต์ (CC)</label>
-                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" required>
+                        <select class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" required>
                             <option selected hidden>---  กรุณาเลือก  ---</option>
                             @foreach($cc as $key => $ccs)
                             <option value="{{ $ccs->id_cc }}" {{ ($ccs->cc == '1.8' ? 'selected' : '')}}>{{ $ccs->cc }}</option>
                             @endforeach
                         </select>
 
-                        <label class="col-lg-1" for="gearType" align="right">ระบบเกียร์</label>
+                        <label class="col-lg-2" for="gearType" align="right">ระบบเกียร์</label>
                         <div class="col-lg-3 btnCustom">
                             <input type="radio" name="geartype" id="gearType1" value="0" checked>
                             <label for="gearType1">เกียร์ธรรมดา</label>
@@ -239,14 +249,6 @@
                             <label for="ngv">NGV</label>
                             <input type="checkbox" name="cng" id="cng" value="1">
                             <label for="cng">CNG</label>
-                        </div>
-
-                        <label class="col-lg-2" for="imported_car" align="right">ประเภทรถนำเข้า</label>
-                        <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="imported_car" id="imported_car1" value="นำเข้า" checked>
-                            <label for="imported_car1">นำเข้า</label>
-                            <input type="radio" name="imported_car" id="imported_car2" value="ไม่นำเข้า">
-                            <label for="imported_car2">ไม่นำเข้า</label>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -284,7 +286,7 @@
                         <label class="col-lg-1" for="price" align="right">ราคา</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="price" id="price" required>
 
-                        <label class="col-lg-1" for="payment" align="right">ผ่อนงวดละ</label>
+                        <label class="col-lg-1 pl-lg-1" for="payment">ผ่อนงวดละ</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="payment" id="payment" required>
                     </div>
                 </div>
@@ -295,7 +297,7 @@
                         <label class="col-lg-2" for="inspectionType">ประเภทการตรวจสภาพ</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="inspectiontype" id="inspectionType" required>
                             <option value="" selected hidden>---  กรุณาเลือก  ---</option>
-                            <option value="0">Full Inspection</option>
+                            <option value="0">Premium</option>
                             <option value="1">Standard</option>
                         </select>
 

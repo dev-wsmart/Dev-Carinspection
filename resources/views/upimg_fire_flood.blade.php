@@ -53,7 +53,7 @@
                                 <?php if($image->id_imf == ''){ ?>
                                     <div class="row">
                                         <div class="col-md-11">
-                                            <input type="file" name="image_flood1" class="form-control" height="2%">
+                                            <input type="file" name="image_flood1" class="form-control" height="2%" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -83,7 +83,7 @@
                             <?php if($image->id_imf == ''){ ?>
                                 <div class="row">
                                     <div class="col-md-11">
-                                        <input type="file" name="image_flood2" class="form-control" height="2%">
+                                        <input type="file" name="image_flood2" class="form-control" height="2%" required>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -122,7 +122,7 @@
                                 <?php if($image->id_imf == ''){ ?>
                                     <div class="row">
                                         <div class="col-md-11">
-                                            <input type="file" name="image_fire1" class="form-control" height="2%">
+                                            <input type="file" name="image_fire1" class="form-control" height="2%" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -152,7 +152,7 @@
                             <?php if($image->id_imf == ''){ ?>
                                 <div class="row">
                                     <div class="col-md-11">
-                                        <input type="file" name="image_fire2" class="form-control" height="2%">
+                                        <input type="file" name="image_fire2" class="form-control" height="2%" required>
                                     </div>
                                 </div>
                                 <div class="row">

@@ -1326,6 +1326,7 @@
                 </div>
             </div>
             <!-- PAGE 13-->
+            @if($datas->inspectiontype=='0')
             <div class="page">
                 <div class="page-contain">
                     <div class="topic-title">Flood Report</div>
@@ -1370,6 +1371,8 @@
                     </div>
                 </div>
             </div>
+            @else
+            @endif
             <!-- PAGE 14-->
             <div class="page">
 

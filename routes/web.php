@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource('/car_show', 'car_showController');
+Route::resource('/form_car', 'CcController');
 Route::resource('/insp-details', 'DetailsController');
 
 Route::resource('/fullcalendar', 'FullCalendarController');

@@ -370,12 +370,12 @@
                     </div>
                     <br>
                         <div class="row">
-                            <label class="col-lg-1" for="package"></label>
+                            {{-- <label class="col-lg-1" for="package"></label> --}}
                             <label class="col-lg-5" for="package">ชื่อไฟล์ VDO</label>
 
                             <div class="col-md-12 list-group-item">
                                 <div class="row">
-                                    <div class="col-md-1">URL-VDO</div>
+                                    <div class="col-md-2" align="right">URL-VDO</div>
                                     <div class="col-md-10">
                                     @if($image->im_V == 'null' || $image->im_V == '')
                                         <input class="form-control form-control-sm form-border" type="text" name="file_vdo" id="file_vdo">

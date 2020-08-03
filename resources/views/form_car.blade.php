@@ -80,8 +80,6 @@
                                     <table width="100%" style="font-family: 'Sarabun', sans-serif; font-size: 20px" cellpadding="0" cellspacing="0">
                                         <tbody>
 
-                    @foreach($datas as $data)
-
                                             <tr>
                                                 <td style="vertical-align:top">
                                                     <table style="padding-bottom:12px; width:100%;">
@@ -99,27 +97,26 @@
                                                 <td style="vertical-align:top;padding:0;">
                                                     <table width="100%" style="padding:0px; margin-top:15px;">
                                                         <tbody>
-                                                            <?php  $date = substr(date("Y"),2);   ?>
                                                             <tr>
                                                                 <td style="font-size:1em;padding-right:20px;padding-bottom:15px; text-align:right; width:20%;">ชื่อลูกค้า :</td>
-                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px; width:29%"><div style="border-bottom:solid 1px #000000">&nbsp;{{$data->firstname}}</div></td>
+                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px; width:29%"><div style="border-bottom:solid 1px #000000">&nbsp;</div></td>
                                                                 <td style="padding-right:20px;padding-bottom:15px; width:2%;">&nbsp;</td>
                                                                 <td style="font-size:1em;padding-right:20px;padding-bottom:15px; text-align:right; width:20%">วันที่และเวลา :</td>
-                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px;width:29%"><div style="border-bottom:solid 1px #000000">&nbsp;{{date('d-m-Y', strtotime($data->inspectiondate))}}</div></td>
+                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px;width:29%"><div style="border-bottom:solid 1px #000000">&nbsp;</div></td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="font-size:1em;padding-right:20px;padding-bottom:15px; text-align:right;">เบอร์ติดต่อ :</td>
-                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px;"><div style="border-bottom:solid 1px #000000">&nbsp;{{$data->tel}}</div></td>
+                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px;"><div style="border-bottom:solid 1px #000000">&nbsp;</div></td>
                                                                 <td style="font-size:1em;padding-right:20px;padding-bottom:15px;">&nbsp;</td>
                                                                 <td style="font-size:1em;padding-right:20px;padding-bottom:15px;text-align:right">เลขที่ตรวจสภาพรถ :</td>
-                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px;"><div style="border-bottom:solid 1px #000000">&nbsp;{{'CS'.$date.str_pad(($data->id),5,'0',STR_PAD_LEFT)}}</div></td>
+                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px;"><div style="border-bottom:solid 1px #000000">&nbsp;</div></td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="font-size:1em;padding-right:20px;padding-bottom:15px; text-align:right; ">ผู้ตรวจสภาพรถ :</td>
-                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px;"><div style="border-bottom:solid 1px #000000;">&nbsp;{{$data->name_tech}}</div></td>
+                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px;"><div style="border-bottom:solid 1px #000000;">&nbsp;</div></td>
                                                                 <td style="padding-right:20px;padding-bottom:15px;">&nbsp;</td>
                                                                 <td style="font-size:1em;padding-right:20px;padding-bottom:15px;text-align:right">ตรวจสอบโดย :</td>
-                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px;"><div style="border-bottom:solid 1px #000000">&nbsp;{{$data->name_tech}}</div></td>
+                                                                <td style="font-size:1em;padding-right:20px;padding-bottom:15px;"><div style="border-bottom:solid 1px #000000">&nbsp;</div></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -139,25 +136,25 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td style="text-align:center; width:17%; padding:7px 0;">ยี่ห้อ</td>
-                                                                <td style="text-align:center; width:35%; padding:7px 0;">{{$data->name_brand}}</td>
+                                                                <td style="text-align:center; width:35%; padding:7px 0;"></td>
                                                                 <td style="text-align:center; width:18%; padding:7px 0;">สีเดิม</td>
-                                                                <td style="text-align:center; width:30%; padding:7px 0;">{{$data->color_b}}</td>
+                                                                <td style="text-align:center; width:30%; padding:7px 0;"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:center; padding:7px 0;">รุ่น</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{$data->name_model}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                                 <td style="text-align:center; padding:7px 0;">สีปัจจุบัน</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{$data->color_n}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:center; padding:7px 0;">ปีผลิต</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{$data->year}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                                 <td style="text-align:center; padding:7px 0;">จำนวนที่นั่ง</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{$data->seatnum}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:center; padding:7px 0;">สถานที่ตรวจเช็ครถ</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{$data->place}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                                 <td style="text-align:center; padding:7px 0;">ประเภทจดทะเบียน</td>
                                                                 <td style="text-align:center; padding:7px 0;">
                                                                     <table width="100%" cellpadding="0">
@@ -165,12 +162,10 @@
                                                                             <tr>
 
                                                                                 <td style="width:28px;padding-right:1px; text-align:right">
-                                                                                    <?php  if($data->geartype == '0') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                    <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:0.9em;width:150px;padding-right:0px">รถยนต์ส่วนบุคคล</td>
                                                                                 <td style="width:28px;padding-right:1px; text-align:right">
-                                                                                    <?php  if($data->geartype == '1') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                    <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:0.9em;width:150px;padding-right:0px">จดในนามบริษัท</td>
                                                                             </tr>
                                                                         </tbody>
@@ -179,25 +174,23 @@
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:center; padding:7px 0;">ทะเบียนรถ</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{$data->carregnum}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                                 <td style="text-align:center; padding:7px 0;">เลขไมล์ปัจจุบัน</td>
-                                                                <td style="text-align:center; padding:7px 0;">&nbsp;{{$data->mileage}}</td>
+                                                                <td style="text-align:center; padding:7px 0;">&nbsp;</td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:center; padding:7px 0;">หมายเลขเครื่องยนต์</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{$data->engine}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                                 <td style="text-align:center; padding:7px 0;">รถมีประกันหรือไม่</td>
                                                                 <td style="text-align:center; padding:0;">
                                                                     <table width="100%" cellpadding="0">
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td style="width:50px;padding-right:4px; text-align:right">
-                                                                                    <?php  if($data->carinsurance == '0') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                    <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:1em;width:120px;padding-right:10px">มีประกัน</td>
                                                                                 <td style="width:50px;padding-right:4px; text-align:right">
-                                                                                    <?php  if($data->carinsurance == '1') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                 <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:1em;width:120px;padding-right:10px">ไม่มีประกัน</td>
                                                                             </tr>
                                                                         </tbody>
@@ -206,9 +199,9 @@
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:center; padding:7px 0;">หมายเลขตัวถัง</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{$data->vin}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                                 <td style="text-align:center; padding:7px 0;">ความจุเครื่องยนต์</td>
-                                                                <td style="text-align:center; padding:7px 0;">&nbsp;{{$data->cc}}</td>
+                                                                <td style="text-align:center; padding:7px 0;">&nbsp;</td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:center; padding:7px 0;">ประเภทเชื้อเพลิง</td>
@@ -217,31 +210,26 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td style="width:25px;padding-right:1px; text-align:right">
-                                                                                    <?php  if($data->benzine == '1') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                    <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:0.8em;width:50px;padding-right:1px">เบนซิน</td>
                                                                                 <td style="width:25px;padding-right:1px; text-align:right">
-                                                                                    <?php  if($data->diesel == '1') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                    <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:0.8em;width:50px;padding-right:1px">ดีเซล</td>
                                                                                 <td style="width:25px;padding-right:1px; text-align:right">
-                                                                                    <?php  if($data->hybrid == '1') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                    <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:0.8em;width:70px;padding-right:1px">ไฮบริด</td>
                                                                                 <td style="width:25px;padding-right:1px; text-align:right">
-                                                                                    <?php  if($data->electric == '1') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                    <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:0.8em;width:55px;padding-right:1px">ไฟฟ้า</td>
                                                                                 <td style="width:25px;padding-right:1px; text-align:right">
-                                                                                    <?php  if($data->lpg == '1') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                    <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:0.8em;width:50px;padding-right:1px">LPG</td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
                                                                 </td>
                                                                 <td style="text-align:center; padding:7px 0;">วันหมดอายุประกันภัย</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{date('d-m-Y', strtotime($data->expinsurance))}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:center; padding:7px 0;">ระบบเกียร์</td>
@@ -250,32 +238,28 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td style="width:50px;padding-right:4px; text-align:right">
-                                                                                    <?php  if($data->geartype == '0') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                    <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:1em;width:120px;padding-right:10px">เกียร์ธรรมดา</td>
                                                                                 <td style="width:50px;padding-right:4px; text-align:right">
-                                                                                    <?php  if($data->geartype == '1') { ?><i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    <?php  }else{ ?><i class="fa fa-square-o" aria-hidden="true"></i><?php  } ?></td>
+                                                                                    <i class="fa fa-square-o" aria-hidden="true"></i></td>
                                                                                 <td style="font-size:1em;width:120px;padding-right:10px">เกียร์อัตโนมัติ</td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
                                                                 </td>
                                                                 <td style="text-align:center; padding:7px 0;">บริษัทประกันภัย</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{$data->insurance}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:center; padding:7px 0;">วันที่จดทะเบียนรถ</td>
-                                                                <td style="text-align:center; padding:7px 0;">{{date('d-m-Y', strtotime($data->dateregister))}}</td>
+                                                                <td style="text-align:center; padding:7px 0;"></td>
                                                                 <td style="text-align:center; padding:7px 0;">จำนวนเจ้าของเดิม</td>
-                                                                <td style="text-align:center; padding:7px 0;">&nbsp;{{$data->numowners}}</td>
+                                                                <td style="text-align:center; padding:7px 0;">&nbsp;</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </td>
                                             </tr>
-
-                            @endforeach
 
                                         </tbody>
                                     </table>

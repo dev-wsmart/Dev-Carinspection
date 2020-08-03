@@ -155,9 +155,9 @@
                         </select>
 
                         <label class="col-lg-1" for="year" align="right">ปี</label>
-                        <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="year" id="year" value="{{$data->year}}" required>
+                        <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="year" id="year" value="{{$data->year}}" required>
 
-                        <label class="col-lg-1" for="seatNum" align="right">จำนวนที่นั่ง</label>
+                        <label class="col-lg-2" for="seatNum" align="right">จำนวนที่นั่ง</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="seatnum" id="seatNum" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
                             <option value="2" {{($data->seatnum ==='2') ? 'selected' : ''}}>2</option>
@@ -176,20 +176,29 @@
                         </select>
 
                         <label class="col-lg-2 pl-lg-5" for="registerType" align="right">ประเภทจดทะเบียน</label>
-                        <div class="col-lg-3 btnCustom">
+                        <div class="col-lg-4 btnCustom">
                             <input type="radio" name="registertype" id="registerType1" value="0" {{ $data->geartype == '0' ? 'checked' : ''}}>
                             <label for="registerType1">รถยนต์ส่วนบุคคล</label>
 
                             <input type="radio" name="registertype" id="registerType2" value="1" {{ $data->geartype == '1' ? 'checked' : ''}}>
                             <label for="registerType2">จดในนามบริษัท</label>
                         </div>
-                        <label class="col-lg-1" for="type_car" align="right">ประเภทรถ</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2" for="type_car">ประเภทรถ</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="type_car" id="type_car" required>
                             <option value="{{ $data->id_type }}" selected hidden>{{ $data->name_type }}</option>
                             @foreach($type_car as $key => $type_cars)
                                 <option value="{{ $type_cars->id_type }}">{{ $type_cars->type_car }}</option>
                             @endforeach
                         </select>
+                        <label class="col-lg-2" for="imported_car" align="right">ประเภทรถนำเข้า</label>
+                        <div class="col-lg-2 btnCustom">
+                            <input type="radio" name="imported_car" id="imported_car1" value="นำเข้า" {{ $data->imported_car == 'นำเข้า' ? 'checked' : ''}}>
+                            <label for="imported_car1">นำเข้า</label>
+                            <input type="radio" name="imported_car" id="imported_car2" value="ไม่นำเข้า" {{ $data->imported_car == 'ไม่นำเข้า' ? 'checked' : ''}}>
+                            <label for="imported_car2">ไม่นำเข้า</label>
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-2" for="carRegNum">ทะเบียนรถ</label>
@@ -207,7 +216,7 @@
 
                         <label class="col-lg-2" for="cc" align="right">ความจุเครื่องยนต์ (cc)</label>
                         {{-- <input class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" required> --}}
-                        <select class="col-lg-2 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" >
+                        <select class="col-lg-1 form-control form-control-sm form-border" type="text" name="cc" id="cc" value="{{$data->cc}}" >
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
                             <option value="{{ $data->id_cc }}">{{ $data->cc }}</option>
                             @foreach($cc as $key => $datas)
@@ -215,7 +224,7 @@
                             @endforeach
                         </select>
 
-                        <label class="col-lg-1" for="gearType" align="right">ระบบเกียร์</label>
+                        <label class="col-lg-2" for="gearType" align="right">ระบบเกียร์</label>
                         <div class="col-lg-3 btnCustom">
                             <input class="form-control" type="radio" name="geartype" id="gearType1" value="0" {{ $data->geartype == '0' ? 'checked' : ''}}>
                             <label for="gearType1">เกียร์ธรรมดา</label>
@@ -248,13 +257,6 @@
                             <label for="ngv">NGV</label>
                             <input type="checkbox" name="cng" id="cng" value="1" {{ $data->cng == '1' ? 'checked' : ''}}>
                             <label for="cng">CNG</label>
-                        </div>
-                        <label class="col-lg-2" for="imported_car" align="right">ประเภทรถนำเข้า</label>
-                        <div class="col-lg-2 btnCustom">
-                            <input type="radio" name="imported_car" id="imported_car1" value="นำเข้า" {{ $data->imported_car == 'นำเข้า' ? 'checked' : ''}}>
-                            <label for="imported_car1">นำเข้า</label>
-                            <input type="radio" name="imported_car" id="imported_car2" value="ไม่นำเข้า" {{ $data->imported_car == 'ไม่นำเข้า' ? 'checked' : ''}}>
-                            <label for="imported_car2">ไม่นำเข้า</label>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -293,7 +295,7 @@
                         <label class="col-lg-1" for="price" align="right">ราคา</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="price" id="price"  value="{{$data->price}}">
 
-                        <label class="col-lg-1 " for="payment" align="right">ผ่อนงวดละ</label>
+                        <label class="col-lg-1 pl-lg-0" for="payment" align="right">ผ่อนงวดละ</label>
                         <input class="col-lg-2 form-control form-control-sm form-border" type="text" name="payment" id="payment" value="{{$data->payment}}">
                     </div>
                 </div>
@@ -304,7 +306,7 @@
                         <label class="col-lg-2" for="inspectiontype">ประเภทการตรวจสภาพ</label>
                         <select class="col-lg-2 form-control form-control-sm form-border" name="inspectiontype" id="inspectiontype" value="{{$data->inspectiontype}}" required>
                             {{-- <option>---  กรุณาเลือก  ---</option> --}}
-                            <option value="0" {{($data->inspectiontype ==='0') ? 'selected' : ''}}>Full Inspection</option>
+                            <option value="0" {{($data->inspectiontype ==='0') ? 'selected' : ''}}>Premium</option>
                             <option value="1" {{($data->inspectiontype ==='1') ? 'selected' : ''}}>Standard</option>
                         </select>
 

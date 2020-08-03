@@ -13,10 +13,11 @@ $data = HomeController::userShow();
   }
   .user{
     display: flex;
-    width: 220px;
-    height: 220px;
+    width: 170px;
+    height: 170px;
     background-color: #ffffff;
     border-radius: 50%;
+    margin-left: 8%
   }
   .user img{
     align-self: center;
@@ -143,7 +144,9 @@ $data = HomeController::userShow();
   <br>
             <li class="header-menu">
             <center>
-            <button type="button" class="btn btn-warning">ฟอร์มตรวจสถาพรถ</button>
+            <a href="{{ route('form_car.index')}}" style="margin-top: -10px">
+                <button type="button" class="btn btn-warning">ฟอร์มตรวจสถาพรถ</button>
+            </a>
             </center>
             </li>
 

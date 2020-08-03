@@ -41,7 +41,7 @@
                 </thead>
                 <tbody>
 
-                    <?php  $TypeCh=array('0'=>'Full Inspection','1'=>'Warranty'); $i = 0; $number = 0; $pa = 0; ?>
+                    <?php  $TypeCh=array('0'=>'Premium','1'=>'Standard'); $i = 0; $number = 0; $pa = 0; ?>
 
                     @foreach($data as $datas)
                     <tr>
