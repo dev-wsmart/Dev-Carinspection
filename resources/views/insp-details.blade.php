@@ -108,6 +108,7 @@
                 $sum2 = 0;
             }
                 $sum = $sum1+$sum2;
+                // echo '---'.$datas->inspectiontype;
         ?>
 
 
@@ -228,7 +229,7 @@
                 </div>
                 <div class="de-title">
                     <i class="fa fa-calendar" aria-hidden="true"></i> วันจดทะเบียนรถ
-                    <span class="detail">{{ $datas->dateregister }}</span>
+                    <span class="detail">{{date('d / m / Y', strtotime( $datas->dateregister ))}}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i> ปีที่ผลิต
@@ -292,7 +293,7 @@
                 </div>
                 <div class="de-title">
                     <i class="fa fa-calendar-times-o" aria-hidden="true"></i> วันหมดอายุประกันภัย
-                    <span class="detail">{{ $datas->exp }}</span>
+                    <span class="detail">{{ date('d / m / Y', strtotime( $datas->exp )) }}</span>
                 </div>
                 <div class="de-title">
                     <i class="fa fa-building-o" aria-hidden="true"></i> บริษัทประกันภัย
@@ -310,9 +311,233 @@
                 <div class="de-title">{{ $datas->comment }}</div>
             </div>
 
-            <!-- ผลตรวจเช็คสภาพรถยนต์ -->
+            <!-- ผลตรวจเช็คระบบขับเคลื่อน -->
             <div class="col-12 my-3">
-                <div class="col-12 title">ผลตรวจเช็คสภาพรถยนต์</div>
+                <div class="col-12 title">ผลตรวจเช็คระบบขับเคลื่อน</div>
+
+                <div class="insp-result row mx-auto mx-lg-3">
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">1.</td>
+                                <td>สถานะเครื่องยนต์</td>
+                                <td width="20px">
+                                    @if($datas->carrs01=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs01=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">2.</td>
+                                <td>สถานะเกียร์</td>
+                                <td width="20px">
+                                    @if($datas->carrs02=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs02=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">3.</td>
+                                <td>สถานะ ECU, ECM</td>
+                                <td width="20px">
+                                    @if($datas->carrs03=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs03=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="insp-result row mx-auto mx-lg-3">
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">4.</td>
+                                <td>สถานะระบบเบรค</td>
+                                <td width="20px">
+                                    @if($datas->carrs04=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs04=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">5.</td>
+                                <td>ระบบปรับอากาศและทำความร้อน</td>
+                                <td width="20px">
+                                    @if($datas->carrs05=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs05=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">6.</td>
+                                <td>ชุดส่งกำลังเพลาหน้าและท้าย</td>
+                                <td width="20px">
+                                    @if($datas->carrs06=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs06=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="insp-result row mx-auto mx-lg-3">
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">7.</td>
+                                <td>ระบบระบายความร้อนเครื่องยนต์</td>
+                                <td width="20px">
+                                    @if($datas->carrs07=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs07=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">8.</td>
+                                <td>ระบบกันสะเทือนหน้าและหลัง</td>
+                                <td width="20px">
+                                    @if($datas->carrs08=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs08=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">9.</td>
+                                <td>ระบบความปลอดภัย Airbag</td>
+                                <td width="20px">
+                                    @if($datas->carrs09=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs09=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="insp-result row mx-auto mx-lg-3">
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">10.</td>
+                                <td>ระบบบังคับเลี้ยว</td>
+                                <td width="20px">
+                                    @if($datas->carrs10=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs10=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">11.</td>
+                                <td>Security System</td>
+                                <td width="20px">
+                                    @if($datas->carrs11=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs11=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">12.</td>
+                                <td>Turbo</td>
+                                <td width="20px">
+                                    @if($datas->carrs12=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carrs12=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        @if($datas->inspectiontype=='0')
+        <!-- ผลตรวจเช็คสภาพรถยนต์ -->
+
+        <div class="col-12 my-3">
+            <div class="col-12 title">ผลตรวจเช็คสภาพรถยนต์</div>
+
                 <div class="insp-result row mx-auto mx-lg-3">
                     <div class="col-lg-4">
                         <table width="100%">
@@ -366,16 +591,17 @@
                         </table>
                     </div>
                 </div>
+
                 <div class="insp-result row mx-auto mx-lg-3">
                     <div class="col-lg-4">
                         <table width="100%">
                             <tr>
                                 <td width="25px">4.</td>
-                                <td>รถสภาพสีเดิม</td>
+                                <td>รถไม่เคยเกิดอุบัติเหตุรุนแรงชนหนัก จนทำให้โครงสร้างรถมีปัญหาความปลอดภัย</td>
                                 <td width="20px">
-                                    @if($datas->carin07=='0')
+                                    @if($datas->carin04=='0')
                                         <i class="fa fa-check" aria-hidden="true"></i>
-                                    @elseif($datas->carin07=='1')
+                                    @elseif($datas->carin04=='1')
                                         <i class="fa fa-times" aria-hidden="true"></i>
                                     @else
                                         <i class="fa fa-minus" aria-hidden="true"></i>
@@ -419,16 +645,34 @@
                         </table>
                     </div>
                 </div>
+
                 <div class="insp-result row mx-auto mx-lg-3">
                     <div class="col-lg-4">
                         <table width="100%">
                             <tr>
                                 <td width="25px">7.</td>
-                                <td>รถไม่เคยเกิดอุบัติเหตุรุนแรงชนหนัก จนทำให้โครงสร้างรถมีปัญหาความปลอดภัย</td>
+                                <td>รถสภาพสีเดิม</td>
                                 <td width="20px">
-                                    @if($datas->carin04=='0')
+                                    @if($datas->carin07=='0')
                                         <i class="fa fa-check" aria-hidden="true"></i>
-                                    @elseif($datas->carin04=='1')
+                                    @elseif($datas->carin07=='1')
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <table width="100%">
+                            <tr>
+                                <td width="25px">8.</td>
+                                <td>แบตเตอรี่ทำงานปกติ</td>
+                                <td width="20px">
+                                    @if($datas->carin08=='0')
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    @elseif($datas->carin08=='1')
                                         <i class="fa fa-times" aria-hidden="true"></i>
                                     @else
                                         <i class="fa fa-minus" aria-hidden="true"></i>
@@ -439,6 +683,11 @@
                     </div>
                 </div>
             </div>
+
+        @else
+        @endif
+
+
         </div>
     </div>
 </body>

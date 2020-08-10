@@ -55,7 +55,8 @@ class DetailsController extends Controller
          'c.benzine as benzine', 'c.diesel as diesel', 'c.hybrid as hybrid', 'c.electric as electric', 'c.lpg as lpg', 'c.ngv as ngv', 'c.cng as cng',
          'c.carregnum as carnum', 'c.registertype as registertype', 'c.engine as engine',
          'c.vin as vin', 'c.carinsurance as insurance', 'c.expinsurance as exp',
-         'c.insurance as insure','details.*','im_puks.*')
+         'c.insurance as insure','details.*','im_puks.*','add_inspection_dates.inspectiontype')
+        ->join('add_inspection_dates', 'c.id', '=', 'add_inspection_dates.id')
         ->join('sub_models as s', 's.id_sub_model', '=', 'c.submodel')
         ->join('models as m', 'm.id_model', '=', 'c.carmodel')
         ->join('brands as b', 'b.id_brand', '=', 'c.carbrand')
