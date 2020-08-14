@@ -52,12 +52,16 @@ class ReportController extends Controller
 
         // Perform the query using Query Builder
         $data = DB::table('add_inspection_custos')
-        ->select('add_inspection_custos.*','add_inspection_cars.*','add_inspection_dates.*','brands.*','models.*','colors.*')
+        ->select('add_inspection_custos.*','add_inspection_cars.*','add_inspection_dates.*','brands.*','models.*','colors.*','details.*','im_puks.im_2')
         ->join('add_inspection_cars','add_inspection_custos.id','=','add_inspection_cars.id')
         ->join('add_inspection_dates','add_inspection_custos.id','=','add_inspection_dates.id')
         ->join('brands','add_inspection_cars.carbrand','=','brands.id_brand')
         ->join('models','add_inspection_cars.carmodel','=','models.id_model')
         ->join('colors','add_inspection_cars.newcolor','=','colors.id_color')
+        ->join('details','add_inspection_cars.id','=','details.id_car')
+        ->join('im_puks','add_inspection_custos.id','=','im_puks.id_car')
+
+        // ->where('im_puks.status_tech', '=', 1)
         ->orwhere('name_brand', 'like' ,'%' . $query . '%')
         ->orwhere('name_model', 'like' ,'%' . $query . '%')
         ->orwhere('year', 'like' ,'%' . $query . '%')
