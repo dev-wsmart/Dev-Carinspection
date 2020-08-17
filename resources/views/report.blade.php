@@ -5,7 +5,7 @@
 <div class="col-md-8" style="margin-top:2%;">
 
 <script>
-        search ***************
+        // search ***************
         $(document).ready(function(){
         $("#search_car").on("keyup", function() {
             var value = $(this).val().toLowerCase();

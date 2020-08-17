@@ -51,6 +51,8 @@ $data = HomeController::userShow();
                 $menu_5 = $datas->menu_5;
                 $menu_6 = $datas->menu_6;
                 $menu_7 = $datas->menu_7;
+                $menu_8 = $datas->menu_8;
+                $menu_9 = $datas->menu_9;
         ?>
 
         <!-- sidebar-search  -->
@@ -133,12 +135,14 @@ $data = HomeController::userShow();
                 @else @endif
               </div>
             <?php }else{} ?>
+            @if($menu_9=='1')
               <li>
                 <a class="dropdown-item" href="/export">
                   <i class="fa fa-file-excel-o"></i>
                   <span>Export to Excel</span>
                 </a>
               </li>
+            @else @endif
         @endforeach
 
   <br>
