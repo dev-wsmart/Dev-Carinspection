@@ -299,6 +299,7 @@
                             <option value="" selected hidden>---  กรุณาเลือก  ---</option>
                             <option value="0">Premium</option>
                             <option value="1">Standard</option>
+                            <option value="2">Basic</option>
                         </select>
 
                         <label class="col-lg-2 pl-lg-5" for="inspector" align="right">ช่างที่ไปตรวจรถ</label>
@@ -332,7 +333,7 @@
                     </div>
                     <br>
                 {{-- </form> --}}
-                    <div class="list-group-item">
+                    <div class="list-group-item" id="images_NM">
 
                         <label class="col-lg-5" for="package">รูปเลขไมล์รถ</label>
                         <label class="col-lg-1" for="package"></label>
@@ -406,6 +407,19 @@
 </div>
 </div>
 <script type="text/javascript">
+
+$('#inspectionType').change(function(){
+    var ID_basic = $(this).val();
+    // alert(ID_basic);
+
+    if(ID_basic=='2')
+    {
+        $("#images_NM").remove();
+    }else{
+        $("#images_NM").addClass();
+    }
+
+});
 
 $('#province').change(function(){
     var provinceID = $(this).val();

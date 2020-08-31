@@ -19,7 +19,7 @@ class car_showController extends Controller
      */
     public function index()
     {
-        // return view('car_show');
+        return view('basic');
     }
 
     /**

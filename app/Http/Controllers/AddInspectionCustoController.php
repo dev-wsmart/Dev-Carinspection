@@ -180,7 +180,10 @@ class AddInspectionCustoController extends Controller
                 ]);
             // echo $input;
 
+            $ID_basic = $request->input('inspectiontype');
 
+        if($ID_basic != '2')
+        {
         // mile car
             $image0 = $request->file('image_mile');
             $new_name_mi = rand() . '.' . $image0->getClientOriginalExtension();
@@ -372,11 +375,14 @@ class AddInspectionCustoController extends Controller
                     'im_V' => 'null'
 
                     ]);
+            }
 
                 $inputcus->save();
                 $inputcar->save();
                 $inputdate->save();
 
+    if($ID_basic != '2')
+    {
                 $input0->save();
                 $input1->save();
                 $input2->save();
@@ -394,6 +400,9 @@ class AddInspectionCustoController extends Controller
                 $inputpuk->save();
 
         return redirect('/appointment')->with('success', 'ได้ทำการเพิ่ม การประชุมย่อย เรียบร้อยแล้ว');
+    }else{
+        return redirect('/car_show');
+    }
 
     }
 
